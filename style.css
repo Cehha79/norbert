@@ -533,15 +533,12 @@ img { max-width: 100%; display: block; }
 .vertrauen-raster {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 24px;
+  row-gap: 40px;
 }
+/* Tafel wie die Schritt-Karten: Symbol-Kreis außen oben angesetzt */
 .vertrauen-punkt {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  gap: 12px;
+  position: relative;
   font-size: 16.5px;
   font-weight: 600;
   color: var(--titel);
@@ -549,19 +546,28 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--linie);
   border-radius: var(--radius);
   box-shadow: var(--schatten);
-  padding: 24px 18px;
+  padding: 44px 22px 22px;
 }
-.vertrauen-punkt svg { flex-shrink: 0; width: 38px; height: 38px; }
+.vertrauen-punkt svg {
+  position: absolute;
+  top: -22px;
+  inset-inline-start: 22px;
+  width: 44px; height: 44px;
+  padding: 10px;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 0 0 6px var(--grund);
+}
 
-/* Farbige Symbol-Linien */
-.vp-gold  { color: #a8823c; }
-.vp-rot   { color: #b5544a; }
-.vp-blau  { color: #2f8fc0; }
-.vp-gruen { color: #3e8e5a; }
-:root[data-theme="dunkel"] .vp-gold  { color: #d9bd77; }
-:root[data-theme="dunkel"] .vp-rot   { color: #e0897e; }
-:root[data-theme="dunkel"] .vp-blau  { color: #7cc0e4; }
-:root[data-theme="dunkel"] .vp-gruen { color: #7cc79a; }
+/* Farbige Symbol-Kreise */
+.vp-gold  { background: #a8823c; }
+.vp-rot   { background: #b5544a; }
+.vp-blau  { background: #2f8fc0; }
+.vp-gruen { background: #3e8e5a; }
+:root[data-theme="dunkel"] .vp-gold  { background: #a68844; }
+:root[data-theme="dunkel"] .vp-rot   { background: #b2645b; }
+:root[data-theme="dunkel"] .vp-blau  { background: #3d84a8; }
+:root[data-theme="dunkel"] .vp-gruen { background: #4a8a63; }
 
 /* ---------- Abschnitte ---------- */
 .abschnitt { padding-block: var(--abstand); }
