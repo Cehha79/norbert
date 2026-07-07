@@ -389,6 +389,24 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   noscript-Rückfall. Quellen-Zeile unter der Karte erweitert.
   (c) Orte-Chips per `justify-content: space-between` über die volle
   Breite verteilt. main.js `?v=15`, Cache `?v=63`.
+- **Karte als richtige Karten-Tafel + Zwei-Klick** (Hasans Rückmeldung:
+  zu groß, zu wenig Zoom, „richtige Karte", Tafel mit Adresse links):
+  Die lokale Kachel-Pyramide (nur z10–11) war als „richtige" Karte zu
+  eng → umgestellt auf **Zwei-Klick-Lösung**: vor dem Klick nur das
+  lokale Vorschaubild (einzugsgebiet.jpg) mit Kasten „Karte
+  aktivieren"; erst der Klick lädt Live-Kacheln von OSM (Zoom bis 19)
+  bzw. EOX-Satellit (nativ bis 14, hochskaliert 18) — Einwilligung
+  merkt sich localStorage `nf-karte`. **Datenschutz erweitert**
+  (neuer Abschnitt 5 „Interaktive Karte", Grundsätze-Absatz
+  angepasst, Nummerierung 6/7). Neue **`.karten-tafel`**: Tafel-Optik,
+  links `.karten-info` (Firmenname, Norbert Szczepanik,
+  Mittenfeldstraße 39, 70499 Stuttgart-Weilimdorf, Telefon/E-Mail/
+  Einzugsgebiet/Anfahrt-Zeilen, Knopf „Route planen" → Google-Maps-
+  Routenlink), rechts die Karte (ab 1000 px 34/66, Höhe 440 px);
+  Marker-Popup mit voller Adresse. Lokale Kachel-Pyramide entfernt
+  (~/.Trash/karte-lokal-kacheln), Leaflet bleibt lokal. WICHTIG-
+  Merker zum Cookie-Banner um die Zwei-Klick-Ausnahme ergänzt.
+  main.js `?v=16`, Cache `?v=64`. Beide Zustände sichtgeprüft.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

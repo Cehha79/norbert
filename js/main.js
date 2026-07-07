@@ -197,37 +197,52 @@
       });
     }
 
-    /* ---------- Einzugsgebiets-Karte (Leaflet, nur lokale Kacheln) ---------- */
+    /* ---------- Einzugsgebiets-Karte (Leaflet, Zwei-Klick-Lösung) ----------
+       Vor dem Klick: nur das lokale Vorschaubild. Erst „Karte aktivieren"
+       lädt Kachel-Daten von OpenStreetMap/EOX (siehe Datenschutz Abschnitt 5). */
     var kartenFeld = document.getElementById('einzugskarte');
     if (kartenFeld && window.L) {
-      var mitte = [48.8129, 9.1013];   /* Stuttgart-Weilimdorf */
-      var karte = L.map(kartenFeld, {
-        center: mitte,
-        zoom: 10,
-        minZoom: 10,       /* bei 9 wäre das Kachel-Gebiet schmaler als der Kasten (Grauränder) */
-        maxZoom: 11,
-        maxBounds: [[48.30, 8.30], [49.32, 9.90]],
-        scrollWheelZoom: false         /* sonst hängt das Seiten-Scrollen in der Karte fest */
-      });
-      var strassen = L.tileLayer('bilder/karte/osm/{z}/{x}/{y}.png', {
-        minZoom: 10, maxZoom: 11,
-        attribution: '© OpenStreetMap-Mitwirkende'
-      });
-      var satellit = L.tileLayer('bilder/karte/sat/{z}/{x}/{y}.jpg', {
-        minZoom: 10, maxZoom: 11,
-        attribution: 'Sentinel-2 cloudless © EOX (CC BY 4.0)'
-      });
-      strassen.addTo(karte);
-      L.control.layers({ 'Karte': strassen, 'Satellit': satellit }, null, { collapsed: false }).addTo(karte);
-      L.circle(mitte, {
-        radius: 50000,
-        color: '#205a7d', weight: 3,
-        fillColor: '#205a7d', fillOpacity: 0.12
-      }).addTo(karte);
-      L.circleMarker(mitte, {
-        radius: 8, color: '#fff', weight: 3,
-        fillColor: '#205a7d', fillOpacity: 1
-      }).addTo(karte).bindPopup('Standort: Stuttgart-Weilimdorf');
+      var karteStarten = function () {
+        kartenFeld.innerHTML = '';
+        var mitte = [48.8129, 9.1013];   /* Stuttgart-Weilimdorf */
+        var karte = L.map(kartenFeld, {
+          center: mitte,
+          zoom: 10,
+          minZoom: 6,
+          maxZoom: 18,
+          scrollWheelZoom: false         /* sonst hängt das Seiten-Scrollen in der Karte fest */
+        });
+        var strassen = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap-Mitwirkende'
+        });
+        var satellit = L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless_3857/default/g/{z}/{y}/{x}.jpg', {
+          maxNativeZoom: 14, maxZoom: 18,
+          attribution: 'Sentinel-2 cloudless © EOX (CC BY 4.0)'
+        });
+        strassen.addTo(karte);
+        L.control.layers({ 'Karte': strassen, 'Satellit': satellit }, null, { collapsed: false }).addTo(karte);
+        L.circle(mitte, {
+          radius: 50000,
+          color: '#205a7d', weight: 3,
+          fillColor: '#205a7d', fillOpacity: 0.1
+        }).addTo(karte);
+        L.circleMarker(mitte, {
+          radius: 8, color: '#fff', weight: 3,
+          fillColor: '#205a7d', fillOpacity: 1
+        }).addTo(karte).bindPopup('<strong>Norberts mobile Fußpflege</strong><br>Mittenfeldstraße 39<br>70499 Stuttgart-Weilimdorf');
+      };
+      var einwilligung = false;
+      try { einwilligung = localStorage.getItem('nf-karte') === 'ja'; } catch (e) {}
+      var ladeKnopf = document.getElementById('karte-laden');
+      if (einwilligung) {
+        karteStarten();
+      } else if (ladeKnopf) {
+        ladeKnopf.addEventListener('click', function () {
+          try { localStorage.setItem('nf-karte', 'ja'); } catch (e) {}
+          karteStarten();
+        });
+      }
     }
 
     /* ---------- Sprachauswahl: Klick daneben schließt sie ---------- */

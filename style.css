@@ -1606,14 +1606,58 @@ body:has(dialog[open]) { overflow: hidden; }
 .zeiten div span:first-child { font-weight: 600; color: var(--titel); }
 
 /* ---------- Karte (Einzugsgebiet) ---------- */
-.gebiet-karte {
-  border-radius: var(--radius);
-  overflow: hidden;
+/* Karten-Tafel: links Adresse, rechts die interaktive Karte */
+.karten-tafel {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--flaeche);
   border: 1px solid var(--linie);
+  border-top: 4px solid var(--marke);
+  border-radius: var(--radius);
   box-shadow: var(--schatten);
+  overflow: hidden;
 }
-.gebiet-karte img { width: 100%; }
-#einzugskarte { width: 100%; aspect-ratio: 16 / 8; min-height: 320px; background: var(--marke-hell); }
+.karten-info {
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.karten-info h3 { font-size: 21px; }
+.karten-adresse { color: var(--text); line-height: 1.5; margin: 0; }
+.karten-zeilen { display: grid; gap: 8px; }
+.karten-zeilen div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 15.5px;
+  padding-block-end: 8px;
+  border-block-end: 1px solid var(--linie);
+}
+.karten-zeilen div span:first-child { font-weight: 600; color: var(--titel); flex: none; }
+.karten-zeilen div :last-child { text-align: end; overflow-wrap: anywhere; }
+.karten-info .knopf { margin-block-start: auto; }
+.karten-feld { min-height: 380px; }
+#einzugskarte { width: 100%; height: 100%; min-height: 380px; background: var(--marke-hell); position: relative; }
+/* Zwei-Klick-Start: Vorschaubild + Aktivieren-Knopf */
+.karte-start {
+  position: absolute;
+  inset: 0;
+  background: center / cover no-repeat;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.karte-start-kasten {
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  box-shadow: var(--schatten-gr);
+  padding: 18px 20px;
+  max-width: 420px;
+  text-align: center;
+}
+.karte-start-kasten p { font-size: 14.5px; color: var(--text-leise); margin-block-end: 12px; }
 .gebiet-quelle { font-size: 13px; color: var(--text-leise); margin-block-start: 6px; }
 .orte-liste {
   display: flex;
@@ -1799,6 +1843,8 @@ body:has(dialog[open]) { overflow: hidden; }
   .sozial-knopf { height: 52px; }
   .sozial-knopf svg { width: 26px; height: 26px; }
   .kontakt-raster { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; }
+  .karten-tafel { grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr); }
+  .karten-feld { min-height: 440px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .vergleich { grid-template-columns: 1fr 1fr; gap: 24px; }
   .vergleich-text { columns: 2; column-gap: 40px; }

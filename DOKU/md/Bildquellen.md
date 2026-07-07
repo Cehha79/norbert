@@ -32,8 +32,7 @@ Foto-Seite je Bild: `https://www.pexels.com/photo/<ID>/`.
 |---|---|---|
 | bilder/einzugsgebiet.jpg | selbst erzeugt aus OpenStreetMap-Kacheln (© OpenStreetMap-Mitwirkende, ODbL; Attribution steht auf der Seite) | Kontakt: Einzugsgebiets-Karte |
 | bilder/hintergrund-kontakt.jpg | Hasans eigener Bestand (~/Downloads/4k/10-milchglas-tropfen-4k.png, KI-generiert) | Kontakt: Seiten-Hintergrund |
-| bilder/karte/osm/ | OpenStreetMap-Kacheln z10–11 (© OpenStreetMap-Mitwirkende, ODbL), einmalig gespeichert | Kontakt: interaktive Karte, Ebene „Karte" |
-| bilder/karte/sat/ | Sentinel-2 cloudless 2016 © EOX IT Services GmbH (CC BY 4.0), einmalig gespeichert | Kontakt: interaktive Karte, Ebene „Satellit" |
+| (Karte zur Laufzeit) | OpenStreetMap (ODbL) + Sentinel-2 cloudless © EOX (CC BY 4.0) — Kacheln laden erst nach Klick „Karte aktivieren" (Zwei-Klick, Datenschutz Abschnitt 5) | Kontakt: interaktive Karte |
 
 ## Hintergrund-Videos (Pexels Videos)
 

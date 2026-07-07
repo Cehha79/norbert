@@ -22,6 +22,9 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
   Google-Fonts-URL, keine CDN-Skripte, keine Fremdabrufe.
 - Kein Cookie-Banner nötig, solange die Seite statisch bleibt und nichts von
   Drittservern lädt — das ist ein Qualitätsmerkmal, nicht vergessen bei Erweiterungen.
+  EINZIGE Ausnahme (07.07.): die interaktive Kontakt-Karte lädt OSM-/EOX-Kacheln
+  erst nach Klick „Karte aktivieren" (Zwei-Klick-Lösung, Datenschutz Abschnitt 5,
+  Einwilligung im localStorage) — weiterhin keine Cookies, kein Banner nötig.
 - Impressum und Datenschutz sind noch **Entwurf** (Platzhalter) — vor dem
   Livegang befüllen und prüfen.
 - **PRODUKTE-SEITE = komplett MUSTER + rechtlich VOR Livegang klären!**
