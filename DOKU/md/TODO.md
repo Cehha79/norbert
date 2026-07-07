@@ -97,6 +97,10 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   Abschnitt „Terminbuchung"); tiefere API-Integration bleibt Option
 - [ ] DHL-Versandpreise (5,49 € / Express 12,99 €) sind **Muster** —
   echte Konditionen mit Norbert klären
+- [ ] **Widerrufsbelehrung + AGB schreiben und verlinken** — die zwei
+  Verweise in der Kassen-Einwilligung zeigen auf `#` (Platzhalter-Optik
+  am 07.07. auf Hasans Wunsch entfernt; ohne echte Texte kein echter
+  Verkauf!). Gilt für kasse.html UND alle 6 Sprach-Kassen
 - [ ] Ablauf laut Hasan: erst GitHub Pages, wenn fertig → richtige Domain
 
 ## Prüfung (Phase 5)

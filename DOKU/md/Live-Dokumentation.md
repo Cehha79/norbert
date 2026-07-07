@@ -597,6 +597,14 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
     tr/ru-Bereichsseite (16 Karten, übersetzte Knöpfe/Titel,
     Bild-Pfade ../), Screenshots tr-Übersicht + ar-Kasse (RTL).
     Kleinunternehmer-§19-Zeile in allen Sprachen statt MwSt.
+- Kassen-Feinschliff (Hasans Screenshots „diese markierung stört" +
+  „muster-ansicht sache weg"): Widerrufsbelehrung/AGB in der
+  Einwilligungs-Zeile sind jetzt normale Verweise (Platzhalter-Optik
+  mit gestricheltem Kasten entfernt, Ziel bleibt vorerst `#` — Merker
+  in TODO: Texte vor Livegang schreiben); die sichtbaren Hinweise
+  „Muster-Kasse zur Ansicht." und „Muster-Verbindung – echtes
+  PayPal-Konto folgt." entfernt — in ALLEN 7 Kassen (de + 6 Sprachen).
+  Nur HTML-Text, kein Cache-Bump nötig.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
