@@ -1736,6 +1736,12 @@ main a img, .leaflet-container img { cursor: pointer; }
   align-items: center;
   gap: 10px;
 }
+.fuss-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-inline-start: auto;
+}
 
 /* ---------- Mobile Aktionsleiste (Basis: sichtbar) ---------- */
 .aktionsleiste {
