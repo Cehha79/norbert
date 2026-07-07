@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" href="bilder/logo-klein.png">
 <link rel="stylesheet" href="style.css?v=7">
 <script src="js/thema.js"></script>
-<script src="js/main.js?v=1" defer></script>
+<script src="js/main.js?v=2" defer></script>
 </head>
 <body>
 
@@ -28,7 +28,22 @@
         <li><a href="ueber-mich.html" aria-current="page">Über mich</a></li>
         <li><a href="kundenstimmen.html">Kundenstimmen</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a class="nav-termin" href="kontakt.html">Termin anfragen</a></li>
+        <li class="sprache-punkt">
+          <details class="sprache">
+            <summary aria-label="Sprache wählen">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
+              DE
+            </summary>
+            <ul class="sprache-liste">
+              <li><a href="index.html" aria-current="true">Deutsch</a></li>
+              <!-- TODO: Verweise aktivieren, sobald die Sprachversionen gebaut sind -->
+              <li><a href="#" title="folgt in Kürze">English</a></li>
+              <li><a href="#" title="folgt in Kürze">Polski</a></li>
+              <li><a href="#" title="folgt in Kürze">العربية</a></li>
+              <li><a href="#" title="folgt in Kürze">中文</a></li>
+            </ul>
+          </details>
+        </li>
       </ul>
     </nav>
     <button class="thema-knopf" type="button" aria-label="Hell-/Dunkelmodus umschalten" title="Hell / Dunkel"></button>

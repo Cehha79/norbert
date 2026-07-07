@@ -39,7 +39,8 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 
 - [ ] Sprachversionen bauen (nach Phase 4): `/en/`, `/pl/`, `/ar/` (RTL,
   `dir="rtl"`), `/zh/` (System-Schriften statt Lora/Source Sans) +
-  Sprachwahl in der Kopfleiste + `hreflang`-Verweise
+  `hreflang`-Verweise; Sprachwahl in der Kopfleiste ist gebaut (07.07.,
+  ersetzt den Termin-Knopf) — **Verweise dort aktivieren** (aktuell `#`)
 - [ ] PL/AR/ZH von Muttersprachlern gegenlesen lassen (Norbert: Polnisch?)
 - [ ] Statisches OSM-Kartenbild des Einzugsgebiets erzeugen →
   `bilder/einzugsgebiet.webp` (Attribution steht schon daneben)

@@ -84,6 +84,14 @@
       }
     }
 
+    /* ---------- Sprachauswahl: Klick daneben schließt sie ---------- */
+    var sprache = document.querySelector('.sprache');
+    if (sprache) {
+      document.addEventListener('click', function (e) {
+        if (sprache.open && !sprache.contains(e.target)) sprache.open = false;
+      });
+    }
+
     /* ---------- Jahr in der Fußleiste ---------- */
     var jahr = document.querySelector('[data-jahr]');
     if (jahr) jahr.textContent = new Date().getFullYear();
