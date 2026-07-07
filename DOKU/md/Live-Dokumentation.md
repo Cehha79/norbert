@@ -461,6 +461,51 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   1100 px/84 vh, `cursor: zoom-in` als Hinweis, Schließen per X/ESC/
   Rand-Klick. Getestet: Startseiten-Foto + Produktbild öffnen groß.
   Cache `?v=69`.
+- **Sozial-Leiste als 2er-Paare** (Hasan: „zwischen abstände kürzer je
+  2 knöpfe", dann „die beiden paare mischen noch nach innen"): vier
+  Knöpfe zu zwei mittigen Paaren (WhatsApp/YouTube | TikTok/Anrufen)
+  gruppiert — `.sozial-leiste` als 2-Spalten-Raster, je Paar ein
+  Flex-Container mit 14 px Innenabstand, zentriert. Cache `?v=70/71`.
+- Haupt-Knöpfe im Held schmaler (Hasan: „einmischen kleine in der
+  breite"): max. 280 px, mittig über den Sozial-Paaren
+  (`justify-self: center`). Cache `?v=72`.
+- **Vertrauens-Tafeln im Schritte-Format** (Hasan: „sollen gleich groß
+  sein wie die" + „der obere zu groß"): gleiche Tafel-Größe wie die
+  Schritte-Tafeln (h3 19 px, Text 16,5 px, kompaktes Padding); die zwei
+  Werdegangs-Tafeln (Ausbildung, Pflegekraft) in die Stationen auf
+  ueber-mich.html integriert, dafür zwei neue Themen: „Diskretion &
+  Vertraulichkeit" (Schloss, Gold) und „Pünktlich & zuverlässig"
+  (Uhr, Rot). Bewusst NICHT „Schweigepflicht" — das ist ein gesetzlicher
+  Begriff für Ärzte/Podologen; formuliert als Verschwiegenheit aus der
+  Pflege. Cache `?v=73/74`.
+- **Fakten-Korrektur** (Hasan): nicht „Pflegeerfahrung", sondern
+  **Pflegekraft im Pflegeheim seit 2012** — korrigiert in Start-Tafel,
+  meta-description (index + ueber-mich), Über-mich-Untertitel,
+  Vorstellungs-Text und Station 1.
+- **WhatsApp-Nummer eingepflegt:** alle wa.me-Verweise auf
+  **0173 5904496** (11 Dateien: Kontakt-Kacheln, Formular, Bestellung,
+  Bewertung, Aktionsleisten); die Anruf-Nummer 0176 8696 1032 bleibt.
+- Karten-Info-Zeilen (Hasan: „die unterstriche weg und die linksbündig
+  mit doppelpunkt"): Labels mit Doppelpunkt (Telefon:/E-Mail:/
+  Einzugsgebiet:/Anfahrt:), Werte linksbündig direkt dahinter
+  (`justify-content: flex-start`, 8 px Lücke), Links ohne Unterstrich
+  (`.karten-zeilen a { text-decoration: none }`). Beide Themen
+  geprüft. Cache `?v=75`.
+- **Muster-Hinweis + Vorteile-Zeile entfernt** (Hasans Auftrag „weg
+  machen"): der gelbe Platzhalter-Hinweis „Alle Artikel … sind
+  Muster-Beispiele" auf produkte.html und produkt-bereich.html sowie
+  die Häkchen-Zeile „✓ Persönliche Übergabe / ✓ Zahlung / ✓ Beratung"
+  auf produkte.html gelöscht; verwaiste CSS-Regeln (`.shop-vorteile`,
+  `.shop-hinweis`) bereinigt. WICHTIG.md trägt jetzt den Merker, dass
+  der Muster-Erinnerungshinweis nur noch in der Doku existiert.
+  Cache `?v=76`.
+- **Fakten-Korrektur FAY** (Hasan: „die kooperation gibt es nicht
+  mehr, aber dort die ausbildung gemacht"): alle drei Stellen auf
+  ueber-mich.html (meta-description, Vorstellungs-Text, Station 2)
+  von „in Kooperation mit der Fußpflegeschule FAY" auf **„an der
+  Fußpflegeschule FAY"** umformuliert — die Ausbildung dort bleibt
+  als Fakt, die Kooperation wird nicht mehr behauptet. Nur
+  Text-Änderung, kein Cache-Bump nötig.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

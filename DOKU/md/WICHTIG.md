@@ -35,6 +35,9 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
   Widerrufsbelehrung, AGB, ggf. „zahlungspflichtig bestellen"-Button
   (aktuell bewusst nur unverbindliche Anfrage per WhatsApp/E-Mail —
   kein Kaufabschluss auf der Seite, kein Bezahlsystem).
+  **Achtung:** Der sichtbare Muster-Hinweis auf produkte.html und
+  produkt-bereich.html wurde am 07.07. auf Hasans Wunsch entfernt —
+  dieser Merker hier ist jetzt die EINZIGE Erinnerung daran.
 - **MUSTER-BEWERTUNGEN vor dem Livegang entfernen!** Die 18 Kundenstimmen
   auf kundenstimmen.html sind erfundene Layout-Muster (Hasans Wunsch, nur
   zum Wirkungstest; jede trägt ein „Beispiel"-Etikett). Erfundene
