@@ -45,6 +45,13 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
   Nr. 23b/23c, gefälschte Verbraucherbewertungen) und abmahnfähig — vor
   dem Livegang durch echte, freigegebene Stimmen ersetzen oder löschen.
 
+- **Sprachversionen (en/tr/pl/ru/ar/zh) sind KI-Übersetzungen** (07.07.) —
+  vor dem Livegang von Muttersprachlern gegenlesen lassen. Rechtliche
+  Leitplanke gilt in JEDER Sprache: nie „medizinische Fußpflege"/„Podologe"
+  als Selbstbezeichnung (tr: nie „medikal ayak bakımı", en: nie „podiatrist/
+  medical pedicure" usw.). Text-Änderungen am deutschen Original müssen in
+  alle 6 Sprachordner nachgezogen werden.
+
 ## Merksätze
 
 | Punkt | Bedeutung |

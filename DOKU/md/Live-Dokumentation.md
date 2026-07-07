@@ -543,6 +543,36 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   (alle 11 Seiten). Und Kopfleiste (Hasan: „tausch die plätze
   miteinander"): **Warenkorb-Knopf jetzt vor dem Thema-Knopf** — neue
   Reihenfolge Korb → Thema → Sprache (alle 11 Seiten). Cache `?v=77`.
+- **6 Sprachversionen gebaut** (Hasans Auftrag „jetzt die sprachen",
+  + „türkisch vergessen", + „und russisch"): Ordner `en/ tr/ pl/ ru/
+  ar/ zh/` mit je 5 übersetzten Inhaltsseiten (index, leistungen,
+  ueber-mich, kundenstimmen, kontakt) — durch 6 parallele Agenten,
+  danach zentral geprüft (Pfade `../`, Struktur, Verweis-Existenz,
+  Screenshots tr/ar/zh).
+  - Sprachauswahl jetzt 7 Einträge (Deutsch, Türkçe, English, Polski,
+    Русский, العربية, 中文) mit echten Verweisen auf allen deutschen
+    Seiten UND in jeder Sprachversion (eigene Flagge im Knopf,
+    aria-current); türkische + russische Flaggen-SVGs neu gebaut.
+  - `ar/` komplett RTL (`dir="rtl"`, Telefonnummern mit `dir="ltr"`),
+    `zh/` mit System-Schrift-Override (PingFang/YaHei — Lora/Source
+    Sans können kein CJK).
+  - `hreflang`-Block (de/tr/en/pl/ru/ar/zh + x-default, absolute
+    Domain-URLs) auf allen Sprachseiten und den 5 deutschen
+    Originalen.
+  - Rechtlich in jeder Sprache abgesichert: nur „kosmetische
+    Fußpflege"-Äquivalente als Selbstbezeichnung (en „cosmetic foot
+    care", tr „kozmetik ayak bakımı", pl „kosmetyczna pielęgnacja
+    stóp", ru «косметический уход за стопами», ar „العناية التجميلية
+    بالقدمين", zh „足部美容护理"); Podologie überall nur als
+    Fremdleistung staatlich Ausgebildeter.
+  - Formular-`value`-Attribute bleiben deutsch (WhatsApp-/Mail-Anfrage
+    kommt bei Norbert deutsch an) — beim polnischen Agenten
+    nachträglich angeglichen.
+  - Shop (produkte/warenkorb/kasse) und Impressum/Datenschutz bleiben
+    bewusst deutsch; Sprachseiten verlinken mit `../` dorthin.
+  - MERKER: KI-Übersetzungen vor Livegang muttersprachlich gegenlesen;
+    Text-Änderungen künftig in alle 6 Ordner nachziehen (siehe
+    WICHTIG + TODO).
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

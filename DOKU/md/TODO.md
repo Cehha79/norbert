@@ -40,11 +40,16 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 
 ## Bauen (Phase 4–6)
 
-- [ ] Sprachversionen bauen (nach Phase 4): `/en/`, `/pl/`, `/ar/` (RTL,
-  `dir="rtl"`), `/zh/` (System-Schriften statt Lora/Source Sans) +
-  `hreflang`-Verweise; Sprachwahl in der Kopfleiste ist gebaut (07.07.,
-  ersetzt den Termin-Knopf) — **Verweise dort aktivieren** (aktuell `#`)
-- [ ] PL/AR/ZH von Muttersprachlern gegenlesen lassen (Norbert: Polnisch?)
+- [x] Sprachversionen gebaut (07.07., Hasans Auftrag inkl. Türkisch +
+  Russisch): `/en/ /tr/ /pl/ /ru/ /ar/ /zh/` — je 5 Inhaltsseiten (Start,
+  Leistungen, Über mich, Kundenstimmen, Kontakt); `/ar/` mit `dir="rtl"`,
+  `/zh/` mit System-Schrift-Override; `hreflang` auf allen Sprach- UND
+  deutschen Seiten; Sprachwahl-Verweise überall aktiv. Shop + Impressum/
+  Datenschutz bewusst nur deutsch (Rückverweise mit `../`)
+- [ ] **ALLE 6 Übersetzungen von Muttersprachlern gegenlesen lassen**
+  (KI-übersetzt; Norbert: Polnisch? Hasan: Türkisch!) — vor Livegang
+- [ ] Bei künftigen Text-Änderungen an den 5 Inhaltsseiten: alle 6
+  Sprachversionen mitziehen (Ordner en/tr/pl/ru/ar/zh)
 - [x] Statisches OSM-Kartenbild des Einzugsgebiets erzeugt (07.07.):
   `bilder/einzugsgebiet.jpg` — aus OSM-Kacheln (z9) gestitcht, Marker
   Weilimdorf + 50-km-Kreis; Attribution steht daneben
