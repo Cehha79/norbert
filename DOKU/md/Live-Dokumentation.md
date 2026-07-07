@@ -537,6 +537,12 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
     „Kleinunternehmer gemäß § 19 UStG …", produkte.js ohne
     MWST-Rechnung, Bestelltext „(umsatzsteuerfrei nach § 19 UStG)".
     Cache produkte.js `?v=8`.
+- Fußleiste (Hasan: „etwas auseinander und rechtsbündig"): die Links
+  Impressum/Datenschutz als `.fuss-links` — Flex mit 14 px Lücke um den
+  Punkt, `margin-inline-start: auto` hält sie auch beim Umbruch rechts
+  (alle 11 Seiten). Und Kopfleiste (Hasan: „tausch die plätze
+  miteinander"): **Warenkorb-Knopf jetzt vor dem Thema-Knopf** — neue
+  Reihenfolge Korb → Thema → Sprache (alle 11 Seiten). Cache `?v=77`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
