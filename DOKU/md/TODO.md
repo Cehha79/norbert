@@ -50,6 +50,12 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   (KI-übersetzt; Norbert: Polnisch? Hasan: Türkisch!) — vor Livegang
 - [ ] Bei künftigen Text-Änderungen an den 5 Inhaltsseiten: alle 6
   Sprachversionen mitziehen (Ordner en/tr/pl/ru/ar/zh)
+- [x] Shop mehrsprachig (07.07., Hasans Auftrag): produkte.js mit
+  Sprach-Schnittstelle (NF_BASIS/NF_TEXTE/NF_KATEGORIEN/NF_UEBERSETZUNG),
+  je Sprache js/shop-<code>.js (128 Artikel übersetzt) + 4 Shop-Seiten
+  im Sprachordner; Bestell-Nachricht an Norbert bleibt IMMER deutsch
+- [ ] Beim Tausch der Muster-Artikel gegen Norberts echtes Sortiment:
+  alle 6 js/shop-<code>.js-Dateien mit übersetzen (128 Einträge je Datei)
 - [x] Statisches OSM-Kartenbild des Einzugsgebiets erzeugt (07.07.):
   `bilder/einzugsgebiet.jpg` — aus OSM-Kacheln (z9) gestitcht, Marker
   Weilimdorf + 50-km-Kreis; Attribution steht daneben

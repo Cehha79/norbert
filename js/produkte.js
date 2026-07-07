@@ -8,6 +8,30 @@
 
   var KORB_KEY = 'nf-warenkorb';
 
+  /* ===== Sprach-Unterstützung =====
+     Die Sprachordner (en/tr/pl/ru/ar/zh) laden VOR diesem Skript eine Datei
+     js/shop-<code>.js, die Übersetzungen und die Pfad-Basis bereitstellt:
+       window.NF_BASIS        = '../'  (Bilder liegen eine Ebene höher)
+       window.NF_TEXTE        = { artikel: '…', inDenKorb: '…', … }
+       window.NF_KATEGORIEN   = { w: '…', c: '…', … }
+       window.NF_UEBERSETZUNG = { w1: { name, info, inhalt }, … }
+     Ohne diese Datei bleibt alles deutsch (Standard).
+     WICHTIG: Der Bestelltext an Norbert nutzt IMMER die deutschen Namen. */
+  var BASIS = window.NF_BASIS || '';
+  var U = window.NF_UEBERSETZUNG || {};
+  var KAT_U = window.NF_KATEGORIEN || {};
+  var T = window.NF_TEXTE || {};
+  function txt(schluessel, standard) { return T[schluessel] || standard; }
+  function pName(p)   { var u = U[p.id]; return (u && u.name)   || p.name; }
+  function pInfo(p)   { var u = U[p.id]; return (u && u.info)   || p.info; }
+  function pInhalt(p) { var u = U[p.id]; return (u && u.inhalt) || p.inhalt; }
+  function katTitel(kat) { return KAT_U[kat] || KATEGORIEN[kat].titel; }
+  function badgeText(b) {
+    if (b === 'Neu') return txt('badgeNeu', 'Neu');
+    if (b === 'Bestseller') return txt('badgeBestseller', 'Bestseller');
+    return b;
+  }
+
   /* ================= Kategorien =================
      8 Bereiche — Hygiene & Desinfektion wurde in Werkzeuge & Instrumente
      zusammengelegt (Hasans Vorgabe, 07.07.); die d-Artikel tragen kat 'w'. */
@@ -175,7 +199,7 @@
   function euro(betrag) { return betrag.toFixed(2).replace('.', ',') + ' €'; }
   function sterneHtml(wert) {
     var voll = Math.round(wert);
-    return '<span class="p-sterne" aria-label="' + wert.toFixed(1).replace('.', ',') + ' von 5 Sternen">' +
+    return '<span class="p-sterne" aria-label="' + wert.toFixed(1).replace('.', ',') + ' ' + txt('vonSternen', 'von 5 Sternen') + '">' +
       '★★★★★'.slice(0, voll) + '<span class="stern-leer">' + '★★★★★'.slice(voll) + '</span></span>';
   }
   function korbLaden() {
@@ -208,8 +232,8 @@
 
   /* Produkt-Foto: eigenes Bild je Artikel, Bereichs-Bild als Rückfall */
   function produktBild(p) {
-    return 'bilder/produkte/' + p.id + '.jpg" onerror="this.onerror=null;this.src=\'' +
-      KATEGORIEN[p.kat].bild + '\'';
+    return BASIS + 'bilder/produkte/' + p.id + '.jpg" onerror="this.onerror=null;this.src=\'' +
+      BASIS + KATEGORIEN[p.kat].bild + '\'';
   }
 
   /* Gemeinsame Korb-Zeilen (Warenkorb-Seite + Kassen-Übersicht) */
@@ -219,17 +243,17 @@
         var p = produkt(id);
         return '<div class="korb-zeile' + (mitSteuerung ? '' : ' korb-zeile-schlicht') + '" data-id="' + id + '">' +
           '<img src="' + produktBild(p) + '" alt="">' +
-          '<div class="korb-name"><strong>' + p.name + '</strong><span>' + euro(p.preis) + ' · ' + p.inhalt + '</span></div>' +
+          '<div class="korb-name"><strong>' + pName(p) + '</strong><span>' + euro(p.preis) + ' · ' + pInhalt(p) + '</span></div>' +
           (mitSteuerung
             ? '<span class="menge" data-id="' + id + '">' +
-                '<button type="button" class="menge-minus" aria-label="Menge verringern">−</button>' +
+                '<button type="button" class="menge-minus" aria-label="' + txt('mengeMinus', 'Menge verringern') + '">−</button>' +
                 '<span class="menge-zahl">' + korb[id] + '</span>' +
-                '<button type="button" class="menge-plus" aria-label="Menge erhöhen">+</button>' +
+                '<button type="button" class="menge-plus" aria-label="' + txt('mengePlus', 'Menge erhöhen') + '">+</button>' +
               '</span>'
             : '<span class="korb-anzahl">' + korb[id] + ' ×</span>') +
           '<span class="korb-zeilensumme">' + euro(p.preis * korb[id]) + '</span>' +
           (mitSteuerung
-            ? '<button type="button" class="korb-entfernen" aria-label="' + p.name + ' entfernen">' +
+            ? '<button type="button" class="korb-entfernen" aria-label="' + pName(p) + ' ' + txt('entfernen', 'entfernen') + '">' +
               '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg></button>'
             : '') +
         '</div>';
@@ -244,7 +268,7 @@
     document.querySelectorAll('.kachel-zahl[data-kat]').forEach(function (z) {
       var kat = z.getAttribute('data-kat');
       var zahl = PRODUKTE.filter(function (p) { return p.kat === kat; }).length;
-      z.textContent = zahl + ' Artikel';
+      z.textContent = zahl + ' ' + txt('artikel', 'Artikel');
     });
 
     /* ============================================================
@@ -257,8 +281,8 @@
       var sortierung = document.getElementById('sortierung');
       var kat = new URLSearchParams(location.search).get('bereich');
       if (!KATEGORIEN[kat]) kat = 'w';
-      listeTitel.textContent = KATEGORIEN[kat].titel;
-      document.title = KATEGORIEN[kat].titel + ' – Norberts mobile Fußpflege Stuttgart';
+      listeTitel.textContent = katTitel(kat);
+      document.title = katTitel(kat) + txt('titelZusatz', ' – Norberts mobile Fußpflege Stuttgart');
 
       var zeigeListe = function () {
         var daten = PRODUKTE.filter(function (p) { return p.kat === kat; });
@@ -266,32 +290,32 @@
         daten.sort(function (a, b) {
           if (art === 'preis-auf') return a.preis - b.preis;
           if (art === 'preis-ab') return b.preis - a.preis;
-          if (art === 'name') return a.name.localeCompare(b.name, 'de');
+          if (art === 'name') return pName(a).localeCompare(pName(b), document.documentElement.lang || 'de');
           return (b.sterne * 100 + b.stimmen) - (a.sterne * 100 + a.stimmen);
         });
-        listeInfo.textContent = daten.length + ' Artikel';
+        listeInfo.textContent = daten.length + ' ' + txt('artikel', 'Artikel');
         /* Höhe kurz festhalten, damit die Seite beim Austausch nicht springt */
         liste.style.minHeight = liste.offsetHeight + 'px';
         liste.innerHTML = daten.map(function (p) {
           return '<article class="produkt ' + KATEGORIEN[p.kat].farbe + '">' +
-            (p.badge ? '<span class="p-badge">' + p.badge + '</span>' : '') +
+            (p.badge ? '<span class="p-badge">' + badgeText(p.badge) + '</span>' : '') +
             '<img class="p-bild" src="' + produktBild(p) + '" alt="" loading="lazy">' +
             '<div class="p-inhalt">' +
-              '<h3>' + p.name + '</h3>' +
+              '<h3>' + pName(p) + '</h3>' +
               '<div class="p-bewertung">' + sterneHtml(p.sterne) + ' <span>' + p.sterne.toFixed(1).replace('.', ',') + ' (' + p.stimmen + ')</span></div>' +
-              '<p class="p-info">' + p.info + '</p>' +
-              '<p class="p-meta">' + p.inhalt + (p.grund ? ' · ' + p.grund : '') + '</p>' +
+              '<p class="p-info">' + pInfo(p) + '</p>' +
+              '<p class="p-meta">' + pInhalt(p) + (p.grund ? ' · ' + p.grund : '') + '</p>' +
               '<p class="p-lager ' + (p.lager === 'ok' ? 'auf-lager' : 'wenig') + '">' +
-                (p.lager === 'ok' ? '● Auf Lager' : '● Nur noch wenige') + '</p>' +
+                (p.lager === 'ok' ? txt('aufLager', '● Auf Lager') : txt('wenig', '● Nur noch wenige')) + '</p>' +
               '<div class="p-fuss">' +
                 '<span class="p-preis">' + euro(p.preis) + '</span>' +
                 '<span class="menge" data-id="' + p.id + '">' +
-                  '<button type="button" class="menge-minus" aria-label="Menge verringern">−</button>' +
+                  '<button type="button" class="menge-minus" aria-label="' + txt('mengeMinus', 'Menge verringern') + '">−</button>' +
                   '<span class="menge-zahl">1</span>' +
-                  '<button type="button" class="menge-plus" aria-label="Menge erhöhen">+</button>' +
+                  '<button type="button" class="menge-plus" aria-label="' + txt('mengePlus', 'Menge erhöhen') + '">+</button>' +
                 '</span>' +
-                '<button type="button" class="knopf knopf-voll p-korb" data-id="' + p.id + '">In den Warenkorb</button>' +
-                '<button type="button" class="knopf knopf-rand p-kauf" data-id="' + p.id + '">Jetzt kaufen</button>' +
+                '<button type="button" class="knopf knopf-voll p-korb" data-id="' + p.id + '">' + txt('inDenKorb', 'In den Warenkorb') + '</button>' +
+                '<button type="button" class="knopf knopf-rand p-kauf" data-id="' + p.id + '">' + txt('jetztKaufen', 'Jetzt kaufen') + '</button>' +
               '</div>' +
             '</div>' +
           '</article>';
@@ -319,8 +343,8 @@
           korbSpeichern(korb);
         }
         if (korbKnopf) {
-          korbKnopf.textContent = '✓ Im Warenkorb';
-          setTimeout(function () { korbKnopf.textContent = 'In den Warenkorb'; }, 1400);
+          korbKnopf.textContent = txt('imKorb', '✓ Im Warenkorb');
+          setTimeout(function () { korbKnopf.textContent = txt('inDenKorb', 'In den Warenkorb'); }, 1400);
         }
         if (kaufKnopf) location.href = 'kasse.html';
       });

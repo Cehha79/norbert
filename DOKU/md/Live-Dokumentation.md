@@ -573,6 +573,30 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   - MERKER: KI-Übersetzungen vor Livegang muttersprachlich gegenlesen;
     Text-Änderungen künftig in alle 6 Ordner nachziehen (siehe
     WICHTIG + TODO).
+- **Shop mehrsprachig** (Hasans Rückmeldung „da geht nur deutsch,
+  sobald man da wechselt kommt man ins start"):
+  - `js/produkte.js` (v=9) um eine Sprach-Schnittstelle erweitert:
+    optionale Globale `NF_BASIS` (Bild-Pfade `../`), `NF_TEXTE`
+    (13 Oberflächen-Texte), `NF_KATEGORIEN` (8 Bereichs-Titel),
+    `NF_UEBERSETZUNG` (je Artikel name/info/inhalt) — ohne sie bleibt
+    alles deutsch (Rückfall). Anzeige nutzt pName/pInfo/pInhalt;
+    der **Bestelltext an Norbert nutzt IMMER die deutschen Namen**
+    (positionenText unverändert), Radio-values bleiben deutsch.
+  - Je Sprache `js/shop-<code>.js` (~180 Zeilen): alle 128 Artikel
+    übersetzt + Texte + Kategorien; per node --check und Zähl-Skript
+    geprüft (6 × 128/128 vollständig).
+  - Je Sprachordner 4 neue Shop-Seiten (produkte, produkt-bereich,
+    warenkorb, kasse) mit hreflang, 7-Sprachen-Auswahl und
+    Skript-Reihenfolge thema → main → shop-<code> → produkte;
+    deutsche Shop-Seiten: Sprach-Verweise jetzt seitengleich
+    (vorher <code>/index.html) + hreflang nachgezogen; in den 30
+    bestehenden Sprachseiten Nav/Korb-Verweise von ../produkte.html
+    auf produkte.html umgestellt.
+  - Geprüft: Verweis-Existenz-Check über alle 65 Seiten (0 kaputt),
+    Skript-Reihenfolge auf allen 24 neuen Seiten, DOM-Test
+    tr/ru-Bereichsseite (16 Karten, übersetzte Knöpfe/Titel,
+    Bild-Pfade ../), Screenshots tr-Übersicht + ar-Kasse (RTL).
+    Kleinunternehmer-§19-Zeile in allen Sprachen statt MwSt.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

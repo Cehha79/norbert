@@ -50,7 +50,10 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
   Leitplanke gilt in JEDER Sprache: nie „medizinische Fußpflege"/„Podologe"
   als Selbstbezeichnung (tr: nie „medikal ayak bakımı", en: nie „podiatrist/
   medical pedicure" usw.). Text-Änderungen am deutschen Original müssen in
-  alle 6 Sprachordner nachgezogen werden.
+  alle 6 Sprachordner nachgezogen werden — beim SHOP zusätzlich in den
+  Übersetzungs-Dateien `js/shop-<code>.js` (Produktnamen/-texte); neue
+  Artikel in produkte.js brauchen je einen Eintrag in allen 6 Dateien,
+  sonst erscheinen sie dort deutsch (eingebauter Rückfall).
 
 ## Merksätze
 
