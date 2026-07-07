@@ -20,8 +20,18 @@ Wie das Projekt geprüft wird und was der letzte Prüfstand ergab.
   (podolog…, medizinisch…, Therapie, Diagnose, Behandlung von …).
 - **Links:** alle internen Links, `tel:`-, `wa.me`- und Fußzeilen-Links.
 
+## Hinweis zu headless Chrome
+
+Headless-Chrome-Screenshots über die Kommandozeile klemmen die Fensterbreite
+intern auf ~500 px — ein 390-px-Screenshot zeigt dann rechts abgeschnittenen
+Inhalt, obwohl das Layout in Ordnung ist. Schmaler als 500 px daher im
+Browser-Responsive-Modus oder am echten Gerät prüfen.
+
 ## Prüfstand
 
 | Datum | Prüfung | Ergebnis |
 |---|---|---|
-| 2026-07-07 | Erstbau Phasen 1–3, lokaler Server, Seiten laden | siehe Live-Dokumentation — Grundprüfung beim Bau; vollständige Phase-5-Prüfung steht noch aus |
+| 2026-07-07 | Erstbau Phasen 1–3, lokaler Server, alle Seiten + Ressourcen HTTP 200 | bestanden |
+| 2026-07-07 | Wortwahl-Prüfung (geschützte Begriffe/Heilkunde) über alle 7 Seiten | bestanden — nur erlaubte Abgrenzungs-Erklärungen |
+| 2026-07-07 | Sichtprüfung nach Mobile-First-Umbau (headless Chrome): Handy 500 px hell + dunkel, Kontakt/Leistungen 500 px, Desktop 1280 px, Kopfzeile 1000/1024 px | bestanden — Kopfzeile bei 1000–1024 px war anfangs zu eng (Markenname/Umschalter abgeschnitten), behoben: Desktop-Navigation erst ab 1000 px, Nav-Punkt „Leistungen", verdichtete Kopfzeile |
+| — | Vollständige Phase-5-Prüfung (echtes Gerät, Bewegung reduzieren, Kontrastmessung) | steht aus |

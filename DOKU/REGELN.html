@@ -42,6 +42,8 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 <h2>Code</h2>
 <ul>
 <li>Vanilla HTML/CSS/JS — keine Frameworks, keine Bibliotheken, keine CDN-Einbindungen, keine Online-Schriften.</li>
+<li><strong>Mobile-First:</strong> Grund-Styles beschreiben immer das Handy-Layout; größere Bildschirme nur über <code>@media (min-width: …)</code> erweitern (Stufen 640/840/1000 px). Neues zuerst im Handy-Viewport (375–430 px) gestalten und prüfen, dann Desktop nachziehen.</li>
+<li><strong>RTL-tauglich schreiben:</strong> Richtungs-Eigenschaften logisch (<code>padding-inline-start</code>, <code>margin-block-end</code>, <code>inset-inline</code>, <code>text-align: start/end</code>) statt <code>left/right</code> — Vorbereitung für die arabische Sprachversion.</li>
 <li>Design-Änderungen nur über die Tokens in <code>style.css</code>; beide Themen (hell und dunkel) müssen bei jeder Änderung geprüft werden.</li>
 <li>Layout von Anfang an symmetrisch und am Raster ausgerichtet (<code>.rahmen</code>, Raster-Klassen); Einrückung 2 Leerzeichen.</li>
 <li>Nach jeder CSS-/JS-Änderung die Cache-Version <code>?v=N</code> in allen HTML-Dateien hochzählen.</li>

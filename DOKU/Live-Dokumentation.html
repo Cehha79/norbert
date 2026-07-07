@@ -33,6 +33,15 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 <h1>Live-Dokumentation</h1>
 <h2>Aufgabe dieser Datei</h2>
 <p>Chronik der Arbeit am Projekt — neueste Einträge oben.</p>
+<h2>2026-07-07 (später) — Mobile-First-Umbau + Sprachen entschieden</h2>
+<ul>
+<li>Kundenklärung durch Hasan: Seite wird hauptsächlich im <strong>Handy-Browser</strong> genutzt; Sprachen <strong>DE, EN, PL, AR, ZH</strong> als echte Versionen (kein Widget).</li>
+<li><code>style.css</code> komplett auf <strong>Mobile-First</strong> umgebaut: Basis-Styles = Handy (eine Spalte, Menü-Knopf, Aktionsleiste unten, kompaktere Abstände), Erweiterungen ab 640 px (2 Spalten), 840 px (Desktop-Navigation, Held zweispaltig, Aktionsleiste weg), 1000 px (volle Raster).</li>
+<li>Richtungs-Eigenschaften auf <strong>logische CSS-Eigenschaften</strong> umgestellt (<code>inline-start/-end</code>, <code>block-start/-end</code>) — Vorbereitung für Arabisch (RTL).</li>
+<li>Preistabelle in Wisch-Hülle <code>.tabelle-rolle</code> (auf dem Handy horizontal wischbar statt gequetscht). Cache-Version aller Seiten auf <code>?v=2</code>.</li>
+<li>Fahrplan/TODO/REGELN entsprechend aktualisiert (Sprachversionen nach Phase 4; Muttersprachler-Gegenlesen als Prüfpunkt).</li>
+<li>Sichtprüfung per headless Chrome (hell + dunkel, 500/1000/1024/1280 px): Kopfzeile war zwischen 1000 und 1100 px zu eng → Desktop-Navigation erst ab 1000 px (darunter Menü-Knopf + Aktionsleiste), Nav-Punkt heißt jetzt „Leistungen", Kopfzeile verdichtet. Cache-Version <code>?v=3</code>.</li>
+</ul>
 <h2>2026-07-07 — Projektstart: Recherche + Phasen 1–3</h2>
 <p><strong>Recherche</strong> (zwei Agenten, Ergebnisse mit Quellen auf dem Desktop: <code>~/Desktop/Claude Ausgabe/Fusspflege-Website-Recherche.html</code>):</p>
 <ul>

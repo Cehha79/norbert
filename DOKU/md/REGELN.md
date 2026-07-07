@@ -18,6 +18,14 @@ Arbeitsregeln für dieses Projekt — sie gelten für jede Sitzung.
 
 - Vanilla HTML/CSS/JS — keine Frameworks, keine Bibliotheken, keine
   CDN-Einbindungen, keine Online-Schriften.
+- **Mobile-First:** Grund-Styles beschreiben immer das Handy-Layout;
+  größere Bildschirme nur über `@media (min-width: …)` erweitern
+  (Stufen 640/840/1000 px). Neues zuerst im Handy-Viewport (375–430 px)
+  gestalten und prüfen, dann Desktop nachziehen.
+- **RTL-tauglich schreiben:** Richtungs-Eigenschaften logisch
+  (`padding-inline-start`, `margin-block-end`, `inset-inline`,
+  `text-align: start/end`) statt `left/right` — Vorbereitung für die
+  arabische Sprachversion.
 - Design-Änderungen nur über die Tokens in `style.css`; beide Themen
   (hell und dunkel) müssen bei jeder Änderung geprüft werden.
 - Layout von Anfang an symmetrisch und am Raster ausgerichtet

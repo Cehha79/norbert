@@ -6,6 +6,25 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (später) — Mobile-First-Umbau + Sprachen entschieden
+
+- Kundenklärung durch Hasan: Seite wird hauptsächlich im **Handy-Browser**
+  genutzt; Sprachen **DE, EN, PL, AR, ZH** als echte Versionen (kein Widget).
+- `style.css` komplett auf **Mobile-First** umgebaut: Basis-Styles = Handy
+  (eine Spalte, Menü-Knopf, Aktionsleiste unten, kompaktere Abstände),
+  Erweiterungen ab 640 px (2 Spalten), 840 px (Desktop-Navigation, Held
+  zweispaltig, Aktionsleiste weg), 1000 px (volle Raster).
+- Richtungs-Eigenschaften auf **logische CSS-Eigenschaften** umgestellt
+  (`inline-start/-end`, `block-start/-end`) — Vorbereitung für Arabisch (RTL).
+- Preistabelle in Wisch-Hülle `.tabelle-rolle` (auf dem Handy horizontal
+  wischbar statt gequetscht). Cache-Version aller Seiten auf `?v=2`.
+- Fahrplan/TODO/REGELN entsprechend aktualisiert (Sprachversionen nach
+  Phase 4; Muttersprachler-Gegenlesen als Prüfpunkt).
+- Sichtprüfung per headless Chrome (hell + dunkel, 500/1000/1024/1280 px):
+  Kopfzeile war zwischen 1000 und 1100 px zu eng → Desktop-Navigation
+  erst ab 1000 px (darunter Menü-Knopf + Aktionsleiste), Nav-Punkt heißt
+  jetzt „Leistungen", Kopfzeile verdichtet. Cache-Version `?v=3`.
+
 ## 2026-07-07 — Projektstart: Recherche + Phasen 1–3
 
 **Recherche** (zwei Agenten, Ergebnisse mit Quellen auf dem Desktop:

@@ -18,12 +18,21 @@ Die sieben Phasen bis zur fertigen Kunden-Website — mit aktuellem Stand.
 | 6 | Veröffentlichung | GitHub-Repo, GitHub Pages, Formular-Dienst anschließen, sitemap/robots | ⬜ offen |
 | 7 | Domain | norberts-mobile-fusspflege.de von Strato auf GitHub Pages umstellen (CNAME, DNS) | ⬜ offen |
 
+## Entschieden
+
+- **Mobile zuerst (07.07.2026):** Die Seite wird hauptsächlich im
+  Handy-Browser genutzt — das CSS ist Mobile-First aufgebaut (Basis =
+  Handy-Layout, Erweiterungen ab 640/840/1000 px). Gestaltet und geprüft
+  wird zuerst im Handy-Viewport.
+- **Sprachen (07.07.2026):** 5 echte statische Sprachversionen —
+  Deutsch (Stamm), Englisch `/en/`, Polnisch `/pl/`, Arabisch `/ar/`
+  (RTL!), Chinesisch `/zh/` (System-Schrift). Kein Übersetzer-Widget.
+  Umsetzung erst **nach** Phase 4, damit Texte nicht fünffach
+  nachgezogen werden müssen. PL/AR/ZH vor Livegang von Muttersprachlern
+  gegenlesen lassen.
+
 ## Offene Entscheidungen
 
-- **Sprachen:** Kunde wünscht mehrsprachige Seite (alte Strato-Seite hatte
-  Google-Übersetzer-Auswahl). Entscheidung mit Hasan offen: echte statische
-  Übersetzungen für wenige Sprachen (empfohlen) statt Übersetzer-Widget
-  (DSGVO + Qualität). Welche Sprachen der Kunde wirklich braucht, klärt Hasan.
 - **Formular-Dienst:** Anbieter noch wählen (bei Phase 6), danach
   Datenschutzerklärung ergänzen.
 - **Online-Terminbuchung:** vorerst nicht — Formular + Telefon + WhatsApp

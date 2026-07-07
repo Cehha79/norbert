@@ -27,7 +27,10 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 
 ## Bauen (Phase 4–6)
 
-- [ ] **Sprachen-Entscheidung mit Hasan klären** (siehe Fahrplan) und umsetzen
+- [ ] Sprachversionen bauen (nach Phase 4): `/en/`, `/pl/`, `/ar/` (RTL,
+  `dir="rtl"`), `/zh/` (System-Schriften statt Lora/Source Sans) +
+  Sprachwahl in der Kopfleiste + `hreflang`-Verweise
+- [ ] PL/AR/ZH von Muttersprachlern gegenlesen lassen (Norbert: Polnisch?)
 - [ ] Statisches OSM-Kartenbild des Einzugsgebiets erzeugen →
   `bilder/einzugsgebiet.webp` (Attribution steht schon daneben)
 - [ ] Favicon + App-Icons (Fußabdruck-Zeichen aus der Kopfleiste ableiten)
