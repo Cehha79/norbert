@@ -537,6 +537,7 @@ img { max-width: 100%; display: block; }
   max-width: 460px;
 }
 .held-bild img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+.portraet { aspect-ratio: 4 / 5; }      /* Porträt-Format auf kleinen Schirmen */
 
 /* Bild-Platzhalter, bis echte Fotos vorliegen */
 .bild-platzhalter {
@@ -1341,6 +1342,8 @@ body:has(dialog[open]) { overflow: hidden; }
 @media (min-width: 840px) {
   .held-raster { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 56px; align-items: stretch; }
   .held-bild { aspect-ratio: 4 / 5; max-width: none; }
+  /* Porträt (Über mich): füllt die volle Zeilenhöhe, egal wie lang der Text ist */
+  .portraet { aspect-ratio: auto; align-self: stretch; }
   .held p.gross { font-size: 20px; }
 
   .held-firma { font-size: clamp(26px, 3.4vw, 39px); }

@@ -136,6 +136,18 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   „Bilder aus meiner Arbeit" auf die Startseite umgezogen** (Hasans
   Anweisung): sitzt jetzt zwischen Vertrauens-Tafeln und „Ihr
   Hausbesuch in vier Schritten". Cache `?v=47`.
+- „Mein Weg zur Fußpflege" neu geschrieben (Hasans Auftrag:
+  professioneller, ausführlicher, passende Fachbegriffe): drei volle
+  Absätze — Wurzeln in der Pflege seit 2012 („Wer gut zu Fuß ist,
+  bleibt selbstständig"), Ausbildung 2024/FAY mit Fachvokabular
+  (Nagel- und Nagelhautpflege, Hornhautabtragung, Desinfektion,
+  Instrumenten-Aufbereitung), Hausbesuch-Nutzen (Senioren,
+  eingeschränkte Mobilität); Anspruch-Kasten geschärft. Kein
+  Heilkunde-Vokabular, keine erfundenen Fakten. Dabei Layout-Fehler
+  behoben: das Porträt (starres `aspect-ratio` inline) lief beim
+  längeren Text unter die Text-Spalte → Klasse `.portraet`
+  (mobil 4:5, ab 840 px `aspect-ratio: auto` + stretch = volle
+  Zeilenhöhe, object-fit cover). Cache `?v=48`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
