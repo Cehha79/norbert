@@ -770,6 +770,7 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 
 /* ---------- Über mich ---------- */
+.vorstellung h2 { margin-block-end: 14px; }
 .vorstellung p { text-align: justify; hyphens: auto; }
 .schritt.farbig { border-top: 4px solid var(--lk); }
 .schritt.farbig h3 { color: var(--lk); }
@@ -1344,6 +1345,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .held-bild { aspect-ratio: 4 / 5; max-width: none; }
   /* Porträt (Über mich): füllt die volle Zeilenhöhe, egal wie lang der Text ist */
   .portraet { aspect-ratio: auto; align-self: stretch; }
+  .person-raster { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
   .held p.gross { font-size: 20px; }
 
   .held-firma { font-size: clamp(26px, 3.4vw, 39px); }
