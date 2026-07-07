@@ -1,0 +1,346 @@
+// Norberts mobile Fußpflege — Produkte-Seite (Katalog + Warenkorb).
+// ACHTUNG: Alle Artikel sind MUSTER-DATEN (nur zur Ansicht) — vor dem
+// Livegang durch Norberts echte Produkte und Preise ersetzen!
+// Warenkorb liegt in localStorage ('nf-warenkorb'), Bestellung geht als
+// unverbindliche Anfrage per WhatsApp oder E-Mail raus (kein Bezahlsystem).
+(function () {
+  'use strict';
+
+  var KORB_KEY = 'nf-warenkorb';
+
+  /* ================= Kategorien ================= */
+  var KATEGORIEN = {
+    w: { titel: 'Werkzeuge & Instrumente', farbe: 'lk-blau',   bild: 'bilder/shop-werkzeuge.jpg' },
+    c: { titel: 'Cremes & Balsame',        farbe: 'lk-gruen',  bild: 'bilder/shop-cremes.jpg' },
+    e: { titel: 'Elektrische Geräte',      farbe: 'lk-gold',   bild: 'bilder/shop-geraete.jpg' },
+    b: { titel: 'Fußbäder & Zusätze',      farbe: 'lk-rot',    bild: 'bilder/shop-fussbad.jpg' },
+    n: { titel: 'Nagelpflege',             farbe: 'lk-petrol', bild: 'bilder/shop-nagelpflege.jpg' },
+    h: { titel: 'Hornhaut & Peeling',      farbe: 'lk-orange', bild: 'bilder/shop-peeling.jpg' },
+    k: { titel: 'Komfort & Entlastung',    farbe: 'lk-blau',   bild: 'bilder/shop-komfort.jpg' },
+    d: { titel: 'Hygiene & Desinfektion',  farbe: 'lk-gruen',  bild: 'bilder/shop-hygiene.jpg' },
+    g: { titel: 'Geschenke & Gutscheine',  farbe: 'lk-gold',   bild: 'bilder/shop-geschenke.jpg' }
+  };
+
+  /* ================= Muster-Produkte (je Kategorie 10) ================= */
+  var PRODUKTE = [
+    /* --- Werkzeuge & Instrumente --- */
+    { id: 'w1',  kat: 'w', name: 'Hornhautzange Edelstahl',        info: 'Rostfreier Edelstahl, präziser Schliff – für die schonende Abtragung.', inhalt: '1 Stück · 14 cm',  preis: 24.90, sterne: 4.8, stimmen: 41, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'w2',  kat: 'w', name: 'Nagelzange Profi',               info: 'Kraftvolle Übersetzung, sauberer Schnitt auch bei kräftigen Nägeln.',   inhalt: '1 Stück · 12 cm',  preis: 19.90, sterne: 4.7, stimmen: 33, lager: 'ok',    badge: '' },
+    { id: 'w3',  kat: 'w', name: 'Eckenfeile doppelseitig',        info: 'Feine und mittlere Körnung – für saubere Nagelecken.',                  inhalt: '1 Stück',          preis: 6.90,  sterne: 4.5, stimmen: 19, lager: 'ok',    badge: '' },
+    { id: 'w4',  kat: 'w', name: 'Instrumenten-Etui 3-teilig',     info: 'Zange, Feile und Schaber im Leder-Etui – ideal für unterwegs.',         inhalt: 'Set, 3-teilig',    preis: 34.90, sterne: 4.6, stimmen: 12, lager: 'wenig', badge: '' },
+    { id: 'w5',  kat: 'w', name: 'Fußpflege-Schaber mit Klinge',   info: 'Sicherer Halt, austauschbare Klingen – nur für geübte Hände.',          inhalt: '1 Stück + 10 Klingen', preis: 14.90, sterne: 4.3, stimmen: 27, lager: 'ok', badge: '' },
+    { id: 'w6',  kat: 'w', name: 'Zehen-Schere gebogen',           info: 'Gebogene Klinge folgt der Nagelform – sanft und genau.',                inhalt: '1 Stück · 10 cm',  preis: 12.90, sterne: 4.6, stimmen: 22, lager: 'ok',    badge: '' },
+    { id: 'w7',  kat: 'w', name: 'Nagelhaut-Schieber Doppelkopf',  info: 'Schiebt und löst die Nagelhaut – zwei Arbeitsenden.',                   inhalt: '1 Stück',          preis: 8.90,  sterne: 4.4, stimmen: 16, lager: 'ok',    badge: '' },
+    { id: 'w8',  kat: 'w', name: 'Pinzette abgewinkelt',           info: 'Präziser Griff dank abgewinkelter Spitze.',                             inhalt: '1 Stück',          preis: 7.90,  sterne: 4.5, stimmen: 9,  lager: 'ok',    badge: '' },
+    { id: 'w9',  kat: 'w', name: 'Instrumenten-Reinigungsbürste',  info: 'Feine Messingborsten – hält Feilen und Fräser sauber.',                 inhalt: '1 Stück',          preis: 5.90,  sterne: 4.2, stimmen: 11, lager: 'ok',    badge: '' },
+    { id: 'w10', kat: 'w', name: 'Starter-Set Fußpflege',          info: 'Die 6 wichtigsten Werkzeuge im Etui – der ideale Einstieg.',            inhalt: 'Set, 6-teilig',    preis: 49.90, sterne: 4.9, stimmen: 54, lager: 'ok',    badge: 'Neu' },
+
+    /* --- Cremes & Balsame --- */
+    { id: 'c1',  kat: 'c', name: 'Fußcreme Urea 10 %',             info: 'Intensive Feuchtigkeit für trockene, beanspruchte Füße.',               inhalt: '100 ml',  grund: '8,90 € / 100 ml',   preis: 8.90,  sterne: 4.8, stimmen: 78, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'c2',  kat: 'c', name: 'Fußbalsam Ringelblume',          info: 'Beruhigt und pflegt – mit Calendula und Bienenwachs.',                  inhalt: '75 ml',   grund: '13,20 € / 100 ml',  preis: 9.90,  sterne: 4.7, stimmen: 45, lager: 'ok',    badge: '' },
+    { id: 'c3',  kat: 'c', name: 'Schrunden-Salbe intensiv',       info: 'Reichhaltige Pflege für sehr trockene Fersen.',                         inhalt: '75 ml',   grund: '15,87 € / 100 ml',  preis: 11.90, sterne: 4.6, stimmen: 39, lager: 'ok',    badge: '' },
+    { id: 'c4',  kat: 'c', name: 'Fußdeo-Spray frisch',            info: 'Langanhaltende Frische, dermatologisch getestet.',                      inhalt: '100 ml',  grund: '7,90 € / 100 ml',   preis: 7.90,  sterne: 4.4, stimmen: 31, lager: 'ok',    badge: '' },
+    { id: 'c5',  kat: 'c', name: 'Fußbutter Sheabutter',           info: 'Zart schmelzende Pflege für die Nacht – mit Shea und Mandel.',          inhalt: '150 ml',  grund: '8,60 € / 100 ml',   preis: 12.90, sterne: 4.7, stimmen: 26, lager: 'wenig', badge: '' },
+    { id: 'c6',  kat: 'c', name: 'Kühlendes Fußgel Minze',         info: 'Erfrischt müde Beine und Füße – zieht schnell ein.',                    inhalt: '100 ml',  grund: '6,90 € / 100 ml',   preis: 6.90,  sterne: 4.3, stimmen: 18, lager: 'ok',    badge: '' },
+    { id: 'c7',  kat: 'c', name: 'Massageöl Rosmarin',             info: 'Wärmendes Öl für die Fußmassage zu Hause.',                             inhalt: '100 ml',  grund: '10,90 € / 100 ml',  preis: 10.90, sterne: 4.6, stimmen: 14, lager: 'ok',    badge: '' },
+    { id: 'c8',  kat: 'c', name: 'Anti-Hornhaut-Creme',            info: 'Weicht Verhärtungen über Nacht sichtbar auf.',                          inhalt: '75 ml',   grund: '17,20 € / 100 ml',  preis: 12.90, sterne: 4.5, stimmen: 23, lager: 'ok',    badge: '' },
+    { id: 'c9',  kat: 'c', name: 'Pflegeschaum Express',           info: 'Zieht in Sekunden ein – Pflege ohne Warten.',                           inhalt: '125 ml',  grund: '9,52 € / 100 ml',   preis: 11.90, sterne: 4.6, stimmen: 37, lager: 'ok',    badge: 'Neu' },
+    { id: 'c10', kat: 'c', name: 'Winterpflege-Duo',               info: 'Fußcreme + Schrundensalbe im Vorteils-Set.',                            inhalt: 'Set, 2 × 75 ml',   preis: 18.90, sterne: 4.8, stimmen: 21, lager: 'ok',    badge: '' },
+
+    /* --- Elektrische Geräte --- */
+    { id: 'e1',  kat: 'e', name: 'Elektrische Hornhaut-Feile',     info: 'Zwei Geschwindigkeiten, aufladbar – sanft glatte Fersen.',              inhalt: '1 Gerät + 2 Rollen', preis: 29.90, sterne: 4.6, stimmen: 63, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'e2',  kat: 'e', name: 'Nagelfräser-Set 10-teilig',      info: 'Leises Gerät mit 10 Aufsätzen für Nagel- und Hornhautpflege.',          inhalt: '1 Set',            preis: 49.90, sterne: 4.5, stimmen: 48, lager: 'ok',    badge: '' },
+    { id: 'e3',  kat: 'e', name: 'Fußsprudelbad mit Wärme',        info: 'Sprudel, Vibration und Wärmefunktion – Wellness zu Hause.',             inhalt: '1 Gerät',          preis: 59.90, sterne: 4.4, stimmen: 52, lager: 'ok',    badge: '' },
+    { id: 'e4',  kat: 'e', name: 'Ersatz-Schleifrollen (3er)',     info: 'Passend zur Hornhaut-Feile – Körnung mittel.',                          inhalt: '3 Stück',          preis: 9.90,  sterne: 4.7, stimmen: 29, lager: 'ok',    badge: '' },
+    { id: 'e5',  kat: 'e', name: 'UV-Trockner für Pflegelack',     info: 'Trocknet Pflegelacke in 60 Sekunden.',                                  inhalt: '1 Gerät',          preis: 24.90, sterne: 4.2, stimmen: 13, lager: 'wenig', badge: '' },
+    { id: 'e6',  kat: 'e', name: 'Elektrische Nagelfeile Stift',   info: 'Handlich wie ein Stift – für Form und Glanz.',                          inhalt: '1 Gerät + 4 Aufsätze', preis: 19.90, sterne: 4.3, stimmen: 17, lager: 'ok', badge: '' },
+    { id: 'e7',  kat: 'e', name: 'Massagegerät Shiatsu Fuß',       info: 'Kreisende Massageköpfe mit Wärme – entspannt tief.',                    inhalt: '1 Gerät',          preis: 79.90, sterne: 4.6, stimmen: 34, lager: 'ok',    badge: '' },
+    { id: 'e8',  kat: 'e', name: 'Ersatz-Fräser-Aufsätze (5er)',   info: 'Feine Diamant-Aufsätze für das Fräser-Set.',                            inhalt: '5 Stück',          preis: 14.90, sterne: 4.5, stimmen: 15, lager: 'ok',    badge: '' },
+    { id: 'e9',  kat: 'e', name: 'Paraffinbad für Füße',           info: 'Warmes Paraffin für samtweiche Haut – inkl. 450 g Wachs.',              inhalt: '1 Gerät + Wachs',  preis: 44.90, sterne: 4.4, stimmen: 20, lager: 'ok',    badge: 'Neu' },
+    { id: 'e10', kat: 'e', name: 'Reise-Etui für Geräte',          info: 'Gepolstertes Hardcase für Feile, Fräser und Zubehör.',                  inhalt: '1 Stück',          preis: 16.90, sterne: 4.3, stimmen: 8,  lager: 'ok',    badge: '' },
+
+    /* --- Fußbäder & Zusätze --- */
+    { id: 'b1',  kat: 'b', name: 'Fußbad-Salz Totes Meer',         info: 'Mineralstoffreiches Salz – entspannt und pflegt.',                      inhalt: '500 g',  grund: '13,80 € / 1 kg',   preis: 6.90,  sterne: 4.7, stimmen: 44, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'b2',  kat: 'b', name: 'Fußbad-Zusatz Rosmarin',         info: 'Belebender Badezusatz für müde Füße.',                                  inhalt: '250 ml', grund: '3,96 € / 100 ml',  preis: 9.90,  sterne: 4.5, stimmen: 25, lager: 'ok',    badge: '' },
+    { id: 'b3',  kat: 'b', name: 'Sprudel-Tabs Lavendel (8er)',    info: 'Ein Tab pro Fußbad – beruhigender Lavendelduft.',                       inhalt: '8 Tabs',           preis: 5.90,  sterne: 4.4, stimmen: 30, lager: 'ok',    badge: '' },
+    { id: 'b4',  kat: 'b', name: 'Fußwanne klappbar',              info: 'Platzsparend faltbar, mit Anti-Rutsch-Boden.',                          inhalt: '1 Stück',          preis: 17.90, sterne: 4.6, stimmen: 38, lager: 'ok',    badge: '' },
+    { id: 'b5',  kat: 'b', name: 'Milchbad für Füße',              info: 'Cremiger Badezusatz mit Milchproteinen.',                               inhalt: '400 ml', grund: '2,98 € / 100 ml',  preis: 11.90, sterne: 4.5, stimmen: 16, lager: 'ok',    badge: '' },
+    { id: 'b6',  kat: 'b', name: 'Basisches Fußbad-Pulver',        info: 'Basischer pH-Wert für ein wohliges, langes Bad.',                       inhalt: '300 g',  grund: '33,00 € / 1 kg',   preis: 9.90,  sterne: 4.3, stimmen: 21, lager: 'wenig', badge: '' },
+    { id: 'b7',  kat: 'b', name: 'Fußbad-Thermometer',             info: 'Zeigt die ideale Wassertemperatur auf einen Blick.',                    inhalt: '1 Stück',          preis: 7.90,  sterne: 4.2, stimmen: 9,  lager: 'ok',    badge: '' },
+    { id: 'b8',  kat: 'b', name: 'Massage-Bürste für das Bad',     info: 'Weiche Noppen massieren die Sohle im Fußbad.',                          inhalt: '1 Stück',          preis: 6.90,  sterne: 4.4, stimmen: 12, lager: 'ok',    badge: '' },
+    { id: 'b9',  kat: 'b', name: 'Eukalyptus-Badeöl',              info: 'Erfrischendes Öl – zwei Kappen pro Fußbad genügen.',                    inhalt: '200 ml', grund: '6,45 € / 100 ml',  preis: 12.90, sterne: 4.6, stimmen: 18, lager: 'ok',    badge: 'Neu' },
+    { id: 'b10', kat: 'b', name: 'Fußbad-Set komplett',            info: 'Wanne, Salz, Bürste und Handtuch im Set.',                              inhalt: 'Set, 4-teilig',    preis: 29.90, sterne: 4.8, stimmen: 27, lager: 'ok',    badge: '' },
+
+    /* --- Nagelpflege --- */
+    { id: 'n1',  kat: 'n', name: 'Nagelöl mit Pipette',            info: 'Jojoba und Vitamin E – kräftigt Nagel und Nagelhaut.',                  inhalt: '10 ml',  grund: '129,00 € / 100 ml', preis: 12.90, sterne: 4.8, stimmen: 56, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'n2',  kat: 'n', name: 'Nagelknipser XL',                info: 'Extra große Auflage – auch für kräftige Zehennägel.',                   inhalt: '1 Stück',          preis: 9.90,  sterne: 4.6, stimmen: 42, lager: 'ok',    badge: '' },
+    { id: 'n3',  kat: 'n', name: 'Glasfeile im Etui',              info: 'Versiegelt die Nagelkante – ein Leben lang scharf.',                    inhalt: '1 Stück',          preis: 8.90,  sterne: 4.7, stimmen: 35, lager: 'ok',    badge: '' },
+    { id: 'n4',  kat: 'n', name: 'Nagelpflege-Stift 2 in 1',       info: 'Öl-Stift und Schieber in einem – für unterwegs.',                       inhalt: '1 Stück',          preis: 10.90, sterne: 4.4, stimmen: 19, lager: 'ok',    badge: '' },
+    { id: 'n5',  kat: 'n', name: 'Pflegelack farblos',             info: 'Stärkender Unterlack mit seidigem Glanz.',                              inhalt: '10 ml',  grund: '99,00 € / 100 ml',  preis: 9.90,  sterne: 4.3, stimmen: 24, lager: 'ok',    badge: '' },
+    { id: 'n6',  kat: 'n', name: 'Buffer-Block 4 Seiten',          info: 'Feilen, glätten, polieren, versiegeln – ein Block.',                    inhalt: '1 Stück',          preis: 4.90,  sterne: 4.2, stimmen: 15, lager: 'ok',    badge: '' },
+    { id: 'n7',  kat: 'n', name: 'Nagelhaut-Entferner Gel',        info: 'Löst überschüssige Nagelhaut in 60 Sekunden.',                          inhalt: '30 ml',  grund: '29,67 € / 100 ml',  preis: 8.90,  sterne: 4.4, stimmen: 22, lager: 'wenig', badge: '' },
+    { id: 'n8',  kat: 'n', name: 'Nagel-Reparatur-Serum',          info: 'Baut brüchige Nägel in 4 Wochen sichtbar auf.',                         inhalt: '15 ml',  grund: '99,33 € / 100 ml',  preis: 14.90, sterne: 4.5, stimmen: 17, lager: 'ok',    badge: 'Neu' },
+    { id: 'n9',  kat: 'n', name: 'Feilen-Set Körnung mix (6er)',   info: 'Sechs Feilen von grob bis superfein.',                                  inhalt: '6 Stück',          preis: 7.90,  sterne: 4.3, stimmen: 13, lager: 'ok',    badge: '' },
+    { id: 'n10', kat: 'n', name: 'Nagelpflege-Komplettset',        info: 'Öl, Knipser, Glasfeile und Stift im Geschenkkarton.',                   inhalt: 'Set, 4-teilig',    preis: 34.90, sterne: 4.9, stimmen: 31, lager: 'ok',    badge: '' },
+
+    /* --- Hornhaut & Peeling --- */
+    { id: 'h1',  kat: 'h', name: 'Bimsstein Natur',                info: 'Echter Vulkan-Bims – der Klassiker für die Dusche.',                    inhalt: '1 Stück',          preis: 4.90,  sterne: 4.5, stimmen: 48, lager: 'ok',    badge: '' },
+    { id: 'h2',  kat: 'h', name: 'Hornhaut-Raspel 2-seitig',       info: 'Grobe und feine Seite – für Ferse und Ballen.',                         inhalt: '1 Stück',          preis: 8.90,  sterne: 4.6, stimmen: 39, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'h3',  kat: 'h', name: 'Fuß-Peeling Meersalz',           info: 'Feines Salz-Peeling mit Mandelöl – samtige Haut.',                      inhalt: '150 ml', grund: '6,60 € / 100 ml',  preis: 9.90,  sterne: 4.7, stimmen: 28, lager: 'ok',    badge: '' },
+    { id: 'h4',  kat: 'h', name: 'Hornhaut-Reduziercreme',         info: 'Tägliche Pflege, die neuer Hornhaut vorbeugt.',                         inhalt: '75 ml',  grund: '17,20 € / 100 ml',  preis: 12.90, sterne: 4.4, stimmen: 33, lager: 'ok',    badge: '' },
+    { id: 'h5',  kat: 'h', name: 'Peeling-Socken (1 Paar)',        info: 'Einwirken, abziehen, staunen – Erneuerung in 7 Tagen.',                 inhalt: '1 Paar',           preis: 11.90, sterne: 4.2, stimmen: 51, lager: 'ok',    badge: '' },
+    { id: 'h6',  kat: 'h', name: 'Zucker-Peeling Vanille',         info: 'Sanftes Peeling für empfindliche Haut.',                                inhalt: '200 ml', grund: '5,45 € / 100 ml',  preis: 10.90, sterne: 4.5, stimmen: 16, lager: 'ok',    badge: '' },
+    { id: 'h7',  kat: 'h', name: 'Keramik-Hornhautstein',          info: 'Feiner als Bims – ideal fürs Finish.',                                  inhalt: '1 Stück',          preis: 6.90,  sterne: 4.3, stimmen: 14, lager: 'wenig', badge: '' },
+    { id: 'h8',  kat: 'h', name: 'Peeling-Handschuh Sisal',        info: 'Naturfaser-Handschuh für Füße und Beine.',                              inhalt: '1 Stück',          preis: 5.90,  sterne: 4.2, stimmen: 10, lager: 'ok',    badge: '' },
+    { id: 'h9',  kat: 'h', name: 'Urea-Maske für die Füße',        info: 'Intensivmaske mit 15 % Urea – über Nacht einwirken.',                   inhalt: '100 ml', grund: '13,90 € / 100 ml', preis: 13.90, sterne: 4.6, stimmen: 20, lager: 'ok',    badge: 'Neu' },
+    { id: 'h10', kat: 'h', name: 'Glatte-Füße-Set',                info: 'Raspel, Peeling und Reduziercreme im Set.',                             inhalt: 'Set, 3-teilig',    preis: 24.90, sterne: 4.8, stimmen: 23, lager: 'ok',    badge: '' },
+
+    /* --- Komfort & Entlastung --- */
+    { id: 'k1',  kat: 'k', name: 'Zehenspreizer Gel (2er)',        info: 'Weiches Gel entlastet eng stehende Zehen.',                             inhalt: '2 Stück',          preis: 7.90,  sterne: 4.4, stimmen: 36, lager: 'ok',    badge: '' },
+    { id: 'k2',  kat: 'k', name: 'Druckschutz-Ringe (6er)',        info: 'Selbstklebende Polster gegen Reibung im Schuh.',                        inhalt: '6 Stück',          preis: 6.90,  sterne: 4.3, stimmen: 29, lager: 'ok',    badge: '' },
+    { id: 'k3',  kat: 'k', name: 'Gel-Fersenkissen (Paar)',        info: 'Dämpft jeden Schritt – zuschneidbar für jeden Schuh.',                  inhalt: '1 Paar',           preis: 11.90, sterne: 4.6, stimmen: 44, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'k4',  kat: 'k', name: 'Wellness-Socken kuschelig',      info: 'Flauschige Socken mit ABS-Sohle – nach der Pflege ein Traum.',          inhalt: '1 Paar, Gr. 36–42', preis: 9.90, sterne: 4.7, stimmen: 52, lager: 'ok',   badge: '' },
+    { id: 'k5',  kat: 'k', name: 'Zehenschutz-Kappen Gel (4er)',   info: 'Schützen empfindliche Zehen in jedem Schuh.',                           inhalt: '4 Stück',          preis: 8.90,  sterne: 4.2, stimmen: 18, lager: 'ok',    badge: '' },
+    { id: 'k6',  kat: 'k', name: 'Ballenpolster selbstklebend',    info: 'Entlastet den Vorfuß bei langem Stehen.',                               inhalt: '4 Stück',          preis: 7.90,  sterne: 4.3, stimmen: 15, lager: 'wenig', badge: '' },
+    { id: 'k7',  kat: 'k', name: 'Massage-Roller aus Holz',        info: 'Rollen Sie Verspannungen einfach weg – Buchenholz.',                    inhalt: '1 Stück',          preis: 12.90, sterne: 4.5, stimmen: 26, lager: 'ok',    badge: '' },
+    { id: 'k8',  kat: 'k', name: 'Igelball-Duo',                   info: 'Zwei Noppenbälle für die Aktiv-Massage zwischendurch.',                 inhalt: '2 Stück',          preis: 6.90,  sterne: 4.4, stimmen: 21, lager: 'ok',    badge: '' },
+    { id: 'k9',  kat: 'k', name: 'Komfort-Einlegesohlen Gel',      info: 'Dämpfende Gel-Sohlen, zuschneidbar Gr. 36–46.',                         inhalt: '1 Paar',           preis: 14.90, sterne: 4.5, stimmen: 30, lager: 'ok',    badge: 'Neu' },
+    { id: 'k10', kat: 'k', name: 'Fußgymnastik-Set',               info: 'Ball, Band und Übungsanleitung für starke Füße.',                       inhalt: 'Set, 3-teilig',    preis: 16.90, sterne: 4.6, stimmen: 12, lager: 'ok',    badge: '' },
+
+    /* --- Hygiene & Desinfektion --- */
+    { id: 'd1',  kat: 'd', name: 'Hand-Desinfektionsgel',          info: 'Hautschonend mit Aloe – für unterwegs.',                                inhalt: '100 ml', grund: '4,90 € / 100 ml',  preis: 4.90,  sterne: 4.5, stimmen: 40, lager: 'ok',    badge: '' },
+    { id: 'd2',  kat: 'd', name: 'Flächen-Desinfektionsspray',     info: 'Schnell wirksam – für Geräte und Arbeitsflächen.',                      inhalt: '250 ml', grund: '3,16 € / 100 ml',  preis: 7.90,  sterne: 4.6, stimmen: 27, lager: 'ok',    badge: '' },
+    { id: 'd3',  kat: 'd', name: 'Einmalhandschuhe Nitril (100)',  info: 'Puderfrei, reißfest – Größe S bis XL.',                                 inhalt: '100 Stück',        preis: 12.90, sterne: 4.7, stimmen: 61, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'd4',  kat: 'd', name: 'Fußspray antibakteriell',        info: 'Erfrischt und schützt – ideal nach dem Sport.',                         inhalt: '150 ml', grund: '5,93 € / 100 ml',  preis: 8.90,  sterne: 4.4, stimmen: 25, lager: 'ok',    badge: '' },
+    { id: 'd5',  kat: 'd', name: 'Instrumenten-Desinfektionsbad',  info: 'Wanne mit Sieb-Einsatz für die Instrumenten-Pflege.',                   inhalt: '1 Stück · 1 l',    preis: 16.90, sterne: 4.5, stimmen: 14, lager: 'ok',    badge: '' },
+    { id: 'd6',  kat: 'd', name: 'Desinfektions-Konzentrat',       info: 'Ergibt bis zu 25 l gebrauchsfertige Lösung.',                           inhalt: '500 ml', grund: '25,80 € / 1 l',    preis: 12.90, sterne: 4.6, stimmen: 19, lager: 'wenig', badge: '' },
+    { id: 'd7',  kat: 'd', name: 'Einweg-Unterlagen (50er)',       info: 'Saugstark und hygienisch – 40 × 60 cm.',                                inhalt: '50 Stück',         preis: 11.90, sterne: 4.3, stimmen: 16, lager: 'ok',    badge: '' },
+    { id: 'd8',  kat: 'd', name: 'Schuh-Desinfektionsspray',       info: 'Neutralisiert Gerüche direkt im Schuh.',                                inhalt: '150 ml', grund: '6,60 € / 100 ml',  preis: 9.90,  sterne: 4.4, stimmen: 22, lager: 'ok',    badge: '' },
+    { id: 'd9',  kat: 'd', name: 'Hygiene-Reise-Set',              info: 'Gel, Spray und Tücher in der Kulturtasche.',                            inhalt: 'Set, 3-teilig',    preis: 14.90, sterne: 4.5, stimmen: 11, lager: 'ok',    badge: 'Neu' },
+    { id: 'd10', kat: 'd', name: 'Desinfektionstücher (80er)',     info: 'Spenderdose mit 80 feuchten Tüchern.',                                  inhalt: '80 Tücher',        preis: 8.90,  sterne: 4.4, stimmen: 18, lager: 'ok',    badge: '' },
+
+    /* --- Geschenke & Gutscheine --- */
+    { id: 'g1',  kat: 'g', name: 'Gutschein Fachfußpflege',        info: 'Der Klassiker zum Verschenken – die komplette Pflege als Hausbesuch.',  inhalt: '1 Gutschein',      preis: 48.00, sterne: 5.0, stimmen: 24, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'g2',  kat: 'g', name: 'Gutschein Fußmassage',           info: 'Entspannung schenken – wohltuende Massage zu Hause.',                   inhalt: '1 Gutschein',      preis: 30.00, sterne: 5.0, stimmen: 15, lager: 'ok',    badge: '' },
+    { id: 'g3',  kat: 'g', name: 'Gutschein Reflexzonen-Massage',  info: 'Die ausgiebigste Anwendung als Geschenk.',                              inhalt: '1 Gutschein',      preis: 57.00, sterne: 5.0, stimmen: 12, lager: 'ok',    badge: '' },
+    { id: 'g4',  kat: 'g', name: 'Wert-Gutschein 25 €',            info: 'Frei einlösbar für Leistungen und Produkte.',                           inhalt: '1 Gutschein',      preis: 25.00, sterne: 4.9, stimmen: 9,  lager: 'ok',    badge: '' },
+    { id: 'g5',  kat: 'g', name: 'Verwöhn-Set „Füße gut"',         info: 'Fußbad-Salz, Creme und Wellness-Socken in der Geschenkbox.',            inhalt: 'Set, 3-teilig',    preis: 24.90, sterne: 4.8, stimmen: 19, lager: 'ok',    badge: '' },
+    { id: 'g6',  kat: 'g', name: 'Geschenkbox „Erste Hilfe Füße"', info: 'Peeling, Balsam und Nagelöl – schön verpackt.',                         inhalt: 'Set, 3-teilig',    preis: 29.90, sterne: 4.7, stimmen: 13, lager: 'ok',    badge: '' },
+    { id: 'g7',  kat: 'g', name: 'Männer-Set „Fuß-Werk"',          info: 'Raspel, Creme und Frische-Spray für Ihn.',                              inhalt: 'Set, 3-teilig',    preis: 26.90, sterne: 4.6, stimmen: 10, lager: 'wenig', badge: '' },
+    { id: 'g8',  kat: 'g', name: 'Grußkarte mit Umschlag',         info: 'Passend zum Gutschein – „Für Dich".',                                   inhalt: '1 Stück',          preis: 2.90,  sterne: 4.5, stimmen: 7,  lager: 'ok',    badge: '' },
+    { id: 'g9',  kat: 'g', name: 'Geschenk-Verpackung premium',    info: 'Box, Seidenpapier und Schleife – fertig verpackt.',                     inhalt: '1 Stück',          preis: 4.90,  sterne: 4.6, stimmen: 8,  lager: 'ok',    badge: '' },
+    { id: 'g10', kat: 'g', name: 'Jahres-Paket „4 × Pflege"',      info: 'Vier Fachfußpflege-Termine im Voraus – ein Termin geschenkt.',          inhalt: '4 Gutscheine',     preis: 144.00, sterne: 5.0, stimmen: 6, lager: 'ok',    badge: 'Neu' },
+  ];
+
+  /* ================= Hilfen ================= */
+  function euro(betrag) {
+    return betrag.toFixed(2).replace('.', ',') + ' €';
+  }
+  function sterneHtml(wert) {
+    var voll = Math.round(wert);
+    return '<span class="p-sterne" aria-label="' + wert.toFixed(1).replace('.', ',') + ' von 5 Sternen">' +
+      '★★★★★'.slice(0, voll) + '<span class="stern-leer">' + '★★★★★'.slice(voll) + '</span></span>';
+  }
+  function korbLaden() {
+    try { return JSON.parse(localStorage.getItem(KORB_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function korbSpeichern(korb) {
+    try { localStorage.setItem(KORB_KEY, JSON.stringify(korb)); } catch (e) {}
+    if (window.nfKorbBadge) window.nfKorbBadge();
+  }
+  function produkt(id) {
+    return PRODUKTE.filter(function (p) { return p.id === id; })[0];
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var liste = document.getElementById('produkt-liste');
+    if (!liste) return;
+
+    var listeTitel = document.getElementById('liste-titel');
+    var listeInfo = document.getElementById('liste-info');
+    var sortierung = document.getElementById('sortierung');
+    var aktiveKat = 'w';
+
+    /* ---------- Kategorie-Zähler in die Tafeln schreiben ---------- */
+    document.querySelectorAll('.kategorie').forEach(function (tafel) {
+      var kat = tafel.getAttribute('data-kat');
+      var zahl = PRODUKTE.filter(function (p) { return p.kat === kat; }).length;
+      var z = tafel.querySelector('.kategorie-zahl');
+      if (z) z.textContent = zahl + ' Artikel';
+    });
+
+    /* ---------- Produktliste rendern ---------- */
+    function zeigeKategorie(kat, scrollen) {
+      aktiveKat = kat;
+      document.querySelectorAll('.kategorie').forEach(function (t) {
+        t.classList.toggle('aktiv', t.getAttribute('data-kat') === kat);
+      });
+      var daten = PRODUKTE.filter(function (p) { return p.kat === kat; });
+      var art = sortierung ? sortierung.value : 'beliebt';
+      daten.sort(function (a, b) {
+        if (art === 'preis-auf') return a.preis - b.preis;
+        if (art === 'preis-ab') return b.preis - a.preis;
+        if (art === 'name') return a.name.localeCompare(b.name, 'de');
+        return (b.sterne * 100 + b.stimmen) - (a.sterne * 100 + a.stimmen); /* beliebt */
+      });
+      listeTitel.textContent = KATEGORIEN[kat].titel;
+      listeInfo.textContent = daten.length + ' Artikel';
+      var korb = korbLaden();
+      liste.innerHTML = daten.map(function (p) {
+        var menge = korb[p.id] || 0;
+        return '<article class="produkt ' + KATEGORIEN[p.kat].farbe + '">' +
+          (p.badge ? '<span class="p-badge">' + p.badge + '</span>' : '') +
+          '<img class="p-bild" src="' + KATEGORIEN[p.kat].bild + '" alt="" loading="lazy">' +
+          '<div class="p-inhalt">' +
+            '<h3>' + p.name + '</h3>' +
+            '<div class="p-bewertung">' + sterneHtml(p.sterne) + ' <span>' + p.sterne.toFixed(1).replace('.', ',') + ' (' + p.stimmen + ')</span></div>' +
+            '<p class="p-info">' + p.info + '</p>' +
+            '<p class="p-meta">' + p.inhalt + (p.grund ? ' · ' + p.grund : '') + '</p>' +
+            '<p class="p-lager ' + (p.lager === 'ok' ? 'auf-lager' : 'wenig') + '">' +
+              (p.lager === 'ok' ? '● Auf Lager' : '● Nur noch wenige') + '</p>' +
+            '<div class="p-fuss">' +
+              '<span class="p-preis">' + euro(p.preis) + '</span>' +
+              '<span class="menge" data-id="' + p.id + '">' +
+                '<button type="button" class="menge-minus" aria-label="Menge verringern">−</button>' +
+                '<span class="menge-zahl">' + (menge > 0 ? menge : 1) + '</span>' +
+                '<button type="button" class="menge-plus" aria-label="Menge erhöhen">+</button>' +
+              '</span>' +
+              '<button type="button" class="knopf knopf-voll p-korb" data-id="' + p.id + '">In den Warenkorb</button>' +
+            '</div>' +
+          '</div>' +
+        '</article>';
+      }).join('');
+      if (scrollen) {
+        var ziel = document.getElementById('liste-kopf');
+        if (ziel) ziel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    document.querySelectorAll('.kategorie').forEach(function (tafel) {
+      function auf() { zeigeKategorie(tafel.getAttribute('data-kat'), true); }
+      tafel.addEventListener('click', auf);
+      tafel.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); auf(); }
+      });
+    });
+    if (sortierung) sortierung.addEventListener('change', function () { zeigeKategorie(aktiveKat, false); });
+
+    /* ---------- Mengen-Stepper + In den Warenkorb (Delegation) ---------- */
+    liste.addEventListener('click', function (e) {
+      var minus = e.target.closest('.menge-minus');
+      var plus = e.target.closest('.menge-plus');
+      var korbKnopf = e.target.closest('.p-korb');
+      if (minus || plus) {
+        var stepper = (minus || plus).closest('.menge');
+        var zahl = stepper.querySelector('.menge-zahl');
+        var wert = parseInt(zahl.textContent, 10) + (plus ? 1 : -1);
+        zahl.textContent = Math.max(1, Math.min(99, wert));
+      }
+      if (korbKnopf) {
+        var id = korbKnopf.getAttribute('data-id');
+        var mengeEl = liste.querySelector('.menge[data-id="' + id + '"] .menge-zahl');
+        var menge = parseInt(mengeEl.textContent, 10);
+        var korb = korbLaden();
+        korb[id] = (korb[id] || 0) + menge;
+        korbSpeichern(korb);
+        korbKnopf.textContent = '✓ Im Warenkorb';
+        setTimeout(function () { korbKnopf.textContent = 'In den Warenkorb'; }, 1400);
+      }
+    });
+
+    /* ---------- Warenkorb-Maske ---------- */
+    var maske = document.getElementById('warenkorb-maske');
+    var korbListe = document.getElementById('korb-liste');
+    var korbSumme = document.getElementById('korb-summe');
+    var korbLeerHinweis = document.getElementById('korb-leer');
+    var korbAktionen = document.getElementById('korb-aktionen');
+
+    function korbRendern() {
+      var korb = korbLaden();
+      var ids = Object.keys(korb).filter(function (id) { return korb[id] > 0 && produkt(id); });
+      var summe = 0;
+      korbListe.innerHTML = ids.map(function (id) {
+        var p = produkt(id);
+        var zeile = p.preis * korb[id];
+        summe += zeile;
+        return '<div class="korb-zeile" data-id="' + id + '">' +
+          '<img src="' + KATEGORIEN[p.kat].bild + '" alt="">' +
+          '<div class="korb-name"><strong>' + p.name + '</strong><span>' + euro(p.preis) + ' · ' + p.inhalt + '</span></div>' +
+          '<span class="menge" data-id="' + id + '">' +
+            '<button type="button" class="menge-minus" aria-label="Menge verringern">−</button>' +
+            '<span class="menge-zahl">' + korb[id] + '</span>' +
+            '<button type="button" class="menge-plus" aria-label="Menge erhöhen">+</button>' +
+          '</span>' +
+          '<span class="korb-zeilensumme">' + euro(zeile) + '</span>' +
+          '<button type="button" class="korb-entfernen" aria-label="' + p.name + ' entfernen">' +
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg>' +
+          '</button>' +
+        '</div>';
+      }).join('');
+      korbSumme.textContent = euro(summe);
+      var leer = ids.length === 0;
+      korbLeerHinweis.hidden = !leer;
+      korbAktionen.hidden = leer;
+      document.getElementById('korb-tabelle').hidden = leer;
+    }
+
+    function maskeOeffnen() {
+      korbRendern();
+      if (!maske.open) maske.showModal();
+    }
+
+    /* Kopf-Knopf: auf dieser Seite Maske öffnen statt zu springen */
+    var kopfKnopf = document.querySelector('.korb-knopf');
+    if (kopfKnopf) kopfKnopf.addEventListener('click', function (e) { e.preventDefault(); maskeOeffnen(); });
+    if (location.hash === '#warenkorb') maskeOeffnen();
+
+    maske.querySelector('.maske-schliessen').addEventListener('click', function () { maske.close(); });
+    maske.addEventListener('click', function (e) { if (e.target === maske) maske.close(); });
+
+    korbListe.addEventListener('click', function (e) {
+      var zeile = e.target.closest('.korb-zeile');
+      if (!zeile) return;
+      var id = zeile.getAttribute('data-id');
+      var korb = korbLaden();
+      if (e.target.closest('.menge-plus')) korb[id] = Math.min(99, (korb[id] || 0) + 1);
+      if (e.target.closest('.menge-minus')) korb[id] = Math.max(0, (korb[id] || 0) - 1);
+      if (e.target.closest('.korb-entfernen')) korb[id] = 0;
+      if (korb[id] === 0) delete korb[id];
+      korbSpeichern(korb);
+      korbRendern();
+    });
+
+    document.getElementById('korb-leeren').addEventListener('click', function () {
+      korbSpeichern({});
+      korbRendern();
+    });
+
+    /* ---------- Bestellung als Anfrage (WhatsApp / E-Mail) ---------- */
+    function bestellText() {
+      var korb = korbLaden();
+      var zeilen = [];
+      var summe = 0;
+      Object.keys(korb).forEach(function (id) {
+        var p = produkt(id);
+        if (!p || korb[id] < 1) return;
+        zeilen.push(korb[id] + ' × ' + p.name + ' (' + p.inhalt + ') — ' + euro(p.preis * korb[id]));
+        summe += p.preis * korb[id];
+      });
+      return 'Bestell-Anfrage an Norberts mobile Fußpflege\n\n' +
+        zeilen.join('\n') + '\n\nGesamt: ' + euro(summe) +
+        '\n\nBitte melden Sie sich bei mir wegen Übergabe und Bezahlung ' +
+        '(bar, Rechnung oder PayPal). Vielen Dank!';
+    }
+    document.getElementById('korb-whatsapp').addEventListener('click', function () {
+      window.open('https://wa.me/4917686961032?text=' + encodeURIComponent(bestellText()), '_blank', 'noopener');
+    });
+    document.getElementById('korb-mail').addEventListener('click', function () {
+      location.href = 'mailto:norbertsmobilefusspflege@gmx.de' +
+        '?subject=' + encodeURIComponent('Bestell-Anfrage') +
+        '&body=' + encodeURIComponent(bestellText());
+    });
+
+    /* Start: erste Kategorie anzeigen */
+    zeigeKategorie('w', false);
+  });
+})();

@@ -1113,6 +1113,233 @@ body:has(dialog[open]) { overflow: hidden; }
   flex-shrink: 0;
 }
 
+/* ============================================================
+   Produkte-Seite (Shop) — Artikel sind MUSTER, siehe DOKU
+   ============================================================ */
+/* Warenkorb-Knopf in der Kopfleiste (Stil wie der Thema-Knopf) */
+.korb-knopf {
+  position: relative;
+  width: 44px; height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f2f4f5;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.korb-knopf:hover { border-color: #fff; background: rgba(255, 255, 255, 0.12); color: #fff; }
+.korb-zahl {
+  position: absolute;
+  top: -5px;
+  inset-inline-end: -5px;
+  min-width: 19px; height: 19px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--stern);
+  color: #1d1204;
+  font: 700 12px/19px var(--schrift-text);
+  text-align: center;
+}
+
+/* Vorteils-Zeile */
+.shop-vorteile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--titel);
+}
+
+/* Bereichs-Tafeln */
+.kategorien {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.kategorie {
+  --lk: var(--marke);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-inline-start: 4px solid var(--lk);
+  border-radius: var(--radius-kl);
+  box-shadow: var(--schatten);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kategorie:hover { transform: translateY(-2px); box-shadow: var(--schatten-gr); }
+.kategorie:focus-visible { outline: 3px solid var(--lk); outline-offset: 3px; }
+.kategorie.aktiv { border-color: var(--lk); background: var(--marke-hell); }
+.kategorie-symbol {
+  width: 42px; height: 42px;
+  border-radius: var(--radius-kl);
+  background: var(--lk);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.kategorie-text { display: grid; line-height: 1.3; }
+.kategorie-text strong { color: var(--titel); font-size: 16.5px; }
+.kategorie-zahl { font-size: 14px; color: var(--text-leise); }
+.kategorie-pfeil { margin-inline-start: auto; font-size: 24px; color: var(--lk); }
+
+/* Listen-Kopf mit Sortierung */
+.liste-zeile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px 20px;
+  margin-block-end: 18px;
+  padding-block-start: 26px;
+  border-block-start: 1px solid var(--linie);
+}
+.liste-zeile h2 { font-size: clamp(23px, 4.5vw, 29px); }
+.liste-info { font-size: 15px; color: var(--text-leise); }
+.sortier-feld { font-size: 15.5px; font-weight: 600; color: var(--titel); }
+.sortier-feld select {
+  margin-inline-start: 8px;
+  padding: 8px 12px;
+  font: 400 16px var(--schrift-text);
+  color: var(--text);
+  background: var(--flaeche);
+  border: 2px solid var(--linie);
+  border-radius: var(--radius-kl);
+}
+
+/* Produkt-Karten */
+.produkt-raster {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.produkt {
+  --lk: var(--marke);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-top: 4px solid var(--lk);
+  border-radius: var(--radius);
+  box-shadow: var(--schatten);
+  overflow: hidden;
+}
+.p-badge {
+  position: absolute;
+  top: 10px;
+  inset-inline-start: 10px;
+  z-index: 2;
+  background: var(--stern);
+  color: #1d1204;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.p-bild { width: 100%; height: auto; aspect-ratio: 16 / 8; object-fit: cover; display: block; }
+.p-inhalt { display: flex; flex-direction: column; flex: 1; padding: 14px 16px 16px; }
+.p-inhalt h3 { font-size: 18.5px; margin-block-end: 4px; }
+.p-bewertung { display: flex; align-items: center; gap: 6px; font-size: 14.5px; color: var(--text-leise); }
+.p-sterne { color: var(--stern); letter-spacing: 1px; }
+.p-info { font-size: 15.5px; color: var(--text-leise); margin-block: 6px 4px; }
+.p-meta { font-size: 13.5px; color: var(--text-leise); margin: 0; }
+.p-lager { font-size: 13.5px; font-weight: 600; margin-block: 6px 0; }
+.p-lager.auf-lager { color: #3e8e5a; }
+.p-lager.wenig { color: #c26a35; }
+.p-fuss {
+  margin-block-start: auto;
+  padding-block-start: 12px;
+  border-block-start: 1px solid var(--linie);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.p-preis {
+  font-family: var(--schrift-titel);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--titel);
+  margin-inline-end: auto;
+}
+.p-korb { min-height: 42px; padding: 6px 14px; font-size: 15px; flex: 1 1 100%; }
+
+/* Mengen-Stepper */
+.menge {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid var(--linie);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.menge button {
+  width: 34px; height: 34px;
+  border: none;
+  background: none;
+  color: var(--titel);
+  font-size: 19px;
+  cursor: pointer;
+}
+.menge button:hover { background: var(--marke-hell); }
+.menge-zahl { min-width: 26px; text-align: center; font-weight: 600; }
+
+/* Warenkorb-Maske */
+.korb-zeile {
+  display: grid;
+  grid-template-columns: 54px 1fr auto auto auto;
+  align-items: center;
+  gap: 12px;
+  padding-block: 10px;
+  border-block-end: 1px solid var(--linie);
+}
+.korb-zeile img { width: 54px; height: 54px; object-fit: cover; border-radius: var(--radius-kl); }
+.korb-name { display: grid; line-height: 1.35; }
+.korb-name span { font-size: 13.5px; color: var(--text-leise); }
+.korb-zeilensumme { font-weight: 700; color: var(--titel); min-width: 74px; text-align: end; }
+.korb-entfernen {
+  border: none;
+  background: none;
+  color: var(--fehler);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+}
+.korb-entfernen:hover { background: var(--warn-hg); }
+.korb-fuss {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 14px 4px;
+  font-size: 18px;
+}
+.korb-fuss strong { font-family: var(--schrift-titel); font-size: 24px; color: var(--titel); }
+.korb-zahlarten { font-size: 14px; color: var(--text-leise); margin-block: 4px 0; }
+.korb-zahlarten span {
+  display: inline-block;
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  padding: 1px 10px;
+  margin-inline-end: 4px;
+  font-weight: 600;
+  color: var(--titel);
+}
+.knopf-still {
+  background: none;
+  border: 2px solid var(--linie);
+  color: var(--text-leise);
+}
+.knopf-still:hover { border-color: var(--fehler); color: var(--fehler); }
+.shop-hinweis { margin-block-start: 22px; font-size: 15px; text-align: center; }
+
 /* ---------- Formular ---------- */
 .formular {
   background: var(--flaeche);
@@ -1319,6 +1546,9 @@ body:has(dialog[open]) { overflow: hidden; }
   .held-knoepfe .knopf { width: auto; }
   .karten-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 18px) / 2); gap: 18px; }
+  .kategorien { grid-template-columns: 1fr 1fr; }
+  .produkt-raster { grid-template-columns: 1fr 1fr; }
+  .p-korb { flex: none; }
   /* Sterne, Name und Ort: drei gleich breite Spalten über die volle Tafelbreite */
   .bewertung-zeile {
     grid-template-columns: repeat(3, 1fr);
@@ -1419,6 +1649,8 @@ body:has(dialog[open]) { overflow: hidden; }
 
   .karten-raster { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 40px) / 3); gap: 20px; }  /* 2 Reihen × 3 sichtbare Spalten */
+  .kategorien { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .produkt-raster { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .schritte { grid-template-columns: repeat(4, 1fr); }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .vertrauen-raster { grid-template-columns: repeat(4, 1fr); gap: 22px; }

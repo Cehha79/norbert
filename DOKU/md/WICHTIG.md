@@ -24,6 +24,14 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
   Drittservern lädt — das ist ein Qualitätsmerkmal, nicht vergessen bei Erweiterungen.
 - Impressum und Datenschutz sind noch **Entwurf** (Platzhalter) — vor dem
   Livegang befüllen und prüfen.
+- **PRODUKTE-SEITE = komplett MUSTER + rechtlich VOR Livegang klären!**
+  Alle 90 Artikel, Preise, Bewertungen und Lager-Angaben auf produkte.html
+  sind erfunden (Hasans Wunsch, nur zur Ansicht) — vor Livegang durch
+  Norberts echtes Sortiment ersetzen oder Seite abschalten. Rechtlich
+  nötig, sobald echt verkauft wird: Preisangaben (USt/Grundpreis),
+  Widerrufsbelehrung, AGB, ggf. „zahlungspflichtig bestellen"-Button
+  (aktuell bewusst nur unverbindliche Anfrage per WhatsApp/E-Mail —
+  kein Kaufabschluss auf der Seite, kein Bezahlsystem).
 - **MUSTER-BEWERTUNGEN vor dem Livegang entfernen!** Die 18 Kundenstimmen
   auf kundenstimmen.html sind erfundene Layout-Muster (Hasans Wunsch, nur
   zum Wirkungstest; jede trägt ein „Beispiel"-Etikett). Erfundene

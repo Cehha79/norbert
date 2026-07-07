@@ -148,6 +148,26 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   längeren Text unter die Text-Spalte → Klasse `.portraet`
   (mobil 4:5, ab 840 px `aspect-ratio: auto` + stretch = volle
   Zeilenhöhe, object-fit cover). Cache `?v=48`.
+- **NEU: Produkte-Seite (Shop)** — Hasans Auftrag: Reiter „Produkte"
+  zwischen Leistungen und Über mich (alle 8 Seiten), Warenkorb-Knopf
+  in der Kopfleiste rechts neben Hell/Dunkel (44-px-Kreis, gelbes
+  Zähler-Badge, auf allen Seiten; führt zu produkte.html, dort öffnet
+  er die Warenkorb-Maske). produkte.html: Vorteils-Zeile (Übergabe,
+  Zahlung Bar/Rechnung/PayPal, Beratung), **9 Bereichs-Tafeln**
+  (Werkzeuge, Cremes, Elektrische Geräte, Fußbäder, Nagelpflege,
+  Hornhaut & Peeling, Komfort, Hygiene, Geschenke/Gutscheine — je
+  Kennfarbe + Icon + Artikelzahl, aktive Tafel markiert),
+  **90 Muster-Produkte** (je 10) mit Foto, Sterne-Bewertung,
+  Beschreibung, Inhalt/Grundpreis, Lager-Status, Badge (Bestseller/
+  Neu), Preis, Mengen-Stepper, „In den Warenkorb"; Sortierung
+  (Beliebt/Preis/Name). **Warenkorb**: localStorage `nf-warenkorb`,
+  Maske mit Positionen (Menge ±, Entfernen, Zeilensummen), Gesamt,
+  Zahlarten-Chips, Leeren, Bestellung als unverbindliche **Anfrage per
+  WhatsApp/E-Mail** (kein Bezahlsystem). Technik: js/produkte.js (v1,
+  Daten + Logik), main.js v8 (globales Badge), 9 Pexels-Kategorie-
+  Fotos lokal (bilder/shop-*.jpg, Lizenz frei), Muster-Hinweis auf der
+  Seite als Platzhalter-Text. Funktionstest bestanden: 1×49,90 +
+  2×24,90 = 99,70 € korrekt, Badge zeigt 3. Cache `?v=50`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).

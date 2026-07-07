@@ -173,6 +173,19 @@
       });
     });
 
+    /* ---------- Warenkorb-Zähler in der Kopfleiste ---------- */
+    window.nfKorbBadge = function () {
+      var zahl = document.querySelector('.korb-zahl');
+      if (!zahl) return;
+      var korb = {};
+      try { korb = JSON.parse(localStorage.getItem('nf-warenkorb')) || {}; } catch (e) {}
+      var summe = 0;
+      Object.keys(korb).forEach(function (k) { summe += korb[k]; });
+      zahl.textContent = summe;
+      zahl.hidden = summe === 0;
+    };
+    window.nfKorbBadge();
+
     /* ---------- Jahr in der Fußleiste ---------- */
     var jahr = document.querySelector('[data-jahr]');
     if (jahr) jahr.textContent = new Date().getFullYear();
