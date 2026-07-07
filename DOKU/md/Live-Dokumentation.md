@@ -444,6 +444,13 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   2 Spalten mobil / 6 ab 1000 px; lk-blau/gruen/gold/petrol/rot/
   orange, Tafel-Optik mit 4-px-Oberlinie), bündig über der
   Karten-Tafel. Cache `?v=67`.
+- **Sozial-Leiste im Held verkleinert** (Hasan: kleiner in Höhe und
+  Breite, aber schön unter den Haupt-Knöpfen; „die unteren sollten
+  ja kleiner sein als die oberen"): von voller Spaltenbreite/48–52 px
+  auf **38–40 px Höhe und max. 140 px Breite** je Knopf, als
+  Flex-Zeile mit `space-between` — außen bündig mit „Termin
+  anfragen"/„Leistungen & Preise", Symbole 20–22 px.
+  Größen-Hierarchie oben→unten stimmt wieder. Cache `?v=68`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
