@@ -33,9 +33,9 @@
     if (videoGrund) {
       var setzeGrundVideo = function () {
         var art = istDunkel() ? 'dunkel' : 'hell';
-        videoGrund.poster = 'bilder/hintergrund-schaum-' + art + '.jpg';
+        videoGrund.poster = 'bilder/hintergrund-' + art + '.jpg?v=3';
         if (ruhig) return;                    /* reduzierte Bewegung: nur Standbild */
-        var quelle = 'bilder/hintergrund-schaum-' + art + '.mp4?v=2';
+        var quelle = 'bilder/hintergrund-' + art + '.mp4?v=3';
         if (videoGrund.getAttribute('src') !== quelle) {
           videoGrund.setAttribute('src', quelle);
           var p = videoGrund.play();

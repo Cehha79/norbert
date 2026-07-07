@@ -294,6 +294,15 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   slow, `+faststart` (Streaming ohne Aussetzer), je 12–13 MB; Poster
   neu erzeugt. Video-URL trägt jetzt `?v=2` (Browser-Cache!),
   `preload="auto"` am Video-Element. main.js `?v=10`.
+- **Hell-Video getauscht** (Hasan: dunkel passt, hell nicht → Nr. 5
+  Regentropfen am Fenster, Pexels 13292544, Gültekin Kaya): Full-HD-
+  Original (1920×1080) geholt, gleiche Aufbereitung (13-s-Ausschnitt,
+  Palindrom-Schleife, crf 23, faststart, 8,7 MB). Dateien dabei
+  neutral umbenannt (hell ist kein Schaum mehr):
+  `bilder/hintergrund-hell/-dunkel.mp4/.jpg`; alte
+  `hintergrund-schaum-*`-Dateien entfernt (in git-Historie
+  erhalten). Video-/Poster-URLs `?v=3`, main.js `?v=11`.
+  Stand: hell = Regen-Fenster (Nr. 5), dunkel = Bläschen (Nr. 3).
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
