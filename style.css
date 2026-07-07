@@ -1870,9 +1870,9 @@ main a img, .leaflet-container img { cursor: pointer; }
   }
   .held-raster > div:first-child > * { margin-block: 0; }
 
-  /* Eine Einheit: Knöpfe und Sozial-Leiste über die volle Textbreite */
-  .held-knoepfe { flex-wrap: nowrap; gap: 18px; }
-  .held-knoepfe .knopf { flex: 1; }
+  /* Eine Einheit: zwei Hälften; Knöpfe etwas schmaler, mittig über ihren Paaren */
+  .held-knoepfe { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .held-knoepfe .knopf { width: 100%; max-width: 280px; justify-self: center; }
   .sozial-leiste { gap: 18px; }
   .sozial-knopf { height: 40px; }
   .sozial-knopf svg { width: 22px; height: 22px; }
