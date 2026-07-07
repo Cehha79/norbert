@@ -387,10 +387,10 @@ img { max-width: 100%; display: block; }
 .sozial-leiste {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 18px;
 }
 .sozial-knopf {
-  width: 52px; height: 52px;
+  width: 54px; height: 54px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -873,9 +873,20 @@ img { max-width: 100%; display: block; }
    (Menü-Knopf und Aktionsleiste bleiben bis 1000px)
    ============================================================ */
 @media (min-width: 840px) {
-  .held-raster { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; }
+  .held-raster { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 56px; align-items: stretch; }
   .held-bild { aspect-ratio: 4 / 5; max-width: none; }
   .held p.gross { font-size: 20px; }
+
+  /* Text-Spalte über die volle Bildhöhe verteilen:
+     Überschrift oben, Sozial-Leiste unten, gleichmäßige Zwischenräume */
+  .held-raster > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block: 14px;
+  }
+  .held-raster > div:first-child > * { margin-block: 0; }
+  .sozial-leiste { gap: 26px; }
   .kontakt-raster { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .abschnitt-kopf { margin-block-end: 44px; }
