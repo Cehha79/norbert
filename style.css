@@ -814,6 +814,64 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 .abgrenzung strong { color: var(--fehler); }
 
+/* ---------- Abgrenzungs-Vergleich (Leistungs-Seite): Kosmetik vs. Podologie ---------- */
+.vergleich {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-block-end: 30px;
+}
+.vergleich-tafel {
+  --vt: var(--marke);            /* Kennfarbe der Tafel */
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-top: 4px solid var(--vt);
+  border-radius: var(--radius);
+  box-shadow: var(--schatten);
+  padding: 20px 22px 14px;
+}
+@supports (color: color-mix(in srgb, red, blue)) {
+  .vergleich-tafel { border-color: color-mix(in srgb, var(--vt) 35%, var(--linie)); border-top-color: var(--vt); }
+}
+.vt-ja   { --vt: #3e8e5a; }
+.vt-nein { --vt: #b5544a; }
+:root[data-theme="dunkel"] .vt-ja   { --vt: #4a8a63; }
+:root[data-theme="dunkel"] .vt-nein { --vt: #b2645b; }
+.vergleich-kopf { display: flex; align-items: center; gap: 10px; }
+.vergleich-kopf h3 { color: var(--vt); font-size: 21px; margin: 0; }
+.vergleich-zeichen {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-kl);
+  background: var(--vt);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.vergleich-untertitel {
+  margin-block: 6px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-leise);
+}
+.vergleich-tafel ul { list-style: none; margin: 0; padding: 0; }
+.vergleich-tafel li {
+  position: relative;
+  padding-block: 8px;
+  padding-inline-start: 26px;
+  border-block-start: 1px solid var(--linie);
+  font-size: 17px;
+}
+.vergleich-tafel li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 7px;
+  top: 17px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--vt);
+}
+
 /* ---------- Preistabelle (Basis: horizontal wischbar) ---------- */
 .tabelle-rolle { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .preis-tabelle {
@@ -1173,6 +1231,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .sozial-knopf svg { width: 26px; height: 26px; }
   .kontakt-raster { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
+  .vergleich { grid-template-columns: 1fr 1fr; gap: 24px; }
   .abschnitt-kopf { margin-block-end: 44px; }
   .abschnitt-kopf p, .seitenkopf p, .aufruf p { font-size: 19px; }
 }

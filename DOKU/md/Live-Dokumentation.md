@@ -50,6 +50,17 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   (`--marke-hell`, fett); `border-collapse: separate`, damit die runden
   Ecken wirklich greifen. Abschnitts-Abstand global gestrafft:
   `--abstand` von 52–104 px auf 40–68 px. Cache `?v=33`.
+- Abgrenzungs-Bereich professionell umgebaut (Hasans Auftrag „medizinische
+  Sache gut erklären"): zwei symmetrische Vergleichs-Tafeln
+  (`.vergleich`, ab 840 px nebeneinander) — grün „Das übernehme ich"
+  (kosmetische Pflege gesunder Füße) vs. rot „Das gehört in die Podologie"
+  (eingewachsene/verdickte Nägel, Pilz-Verdacht, Warzen, offene Stellen,
+  diabetisches Fußsyndrom); darunter Erklär-Absatz „Warum diese klare
+  Trennung?" (PodG: geschützte Bezeichnungen, staatliche Ausbildung,
+  ärztliche Verordnung) + Hygiene-Satz. Rechtlich weiterhin sauber: der
+  Pflicht-Hinweis bleibt auf der Leistungs-Seite, nur besser sichtbar.
+- Aufruf-Block „Fragen zu einer Leistung?" auf Hasans Wunsch von der
+  Leistungs-Seite entfernt. Cache `?v=34`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
