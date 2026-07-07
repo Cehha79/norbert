@@ -427,6 +427,14 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Platzhalter-Etikett raus, Untertitel „Bestätigung sofort per
   E-Mail". VOR LIVEGANG auf Norberts eigenes Konto tauschen
   (TODO-Kommentar im HTML + TODO.md).
+- **Kontakt-Layout entzerrt** (Hasan: gestreckte, leere Tafeln „das
+  muss besser werden"): Die Kontaktwege sind keine Seiten-Spalte mehr
+  (flex:1 hatte sie auf Formular-Höhe aufgeblasen), sondern eine
+  **Reihe gleich großer Kacheln ÜBER dem Formular** (`.kontakt-wege`:
+  1 Spalte mobil, 2×2 ab 640 px, 4 nebeneinander ab 1000 px mit
+  Symbol-oben-Layout); das Formular sitzt darunter mittig
+  (`.formular-mitte`, max. 920 px). Alte `.kontakt-raster`/
+  `.kontakt-spalte`-Regeln entfernt. Cache `?v=65`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

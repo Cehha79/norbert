@@ -1563,17 +1563,16 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 
 /* ---------- Kontakt-Kacheln (Basis: eine Spalte) ---------- */
-.kontakt-raster {
+/* Kontaktwege als Kennfarben-Kacheln in einer Reihe über dem Formular.
+   Standard-Kennfarbe liegt auf der REIHE, damit lk-Klassen an der Kachel gewinnen. */
+.kontakt-wege {
+  --lk: var(--marke);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 26px;
-  align-items: stretch;
+  gap: 14px;
+  margin-block-end: 26px;
 }
-/* Kontaktwege als Kennfarben-Tafeln – Spalte füllt die volle Formular-Höhe.
-   Standard-Kennfarbe liegt auf der SPALTE, damit lk-Klassen an der Kachel gewinnen. */
-.kontakt-spalte { --lk: var(--marke); display: flex; flex-direction: column; gap: 14px; height: 100%; }
 .kontakt-kachel {
-  flex: 1;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1588,6 +1587,8 @@ body:has(dialog[open]) { overflow: hidden; }
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .kontakt-kachel:hover { transform: translateY(-3px); box-shadow: var(--schatten-gr); color: var(--text); }
+/* Formular mittig unter den Kacheln */
+.formular-mitte { max-width: 920px; margin-inline: auto; }
 .kontakt-symbol {
   width: 46px;
   height: 46px;
@@ -1789,6 +1790,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .karten-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 18px) / 2); gap: 18px; }
   .kachel-raster { grid-template-columns: repeat(2, 1fr); gap: 24px 28px; }
+  .kontakt-wege { grid-template-columns: repeat(2, 1fr); }
   .produkt-raster { grid-template-columns: 1fr 1fr; }
   .p-korb { flex: 1; }
   .p-kauf { flex: 1; }
@@ -1842,7 +1844,8 @@ body:has(dialog[open]) { overflow: hidden; }
   .sozial-leiste { gap: 18px; }
   .sozial-knopf { height: 52px; }
   .sozial-knopf svg { width: 26px; height: 26px; }
-  .kontakt-raster { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; }
+  .kontakt-wege { grid-template-columns: repeat(4, 1fr); }
+  .kontakt-kachel { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px; }
   .karten-tafel { grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr); }
   .karten-feld { min-height: 440px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
