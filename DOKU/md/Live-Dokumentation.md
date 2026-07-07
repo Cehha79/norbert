@@ -61,6 +61,14 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Pflicht-Hinweis bleibt auf der Leistungs-Seite, nur besser sichtbar.
 - Aufruf-Block „Fragen zu einer Leistung?" auf Hasans Wunsch von der
   Leistungs-Seite entfernt. Cache `?v=34`.
+- „Warum diese klare Trennung?" als dritte Vergleichs-Tafel: Kennfarbe
+  **Orange** (`.vt-warum`, hell #c26a35 / dunkel #cd8352), Glühbirnen-
+  Symbol (Hasans Wunsch), volle Breite unter den zwei Tafeln
+  (`grid-column: 1 / -1`), Text im **Blocksatz** mit Silbentrennung,
+  ab 840 px **zweispaltig** (halb so hoch).
+- **Fußleiste fixiert** (ab 1000 px): bleibt beim Scrollen immer sichtbar
+  (`position: fixed` + 62 px Body-Puffer). Mobil bewusst NICHT fixiert —
+  dort sitzt unten bereits die fixe Aktionsleiste. Cache `?v=35`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).

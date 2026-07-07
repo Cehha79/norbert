@@ -833,10 +833,12 @@ body:has(dialog[open]) { overflow: hidden; }
 @supports (color: color-mix(in srgb, red, blue)) {
   .vergleich-tafel { border-color: color-mix(in srgb, var(--vt) 35%, var(--linie)); border-top-color: var(--vt); }
 }
-.vt-ja   { --vt: #3e8e5a; }
-.vt-nein { --vt: #b5544a; }
-:root[data-theme="dunkel"] .vt-ja   { --vt: #4a8a63; }
-:root[data-theme="dunkel"] .vt-nein { --vt: #b2645b; }
+.vt-ja    { --vt: #3e8e5a; }
+.vt-nein  { --vt: #b5544a; }
+.vt-warum { --vt: #c26a35; grid-column: 1 / -1; padding-block-end: 20px; }
+:root[data-theme="dunkel"] .vt-ja    { --vt: #4a8a63; }
+:root[data-theme="dunkel"] .vt-nein  { --vt: #b2645b; }
+:root[data-theme="dunkel"] .vt-warum { --vt: #cd8352; }
 .vergleich-kopf { display: flex; align-items: center; gap: 10px; }
 .vergleich-kopf h3 { color: var(--vt); font-size: 21px; margin: 0; }
 .vergleich-zeichen {
@@ -871,6 +873,19 @@ body:has(dialog[open]) { overflow: hidden; }
   border-radius: 50%;
   background: var(--vt);
 }
+/* Erklär-Tafel: Fließtext im Blocksatz, auf breiten Schirmen zweispaltig */
+.vergleich-text {
+  border-block-start: 1px solid var(--linie);
+  padding-block-start: 12px;
+}
+.vergleich-text p {
+  margin: 0 0 12px;
+  font-size: 17px;
+  color: var(--text-leise);
+  text-align: justify;
+  hyphens: auto;
+}
+.vergleich-text p:last-child { margin-block-end: 0; }
 
 /* ---------- Preistabelle (Basis: horizontal wischbar) ---------- */
 .tabelle-rolle { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -1232,6 +1247,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .kontakt-raster { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .vergleich { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .vergleich-text { columns: 2; column-gap: 40px; }
   .abschnitt-kopf { margin-block-end: 44px; }
   .abschnitt-kopf p, .seitenkopf p, .aufruf p { font-size: 19px; }
 }
@@ -1240,8 +1256,12 @@ body:has(dialog[open]) { overflow: hidden; }
    Erweiterung ab 1000px – Desktop-Navigation, volle Rasterbreite
    ============================================================ */
 @media (min-width: 1000px) {
-  body { padding-block-end: 0; }       /* Aktionsleiste entfällt */
+  body { padding-block-end: 62px; }    /* Platz für die fixe Fußleiste */
   .aktionsleiste { display: none; }
+
+  /* Fußleiste immer sichtbar, egal wie weit man scrollt
+     (mobil bleibt sie normal — dort ist die Aktionsleiste fixiert) */
+  .fuss { position: fixed; inset-inline: 0; bottom: 0; z-index: 40; }
 
   .kopf-innen { min-height: 74px; gap: 12px; }
   .marke { flex-shrink: 0; }           /* Markenname nie abschneiden */
