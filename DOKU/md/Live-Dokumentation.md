@@ -451,6 +451,16 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Flex-Zeile mit `space-between` — außen bündig mit „Termin
   anfragen"/„Leistungen & Preise", Symbole 20–22 px.
   Größen-Hierarchie oben→unten stimmt wieder. Cache `?v=68`.
+- Nachschliff: Sozial-Knöpfe nochmals schmaler (max. 96 px). Und
+  **Bild-Maske für alle Inhaltsbilder** (Hasans Auftrag „alle Bilder
+  müssen beim Anklicken aufgehen zu einer großen Maske"): main.js v17
+  erzeugt EIN gemeinsames `<dialog class="bild-maske">` je Seite;
+  Klick-Delegation auf `main img` (funktioniert dadurch auch für die
+  nachgeladenen Produkt-Karten), ausgenommen verlinkte Bilder
+  (Bereichs-Kacheln), Leaflet-Karte und die Maske selbst. Bild bis
+  1100 px/84 vh, `cursor: zoom-in` als Hinweis, Schließen per X/ESC/
+  Rand-Klick. Getestet: Startseiten-Foto + Produktbild öffnen groß.
+  Cache `?v=69`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

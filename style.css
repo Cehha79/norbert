@@ -514,7 +514,7 @@ img { max-width: 100%; display: block; }
 }
 .sozial-knopf {
   height: 38px;
-  flex: 0 1 140px;
+  flex: 0 1 96px;
   border-radius: var(--radius-kl);
   display: grid;
   place-items: center;
@@ -1222,6 +1222,20 @@ body:has(dialog[open]) { overflow: hidden; }
 @supports (background: color-mix(in srgb, red 50%, transparent)) {
   .hintergrund-video::after { background: color-mix(in srgb, var(--grund) 74%, transparent); }
   :root[data-theme="dunkel"] .hintergrund-video::after { background: color-mix(in srgb, var(--grund) 70%, transparent); }
+}
+
+/* Bild-Maske: Inhaltsbilder öffnen per Klick groß */
+main img { cursor: zoom-in; }
+main a img, .leaflet-container img { cursor: pointer; }
+.bild-maske { width: min(1100px, 94vw); max-width: none; padding: 12px; }
+.bild-maske img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 84vh;
+  object-fit: contain;
+  border-radius: var(--radius-kl);
+  cursor: default;
 }
 
 /* Bild-Hintergrund (Kontakt): festes Foto hinter dem Inhalt, Schleier wie beim Video */

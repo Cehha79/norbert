@@ -271,6 +271,33 @@
       });
     });
 
+    /* ---------- Bild-Maske: jedes Inhaltsbild öffnet per Klick groß ----------
+       Ein gemeinsames <dialog> für alle Seiten; per Delegation, damit auch
+       nachträglich gerenderte Bilder (Produkt-Karten) funktionieren. */
+    if (window.HTMLDialogElement) {
+      var bildMaske = document.createElement('dialog');
+      bildMaske.className = 'maske bild-maske';
+      bildMaske.innerHTML =
+        '<button type="button" class="maske-schliessen" aria-label="Schließen">&times;</button>' +
+        '<img alt="">';
+      document.body.appendChild(bildMaske);
+      var maskenBild = bildMaske.querySelector('img');
+      bildMaske.querySelector('.maske-schliessen').addEventListener('click', function () { bildMaske.close(); });
+      bildMaske.addEventListener('click', function (e) {
+        if (e.target === bildMaske) bildMaske.close();
+      });
+      document.addEventListener('click', function (e) {
+        var bild = e.target.closest('main img');
+        if (!bild) return;
+        if (bild.closest('a') ||                      /* verlinkte Bilder behalten ihr Ziel */
+            bild.closest('.leaflet-container') ||     /* Karte */
+            bild.closest('.bild-maske')) return;      /* die Maske selbst */
+        maskenBild.src = bild.currentSrc || bild.src;
+        maskenBild.alt = bild.alt || '';
+        if (!bildMaske.open) bildMaske.showModal();
+      });
+    }
+
     /* ---------- Warenkorb-Zähler in der Kopfleiste ---------- */
     window.nfKorbBadge = function () {
       var zahl = document.querySelector('.korb-zahl');
