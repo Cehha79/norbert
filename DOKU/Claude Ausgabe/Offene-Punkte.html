@@ -17,7 +17,12 @@
   }
   .rahmen { max-width: 880px; margin-inline: auto; }
   h1 { font-size: 30px; margin-block-end: 4px; }
-  .stand { color: var(--leise); margin-block-end: 28px; }
+  .stand { color: var(--leise); margin-block-end: 20px; }
+  .live {
+    background: #eaf3ec; border: 1px solid #bcd8c4; border-radius: 10px;
+    padding: 14px 18px; margin-block-end: 24px; font-size: 15.5px;
+  }
+  .live a { color: var(--tinte); }
   section {
     background: var(--flaeche); border: 1px solid var(--linie);
     border-block-start: 4px solid var(--kante, var(--blau));
@@ -46,7 +51,15 @@
 <div class="rahmen">
 
 <h1>Offene Punkte — Norberts mobile Fußpflege</h1>
-<p class="stand">Stand: 7. Juli 2026 · Quelle: DOKU/md/TODO.md · Erledigtes ist hier ausgeblendet</p>
+<p class="stand">Stand: 7. Juli 2026, abends · Quelle: DOKU/md/TODO.md · Erledigtes ist ausgeblendet</p>
+
+<div class="live">
+  <strong>Die Website ist auf GitHub Pages live (Staging):</strong><br>
+  <a href="https://cehha79.github.io/norberts-mobile-fusspflege/">cehha79.github.io/norberts-mobile-fusspflege</a>
+  — 7 Sprachen inkl. Shop, og-Teilen-Bild, sitemap, App-Icon.
+  Suchmaschinen sind per robots.txt gesperrt, solange Muster-Daten drauf sind.
+  Der DOKU-Ordner liegt NICHT im öffentlichen Repo.
+</div>
 
 <section class="pflicht">
   <h2>Pflicht vor dem Livegang<span class="etikett">rechtlich / kritisch</span></h2>
@@ -55,9 +68,9 @@
     <li><strong>Muster-Bewertungen löschen:</strong> die 18 Kundenstimmen sind Layout-Muster („Beispiel"-Etikett) — erfundene Bewertungen sind abmahnfähig (UWG). Echte, freigegebene Stimmen einpflegen.</li>
     <li><strong>Widerrufsbelehrung + AGB schreiben:</strong> die zwei Verweise in der Kasse zeigen noch auf „#" — ohne echte Texte kein echter Verkauf. <span class="wo">kasse.html + alle 6 Sprach-Kassen.</span></li>
     <li><strong>Übersetzungen gegenlesen lassen:</strong> alle 6 Sprachen sind KI-übersetzt — Türkisch kannst du selbst, Polnisch ideal Norbert; für en/ru/ar/zh Muttersprachler suchen.</li>
-    <li><strong>Cal.com auf Norberts Konto umstellen:</strong> aktuell läuft die Terminbuchung über dein Test-Konto (cal.com/hasan-tepegoz-dzm3vx). <span class="wo">Anleitung: DOKU/Claude Ausgabe/Anleitung-Terminbuchung.html.</span></li>
+    <li><strong>Cal.com auf Norberts Konto umstellen:</strong> aktuell läuft die Terminbuchung über dein Test-Konto. <span class="wo">Anleitung: DOKU/Claude Ausgabe/Anleitung-Terminbuchung.html.</span></li>
     <li><strong>PayPal-Platzhalter ersetzen:</strong> der PayPal-Knopf öffnet paypal.me/NorbertsFusspflege (erfunden) — Norberts echten PayPal.Me-Namen eintragen.</li>
-    <li><strong>Impressum/Datenschutz-Schlussprüfung:</strong> Grundausbau fertig — nur noch Entwurfs-Kästen entfernen, Stand-Datum setzen, § 19 mit Norbert gegenprüfen.</li>
+    <li><strong>Impressum/Datenschutz-Schlussprüfung:</strong> Entwurfs-Kästen entfernen, Stand-Datum setzen, § 19 mit Norbert gegenprüfen.</li>
   </ul>
 </section>
 
@@ -73,22 +86,20 @@
 </section>
 
 <section class="livegang">
-  <h2>Technik beim Livegang<span class="etikett">GitHub Pages → Domain</span></h2>
+  <h2>Beim Livegang (Domain-Umzug)<span class="etikett">Technik</span></h2>
   <ul>
-    <li><strong>Open-Graph-Bild + og:-Metadaten</strong> — damit die Seite beim Teilen (WhatsApp!) schön aussieht.</li>
-    <li><strong>sitemap.xml + robots.txt</strong> anlegen (wie bei MikaTec).</li>
-    <li><strong>App-Icons</strong> in weiteren Größen ergänzen (Favicon ist da).</li>
-    <li><strong>Ablauf:</strong> erst GitHub Pages, wenn alles fertig ist → richtige Domain (norberts-mobile-fusspflege.de).</li>
+    <li><strong>Domain aufschalten:</strong> norberts-mobile-fusspflege.de von Strato auf GitHub Pages (CNAME-Datei ins Repo + DNS-Einträge) — wie bei mika-tec.com.</li>
+    <li><strong>robots.txt freischalten:</strong> die Staging-Sperre (Disallow /) entfernen — die fertigen Zeilen stehen als Kommentar in der Datei.</li>
+    <li><strong>Datenschutz:</strong> Stand-Datum setzen.</li>
   </ul>
 </section>
 
 <section class="pruefung">
-  <h2>Schluss-Prüfung (Phase 5)<span class="etikett">vor Übergabe</span></h2>
+  <h2>Schluss-Prüfung<span class="etikett">vor Übergabe</span></h2>
   <ul>
-    <li>Beide Themen (hell/dunkel) auf allen Seiten durchsehen.</li>
-    <li>Responsive prüfen: 375 px (Handy), 768 px (Tablet), 1280 px (Desktop).</li>
+    <li>Beide Themen (hell/dunkel) auf allen Seiten durchsehen. <span class="wo">Stichproben hell/dunkel + Handy 375 px (Kopfleisten-Überlauf behoben) sind gemacht.</span></li>
     <li>Kontraste messen (Ziel WCAG AA, 4,5:1 im Fließtext).</li>
-    <li>Alle Links klicken (intern, tel:, WhatsApp), Formular-Pflichtfelder testen.</li>
+    <li>Alle Links auf Echtgeräten klicken (tel:, WhatsApp-Direktstart am Handy!), Formular-Pflichtfelder testen.</li>
     <li>Rechtstexte gegen die Wortwahl-Regeln aus WICHTIG.md prüfen (PodG!).</li>
   </ul>
 </section>
@@ -99,11 +110,11 @@
     <li><strong>E-Mail-Anbindung über API:</strong> Bestellung automatisch als E-Mail mit PDF-Auftrag an Norbert (braucht Dienst/Backend).</li>
     <li><strong>Echter PayPal-Checkout</strong> statt PayPal.Me-Link.</li>
     <li><strong>Formular-Dienst</strong> nur falls Norbert Anfragen ohne WhatsApp/Mail-Programm möchte.</li>
-    <li><strong>Shop-Seiten der Rechtstexte:</strong> Impressum/Datenschutz bleiben bewusst deutsch — Übersetzung optional.</li>
+    <li><strong>Impressum/Datenschutz übersetzen</strong> — bleiben vorerst bewusst deutsch.</li>
   </ul>
 </section>
 
-<p class="fuss">Merkregel: Text-Änderungen an den Inhaltsseiten immer in alle 6 Sprachordner nachziehen — beim Shop zusätzlich js/shop-&lt;code&gt;.js.</p>
+<p class="fuss">Merkregeln: Text-Änderungen immer in alle 6 Sprachordner nachziehen (Shop: zusätzlich js/shop-&lt;code&gt;.js) · Veröffentlichungs-Ablauf steht im lokalen README.md · nach CSS/JS-Änderung ?v= hochzählen.</p>
 
 </div>
 </body>

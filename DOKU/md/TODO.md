@@ -108,7 +108,13 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   Verweise in der Kassen-Einwilligung zeigen auf `#` (Platzhalter-Optik
   am 07.07. auf Hasans Wunsch entfernt; ohne echte Texte kein echter
   Verkauf!). Gilt für kasse.html UND alle 6 Sprach-Kassen
-- [ ] Ablauf laut Hasan: erst GitHub Pages, wenn fertig → richtige Domain
+- [x] GitHub Pages LIVE (07.07., Staging): Repo
+  `Cehha79/norberts-mobile-fusspflege` (öffentlich, NUR Website — ohne
+  DOKU/CLAUDE.md/server.py), https://cehha79.github.io/norberts-mobile-fusspflege/
+  — geprüft (Startseite, tr-Shop, CSS, og-Bild, robots-Sperre, DOKU=404);
+  Veröffentlichungs-Ablauf steht im lokalen README.md
+- [ ] Beim Livegang: Domain norberts-mobile-fusspflege.de aufschalten
+  (CNAME ins Repo + DNS bei Strato), robots.txt freischalten
 
 ## Prüfung (Phase 5)
 

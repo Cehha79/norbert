@@ -120,6 +120,7 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 <li><code>sitemap.xml</code> (65 URLs, hreflang-Alternativen, xmllint-geprüft) und <code>robots.txt</code> mit <strong>Staging-Sperre</strong> (Disallow / solange Muster-Daten; Livegang-Fassung als Kommentar darin).</li>
 <li><strong>Handy-Kopfleiste repariert:</strong> unter 480 px waren Logo (62 px) + Menü + 3 Rund-Knöpfe zusammen ~464 px breit → Überlauf. Neue Media-Query: Logo 46 px, Abstände 6 px, Menü-Knopf kompakter — Klickflächen bleiben 44 px. Bei echten 375 px jetzt überlauffrei (scrollWidth = 375). Cache <code>?v=79</code>.</li>
 <li>WICHTIGER MESS-MERKER: Headless-Chrome hat ~500 px <strong>Mindest-Fensterbreite</strong> — „375-px-Screenshots" sind in Wahrheit 500 px (rechts beschnitten) und Media-Queries unter 500 greifen nicht! Für echte Handy-Messungen die Seite in einen 375-px-iframe laden (rahmen_t.html-Trick).</li>
+<li><strong>GitHub Pages live (Staging):</strong> öffentliches Repo <code>Cehha79/norberts-mobile-fusspflege</code> mit frischer Historie und NUR der Website (rsync ohne DOKU/, CLAUDE.md, server.py; eigenes Kurz-README); Pages auf main aktiviert. Verifiziert per curl: Startseite 200, tr/produkte 200, style v=79, og-bild, robots.txt mit Staging-Sperre aktiv, /DOKU/ = 404. Wiederholbarer Veröffentlichungs-Ablauf im lokalen README.md dokumentiert. Staging-Adresse: https://cehha79.github.io/norberts-mobile-fusspflege/</li>
 </ul>
 <h2>2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub</h2>
 <ul>

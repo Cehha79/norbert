@@ -643,6 +643,14 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
     500 px (rechts beschnitten) und Media-Queries unter 500 greifen
     nicht! Für echte Handy-Messungen die Seite in einen 375-px-iframe
     laden (rahmen_t.html-Trick).
+- **GitHub Pages live (Staging):** öffentliches Repo
+  `Cehha79/norberts-mobile-fusspflege` mit frischer Historie und NUR
+  der Website (rsync ohne DOKU/, CLAUDE.md, server.py; eigenes
+  Kurz-README); Pages auf main aktiviert. Verifiziert per curl:
+  Startseite 200, tr/produkte 200, style v=79, og-bild, robots.txt
+  mit Staging-Sperre aktiv, /DOKU/ = 404. Wiederholbarer
+  Veröffentlichungs-Ablauf im lokalen README.md dokumentiert.
+  Staging-Adresse: https://cehha79.github.io/norberts-mobile-fusspflege/
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
