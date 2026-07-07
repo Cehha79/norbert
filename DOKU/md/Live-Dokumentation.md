@@ -43,6 +43,13 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   H1 kleiner (clamp 27–40 px statt bis 52), Untertext max. 560 px breit,
   Abstände gestrafft (`padding-block` 24–40/14–22 px), Inline-Abstand zum
   ersten Abschnitt einheitlich 16 px auf allen 6 Unterseiten. Cache `?v=32`.
+- Preistabelle aufgewertet (Hasan: „Spalten-Linien rein, bessere Tabelle"):
+  Spalten-Linien, goldene Linie unter der Kopfzeile, Zebra-Streifen
+  (helle + dunkle Variante), Dauer-Spalte mittig mit fester Breite,
+  Preis-Spalte rechts, Anfahrt-Zeile als hervorgehobene Schluss-Zeile
+  (`--marke-hell`, fett); `border-collapse: separate`, damit die runden
+  Ecken wirklich greifen. Abschnitts-Abstand global gestrafft:
+  `--abstand` von 52–104 px auf 40–68 px. Cache `?v=33`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
