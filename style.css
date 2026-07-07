@@ -70,7 +70,7 @@
   /* Flächen */
   --grund:       #eeece6;   /* Seitengrund – warmes, ruhiges Papierweiß */
   --flaeche:     #faf9f5;   /* Karten, Formulare, Kopfleiste */
-  --sektion:     #e4e8e9;   /* Wechsel-Abschnitte */
+  --sektion:     #e7e4dc;   /* Wechsel-Abschnitte – warm, passend zum Grund */
   --kopf-hg:     rgba(250, 249, 245, 0.95);
 
   /* Marke */
@@ -900,7 +900,7 @@ img { max-width: 100%; display: block; }
   padding-block: 16px;
   font-size: 15px;
 }
-.fuss a { color: #fff; }
+.fuss a { color: #fff; text-decoration: none; }
 .fuss a:hover { color: #d9bd77; }
 .fuss-innen {
   display: flex;
@@ -1022,7 +1022,7 @@ img { max-width: 100%; display: block; }
   .nav-knopf { display: none; }
 
   /* Navigation dauerhaft sichtbar, beginnt direkt am Logo */
-  .kopf-innen { justify-content: flex-start; gap: 12px; }
+  .kopf-innen { justify-content: flex-start; gap: 34px; }
   .kopf-rechts { margin-inline-start: auto; }
   .hauptnav ul { margin-inline-start: -10px; }  /* Link-Innenabstand ausgleichen */
   .hauptnav {
