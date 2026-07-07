@@ -33,6 +33,15 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 <h1>Live-Dokumentation</h1>
 <h2>Aufgabe dieser Datei</h2>
 <p>Chronik der Arbeit am Projekt — neueste Einträge oben.</p>
+<h2>2026-07-07 (vormittags) — Leistungs-Tafeln farbig + Detail-Masken mit Fotos</h2>
+<ul>
+<li><strong>Leistungs-Tafeln</strong> (leistungen.html) überarbeitet: jede Tafel hat eine Kennfarbe (<code>--lk</code>: Blau/Grün/Gold, dunkle Varianten wie die Vertrauens-Kreise) — farbige Linie oben, getönter Rand (color-mix mit Fallback), Symbol-Kachel und Überschrift in der Kennfarbe. Preiszeile in allen Tafeln <strong>unten bündig</strong> (Flex + <code>margin-block-start: auto</code>) mit Trennlinie und „Details ansehen ›".</li>
+<li><strong>Detail-Masken:</strong> Klick/Enter/Leertaste auf eine Tafel öffnet ein natives <code>&lt;dialog&gt;</code> (<code>.maske</code>) mit Foto (16:9), Eckdaten-Chips (Dauer/Preis/Anfahrt), ausführlicher Beschreibung, Ablauf-Liste, „Gut zu wissen"-Hinweis (rechtssicher: kosmetisch, keine Heilkunde) und Termin-Knopf. Schließen: X, ESC, Klick auf den Rand. JS in main.js (<code>?v=3</code>), Fallback: ohne <code>showModal</code> bleibt alles wie bisher.</li>
+<li><strong>Fotos:</strong> Agent-Recherche auf Pexels (Lizenz: kommerziell frei, keine Namensnennung nötig, https://www.pexels.com/license/). Eingebaut in <code>bilder/</code>: <code>leistung-fusspflege.jpg</code> (Foto 5619459, Nico Becker), <code>leistung-massage.jpg</code> (5793925, Yan Krukau), <code>leistung-reflexzonen.jpg</code> (5793976, Yan Krukau) — je 1600 px, lokal, keine Fremdabrufe. Können später gegen echte Norbert-Fotos getauscht werden.</li>
+<li>Fehler behoben: <code>width/height</code>-Attribute des Masken-Bilds hebelten das 16:9-Verhältnis aus (Präsentations-Höhe) → <code>height: auto</code> im CSS.</li>
+<li><code>server.py</code>: Standard-Port jetzt <strong>8081</strong> (+ Port-Argument, chdir zum Skript-Ordner) — unter 8080 läuft auf diesem Mac der MikaTec-Server, der sich Port 8080 automatisch zurückholt. Cache <code>?v=30</code> (style) / <code>?v=3</code> (main.js) jetzt wieder auf <strong>allen</strong> 7 Seiten einheitlich (waren auseinandergelaufen: nur index auf v=29, Rest v=7).</li>
+<li>Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber. Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome (Testartefakt, kein Seitenfehler).</li>
+</ul>
 <h2>2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub</h2>
 <ul>
 <li>Feinschliff-Serie nach Hasans Screenshots: Firmenname aus der Kopfleiste in den Held (große Hauptüberschrift, Slogan kleiner), Sprachauswahl als runder Flaggen-Knopf ganz rechts (DE/EN/PL/AR/ZH, Verweise noch Platzhalter), Kopf- und Fußleiste schwarz-metallisch- glasig, Vertrauensbereich als 4 Tafeln baugleich zu den Schritt-Karten (farbige Symbol-Kreise außen), Sozial-Kacheln statt Kreise, eine einzige Hintergrund-Ebene, Fließtexte hell = richtig schwarz.</li>

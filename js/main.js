@@ -92,6 +92,24 @@
       });
     }
 
+    /* ---------- Leistungs-Masken (Detail-Fenster) ---------- */
+    document.querySelectorAll('[data-maske]').forEach(function (tafel) {
+      var maske = document.getElementById(tafel.getAttribute('data-maske'));
+      if (!maske || typeof maske.showModal !== 'function') return;
+      function oeffnen() { maske.showModal(); }
+      tafel.addEventListener('click', oeffnen);
+      tafel.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); oeffnen(); }
+      });
+    });
+    document.querySelectorAll('dialog.maske').forEach(function (maske) {
+      var zu = maske.querySelector('.maske-schliessen');
+      if (zu) zu.addEventListener('click', function () { maske.close(); });
+      maske.addEventListener('click', function (e) {
+        if (e.target === maske) maske.close();   /* Klick auf den abgedunkelten Rand */
+      });
+    });
+
     /* ---------- Jahr in der Fußleiste ---------- */
     var jahr = document.querySelector('[data-jahr]');
     if (jahr) jahr.textContent = new Date().getFullYear();

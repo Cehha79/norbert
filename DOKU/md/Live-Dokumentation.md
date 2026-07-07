@@ -6,6 +6,38 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (vormittags) — Leistungs-Tafeln farbig + Detail-Masken mit Fotos
+
+- **Leistungs-Tafeln** (leistungen.html) überarbeitet: jede Tafel hat eine
+  Kennfarbe (`--lk`: Blau/Grün/Gold, dunkle Varianten wie die
+  Vertrauens-Kreise) — farbige Linie oben, getönter Rand (color-mix mit
+  Fallback), Symbol-Kachel und Überschrift in der Kennfarbe. Preiszeile
+  in allen Tafeln **unten bündig** (Flex + `margin-block-start: auto`)
+  mit Trennlinie und „Details ansehen ›".
+- **Detail-Masken:** Klick/Enter/Leertaste auf eine Tafel öffnet ein
+  natives `<dialog>` (`.maske`) mit Foto (16:9), Eckdaten-Chips
+  (Dauer/Preis/Anfahrt), ausführlicher Beschreibung, Ablauf-Liste,
+  „Gut zu wissen"-Hinweis (rechtssicher: kosmetisch, keine Heilkunde)
+  und Termin-Knopf. Schließen: X, ESC, Klick auf den Rand. JS in
+  main.js (`?v=3`), Fallback: ohne `showModal` bleibt alles wie bisher.
+- **Fotos:** Agent-Recherche auf Pexels (Lizenz: kommerziell frei, keine
+  Namensnennung nötig, https://www.pexels.com/license/). Eingebaut in
+  `bilder/`: `leistung-fusspflege.jpg` (Foto 5619459, Nico Becker),
+  `leistung-massage.jpg` (5793925, Yan Krukau),
+  `leistung-reflexzonen.jpg` (5793976, Yan Krukau) — je 1600 px, lokal,
+  keine Fremdabrufe. Können später gegen echte Norbert-Fotos getauscht
+  werden.
+- Fehler behoben: `width/height`-Attribute des Masken-Bilds hebelten das
+  16:9-Verhältnis aus (Präsentations-Höhe) → `height: auto` im CSS.
+- `server.py`: Standard-Port jetzt **8081** (+ Port-Argument, chdir zum
+  Skript-Ordner) — unter 8080 läuft auf diesem Mac der MikaTec-Server,
+  der sich Port 8080 automatisch zurückholt. Cache `?v=30` (style) /
+  `?v=3` (main.js) jetzt wieder auf **allen** 7 Seiten einheitlich
+  (waren auseinandergelaufen: nur index auf v=29, Rest v=7).
+- Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
+  Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
+  (Testartefakt, kein Seitenfehler).
+
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
 - Feinschliff-Serie nach Hasans Screenshots: Firmenname aus der

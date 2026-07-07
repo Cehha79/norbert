@@ -6,9 +6,9 @@
 <title>Leistungen &amp; Preise – Norberts mobile Fußpflege Stuttgart</title>
 <meta name="description" content="Leistungen und Preise der mobilen kosmetischen Fußpflege in Stuttgart: Fachfußpflege 48 €, Fußmassage 30 €, Reflexzonen-Wellnessmassage 57 € – beim Hausbesuch.">
 <link rel="icon" type="image/png" href="bilder/logo-klein.png">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=30">
 <script src="js/thema.js"></script>
-<script src="js/main.js?v=2" defer></script>
+<script src="js/main.js?v=3" defer></script>
 </head>
 <body>
 
@@ -65,7 +65,7 @@
 <section class="abschnitt" style="padding-top:40px;">
   <div class="rahmen">
     <div class="karten-raster">
-      <article class="karte einblenden">
+      <article class="karte leistung lk-blau einblenden" data-maske="maske-fusspflege" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="karte-symbol" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/></svg>
         </div>
@@ -73,9 +73,12 @@
         <p>Das Rundum-Programm für gepflegte Füße: entspannendes Fußbad,
         Nägel fachgerecht kürzen und formen, Nagelhautpflege, sanfte
         Hornhautentfernung und abschließende Pflegecreme.</p>
-        <span class="preis">48&nbsp;€</span>
+        <div class="karte-fuss">
+          <span class="preis">48&nbsp;€</span>
+          <span class="mehr">Details ansehen ›</span>
+        </div>
       </article>
-      <article class="karte einblenden">
+      <article class="karte leistung lk-gruen einblenden" data-maske="maske-massage" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="karte-symbol" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 11.1c0 5-6.7 9.3-8.8 10.4-2.1-1.1-8.8-5.4-8.8-10.4a4.9 4.9 0 0 1 8.8-3 4.9 4.9 0 0 1 8.8 3z"/></svg>
         </div>
@@ -83,9 +86,12 @@
         <p>Wohltuende Massage für müde, beanspruchte Füße – lockert,
         entspannt und tut einfach gut. Auch als Ergänzung zur
         Fachfußpflege eine Wohltat.</p>
-        <span class="preis">30&nbsp;€</span>
+        <div class="karte-fuss">
+          <span class="preis">30&nbsp;€</span>
+          <span class="mehr">Details ansehen ›</span>
+        </div>
       </article>
-      <article class="karte einblenden">
+      <article class="karte leistung lk-gold einblenden" data-maske="maske-reflexzonen" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="karte-symbol" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg>
         </div>
@@ -93,9 +99,110 @@
         <p>Die ausgiebige Wohlfühl-Massage über die Reflexzonen der Füße –
         pure Entspannung von den Zehen bis zur Ferse, in Ruhe und ohne
         Zeitdruck.</p>
-        <span class="preis">57&nbsp;€</span>
+        <div class="karte-fuss">
+          <span class="preis">57&nbsp;€</span>
+          <span class="mehr">Details ansehen ›</span>
+        </div>
       </article>
     </div>
+
+    <!-- ========== Detail-Masken (öffnen per Klick auf eine Tafel) ========== -->
+    <dialog class="maske lk-blau" id="maske-fusspflege" aria-labelledby="mf-titel">
+      <img class="maske-bild" src="bilder/leistung-fusspflege.jpg" alt="Fachfußpflege: Fußpflegerin arbeitet mit dem professionellen Gerät an den Zehennägeln" width="1600" height="900">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mf-titel">Fachfußpflege</h3>
+        <ul class="maske-eckdaten">
+          <li>ca. 30 Minuten</li>
+          <li>48&nbsp;€</li>
+          <li>Anfahrt inklusive</li>
+        </ul>
+        <p>Die Fachfußpflege ist das komplette Pflegeprogramm für Ihre Füße –
+        gründlich, sorgfältig und in aller Ruhe bei Ihnen zu Hause. Ich bringe
+        alles mit: hygienisch aufbereitete Instrumente, ein professionelles
+        Fußpflege-Gerät und geprüfte Pflegeprodukte.</p>
+        <h4>So läuft Ihr Termin ab</h4>
+        <ol class="maske-ablauf">
+          <li>Warmes, entspannendes Fußbad zum Einstieg</li>
+          <li>Nägel fachgerecht kürzen und in Form bringen</li>
+          <li>Nagelhaut sanft zurückschieben und pflegen</li>
+          <li>Hornhaut schonend entfernen – für spürbar weiche Haut</li>
+          <li>Abschließende Pflegecreme, kurz einmassiert</li>
+        </ol>
+        <p class="maske-hinweis"><strong>Gut zu wissen:</strong> Ich pflege
+        gesunde Füße (kosmetische Fußpflege). Krankhafte Veränderungen wie
+        eingewachsene Nägel oder offene Stellen gehören in eine podologische
+        Praxis – ich sage Ihnen ehrlich, ob ich helfen kann.</p>
+        <div class="maske-knoepfe">
+          <a class="knopf knopf-voll" href="kontakt.html">Termin anfragen</a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="maske lk-gruen" id="maske-massage" aria-labelledby="mm-titel">
+      <img class="maske-bild" src="bilder/leistung-massage.jpg" alt="Entspannende Fußmassage: zwei Hände massieren sanft einen Fuß" width="1600" height="900">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mm-titel">Entspannende Fußmassage</h3>
+        <ul class="maske-eckdaten">
+          <li><span class="platzhalter">Dauer folgt</span></li>
+          <li>30&nbsp;€</li>
+          <li>Anfahrt inklusive</li>
+        </ul>
+        <p>Eine wohltuende Massage von den Zehen bis zur Ferse: Mit ruhigen
+        Knet- und Streichbewegungen und einer pflegenden Creme lockere ich
+        müde, beanspruchte Füße – nach einem langen Tag auf den Beinen eine
+        echte Wohltat.</p>
+        <h4>Das erwartet Sie</h4>
+        <ol class="maske-ablauf">
+          <li>Ruhige, gleichmäßige Massage beider Füße</li>
+          <li>Druck ganz nach Ihrem Empfinden – sanft oder kräftiger</li>
+          <li>Pflegende Creme, die die Haut geschmeidig hält</li>
+        </ol>
+        <p class="maske-hinweis"><strong>Tipp:</strong> Besonders schön in
+        Kombination mit der Fachfußpflege – erst Pflege, dann Entspannung,
+        alles in einem Termin.</p>
+        <div class="maske-knoepfe">
+          <a class="knopf knopf-voll" href="kontakt.html">Termin anfragen</a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="maske lk-gold" id="maske-reflexzonen" aria-labelledby="mr-titel">
+      <img class="maske-bild" src="bilder/leistung-reflexzonen.jpg" alt="Reflexzonen-Wellnessmassage: gezielter Daumendruck auf die Fußsohle" width="1600" height="900">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mr-titel">Reflexzonen-Wellnessmassage</h3>
+        <ul class="maske-eckdaten">
+          <li><span class="platzhalter">Dauer folgt</span></li>
+          <li>57&nbsp;€</li>
+          <li>Anfahrt inklusive</li>
+        </ul>
+        <p>Die ausgiebigste Anwendung in meinem Programm: Mit gezieltem,
+        angenehmem Daumendruck arbeite ich mich über die Reflexzonen der
+        Fußsohle – von den Zehen bis zur Ferse, ganz ohne Zeitdruck. Viele
+        Kundinnen und Kunden empfinden dabei eine tiefe, ruhige Entspannung
+        am ganzen Körper.</p>
+        <h4>Das erwartet Sie</h4>
+        <ol class="maske-ablauf">
+          <li>Einstimmung mit sanften Streichbewegungen</li>
+          <li>Gezielter Druck auf die Reflexzonen der Fußsohle</li>
+          <li>Ruhiger Ausklang, bis beide Füße entspannt sind</li>
+        </ol>
+        <p class="maske-hinweis"><strong>Gut zu wissen:</strong> Eine reine
+        Wellness-Massage zum Entspannen und Wohlfühlen – keine medizinische
+        Anwendung und kein Ersatz für einen Arztbesuch.</p>
+        <div class="maske-knoepfe">
+          <a class="knopf knopf-voll" href="kontakt.html">Termin anfragen</a>
+        </div>
+      </div>
+    </dialog>
   </div>
 </section>
 
