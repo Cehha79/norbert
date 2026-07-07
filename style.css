@@ -1221,6 +1221,25 @@ body:has(dialog[open]) { overflow: hidden; }
   :root[data-theme="dunkel"] .hintergrund-video::after { background: color-mix(in srgb, var(--grund) 70%, transparent); }
 }
 
+/* Bild-Hintergrund (Kontakt): festes Foto hinter dem Inhalt, Schleier wie beim Video */
+.hintergrund-bild {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: center / cover no-repeat;
+}
+.hintergrund-bild::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(238, 236, 230, 0.6);
+}
+:root[data-theme="dunkel"] .hintergrund-bild::after { background: rgba(12, 16, 18, 0.82); }
+@supports (background: color-mix(in srgb, red 50%, transparent)) {
+  .hintergrund-bild::after { background: color-mix(in srgb, var(--grund) 60%, transparent); }
+  :root[data-theme="dunkel"] .hintergrund-bild::after { background: color-mix(in srgb, var(--grund) 82%, transparent); }
+}
+
 /* Bereichs-Seite (produkt-bereich.html) */
 .seitenkopf-bereich h1 { margin-inline: 0; }
 .zurueck-knopf {
@@ -1550,10 +1569,10 @@ body:has(dialog[open]) { overflow: hidden; }
   gap: 26px;
   align-items: stretch;
 }
-/* Kontaktwege als Kennfarben-Tafeln – Spalte füllt die volle Formular-Höhe */
-.kontakt-spalte { display: flex; flex-direction: column; gap: 14px; height: 100%; }
+/* Kontaktwege als Kennfarben-Tafeln – Spalte füllt die volle Formular-Höhe.
+   Standard-Kennfarbe liegt auf der SPALTE, damit lk-Klassen an der Kachel gewinnen. */
+.kontakt-spalte { --lk: var(--marke); display: flex; flex-direction: column; gap: 14px; height: 100%; }
 .kontakt-kachel {
-  --lk: var(--marke);
   flex: 1;
   display: flex;
   align-items: center;

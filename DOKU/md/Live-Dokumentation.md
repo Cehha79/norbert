@@ -360,8 +360,17 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   bleibt; Platzhalter-Kasten raus. (d) Orte-Zeile neu (Hasans
   Vorgabe): Stuttgart · Ludwigsburg · Gerlingen · Weilimdorf ·
   Umkreis 50 km · … fragen Sie einfach nach. Cache `?v=60`.
-  OFFEN: Hasans gewünschtes Hintergrund-Bild (Tropfen/Blätter) —
-  Datei liegt noch nicht vor.
+- **Kontakt-Hintergrund eingebaut** (Hasans Bild Nr. 10
+  „Milchglas-Tropfen" aus seinem eigenen Ordner
+  ~/Downloads/4k/ — 20 vorbereitete 4k-Hintergründe, KI-generiert,
+  für später merken): auf 1920 px als
+  `bilder/hintergrund-kontakt.jpg` (617 KB), festes Bild hinter dem
+  Inhalt (`.hintergrund-bild`, gleiche Technik wie das Produkte-Video)
+  mit Schleier 60 % hell / 82 % dunkel. Dabei Kennfarben-Fehler
+  behoben: `--lk`-Standard lag auf `.kontakt-kachel` und überstimmte
+  die früher notierten lk-Klassen (gleiche Spezifität, spätere Regel
+  gewinnt) → Standard jetzt auf `.kontakt-spalte`, lk-Klassen an der
+  Kachel greifen wieder. Beide Themen sichtgeprüft. Cache `?v=62`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

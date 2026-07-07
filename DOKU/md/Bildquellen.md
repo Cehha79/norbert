@@ -26,6 +26,13 @@ Foto-Seite je Bild: `https://www.pexels.com/photo/<ID>/`.
 | bilder/kachel-komfort.jpg | 7796990 | Alesia Kozik | Bereichs-Kachel |
 | bilder/kachel-geschenke.jpg | 7356379 | Alina Vilchenko | Bereichs-Kachel |
 
+## Eigene Bilder (kein Pexels)
+
+| Datei | Quelle | Verwendung |
+|---|---|---|
+| bilder/einzugsgebiet.jpg | selbst erzeugt aus OpenStreetMap-Kacheln (© OpenStreetMap-Mitwirkende, ODbL; Attribution steht auf der Seite) | Kontakt: Einzugsgebiets-Karte |
+| bilder/hintergrund-kontakt.jpg | Hasans eigener Bestand (~/Downloads/4k/10-milchglas-tropfen-4k.png, KI-generiert) | Kontakt: Seiten-Hintergrund |
+
 ## Hintergrund-Videos (Pexels Videos)
 
 | Datei | Pexels-ID | Autor | Verwendung |
