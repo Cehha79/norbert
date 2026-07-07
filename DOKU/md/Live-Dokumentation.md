@@ -6,6 +6,21 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (nachts, 5) — Held-Umbau + Sozial-Leiste, Startseite weiter gekürzt
+
+- Überschrift fest zweizeilig: „Gepflegte Füße" / „Bequem bei Ihnen zu
+  Hause" (zweite Zeile bricht nie um, fluide Schriftgröße); klarer
+  Abstands-Rhythmus Überschrift → Text → Knöpfe; Held-Text im
+  **Blocksatz** (Hasans Vorgabe).
+- Neue **Sozial-Leiste** unter den Knöpfen: WhatsApp, YouTube, TikTok in
+  Original-Plattformfarben (Original-Glyphen als Inline-SVG) + Kontakt-Knopf
+  (Telefon-Symbol, Markenfarbe). YouTube/TikTok-Adressen fehlen noch (TODO).
+- Auf Hasans Wunsch zusätzlich von der Startseite entfernt: der
+  „Gut zu wissen"-Abgrenzungskasten (bleibt auf der Leistungs-Seite —
+  rechtlich dort entscheidend) und der Aufruf „Bereit für gepflegte Füße?".
+- Startseite jetzt: Held → Vertrauensleiste → Ablauf → Fußleiste.
+  Cache `?v=8`.
+
 ## 2026-07-07 (nachts, 4) — Startseite entschlackt (Hasans Vorgabe)
 
 - Auf Hasans Wunsch von der Startseite entfernt: Badge „Ausgebildeter

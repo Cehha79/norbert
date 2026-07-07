@@ -27,6 +27,8 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 - [x] Marken-Entscheidung: **B** — Palette Petrol-Blau/Gold passend zum Logo;
   Logo in Kopf- und Fußleiste eingebaut (Tokens umbenannt: `--gruen` →
   `--marke`)
+- [ ] **YouTube- und TikTok-Kanal-Adressen von Norbert** — die zwei
+  Sozial-Knöpfe im Held zeigen bis dahin ins Leere (`href="#"`)
 - [ ] USt-Status fürs Impressum klären (§ 19 UStG Kleinunternehmer?) — „später"
 - [ ] Dauer der Fußmassage und der Reflexzonen-Wellnessmassage erfragen
 - [ ] Erreichbarkeits-Zeiten → `kontakt.html`

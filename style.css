@@ -367,13 +367,43 @@ img { max-width: 100%; display: block; }
   margin-block-end: 18px;
 }
 .held-marke svg { color: var(--akzent); }
-.held p.gross { font-size: 19px; color: var(--text-leise); margin-block: 16px 24px; }
+.held h1 { font-size: clamp(23px, 6.2vw, 36px); margin-block-end: 22px; }
+.held h1 .zeile-fest { white-space: nowrap; }
+.held p.gross {
+  font-size: 19px;
+  color: var(--text-leise);
+  margin-block: 0 26px;
+  text-align: justify;      /* Blocksatz (Hasans Vorgabe) */
+  hyphens: auto;
+}
 .held-knoepfe {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-block-end: 22px;
 }
+
+/* Sozial-Leiste: Plattform-Knöpfe in Original-Farben */
+.sozial-leiste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.sozial-knopf {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: var(--schatten);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sozial-knopf:hover { transform: translateY(-2px); box-shadow: var(--schatten-gr); color: #fff; }
+.sozial-whatsapp { background: #25d366; }
+.sozial-youtube  { background: #ff0000; }
+.sozial-tiktok   { background: #161823; border: 1px solid var(--linie); }
+.sozial-kontakt  { background: var(--marke); }
 .held-knoepfe .knopf { width: 100%; }
 .held-telefon { font-size: 17px; color: var(--text-leise); }
 .held-telefon a { font-weight: 700; font-size: 19px; }
@@ -800,8 +830,8 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .einblenden { opacity: 1; transform: none; transition: none; }
-  .knopf, .karte, .kontakt-kachel { transition: none; }
-  .knopf:hover, .karte:hover, .kontakt-kachel:hover { transform: none; }
+  .knopf, .karte, .kontakt-kachel, .sozial-knopf { transition: none; }
+  .knopf:hover, .karte:hover, .kontakt-kachel:hover, .sozial-knopf:hover { transform: none; }
 }
 
 /* ---------- Seitenkopf (Unterseiten) ---------- */

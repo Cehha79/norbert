@@ -15,8 +15,9 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
 - Heilkunde-Vokabular meiden: „Behandlung von …", „Therapie", „Diagnose",
   „Anamnese". Sichere Wörter: „Pflege", „kosmetische Fußpflege", „Fußpflege
   gesunder Füße".
-- Der Abgrenzungs-Hinweis („keine podologischen Fälle") auf Start- und
-  Leistungs-Seite muss bleiben.
+- Der Abgrenzungs-Hinweis („keine podologischen Fälle") muss auf der
+  **Leistungs-Seite** bleiben (dort wird beworben — rechtlich entscheidend).
+  Von der Startseite wurde er am 07.07. auf Hasans Wunsch entfernt.
 - Schriften nur lokal einbinden (LG München I, Az. 3 O 17493/20) — keine
   Google-Fonts-URL, keine CDN-Skripte, keine Fremdabrufe.
 - Kein Cookie-Banner nötig, solange die Seite statisch bleibt und nichts von
