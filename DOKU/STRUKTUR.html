@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STRUKTUR</title>
+<style>
+:root{
+  --bg:#eef4f0;
+  --paper:#fbfdfc;
+  --text:#1c2620;
+  --muted:#5b6862;
+  --line:#cfdcd4;
+  --soft:#e6efe9;
+  --accent:#2e5f4e;
+  --code:#dde9e2;
+}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.6}
+main{max-width:980px;margin:32px auto;padding:34px 30px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 45px rgba(28,38,32,.08)}
+h1{font-size:36px;margin:0 0 10px;letter-spacing:0} h2{margin-top:34px;border-top:1px solid var(--line);padding-top:22px} h3{margin-top:24px}
+.stamp{color:var(--muted);margin:0 0 28px;font-size:14px}
+p,li{font-size:17px} blockquote{background:var(--soft);border-left:5px solid var(--accent);margin:16px 0;padding:14px 18px;border-radius:8px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#f7fbf8;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top} th{background:var(--soft)} tr:last-child td{border-bottom:0}
+code{background:var(--code);padding:2px 5px;border-radius:5px} pre{background:#edf4ef;color:#1c2620;border:1px solid #cfdcd4;padding:16px;border-radius:10px;overflow:auto}
+pre code{background:transparent;color:inherit;padding:0;border-radius:0}
+@media (max-width:720px){main{margin:0;min-height:100vh;border-radius:0;border-left:0;border-right:0;padding:24px 18px}h1{font-size:30px}}
+</style>
+</head>
+<body><main>
+<div class="stamp">aus STRUKTUR.md aktualisiert am 2026-07-07</div>
+<h1>STRUKTUR</h1>
+<h2>Aufgabe dieser Datei</h2>
+<p>Ordner- und Dateiaufbau des Projekts „Norbert" (Kunden-Website norberts-mobile-fusspflege.de).</p>
+<h2>Dateibaum</h2>
+<table>
+<tr><th>Pfad</th><th>Zweck</th></tr>
+<tr><td><code>index.html</code></td><td>Startseite: Held, Vertrauensleiste, Leistungs-Vorschau, Ablauf, Zahlen, Kundenstimmen-Auszug, Abgrenzung, Aufruf</td></tr>
+<tr><td><code>leistungen.html</code></td><td>Leistungs-Karten, Preistabelle, Anfahrts-Hinweis, Abgrenzung kosmetisch/podologisch (<code>#abgrenzung</code>)</td></tr>
+<tr><td><code>ueber-mich.html</code></td><td>Person, Werdegang (2012/2024/FAY), Stationen, Galerie</td></tr>
+<tr><td><code>kundenstimmen.html</code></td><td>Kundenstimmen (6 Plätze) + FAQ (8 Fragen) + Feedback-Aufruf</td></tr>
+<tr><td><code>kontakt.html</code></td><td>Kontakt-Kacheln (Anruf/WhatsApp/E-Mail/Zeiten), Formular, Einzugsgebiet (<code>#einzugsgebiet</code>)</td></tr>
+<tr><td><code>impressum.html</code></td><td>Pflichtseite § 5 DDG — noch Entwurf mit Platzhaltern, <code>noindex</code></td></tr>
+<tr><td><code>datenschutz.html</code></td><td>Pflichtseite DSGVO — noch Entwurf mit Platzhaltern, <code>noindex</code></td></tr>
+<tr><td><code>style.css</code></td><td>zentrales Stylesheet: Themen-Tokens (hell/dunkel), alle Komponenten, responsive</td></tr>
+<tr><td><code>js/thema.js</code></td><td>synchron im <code>&lt;head&gt;</code>: gespeichertes Thema vor dem ersten Zeichnen setzen (kein Flackern)</td></tr>
+<tr><td><code>js/main.js</code></td><td>Themen-Umschalter, mobiles Menü, Scroll-Einblenden, Zahlen-Zähler, Jahr in Fußleiste</td></tr>
+<tr><td><code>schriften/</code></td><td>Lora + Source Sans 3 als WOFF2 (regular/600/700, latin + latin-ext)</td></tr>
+<tr><td><code>bilder/</code></td><td>Fotos und Kartenbild (noch leer — echte Fotos folgen)</td></tr>
+<tr><td><code>DOKU/</code></td><td>Projekt-Doku: <code>.html</code>-Ansichten hier, Quellen in <code>DOKU/md/</code></td></tr>
+<tr><td><code>CLAUDE.md</code></td><td>Arbeitsanweisungen für Claude Code in diesem Projekt</td></tr>
+<tr><td><code>README.md</code></td><td>Kurzbeschreibung des Projekts</td></tr>
+<tr><td><code>.nojekyll</code></td><td>GitHub Pages: Jekyll-Verarbeitung abschalten</td></tr>
+</table>
+<h2>Aufbau-Prinzipien</h2>
+<ul>
+<li>Flache Struktur wie bei <code>WEB/MikaTec</code>: jede Seite eine eigene HTML-Datei, ein gemeinsames Stylesheet, gemeinsames JS.</li>
+<li>Kopfleiste, Fußleiste und mobile Aktionsleiste sind auf allen Seiten identisch — bei Änderungen <strong>alle sieben Seiten</strong> anfassen.</li>
+<li>Design nur über die Tokens am Anfang von <code>style.css</code> steuern (<code>--gruen</code>, <code>--grund</code>, <code>--flaeche</code> …) — nie Farbwerte im HTML verstreuen.</li>
+<li>DOKU-HTML wird aus <code>DOKU/md/*.md</code> erzeugt (Konverter-Skript, siehe REGELN).</li>
+</ul>
+</main></body>
+</html>

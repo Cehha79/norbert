@@ -1,0 +1,807 @@
+/* ============================================================
+   Norberts mobile Fußpflege – zentrales Stylesheet
+   Design: sauber, vertrauensbildend (Pflege/Gesundheit)
+   Zielgruppe 45+: hoher Kontrast, große Schrift, große Knöpfe
+   Themen: Hell (Standard, gedämpft warm) + Dunkel (data-theme)
+   ============================================================ */
+
+/* ---------- Schriften (lokal, DSGVO-konform) ---------- */
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("schriften/lora-v37-latin_latin-ext-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("schriften/lora-v37-latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("schriften/lora-v37-latin_latin-ext-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("schriften/source-sans-3-v19-latin_latin-ext-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("schriften/source-sans-3-v19-latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("schriften/source-sans-3-v19-latin_latin-ext-700.woff2") format("woff2");
+}
+
+/* ============================================================
+   Design-Tokens – Thema HELL (Standard, bewusst gedämpft)
+   ============================================================ */
+:root {
+  color-scheme: light;
+
+  /* Flächen */
+  --grund:       #efece4;   /* Seitengrund – warmes, ruhiges Papierweiß */
+  --flaeche:     #faf8f3;   /* Karten, Formulare, Kopfleiste */
+  --sektion:     #e7ebe2;   /* Wechsel-Abschnitte */
+  --kopf-hg:     rgba(250, 248, 243, 0.95);
+
+  /* Marke */
+  --gruen:       #2e5f4e;   /* Knöpfe, Badges (weiße Schrift darauf) */
+  --gruen-hover: #22463a;
+  --gruen-hell:  #dde7de;   /* Symbol-Flächen, Chips */
+  --titel:       #22463a;   /* Überschriften */
+  --akzent:      #2e5f4e;   /* Links, Symbole */
+  --akzent-hover:#1b3a2e;
+  --sand:        #a87f3e;   /* sparsamer warmer Akzent, Sterne */
+
+  /* Text */
+  --text:        #262d29;
+  --text-leise:  #525c56;
+  --linie:       #d6d9cf;
+
+  /* Meldungen */
+  --fehler:      #a33d2e;
+  --hinweis-hg:  #dde7de;
+  --warn-hg:     #f3e7e0;
+  --platzhalter-hg: #f4ecd9;
+
+  /* Dunkle Bereiche (Aufruf/Fußleiste – in beiden Themen dunkel) */
+  --tief:        #1d3a2f;
+  --tief-2:      #2e5f4e;
+  --tief-text:   #cfdcd4;
+
+  /* Schrift */
+  --schrift-titel: "Lora", Georgia, serif;
+  --schrift-text:  "Source Sans 3", -apple-system, "Segoe UI", sans-serif;
+
+  /* Maße */
+  --breite:      1120px;
+  --radius:      14px;
+  --radius-kl:   10px;
+  --schatten:    0 4px 20px rgba(35, 43, 39, 0.09);
+  --schatten-gr: 0 10px 34px rgba(35, 43, 39, 0.15);
+  --abstand:     clamp(56px, 9vw, 104px);
+}
+
+/* ============================================================
+   Design-Tokens – Thema DUNKEL (ruhiges Grün-Anthrazit)
+   ============================================================ */
+:root[data-theme="dunkel"] {
+  color-scheme: dark;
+
+  --grund:       #151c18;
+  --flaeche:     #1e2721;
+  --sektion:     #19211c;
+  --kopf-hg:     rgba(21, 28, 24, 0.93);
+
+  --gruen:       #35755b;
+  --gruen-hover: #418c6e;
+  --gruen-hell:  #26362d;
+  --titel:       #dbe8df;
+  --akzent:      #8ac3a6;
+  --akzent-hover:#aad8bf;
+  --sand:        #d9b877;
+
+  --text:        #e2e6e1;
+  --text-leise:  #a7b3ab;
+  --linie:       #33403a;
+
+  --fehler:      #e08a76;
+  --hinweis-hg:  #24352c;
+  --warn-hg:     #382822;
+  --platzhalter-hg: #35301f;
+
+  --tief:        #10201a;
+  --tief-2:      #1d3a2f;
+  --tief-text:   #b9c9c0;
+
+  --schatten:    0 4px 20px rgba(0, 0, 0, 0.35);
+  --schatten-gr: 0 10px 34px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Grundlagen ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--schrift-text);
+  font-size: 18px;            /* Zielgruppe 45+: nie kleiner */
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--grund);
+}
+
+h1, h2, h3 { font-family: var(--schrift-titel); color: var(--titel); line-height: 1.25; }
+h1 { font-size: clamp(34px, 5vw, 52px); font-weight: 700; }
+h2 { font-size: clamp(27px, 3.6vw, 36px); font-weight: 600; }
+h3 { font-size: 21px; font-weight: 600; }
+
+p  { margin-bottom: 14px; }
+ul { padding-left: 24px; }
+li { margin-bottom: 8px; }
+
+a { color: var(--akzent); text-underline-offset: 3px; }
+a:hover, a:focus-visible { color: var(--akzent-hover); }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--sand);
+  outline-offset: 2px;
+}
+
+img { max-width: 100%; display: block; }
+
+.rahmen { max-width: var(--breite); margin: 0 auto; padding: 0 22px; }
+
+/* Nur für Vorleser sichtbar */
+.nur-vorleser {
+  position: absolute; width: 1px; height: 1px;
+  clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
+
+/* Platzhalter, die noch mit echten Kundendaten gefüllt werden */
+.platzhalter {
+  background: var(--platzhalter-hg);
+  border: 1px dashed var(--sand);
+  border-radius: var(--radius-kl);
+  padding: 2px 8px;
+}
+
+/* ---------- Kopfleiste ---------- */
+.kopf {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--kopf-hg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--linie);
+}
+.kopf-innen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 74px;
+}
+.marke {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.marke-zeichen {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--gruen);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.marke-text { line-height: 1.2; }
+.marke-name {
+  font-family: var(--schrift-titel);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--titel);
+  display: block;
+}
+.marke-zusatz { font-size: 13.5px; color: var(--text-leise); }
+
+.hauptnav ul {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+}
+.hauptnav a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: var(--radius-kl);
+}
+.hauptnav a:hover { background: var(--gruen-hell); color: var(--titel); }
+.hauptnav a[aria-current="page"] {
+  color: var(--titel);
+  box-shadow: inset 0 -3px 0 var(--sand);
+  border-radius: var(--radius-kl) var(--radius-kl) 0 0;
+}
+.nav-termin {
+  background: var(--gruen);
+  color: #fff !important;
+  margin-left: 8px;
+}
+.nav-termin:hover { background: var(--gruen-hover) !important; }
+
+.nav-knopf {
+  display: none;
+  border: 2px solid var(--gruen);
+  background: var(--flaeche);
+  color: var(--titel);
+  font: 600 16px var(--schrift-text);
+  padding: 10px 14px;
+  border-radius: var(--radius-kl);
+  cursor: pointer;
+}
+
+/* Hell-/Dunkel-Umschalter */
+.thema-knopf {
+  width: 44px; height: 44px;
+  border: 2px solid var(--linie);
+  border-radius: 50%;
+  background: var(--flaeche);
+  color: var(--titel);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.thema-knopf:hover { border-color: var(--gruen); background: var(--gruen-hell); }
+
+/* ---------- Knöpfe ---------- */
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font: 600 18px var(--schrift-text);
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.knopf:hover { transform: translateY(-2px); box-shadow: var(--schatten); }
+.knopf-voll { background: var(--gruen); color: #fff; }
+.knopf-voll:hover { background: var(--gruen-hover); color: #fff; }
+.knopf-rand { border-color: var(--gruen); color: var(--titel); background: var(--flaeche); }
+.knopf-rand:hover { background: var(--gruen-hell); }
+.knopf-whatsapp { background: #1f7a4d; color: #fff; }
+.knopf-whatsapp:hover { background: #17603c; color: #fff; }
+.knopf svg { flex-shrink: 0; }
+
+/* ---------- Held (Startbereich) ---------- */
+.held {
+  background:
+    radial-gradient(1100px 460px at 85% -10%, var(--gruen-hell) 0%, transparent 60%),
+    linear-gradient(180deg, var(--sektion) 0%, var(--grund) 78%);
+  padding: var(--abstand) 0;
+}
+.held-raster {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 48px;
+  align-items: center;
+}
+.held-marke {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--titel);
+  margin-bottom: 20px;
+}
+.held-marke svg { color: var(--akzent); }
+.held p.gross { font-size: 20px; color: var(--text-leise); margin: 18px 0 28px; }
+.held-knoepfe { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 26px; }
+.held-telefon { font-size: 17px; color: var(--text-leise); }
+.held-telefon a { font-weight: 700; font-size: 19px; }
+.held-bild {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--schatten-gr);
+  aspect-ratio: 4 / 5;
+  background: var(--gruen-hell);
+}
+.held-bild img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Bild-Platzhalter, bis echte Fotos vorliegen */
+.bild-platzhalter {
+  width: 100%; height: 100%;
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--akzent);
+  background:
+    linear-gradient(135deg, var(--gruen-hell) 25%, transparent 25%, transparent 50%,
+      var(--gruen-hell) 50%, var(--gruen-hell) 75%, transparent 75%) 0 0 / 28px 28px,
+    var(--sektion);
+  border: 2px dashed var(--gruen);
+  border-radius: var(--radius);
+  font-weight: 600;
+  padding: 20px;
+}
+
+/* ---------- Vertrauensleiste ---------- */
+.vertrauen {
+  border-block: 1px solid var(--linie);
+  background: var(--flaeche);
+  padding: 26px 0;
+}
+.vertrauen-raster {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.vertrauen-punkt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--titel);
+}
+.vertrauen-punkt svg { color: var(--akzent); flex-shrink: 0; }
+
+/* ---------- Abschnitte ---------- */
+.abschnitt { padding: var(--abstand) 0; }
+.abschnitt-hell { background: var(--sektion); }
+.abschnitt-kopf { max-width: 700px; margin: 0 auto 44px; text-align: center; }
+.abschnitt-kopf p { color: var(--text-leise); font-size: 19px; margin-top: 12px; }
+.ueberzeile {
+  display: block;
+  font-family: var(--schrift-text);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 10px;
+}
+
+/* ---------- Karten ---------- */
+.karten-raster {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.karte {
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  padding: 30px 28px;
+  box-shadow: var(--schatten);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.karte:hover { transform: translateY(-4px); box-shadow: var(--schatten-gr); }
+.karte-symbol {
+  width: 54px; height: 54px;
+  border-radius: var(--radius-kl);
+  background: var(--gruen-hell);
+  color: var(--akzent);
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+}
+.karte h3 { margin-bottom: 10px; }
+.karte p { color: var(--text-leise); font-size: 17px; margin-bottom: 0; }
+.karte .preis {
+  display: block;
+  font-family: var(--schrift-titel);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--titel);
+  margin-top: 16px;
+}
+.karte .preis small { font-size: 15px; font-weight: 400; color: var(--text-leise); }
+
+/* ---------- Ablauf (Schritte) ---------- */
+.schritte {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  counter-reset: schritt;
+}
+.schritt {
+  position: relative;
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  padding: 58px 24px 26px;
+}
+.schritt::before {
+  counter-increment: schritt;
+  content: counter(schritt);
+  position: absolute;
+  top: -22px; left: 24px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--gruen);
+  color: #fff;
+  font: 700 20px var(--schrift-text);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 6px var(--sektion);
+}
+.schritt h3 { font-size: 19px; margin-bottom: 8px; }
+.schritt p { font-size: 16.5px; color: var(--text-leise); margin: 0; }
+
+/* ---------- Hinweiskästen ---------- */
+.hinweis, .abgrenzung {
+  border-radius: var(--radius-kl);
+  padding: 18px 22px;
+  font-size: 17px;
+  margin: 26px 0;
+}
+.hinweis {
+  background: var(--hinweis-hg);
+  border-left: 5px solid var(--gruen);
+}
+.abgrenzung {
+  background: var(--warn-hg);
+  border-left: 5px solid var(--fehler);
+}
+.abgrenzung strong { color: var(--fehler); }
+
+/* ---------- Preistabelle ---------- */
+.preis-tabelle {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--schatten);
+}
+.preis-tabelle th {
+  background: var(--gruen);
+  color: #fff;
+  text-align: left;
+  padding: 14px 20px;
+  font-size: 17px;
+}
+.preis-tabelle td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--linie);
+  vertical-align: top;
+}
+.preis-tabelle tr:last-child td { border-bottom: none; }
+.preis-tabelle .betrag {
+  font-weight: 700;
+  color: var(--titel);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ---------- Zahlen (Zähler) ---------- */
+.zahlen-raster {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.zahl-wert {
+  font-family: var(--schrift-titel);
+  font-size: clamp(40px, 6vw, 56px);
+  font-weight: 700;
+  color: var(--akzent);
+}
+.zahl-text { font-size: 17px; color: var(--text-leise); }
+
+/* ---------- Kundenstimmen ---------- */
+.stimmen-raster {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.stimme {
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--schatten);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.stimme .sterne { color: var(--sand); letter-spacing: 3px; font-size: 19px; }
+.stimme blockquote { font-size: 17px; color: var(--text); }
+.stimme figcaption { font-size: 16px; font-weight: 600; color: var(--text-leise); margin-top: auto; }
+
+/* ---------- FAQ ---------- */
+.faq { max-width: 780px; margin: 0 auto; }
+.faq details {
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius-kl);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.faq summary {
+  padding: 18px 22px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--titel);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  font-size: 26px;
+  color: var(--akzent);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.faq details[open] summary::after { content: "–"; }
+.faq details[open] summary { background: var(--gruen-hell); }
+.faq .faq-antwort { padding: 4px 22px 20px; color: var(--text-leise); font-size: 17px; }
+
+/* ---------- Formular ---------- */
+.formular {
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--schatten);
+}
+.feld { margin-bottom: 20px; }
+.feld label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--titel);
+}
+.feld input, .feld textarea, .feld select {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 16px;
+  font: 400 17px var(--schrift-text);
+  color: var(--text);
+  border: 2px solid var(--linie);
+  border-radius: var(--radius-kl);
+  background: var(--grund);
+}
+.feld textarea { min-height: 140px; resize: vertical; }
+.feld input:focus, .feld textarea:focus, .feld select:focus {
+  border-color: var(--gruen);
+  outline: none;
+}
+.feld-einwilligung {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15.5px;
+  color: var(--text-leise);
+}
+.feld-einwilligung input {
+  width: 22px; height: 22px;
+  min-height: 0;
+  margin-top: 3px;
+  accent-color: var(--gruen);
+  flex-shrink: 0;
+}
+
+/* ---------- Kontakt-Kacheln ---------- */
+.kontakt-raster {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: start;
+}
+.kontakt-kachel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--schatten);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kontakt-kachel:hover { transform: translateY(-3px); box-shadow: var(--schatten-gr); color: var(--text); }
+.kontakt-kachel .karte-symbol { margin: 0; }
+.kontakt-kachel strong { display: block; font-size: 18px; color: var(--titel); }
+.kontakt-kachel span { font-size: 16px; color: var(--text-leise); }
+
+/* ---------- Karte (Einzugsgebiet) ---------- */
+.gebiet-karte {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--linie);
+  box-shadow: var(--schatten);
+}
+.gebiet-karte img { width: 100%; }
+.gebiet-quelle { font-size: 13px; color: var(--text-leise); margin-top: 6px; }
+.orte-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+}
+.orte-liste li {
+  background: var(--gruen-hell);
+  color: var(--titel);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin: 0;
+}
+
+/* ---------- Schlussleiste (Aufruf) ---------- */
+.aufruf {
+  background: linear-gradient(135deg, var(--tief), var(--tief-2));
+  color: #fff;
+  text-align: center;
+  padding: var(--abstand) 0;
+}
+.aufruf h2 { color: #fff; }
+.aufruf p { color: var(--tief-text); font-size: 19px; max-width: 620px; margin: 14px auto 30px; }
+.aufruf .knopf-voll { background: #fff; color: #1d3a2f; }
+.aufruf .knopf-voll:hover { background: #dde7de; }
+.aufruf .knopf-rand { border-color: #fff; color: #fff; background: transparent; }
+.aufruf .knopf-rand:hover { background: rgba(255, 255, 255, 0.14); }
+
+/* ---------- Fußleiste ---------- */
+.fuss {
+  background: var(--tief);
+  color: var(--tief-text);
+  padding: 56px 0 32px;
+  font-size: 16px;
+}
+.fuss-raster {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 36px;
+}
+.fuss h3 { color: #fff; font-size: 18px; margin-bottom: 14px; }
+.fuss a { color: var(--tief-text); }
+.fuss a:hover { color: #fff; }
+.fuss ul { list-style: none; padding: 0; }
+.fuss li { margin-bottom: 8px; }
+.fuss-unten {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+}
+
+/* ---------- Mobile Aktionsleiste ---------- */
+.aktionsleiste {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 60;
+  background: var(--flaeche);
+  border-top: 1px solid var(--linie);
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.14);
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  gap: 10px;
+}
+.aktionsleiste .knopf { flex: 1; min-height: 50px; font-size: 16px; padding: 10px 12px; }
+
+/* ---------- Einblenden beim Scrollen ---------- */
+.einblenden {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.einblenden.sichtbar { opacity: 1; transform: none; }
+
+/* Bewegungsempfindliche Nutzer: alles sofort und ruhig */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .einblenden { opacity: 1; transform: none; transition: none; }
+  .knopf, .karte, .kontakt-kachel { transition: none; }
+  .knopf:hover, .karte:hover, .kontakt-kachel:hover { transform: none; }
+}
+
+/* ---------- Seitenkopf (Unterseiten) ---------- */
+.seitenkopf {
+  background: linear-gradient(180deg, var(--sektion), var(--grund));
+  padding: clamp(44px, 6vw, 72px) 0;
+  text-align: center;
+}
+.seitenkopf p {
+  color: var(--text-leise);
+  font-size: 19px;
+  max-width: 660px;
+  margin: 14px auto 0;
+}
+
+/* ---------- Rechtstexte ---------- */
+.rechtstext { max-width: 780px; margin: 0 auto; }
+.rechtstext h2 { font-size: 24px; margin: 36px 0 12px; }
+.rechtstext h3 { font-size: 19px; margin: 24px 0 8px; }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 980px) {
+  .held-raster { grid-template-columns: 1fr; gap: 34px; }
+  .held-bild { max-width: 460px; aspect-ratio: 4 / 3; }
+  .karten-raster, .stimmen-raster { grid-template-columns: repeat(2, 1fr); }
+  .schritte { grid-template-columns: repeat(2, 1fr); row-gap: 44px; }
+  .vertrauen-raster { grid-template-columns: repeat(2, 1fr); }
+  .kontakt-raster { grid-template-columns: 1fr; }
+  .fuss-raster { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 800px) {
+  .nav-knopf { display: block; }
+  .hauptnav {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--flaeche);
+    border-bottom: 1px solid var(--linie);
+    box-shadow: var(--schatten-gr);
+  }
+  .hauptnav.offen { display: block; }
+  .hauptnav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 10px 16px 16px; }
+  .hauptnav a { padding: 14px 12px; font-size: 18px; }
+  .hauptnav a[aria-current="page"] { box-shadow: inset 4px 0 0 var(--sand); border-radius: var(--radius-kl); }
+  .nav-termin { margin-left: 0; margin-top: 8px; text-align: center; }
+  .aktionsleiste { display: flex; }
+  body { padding-bottom: 76px; }   /* Platz für die Aktionsleiste */
+}
+
+@media (max-width: 620px) {
+  .karten-raster, .stimmen-raster, .zahlen-raster,
+  .schritte, .vertrauen-raster { grid-template-columns: 1fr; }
+  .schritte { row-gap: 40px; }
+  .fuss-raster { grid-template-columns: 1fr }
+  .held-knoepfe .knopf { width: 100%; }
+}

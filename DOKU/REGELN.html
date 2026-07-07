@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REGELN</title>
+<style>
+:root{
+  --bg:#eef4f0;
+  --paper:#fbfdfc;
+  --text:#1c2620;
+  --muted:#5b6862;
+  --line:#cfdcd4;
+  --soft:#e6efe9;
+  --accent:#2e5f4e;
+  --code:#dde9e2;
+}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.6}
+main{max-width:980px;margin:32px auto;padding:34px 30px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 45px rgba(28,38,32,.08)}
+h1{font-size:36px;margin:0 0 10px;letter-spacing:0} h2{margin-top:34px;border-top:1px solid var(--line);padding-top:22px} h3{margin-top:24px}
+.stamp{color:var(--muted);margin:0 0 28px;font-size:14px}
+p,li{font-size:17px} blockquote{background:var(--soft);border-left:5px solid var(--accent);margin:16px 0;padding:14px 18px;border-radius:8px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#f7fbf8;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top} th{background:var(--soft)} tr:last-child td{border-bottom:0}
+code{background:var(--code);padding:2px 5px;border-radius:5px} pre{background:#edf4ef;color:#1c2620;border:1px solid #cfdcd4;padding:16px;border-radius:10px;overflow:auto}
+pre code{background:transparent;color:inherit;padding:0;border-radius:0}
+@media (max-width:720px){main{margin:0;min-height:100vh;border-radius:0;border-left:0;border-right:0;padding:24px 18px}h1{font-size:30px}}
+</style>
+</head>
+<body><main>
+<div class="stamp">aus REGELN.md aktualisiert am 2026-07-07</div>
+<h1>REGELN</h1>
+<h2>Aufgabe dieser Datei</h2>
+<p>Arbeitsregeln für dieses Projekt — sie gelten für jede Sitzung.</p>
+<h2>Sprache und Recht</h2>
+<ul>
+<li>Alle sichtbaren Texte auf Deutsch, Ansprache „Sie" (Endkunden von Norbert).</li>
+<li>Wortwahl-Regeln aus <code>WICHTIG.md</code> sind Pflicht (keine geschützten Berufsbezeichnungen, kein Heilkunde-Vokabular).</li>
+<li>Preise, Orte, Zeiten, Kundenstimmen: <strong>nur echte Kundendaten</strong> eintragen, bis dahin Platzhalter (<code>&lt;span class="platzhalter"&gt;</code>) stehen lassen.</li>
+</ul>
+<h2>Code</h2>
+<ul>
+<li>Vanilla HTML/CSS/JS — keine Frameworks, keine Bibliotheken, keine CDN-Einbindungen, keine Online-Schriften.</li>
+<li>Design-Änderungen nur über die Tokens in <code>style.css</code>; beide Themen (hell und dunkel) müssen bei jeder Änderung geprüft werden.</li>
+<li>Layout von Anfang an symmetrisch und am Raster ausgerichtet (<code>.rahmen</code>, Raster-Klassen); Einrückung 2 Leerzeichen.</li>
+<li>Nach jeder CSS-/JS-Änderung die Cache-Version <code>?v=N</code> in allen HTML-Dateien hochzählen.</li>
+<li>Fließtext nie unter 18 px; Klickflächen mindestens 44 px; jede Bewegung hinter <code>prefers-reduced-motion</code>.</li>
+<li>Deutsche Klassen- und Variablennamen beibehalten (<code>.knopf</code>, <code>--gruen</code>, <code>zaehleHoch</code> …) — nicht mit englischen mischen.</li>
+</ul>
+<h2>Doku</h2>
+<ul>
+<li>Quellen sind die <code>.md</code>-Dateien in <code>DOKU/md/</code>; die <code>.html</code>-Ansichten werden daraus erzeugt und nie von Hand bearbeitet.</li>
+<li>Erzeugen: <code>python3 DOKU/md2doku.py DOKU</code> (vom Projektordner aus; das Skript liegt dauerhaft in <code>DOKU/md2doku.py</code>).</li>
+<li>Bei jedem größeren Schritt <code>Live-Dokumentation.md</code> ergänzen und <code>TODO.md</code> aktuell halten, dann HTML-Ansichten neu erzeugen.</li>
+</ul>
+<h2>Git</h2>
+<ul>
+<li>Arbeiten auf <code>main</code>, solange die Seite nicht live ist; committen und pushen nur nach Freigabe durch Hasan.</li>
+<li>Commit-Texte auf Deutsch, kurz und konkret („Preistabelle: echte Preise eingetragen").</li>
+</ul>
+</main></body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fahrplan</title>
+<style>
+:root{
+  --bg:#eef4f0;
+  --paper:#fbfdfc;
+  --text:#1c2620;
+  --muted:#5b6862;
+  --line:#cfdcd4;
+  --soft:#e6efe9;
+  --accent:#2e5f4e;
+  --code:#dde9e2;
+}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.6}
+main{max-width:980px;margin:32px auto;padding:34px 30px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 45px rgba(28,38,32,.08)}
+h1{font-size:36px;margin:0 0 10px;letter-spacing:0} h2{margin-top:34px;border-top:1px solid var(--line);padding-top:22px} h3{margin-top:24px}
+.stamp{color:var(--muted);margin:0 0 28px;font-size:14px}
+p,li{font-size:17px} blockquote{background:var(--soft);border-left:5px solid var(--accent);margin:16px 0;padding:14px 18px;border-radius:8px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#f7fbf8;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top} th{background:var(--soft)} tr:last-child td{border-bottom:0}
+code{background:var(--code);padding:2px 5px;border-radius:5px} pre{background:#edf4ef;color:#1c2620;border:1px solid #cfdcd4;padding:16px;border-radius:10px;overflow:auto}
+pre code{background:transparent;color:inherit;padding:0;border-radius:0}
+@media (max-width:720px){main{margin:0;min-height:100vh;border-radius:0;border-left:0;border-right:0;padding:24px 18px}h1{font-size:30px}}
+</style>
+</head>
+<body><main>
+<div class="stamp">aus Fahrplan.md aktualisiert am 2026-07-07</div>
+<h1>Fahrplan</h1>
+<h2>Aufgabe dieser Datei</h2>
+<p>Die sieben Phasen bis zur fertigen Kunden-Website — mit aktuellem Stand.</p>
+<h2>Phasen</h2>
+<table>
+<tr><th>Nr.</th><th>Phase</th><th>Inhalt</th><th>Stand</th></tr>
+<tr><td>1</td><td>Grundgerüst</td><td>Ordner, git, DOKU-Struktur, Schriften lokal</td><td>✅ fertig (07.07.2026)</td></tr>
+<tr><td>2</td><td>Design-System</td><td><code>style.css</code> mit Themen-Tokens (hell/dunkel), Komponenten, responsive</td><td>✅ fertig (07.07.2026)</td></tr>
+<tr><td>3</td><td>Seiten bauen</td><td>alle 7 Seiten mit Struktur und Basistexten, Platzhalter für Kundendaten</td><td>✅ fertig (07.07.2026)</td></tr>
+<tr><td>4</td><td>Echte Inhalte</td><td>Texte, Preise, Fotos, Orte, Kundenstimmen, Impressum-/Datenschutz-Daten einpflegen</td><td>⬜ offen — wartet auf Kundendaten von Hasan</td></tr>
+<tr><td>5</td><td>Prüfung</td><td>Responsive-Test, beide Themen, Kontraste, Links, Rechtstexte, Code-Prüfer</td><td>⬜ offen</td></tr>
+<tr><td>6</td><td>Veröffentlichung</td><td>GitHub-Repo, GitHub Pages, Formular-Dienst anschließen, sitemap/robots</td><td>⬜ offen</td></tr>
+<tr><td>7</td><td>Domain</td><td>norberts-mobile-fusspflege.de von Strato auf GitHub Pages umstellen (CNAME, DNS)</td><td>⬜ offen</td></tr>
+</table>
+<h2>Offene Entscheidungen</h2>
+<ul>
+<li><strong>Sprachen:</strong> Kunde wünscht mehrsprachige Seite (alte Strato-Seite hatte Google-Übersetzer-Auswahl). Entscheidung mit Hasan offen: echte statische Übersetzungen für wenige Sprachen (empfohlen) statt Übersetzer-Widget (DSGVO + Qualität). Welche Sprachen der Kunde wirklich braucht, klärt Hasan.</li>
+<li><strong>Formular-Dienst:</strong> Anbieter noch wählen (bei Phase 6), danach Datenschutzerklärung ergänzen.</li>
+<li><strong>Online-Terminbuchung:</strong> vorerst nicht — Formular + Telefon + WhatsApp reichen für den Start; später erweiterbar.</li>
+</ul>
+</main></body>
+</html>
