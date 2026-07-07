@@ -610,6 +610,16 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   { text-decoration: none }` und Label auf 14 px — Satz passt jetzt
   einzeilig; gilt auch fürs Kontakt-Formular (gleiche Klasse).
   Cache `?v=78` (alle 65 Seiten inkl. Sprachordner).
+- **WhatsApp öffnet jetzt direkt die App** (Hasan: „wieso gehe ich
+  immer auf eine externe seite und komme nicht zurück"): neuer Helfer
+  `window.nfWhatsApp` in main.js (v=19) — Klick startet
+  `whatsapp://send?...` (App öffnet sofort, die Website bleibt offen);
+  nur wenn nach 1,2 s nichts passiert (keine App installiert), öffnet
+  wa.me als Rückfall im NEUEN Tab. Eine Klick-Delegation fängt ALLE
+  wa.me-Verweise aller 65 Seiten ab (kein HTML-Umbau nötig);
+  Bewertungs-, Kontakt- und Kassen-Versand (produkte.js v=10, mit
+  Rückfall) laufen über denselben Helfer. Vorher ersetzten manche
+  wa.me-Links die Seite im selben Tab — daher „kein Zurück".
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

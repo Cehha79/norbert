@@ -6,6 +6,32 @@
   var ruhig = window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- WhatsApp direkt öffnen ----------
+     whatsapp:// startet die installierte App sofort, die Website bleibt
+     offen. Öffnet sich nichts (keine App), nach kurzer Wartezeit wa.me
+     als Rückfall im NEUEN Tab — die Seite geht dabei nie verloren. */
+  window.nfWhatsApp = function (nummer, text) {
+    var anhang = text ? '?text=' + encodeURIComponent(text) : '';
+    var timer = setTimeout(function () {
+      window.open('https://wa.me/' + nummer + anhang, '_blank', 'noopener');
+    }, 1200);
+    var stopp = function () {
+      if (document.hidden) { clearTimeout(timer); }
+    };
+    document.addEventListener('visibilitychange', stopp, { once: true });
+    window.addEventListener('blur', function () { clearTimeout(timer); }, { once: true });
+    location.href = 'whatsapp://send?phone=' + nummer +
+      (text ? '&text=' + encodeURIComponent(text) : '');
+  };
+  /* Alle wa.me-Verweise der Seite fangen und über die App öffnen */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="https://wa.me/"]');
+    if (!a) return;
+    e.preventDefault();
+    var teile = a.href.split('wa.me/')[1].split('?text=');
+    window.nfWhatsApp(teile[0], teile[1] ? decodeURIComponent(teile[1]) : '');
+  });
+
   document.addEventListener('DOMContentLoaded', function () {
 
     /* ---------- Hell-/Dunkel-Umschalter ---------- */
@@ -158,8 +184,7 @@
       };
       document.getElementById('b-whatsapp').addEventListener('click', function () {
         if (!eingabenOk()) return;
-        window.open('https://wa.me/491735904496?text=' +
-          encodeURIComponent(bewertungsText()), '_blank', 'noopener');
+        window.nfWhatsApp('491735904496', bewertungsText());
       });
       document.getElementById('b-mail').addEventListener('click', function () {
         if (!eingabenOk()) return;
@@ -186,8 +211,7 @@
       };
       document.getElementById('f-whatsapp').addEventListener('click', function () {
         if (!kontakt.reportValidity()) return;
-        window.open('https://wa.me/491735904496?text=' +
-          encodeURIComponent(kText()), '_blank', 'noopener');
+        window.nfWhatsApp('491735904496', kText());
       });
       document.getElementById('f-mail').addEventListener('click', function () {
         if (!kontakt.reportValidity()) return;

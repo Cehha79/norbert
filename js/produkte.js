@@ -468,7 +468,8 @@
         if (!kasse.reportValidity()) return;
         var text = bestellTextKasse();
         if (weg === 'whatsapp') {
-          window.open('https://wa.me/491735904496?text=' + encodeURIComponent(text), '_blank', 'noopener');
+          if (window.nfWhatsApp) { window.nfWhatsApp('491735904496', text); }
+          else { window.open('https://wa.me/491735904496?text=' + encodeURIComponent(text), '_blank', 'noopener'); }
         } else {
           location.href = 'mailto:norbertsmobilefusspflege@gmx.de' +
             '?subject=' + encodeURIComponent('Bestellung') +
