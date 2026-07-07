@@ -222,16 +222,12 @@ img { max-width: 100%; display: block; }
   min-width: 0;
 }
 .marke-zeichen {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: #fff;             /* Logo hat weißen Grund – in beiden Themen */
-  border: 1px solid var(--linie);
+  width: 46px; height: 46px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  overflow: hidden;
 }
-.marke-zeichen img { width: 38px; height: 38px; object-fit: contain; }
+.marke-zeichen img { width: 46px; height: 46px; }
 .marke-text { line-height: 1.2; min-width: 0; }
 .marke-name {
   font-family: var(--schrift-titel);
@@ -759,13 +755,10 @@ img { max-width: 100%; display: block; }
 }
 .fuss h3 { color: #fff; font-size: 18px; margin-block-end: 12px; }
 .fuss-logo {
-  width: 108px; height: 108px;
-  border-radius: 50%;
-  background: #fff;
-  padding: 8px;
+  width: 112px; height: 112px;
   margin-block-end: 16px;
 }
-.fuss-logo img { width: 100%; height: 100%; object-fit: contain; }
+.fuss-logo img { width: 100%; height: 100%; }
 .fuss a { color: var(--tief-text); }
 .fuss a:hover { color: #fff; }
 .fuss ul { list-style: none; padding: 0; }

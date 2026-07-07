@@ -6,6 +6,17 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (nachts, 2) — Logo als hochwertiges SVG neu gebaut
+
+- Hasans Rückmeldung: eingebautes PNG-Logo wirkte unscharf/minderwertig →
+  Bildmarke als **Vektor neu gezeichnet** (`bilder/logo.svg`): zwei
+  Fußabdrücke „im Gang" mit Blau-Verlauf, Verlaufs-Ring, Gold-Funkeln;
+  **ohne Telefonnummer** (Hasans Vorgabe). Drei Entwurfs-Runden mit
+  Render-Sichtprüfung (hell/dunkel, 300/88/44 px).
+- Eingesetzt: Kopfleiste 46 px, Fußleiste 112 px, **SVG-Favicon** auf allen
+  7 Seiten; weiße Kreis-Hüllen entfernt (SVG bringt eigene Scheibe mit).
+- Original-PNG bleibt als Referenz (`bilder/logo-alt.png`). Cache `?v=6`.
+
 ## 2026-07-07 (nachts) — Phase 4 (Teil 2): Kundendaten komplett + Palette B
 
 - Hasans Antworten eingepflegt: Preise bestätigt; **Anfahrt im Preis
