@@ -129,6 +129,13 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   `line-height: 46px` = Feldhöhe), größer (34 px); Name/Ort-Felder auf
   feste 320 px gekürzt (Hasans Vorgabe). Einzelauswahl getestet:
   2 Sterne klicken → genau 2 gelb. Cache `?v=45`.
+- **Über-mich-Seite** überarbeitet: Vorstellungs-Text im Blocksatz
+  (`.vorstellung`), die drei Stationen-Tafeln mit Kennfarben-Linie
+  oben (blau/grün/gold, `.schritt.farbig` + lk-Klassen, Überschrift in
+  Kennfarbe), Aufruf „Lernen Sie mich kennen" entfernt. **Galerie
+  „Bilder aus meiner Arbeit" auf die Startseite umgezogen** (Hasans
+  Anweisung): sitzt jetzt zwischen Vertrauens-Tafeln und „Ihr
+  Hausbesuch in vier Schritten". Cache `?v=47`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).

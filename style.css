@@ -768,6 +768,11 @@ body:has(dialog[open]) { overflow: hidden; }
   }
 }
 
+/* ---------- Über mich ---------- */
+.vorstellung p { text-align: justify; hyphens: auto; }
+.schritt.farbig { border-top: 4px solid var(--lk); }
+.schritt.farbig h3 { color: var(--lk); }
+
 /* ---------- Ablauf (Basis: eine Spalte) ---------- */
 .schritte {
   display: grid;
