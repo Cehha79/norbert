@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offene Punkte – Norberts mobile Fußpflege</title>
+<style>
+  :root {
+    --tinte: #1e3a4f; --leise: #5b6b76; --linie: #d8d2c4;
+    --flaeche: #faf7f0; --grund: #eef1f2;
+    --rot: #b04a3c; --gold: #a8823c; --gruen: #3e8e5a; --blau: #2f8fc0;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font: 16px/1.55 "Source Sans 3", "Segoe UI", sans-serif;
+    color: var(--tinte); background: var(--grund); padding: 36px 18px 60px;
+  }
+  .rahmen { max-width: 880px; margin-inline: auto; }
+  h1 { font-size: 30px; margin-block-end: 4px; }
+  .stand { color: var(--leise); margin-block-end: 28px; }
+  section {
+    background: var(--flaeche); border: 1px solid var(--linie);
+    border-block-start: 4px solid var(--kante, var(--blau));
+    border-radius: 12px; padding: 20px 24px; margin-block-end: 18px;
+    box-shadow: 0 2px 8px rgba(30, 58, 79, .08);
+  }
+  section.pflicht { --kante: var(--rot); }
+  section.norbert { --kante: var(--gold); }
+  section.livegang { --kante: var(--blau); }
+  section.spaeter { --kante: var(--leise); }
+  section.pruefung { --kante: var(--gruen); }
+  h2 { font-size: 20px; margin-block-end: 12px; }
+  h2 .etikett {
+    font-size: 12.5px; font-weight: 600; letter-spacing: .04em;
+    color: #fff; background: var(--kante, var(--blau));
+    border-radius: 20px; padding: 3px 12px; vertical-align: 3px;
+    margin-inline-start: 10px;
+  }
+  ul { padding-inline-start: 22px; display: grid; gap: 8px; }
+  li strong { color: var(--tinte); }
+  li span.wo { color: var(--leise); font-size: 14.5px; }
+  .fuss { color: var(--leise); font-size: 14.5px; margin-block-start: 24px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="rahmen">
+
+<h1>Offene Punkte — Norberts mobile Fußpflege</h1>
+<p class="stand">Stand: 7. Juli 2026 · Quelle: DOKU/md/TODO.md · Erledigtes ist hier ausgeblendet</p>
+
+<section class="pflicht">
+  <h2>Pflicht vor dem Livegang<span class="etikett">rechtlich / kritisch</span></h2>
+  <ul>
+    <li><strong>Muster-Artikel ersetzen:</strong> alle 128 Shop-Artikel, Preise und Lager-Angaben sind erfunden — durch Norberts echtes Sortiment ersetzen oder Shop abschalten. <span class="wo">Beim Tausch die 6 Übersetzungs-Dateien js/shop-*.js mitziehen.</span></li>
+    <li><strong>Muster-Bewertungen löschen:</strong> die 18 Kundenstimmen sind Layout-Muster („Beispiel"-Etikett) — erfundene Bewertungen sind abmahnfähig (UWG). Echte, freigegebene Stimmen einpflegen.</li>
+    <li><strong>Widerrufsbelehrung + AGB schreiben:</strong> die zwei Verweise in der Kasse zeigen noch auf „#" — ohne echte Texte kein echter Verkauf. <span class="wo">kasse.html + alle 6 Sprach-Kassen.</span></li>
+    <li><strong>Übersetzungen gegenlesen lassen:</strong> alle 6 Sprachen sind KI-übersetzt — Türkisch kannst du selbst, Polnisch ideal Norbert; für en/ru/ar/zh Muttersprachler suchen.</li>
+    <li><strong>Cal.com auf Norberts Konto umstellen:</strong> aktuell läuft die Terminbuchung über dein Test-Konto (cal.com/hasan-tepegoz-dzm3vx). <span class="wo">Anleitung: DOKU/Claude Ausgabe/Anleitung-Terminbuchung.html.</span></li>
+    <li><strong>PayPal-Platzhalter ersetzen:</strong> der PayPal-Knopf öffnet paypal.me/NorbertsFusspflege (erfunden) — Norberts echten PayPal.Me-Namen eintragen.</li>
+    <li><strong>Impressum/Datenschutz-Schlussprüfung:</strong> Grundausbau fertig — nur noch Entwurfs-Kästen entfernen, Stand-Datum setzen, § 19 mit Norbert gegenprüfen.</li>
+  </ul>
+</section>
+
+<section class="norbert">
+  <h2>Von Norbert benötigt<span class="etikett">Infos einholen</span></h2>
+  <ul>
+    <li><strong>YouTube- und TikTok-Kanal-Adressen</strong> — die zwei Sozial-Knöpfe auf der Startseite zeigen noch ins Leere.</li>
+    <li><strong>Dauer der zwei Massagen</strong> (Fußmassage, Reflexzonen-Wellnessmassage) — Platzhalter in der Preistabelle.</li>
+    <li><strong>Erreichbarkeits-Zeiten</strong> für die Kontakt-Seite.</li>
+    <li><strong>DHL-Versandpreise bestätigen</strong> — 5,49 € / Express 12,99 € sind Muster.</li>
+    <li><strong>Preise 48/30/57 € final bestätigen</strong> (aus dem alten Flyer übernommen).</li>
+  </ul>
+</section>
+
+<section class="livegang">
+  <h2>Technik beim Livegang<span class="etikett">GitHub Pages → Domain</span></h2>
+  <ul>
+    <li><strong>Open-Graph-Bild + og:-Metadaten</strong> — damit die Seite beim Teilen (WhatsApp!) schön aussieht.</li>
+    <li><strong>sitemap.xml + robots.txt</strong> anlegen (wie bei MikaTec).</li>
+    <li><strong>App-Icons</strong> in weiteren Größen ergänzen (Favicon ist da).</li>
+    <li><strong>Ablauf:</strong> erst GitHub Pages, wenn alles fertig ist → richtige Domain (norberts-mobile-fusspflege.de).</li>
+  </ul>
+</section>
+
+<section class="pruefung">
+  <h2>Schluss-Prüfung (Phase 5)<span class="etikett">vor Übergabe</span></h2>
+  <ul>
+    <li>Beide Themen (hell/dunkel) auf allen Seiten durchsehen.</li>
+    <li>Responsive prüfen: 375 px (Handy), 768 px (Tablet), 1280 px (Desktop).</li>
+    <li>Kontraste messen (Ziel WCAG AA, 4,5:1 im Fließtext).</li>
+    <li>Alle Links klicken (intern, tel:, WhatsApp), Formular-Pflichtfelder testen.</li>
+    <li>Rechtstexte gegen die Wortwahl-Regeln aus WICHTIG.md prüfen (PodG!).</li>
+  </ul>
+</section>
+
+<section class="spaeter">
+  <h2>Später / Ausbaustufe<span class="etikett">kein Blocker</span></h2>
+  <ul>
+    <li><strong>E-Mail-Anbindung über API:</strong> Bestellung automatisch als E-Mail mit PDF-Auftrag an Norbert (braucht Dienst/Backend).</li>
+    <li><strong>Echter PayPal-Checkout</strong> statt PayPal.Me-Link.</li>
+    <li><strong>Formular-Dienst</strong> nur falls Norbert Anfragen ohne WhatsApp/Mail-Programm möchte.</li>
+    <li><strong>Shop-Seiten der Rechtstexte:</strong> Impressum/Datenschutz bleiben bewusst deutsch — Übersetzung optional.</li>
+  </ul>
+</section>
+
+<p class="fuss">Merkregel: Text-Änderungen an den Inhaltsseiten immer in alle 6 Sprachordner nachziehen — beim Shop zusätzlich js/shop-&lt;code&gt;.js.</p>
+
+</div>
+</body>
+</html>

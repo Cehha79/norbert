@@ -44,8 +44,9 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   Russisch): `/en/ /tr/ /pl/ /ru/ /ar/ /zh/` — je 5 Inhaltsseiten (Start,
   Leistungen, Über mich, Kundenstimmen, Kontakt); `/ar/` mit `dir="rtl"`,
   `/zh/` mit System-Schrift-Override; `hreflang` auf allen Sprach- UND
-  deutschen Seiten; Sprachwahl-Verweise überall aktiv. Shop + Impressum/
-  Datenschutz bewusst nur deutsch (Rückverweise mit `../`)
+  deutschen Seiten; Sprachwahl-Verweise überall aktiv. Shop seit 07.07.
+  ebenfalls übersetzt (siehe unten); nur Impressum/Datenschutz bewusst
+  deutsch (Rückverweise mit `../`)
 - [ ] **ALLE 6 Übersetzungen von Muttersprachlern gegenlesen lassen**
   (KI-übersetzt; Norbert: Polnisch? Hasan: Türkisch!) — vor Livegang
 - [ ] Bei künftigen Text-Änderungen an den 5 Inhaltsseiten: alle 6
