@@ -1813,7 +1813,13 @@ body:has(dialog[open]) { overflow: hidden; }
 
   .karten-raster { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 40px) / 3); gap: 20px; }  /* 2 Reihen × 3 sichtbare Spalten */
-  .produkt-raster { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  /* 4 kompaktere Karten je Reihe (Hasans Vorgabe 07.07.) */
+  .produkt-raster { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .p-inhalt { padding: 12px 14px 14px; }
+  .p-inhalt h3 { font-size: 17px; }
+  .p-info { font-size: 14.5px; }
+  .p-preis { font-size: 19px; }
+  .p-korb, .p-kauf { min-height: 40px; font-size: 14.5px; }
   .kasse-raster { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 30px; }
   .schritte { grid-template-columns: repeat(4, 1fr); }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }

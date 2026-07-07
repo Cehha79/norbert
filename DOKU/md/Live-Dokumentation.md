@@ -311,6 +311,18 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   (13-s-Ausschnitt ab Sek. 5, Palindrom-Schleife, crf 23, faststart);
   hell 12 MB, dunkel 5,9 MB. Video-/Poster-URLs `?v=4`,
   main.js `?v=12`. Beide Themen sichtgeprüft.
+- **Bereichs-Seiten: 4 Spalten + 16 Artikel je Bereich** (Hasans
+  Auftrag): Produkt-Raster ab 1100 px auf `repeat(4, 1fr)` (vorher 3),
+  Karten kompakter (Innenabstand 12/14, h3 17 px, Preis 19 px,
+  Knöpfe 40 px). Sortiment auf **8 × 16 = 128 Muster-Artikel**
+  gebracht: 4 Doppelungen aus Werkzeuge/Hygiene entfernt (w3
+  Eckenfeile, w8 Pinzette, d8 Schuh-Spray, d10 Tücher → 20 − 4 = 16),
+  je **6 neue Muster-Artikel** in den 7 anderen Bereichen (c11–c16,
+  e11–e16, b11–b16, n11–n16, h11–h16, k11–k16, g11–g16 — u. a. Urea
+  25 %, UV-Desinfektionsbox, Fußwanne mit Noppen, Nagelhärter,
+  Kaffee-Peeling, Akupressur-Matte, Wert-Gutscheine 50/100 €).
+  Weiterhin ALLES Muster-Daten (WICHTIG-Merker gilt).
+  produkte.js `?v=5`, Cache `?v=59`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

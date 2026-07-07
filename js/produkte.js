@@ -28,12 +28,10 @@
     /* --- Werkzeuge & Instrumente --- */
     { id: 'w1',  kat: 'w', name: 'Hornhautzange Edelstahl',        info: 'Rostfreier Edelstahl, präziser Schliff – für die schonende Abtragung.', inhalt: '1 Stück · 14 cm',  preis: 24.90, sterne: 4.8, stimmen: 41, lager: 'ok',    badge: 'Bestseller' },
     { id: 'w2',  kat: 'w', name: 'Nagelzange Profi',               info: 'Kraftvolle Übersetzung, sauberer Schnitt auch bei kräftigen Nägeln.',   inhalt: '1 Stück · 12 cm',  preis: 19.90, sterne: 4.7, stimmen: 33, lager: 'ok',    badge: '' },
-    { id: 'w3',  kat: 'w', name: 'Eckenfeile doppelseitig',        info: 'Feine und mittlere Körnung – für saubere Nagelecken.',                  inhalt: '1 Stück',          preis: 6.90,  sterne: 4.5, stimmen: 19, lager: 'ok',    badge: '' },
     { id: 'w4',  kat: 'w', name: 'Instrumenten-Etui 3-teilig',     info: 'Zange, Feile und Schaber im Leder-Etui – ideal für unterwegs.',         inhalt: 'Set, 3-teilig',    preis: 34.90, sterne: 4.6, stimmen: 12, lager: 'wenig', badge: '' },
     { id: 'w5',  kat: 'w', name: 'Fußpflege-Schaber mit Klinge',   info: 'Sicherer Halt, austauschbare Klingen – nur für geübte Hände.',          inhalt: '1 Stück + 10 Klingen', preis: 14.90, sterne: 4.3, stimmen: 27, lager: 'ok', badge: '' },
     { id: 'w6',  kat: 'w', name: 'Zehen-Schere gebogen',           info: 'Gebogene Klinge folgt der Nagelform – sanft und genau.',                inhalt: '1 Stück · 10 cm',  preis: 12.90, sterne: 4.6, stimmen: 22, lager: 'ok',    badge: '' },
     { id: 'w7',  kat: 'w', name: 'Nagelhaut-Schieber Doppelkopf',  info: 'Schiebt und löst die Nagelhaut – zwei Arbeitsenden.',                   inhalt: '1 Stück',          preis: 8.90,  sterne: 4.4, stimmen: 16, lager: 'ok',    badge: '' },
-    { id: 'w8',  kat: 'w', name: 'Pinzette abgewinkelt',           info: 'Präziser Griff dank abgewinkelter Spitze.',                             inhalt: '1 Stück',          preis: 7.90,  sterne: 4.5, stimmen: 9,  lager: 'ok',    badge: '' },
     { id: 'w9',  kat: 'w', name: 'Instrumenten-Reinigungsbürste',  info: 'Feine Messingborsten – hält Feilen und Fräser sauber.',                 inhalt: '1 Stück',          preis: 5.90,  sterne: 4.2, stimmen: 11, lager: 'ok',    badge: '' },
     { id: 'w10', kat: 'w', name: 'Starter-Set Fußpflege',          info: 'Die 6 wichtigsten Werkzeuge im Etui – der ideale Einstieg.',            inhalt: 'Set, 6-teilig',    preis: 49.90, sterne: 4.9, stimmen: 54, lager: 'ok',    badge: 'Neu' },
 
@@ -48,6 +46,12 @@
     { id: 'c8',  kat: 'c', name: 'Anti-Hornhaut-Creme',            info: 'Weicht Verhärtungen über Nacht sichtbar auf.',                          inhalt: '75 ml',   grund: '17,20 € / 100 ml',  preis: 12.90, sterne: 4.5, stimmen: 23, lager: 'ok',    badge: '' },
     { id: 'c9',  kat: 'c', name: 'Pflegeschaum Express',           info: 'Zieht in Sekunden ein – Pflege ohne Warten.',                           inhalt: '125 ml',  grund: '9,52 € / 100 ml',   preis: 11.90, sterne: 4.6, stimmen: 37, lager: 'ok',    badge: 'Neu' },
     { id: 'c10', kat: 'c', name: 'Winterpflege-Duo',               info: 'Fußcreme + Schrundensalbe im Vorteils-Set.',                            inhalt: 'Set, 2 × 75 ml',   preis: 18.90, sterne: 4.8, stimmen: 21, lager: 'ok',    badge: '' },
+    { id: 'c11', kat: 'c', name: 'Fußcreme Urea 25 % intensiv',    info: 'Die starke Stufe für sehr trockene, rissige Haut.',                     inhalt: '75 ml',   grund: '18,53 € / 100 ml',  preis: 13.90, sterne: 4.7, stimmen: 34, lager: 'ok',    badge: '' },
+    { id: 'c12', kat: 'c', name: 'Nachtkerzenöl-Balsam',           info: 'Beruhigt gereizte, empfindliche Haut über Nacht.',                      inhalt: '50 ml',   grund: '19,80 € / 100 ml',  preis: 9.90,  sterne: 4.5, stimmen: 12, lager: 'ok',    badge: '' },
+    { id: 'c13', kat: 'c', name: 'Zink-Pflegecreme',               info: 'Unterstützt beanspruchte Haut – zieht schnell ein.',                    inhalt: '50 ml',   grund: '17,80 € / 100 ml',  preis: 8.90,  sterne: 4.4, stimmen: 16, lager: 'ok',    badge: '' },
+    { id: 'c14', kat: 'c', name: 'Wärmender Fußbalsam Ingwer',     info: 'Angenehme Wärme für kalte Füße – ideal im Winter.',                     inhalt: '75 ml',   grund: '15,87 € / 100 ml',  preis: 11.90, sterne: 4.6, stimmen: 23, lager: 'ok',    badge: '' },
+    { id: 'c15', kat: 'c', name: 'Sensitiv-Creme parfümfrei',      info: 'Ohne Duft- und Farbstoffe – für empfindliche Haut.',                    inhalt: '100 ml',  grund: '9,90 € / 100 ml',   preis: 9.90,  sterne: 4.5, stimmen: 18, lager: 'wenig', badge: '' },
+    { id: 'c16', kat: 'c', name: 'Pflege-Trio Probiergrößen',      info: 'Creme, Balsam und Schaum zum Kennenlernen.',                            inhalt: 'Set, 3 × 30 ml',   preis: 14.90, sterne: 4.6, stimmen: 9,  lager: 'ok',    badge: 'Neu' },
 
     /* --- Elektrische Geräte --- */
     { id: 'e1',  kat: 'e', name: 'Elektrische Hornhaut-Feile',     info: 'Zwei Geschwindigkeiten, aufladbar – sanft glatte Fersen.',              inhalt: '1 Gerät + 2 Rollen', preis: 29.90, sterne: 4.6, stimmen: 63, lager: 'ok',    badge: 'Bestseller' },
@@ -60,6 +64,12 @@
     { id: 'e8',  kat: 'e', name: 'Ersatz-Fräser-Aufsätze (5er)',   info: 'Feine Diamant-Aufsätze für das Fräser-Set.',                            inhalt: '5 Stück',          preis: 14.90, sterne: 4.5, stimmen: 15, lager: 'ok',    badge: '' },
     { id: 'e9',  kat: 'e', name: 'Paraffinbad für Füße',           info: 'Warmes Paraffin für samtweiche Haut – inkl. 450 g Wachs.',              inhalt: '1 Gerät + Wachs',  preis: 44.90, sterne: 4.4, stimmen: 20, lager: 'ok',    badge: 'Neu' },
     { id: 'e10', kat: 'e', name: 'Reise-Etui für Geräte',          info: 'Gepolstertes Hardcase für Feile, Fräser und Zubehör.',                  inhalt: '1 Stück',          preis: 16.90, sterne: 4.3, stimmen: 8,  lager: 'ok',    badge: '' },
+    { id: 'e11', kat: 'e', name: 'Akku-Nagelpolierer',             info: 'Polieren und versiegeln – kabellos, mit 3 Aufsätzen.',                  inhalt: '1 Gerät + 3 Aufsätze', preis: 22.90, sterne: 4.4, stimmen: 21, lager: 'ok',    badge: '' },
+    { id: 'e12', kat: 'e', name: 'UV-Desinfektionsbox',            info: 'Desinfiziert Instrumente in 8 Minuten – ohne Chemie.',                  inhalt: '1 Gerät',          preis: 34.90, sterne: 4.5, stimmen: 17, lager: 'ok',    badge: '' },
+    { id: 'e13', kat: 'e', name: 'Ersatz-Schleifrollen fein (3er)', info: 'Feine Körnung für das Finish nach der Hornhaut-Feile.',                inhalt: '3 Stück',          preis: 9.90,  sterne: 4.6, stimmen: 24, lager: 'ok',    badge: '' },
+    { id: 'e14', kat: 'e', name: 'Mini-Fräser im Reiseformat',     info: 'Klein wie ein Kugelschreiber – volle Leistung unterwegs.',              inhalt: '1 Gerät + 2 Aufsätze', preis: 24.90, sterne: 4.3, stimmen: 13, lager: 'wenig', badge: '' },
+    { id: 'e15', kat: 'e', name: 'Elektrischer Fußwärmer',         info: 'Kuscheliger Wärmeschuh mit 3 Stufen und Abschaltautomatik.',            inhalt: '1 Gerät',          preis: 39.90, sterne: 4.6, stimmen: 28, lager: 'ok',    badge: '' },
+    { id: 'e16', kat: 'e', name: 'Luftkompressions-Massagegerät',  info: 'Sanfter Wechseldruck für Füße und Waden – 2 Manschetten.',              inhalt: '1 Gerät',          preis: 89.90, sterne: 4.5, stimmen: 11, lager: 'ok',    badge: 'Neu' },
 
     /* --- Fußbäder & Zusätze --- */
     { id: 'b1',  kat: 'b', name: 'Fußbad-Salz Totes Meer',         info: 'Mineralstoffreiches Salz – entspannt und pflegt.',                      inhalt: '500 g',  grund: '13,80 € / 1 kg',   preis: 6.90,  sterne: 4.7, stimmen: 44, lager: 'ok',    badge: 'Bestseller' },
@@ -72,6 +82,12 @@
     { id: 'b8',  kat: 'b', name: 'Massage-Bürste für das Bad',     info: 'Weiche Noppen massieren die Sohle im Fußbad.',                          inhalt: '1 Stück',          preis: 6.90,  sterne: 4.4, stimmen: 12, lager: 'ok',    badge: '' },
     { id: 'b9',  kat: 'b', name: 'Eukalyptus-Badeöl',              info: 'Erfrischendes Öl – zwei Kappen pro Fußbad genügen.',                    inhalt: '200 ml', grund: '6,45 € / 100 ml',  preis: 12.90, sterne: 4.6, stimmen: 18, lager: 'ok',    badge: 'Neu' },
     { id: 'b10', kat: 'b', name: 'Fußbad-Set komplett',            info: 'Wanne, Salz, Bürste und Handtuch im Set.',                              inhalt: 'Set, 4-teilig',    preis: 29.90, sterne: 4.8, stimmen: 27, lager: 'ok',    badge: '' },
+    { id: 'b11', kat: 'b', name: 'Fußbad-Salz Lavendel',           info: 'Beruhigender Lavendel für das Bad am Abend.',                           inhalt: '500 g',  grund: '15,80 € / 1 kg',   preis: 7.90,  sterne: 4.6, stimmen: 26, lager: 'ok',    badge: '' },
+    { id: 'b12', kat: 'b', name: 'Sprudel-Tabs Minze (8er)',       info: 'Erfrischende Minze – ein Tab pro Fußbad.',                              inhalt: '8 Tabs',           preis: 5.90,  sterne: 4.3, stimmen: 14, lager: 'ok',    badge: '' },
+    { id: 'b13', kat: 'b', name: 'Fußbad-Zusatz Kamille',          info: 'Milder Klassiker für empfindliche Haut.',                               inhalt: '250 ml', grund: '3,56 € / 100 ml',  preis: 8.90,  sterne: 4.5, stimmen: 19, lager: 'ok',    badge: '' },
+    { id: 'b14', kat: 'b', name: 'Teebaumöl-Badezusatz',           info: 'Der frische Zusatz für beanspruchte Füße.',                             inhalt: '100 ml', grund: '9,90 € / 100 ml',  preis: 9.90,  sterne: 4.4, stimmen: 15, lager: 'ok',    badge: '' },
+    { id: 'b15', kat: 'b', name: 'Fußwanne mit Massage-Noppen',    info: 'Noppenboden massiert die Sohle schon beim Baden.',                      inhalt: '1 Stück',          preis: 21.90, sterne: 4.5, stimmen: 22, lager: 'wenig', badge: '' },
+    { id: 'b16', kat: 'b', name: 'Fußbad-Duo Salz & Öl',           info: 'Totes-Meer-Salz und Eukalyptus-Öl im Vorteils-Set.',                    inhalt: 'Set, 2-teilig',    preis: 16.90, sterne: 4.7, stimmen: 10, lager: 'ok',    badge: 'Neu' },
 
     /* --- Nagelpflege --- */
     { id: 'n1',  kat: 'n', name: 'Nagelöl mit Pipette',            info: 'Jojoba und Vitamin E – kräftigt Nagel und Nagelhaut.',                  inhalt: '10 ml',  grund: '129,00 € / 100 ml', preis: 12.90, sterne: 4.8, stimmen: 56, lager: 'ok',    badge: 'Bestseller' },
@@ -84,6 +100,12 @@
     { id: 'n8',  kat: 'n', name: 'Nagel-Reparatur-Serum',          info: 'Baut brüchige Nägel in 4 Wochen sichtbar auf.',                         inhalt: '15 ml',  grund: '99,33 € / 100 ml',  preis: 14.90, sterne: 4.5, stimmen: 17, lager: 'ok',    badge: 'Neu' },
     { id: 'n9',  kat: 'n', name: 'Feilen-Set Körnung mix (6er)',   info: 'Sechs Feilen von grob bis superfein.',                                  inhalt: '6 Stück',          preis: 7.90,  sterne: 4.3, stimmen: 13, lager: 'ok',    badge: '' },
     { id: 'n10', kat: 'n', name: 'Nagelpflege-Komplettset',        info: 'Öl, Knipser, Glasfeile und Stift im Geschenkkarton.',                   inhalt: 'Set, 4-teilig',    preis: 34.90, sterne: 4.9, stimmen: 31, lager: 'ok',    badge: '' },
+    { id: 'n11', kat: 'n', name: 'Nagelhaut-Öl Rosenduft',         info: 'Pflegt die Nagelhaut – mit zartem Rosenduft.',                          inhalt: '10 ml',  grund: '119,00 € / 100 ml', preis: 11.90, sterne: 4.5, stimmen: 14, lager: 'ok',    badge: '' },
+    { id: 'n12', kat: 'n', name: 'Nagelweiß-Stift',                info: 'Frischt den freien Nagelrand sichtbar auf.',                            inhalt: '1 Stück',          preis: 6.90,  sterne: 4.2, stimmen: 11, lager: 'ok',    badge: '' },
+    { id: 'n13', kat: 'n', name: 'Nagelschere gerade',             info: 'Gerader Schnitt beugt eingewachsenen Ecken vor.',                       inhalt: '1 Stück · 10 cm',  preis: 10.90, sterne: 4.6, stimmen: 20, lager: 'ok',    badge: '' },
+    { id: 'n14', kat: 'n', name: 'Sandblatt-Feilen (10er)',        info: 'Nachfüllpack für die tägliche Nagelpflege.',                            inhalt: '10 Stück',         preis: 5.90,  sterne: 4.3, stimmen: 9,  lager: 'ok',    badge: '' },
+    { id: 'n15', kat: 'n', name: 'Nagelhärter-Lack',               info: 'Härtet weiche Nägel in 2 Wochen spürbar.',                              inhalt: '10 ml',  grund: '119,00 € / 100 ml', preis: 11.90, sterne: 4.4, stimmen: 16, lager: 'wenig', badge: '' },
+    { id: 'n16', kat: 'n', name: 'Maniküre-Etui 7-teilig',         info: 'Alle Nagel-Werkzeuge im Reißverschluss-Etui.',                          inhalt: 'Set, 7-teilig',    preis: 29.90, sterne: 4.7, stimmen: 13, lager: 'ok',    badge: 'Neu' },
 
     /* --- Hornhaut & Peeling --- */
     { id: 'h1',  kat: 'h', name: 'Bimsstein Natur',                info: 'Echter Vulkan-Bims – der Klassiker für die Dusche.',                    inhalt: '1 Stück',          preis: 4.90,  sterne: 4.5, stimmen: 48, lager: 'ok',    badge: '' },
@@ -96,6 +118,12 @@
     { id: 'h8',  kat: 'h', name: 'Peeling-Handschuh Sisal',        info: 'Naturfaser-Handschuh für Füße und Beine.',                              inhalt: '1 Stück',          preis: 5.90,  sterne: 4.2, stimmen: 10, lager: 'ok',    badge: '' },
     { id: 'h9',  kat: 'h', name: 'Urea-Maske für die Füße',        info: 'Intensivmaske mit 15 % Urea – über Nacht einwirken.',                   inhalt: '100 ml', grund: '13,90 € / 100 ml', preis: 13.90, sterne: 4.6, stimmen: 20, lager: 'ok',    badge: 'Neu' },
     { id: 'h10', kat: 'h', name: 'Glatte-Füße-Set',                info: 'Raspel, Peeling und Reduziercreme im Set.',                             inhalt: 'Set, 3-teilig',    preis: 24.90, sterne: 4.8, stimmen: 23, lager: 'ok',    badge: '' },
+    { id: 'h11', kat: 'h', name: 'Hobel-Ersatzklingen (10er)',     info: 'Passend zum Fußpflege-Schaber – einzeln versiegelt.',                   inhalt: '10 Stück',         preis: 4.90,  sterne: 4.3, stimmen: 12, lager: 'ok',    badge: '' },
+    { id: 'h12', kat: 'h', name: 'Fußbürste mit Bims-Rücken',      info: 'Borsten und Bimsstein in einem Griff.',                                 inhalt: '1 Stück',          preis: 7.90,  sterne: 4.4, stimmen: 17, lager: 'ok',    badge: '' },
+    { id: 'h13', kat: 'h', name: 'Kaffee-Peeling belebend',        info: 'Gemahlener Kaffee und Kokosöl – weckt müde Füße.',                      inhalt: '200 ml', grund: '5,95 € / 100 ml',  preis: 11.90, sterne: 4.5, stimmen: 13, lager: 'ok',    badge: '' },
+    { id: 'h14', kat: 'h', name: 'Hornhaut-Balsam Urea 10 %',      info: 'Tägliche Pflege nach Raspel oder Feile.',                               inhalt: '100 ml', grund: '10,90 € / 100 ml', preis: 10.90, sterne: 4.5, stimmen: 21, lager: 'ok',    badge: '' },
+    { id: 'h15', kat: 'h', name: 'Peeling-Socken Doppelpack',      info: 'Zwei Anwendungen – für die Kur alle 3 Monate.',                         inhalt: '2 Paar',           preis: 19.90, sterne: 4.3, stimmen: 25, lager: 'ok',    badge: '' },
+    { id: 'h16', kat: 'h', name: 'Ferse-glatt-Kur 7 Tage',         info: 'Maske, Balsam und Anleitung für eine Woche.',                           inhalt: 'Set, 2-teilig',    preis: 15.90, sterne: 4.6, stimmen: 8,  lager: 'wenig', badge: 'Neu' },
 
     /* --- Komfort & Entlastung --- */
     { id: 'k1',  kat: 'k', name: 'Zehenspreizer Gel (2er)',        info: 'Weiches Gel entlastet eng stehende Zehen.',                             inhalt: '2 Stück',          preis: 7.90,  sterne: 4.4, stimmen: 36, lager: 'ok',    badge: '' },
@@ -108,6 +136,12 @@
     { id: 'k8',  kat: 'k', name: 'Igelball-Duo',                   info: 'Zwei Noppenbälle für die Aktiv-Massage zwischendurch.',                 inhalt: '2 Stück',          preis: 6.90,  sterne: 4.4, stimmen: 21, lager: 'ok',    badge: '' },
     { id: 'k9',  kat: 'k', name: 'Komfort-Einlegesohlen Gel',      info: 'Dämpfende Gel-Sohlen, zuschneidbar Gr. 36–46.',                         inhalt: '1 Paar',           preis: 14.90, sterne: 4.5, stimmen: 30, lager: 'ok',    badge: 'Neu' },
     { id: 'k10', kat: 'k', name: 'Fußgymnastik-Set',               info: 'Ball, Band und Übungsanleitung für starke Füße.',                       inhalt: 'Set, 3-teilig',    preis: 16.90, sterne: 4.6, stimmen: 12, lager: 'ok',    badge: '' },
+    { id: 'k11', kat: 'k', name: 'Stütz-Socken leicht (Paar)',     info: 'Sanfte Kompression für lange Tage auf den Beinen.',                     inhalt: '1 Paar, Gr. 36–46', preis: 12.90, sterne: 4.4, stimmen: 19, lager: 'ok',   badge: '' },
+    { id: 'k12', kat: 'k', name: 'Fersen-Kissen (Paar)',           info: 'Weiches Polster entlastet die Ferse bei jedem Schritt.',                inhalt: '1 Paar',           preis: 13.90, sterne: 4.5, stimmen: 23, lager: 'ok',    badge: '' },
+    { id: 'k13', kat: 'k', name: 'Zehen-Yoga-Spreizer (Paar)',     info: 'Dehnt die Zehen nach einem langen Schuh-Tag.',                          inhalt: '1 Paar',           preis: 9.90,  sterne: 4.3, stimmen: 15, lager: 'ok',    badge: '' },
+    { id: 'k14', kat: 'k', name: 'Akupressur-Matte für Füße',      info: 'Noppenfeld für die Fußmassage im Stehen.',                              inhalt: '1 Stück · 35 × 35 cm', preis: 19.90, sterne: 4.4, stimmen: 18, lager: 'ok', badge: '' },
+    { id: 'k15', kat: 'k', name: 'Fuß-Wärmflasche Übergröße',      info: 'Extra breit – wärmt beide Füße gleichzeitig.',                          inhalt: '1 Stück · 2 l',    preis: 16.90, sterne: 4.6, stimmen: 14, lager: 'wenig', badge: '' },
+    { id: 'k16', kat: 'k', name: 'Anti-Rutsch-Socken (2 Paar)',    info: 'Sicherer Halt auf glatten Böden – waschbar bei 60 °C.',                 inhalt: '2 Paar, Gr. 36–46', preis: 11.90, sterne: 4.5, stimmen: 12, lager: 'ok',   badge: 'Neu' },
 
     /* --- Hygiene & Desinfektion --- */
     { id: 'd1',  kat: 'w', name: 'Hand-Desinfektionsgel',          info: 'Hautschonend mit Aloe – für unterwegs.',                                inhalt: '100 ml', grund: '4,90 € / 100 ml',  preis: 4.90,  sterne: 4.5, stimmen: 40, lager: 'ok',    badge: '' },
@@ -117,9 +151,7 @@
     { id: 'd5',  kat: 'w', name: 'Instrumenten-Desinfektionsbad',  info: 'Wanne mit Sieb-Einsatz für die Instrumenten-Pflege.',                   inhalt: '1 Stück · 1 l',    preis: 16.90, sterne: 4.5, stimmen: 14, lager: 'ok',    badge: '' },
     { id: 'd6',  kat: 'w', name: 'Desinfektions-Konzentrat',       info: 'Ergibt bis zu 25 l gebrauchsfertige Lösung.',                           inhalt: '500 ml', grund: '25,80 € / 1 l',    preis: 12.90, sterne: 4.6, stimmen: 19, lager: 'wenig', badge: '' },
     { id: 'd7',  kat: 'w', name: 'Einweg-Unterlagen (50er)',       info: 'Saugstark und hygienisch – 40 × 60 cm.',                                inhalt: '50 Stück',         preis: 11.90, sterne: 4.3, stimmen: 16, lager: 'ok',    badge: '' },
-    { id: 'd8',  kat: 'w', name: 'Schuh-Desinfektionsspray',       info: 'Neutralisiert Gerüche direkt im Schuh.',                                inhalt: '150 ml', grund: '6,60 € / 100 ml',  preis: 9.90,  sterne: 4.4, stimmen: 22, lager: 'ok',    badge: '' },
     { id: 'd9',  kat: 'w', name: 'Hygiene-Reise-Set',              info: 'Gel, Spray und Tücher in der Kulturtasche.',                            inhalt: 'Set, 3-teilig',    preis: 14.90, sterne: 4.5, stimmen: 11, lager: 'ok',    badge: 'Neu' },
-    { id: 'd10', kat: 'w', name: 'Desinfektionstücher (80er)',     info: 'Spenderdose mit 80 feuchten Tüchern.',                                  inhalt: '80 Tücher',        preis: 8.90,  sterne: 4.4, stimmen: 18, lager: 'ok',    badge: '' },
 
     /* --- Geschenke & Gutscheine --- */
     { id: 'g1',  kat: 'g', name: 'Gutschein Fachfußpflege',        info: 'Der Klassiker zum Verschenken – die komplette Pflege als Hausbesuch.',  inhalt: '1 Gutschein',      preis: 48.00, sterne: 5.0, stimmen: 24, lager: 'ok',    badge: 'Bestseller' },
@@ -132,6 +164,12 @@
     { id: 'g8',  kat: 'g', name: 'Grußkarte mit Umschlag',         info: 'Passend zum Gutschein – „Für Dich".',                                   inhalt: '1 Stück',          preis: 2.90,  sterne: 4.5, stimmen: 7,  lager: 'ok',    badge: '' },
     { id: 'g9',  kat: 'g', name: 'Geschenk-Verpackung premium',    info: 'Box, Seidenpapier und Schleife – fertig verpackt.',                     inhalt: '1 Stück',          preis: 4.90,  sterne: 4.6, stimmen: 8,  lager: 'ok',    badge: '' },
     { id: 'g10', kat: 'g', name: 'Jahres-Paket „4 × Pflege"',      info: 'Vier Fachfußpflege-Termine im Voraus – ein Termin geschenkt.',          inhalt: '4 Gutscheine',     preis: 144.00, sterne: 5.0, stimmen: 6, lager: 'ok',    badge: 'Neu' },
+    { id: 'g11', kat: 'g', name: 'Wert-Gutschein 50 €',            info: 'Frei einlösbar für Leistungen und Produkte.',                           inhalt: '1 Gutschein',      preis: 50.00, sterne: 4.9, stimmen: 11, lager: 'ok',    badge: '' },
+    { id: 'g12', kat: 'g', name: 'Wert-Gutschein 100 €',           info: 'Das große Geschenk – frei einlösbar.',                                  inhalt: '1 Gutschein',      preis: 100.00, sterne: 5.0, stimmen: 7, lager: 'ok',    badge: '' },
+    { id: 'g13', kat: 'g', name: 'Duo-Gutschein „Zu zweit"',       info: 'Zwei Fachfußpflege-Termine – z. B. für Paare.',                         inhalt: '2 Gutscheine',     preis: 90.00, sterne: 5.0, stimmen: 5,  lager: 'ok',    badge: '' },
+    { id: 'g14', kat: 'g', name: 'Geschenkset „Winterfüße"',       info: 'Wärmender Balsam, Kuschelsocken und Badesalz.',                         inhalt: 'Set, 3-teilig',    preis: 27.90, sterne: 4.7, stimmen: 9,  lager: 'ok',    badge: '' },
+    { id: 'g15', kat: 'g', name: 'Kleine Freude',                  info: 'Handliche Fußcreme mit Grußkarte – die Aufmerksamkeit.',                inhalt: 'Set, 2-teilig',    preis: 14.90, sterne: 4.6, stimmen: 8,  lager: 'ok',    badge: '' },
+    { id: 'g16', kat: 'g', name: 'Gutschein per E-Mail',           info: 'Sofort verschickt – ideal für Kurzentschlossene.',                      inhalt: '1 Gutschein (PDF)', preis: 25.00, sterne: 4.8, stimmen: 10, lager: 'ok',   badge: 'Neu' },
   ];
 
   /* ================= Hilfen ================= */
