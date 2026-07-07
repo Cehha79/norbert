@@ -1613,10 +1613,12 @@ body:has(dialog[open]) { overflow: hidden; }
   box-shadow: var(--schatten);
 }
 .gebiet-karte img { width: 100%; }
+#einzugskarte { width: 100%; aspect-ratio: 16 / 8; min-height: 320px; background: var(--marke-hell); }
 .gebiet-quelle { font-size: 13px; color: var(--text-leise); margin-block-start: 6px; }
 .orte-liste {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;   /* Chips gleichmäßig über die volle Breite */
   gap: 10px;
   list-style: none;
   padding: 0;

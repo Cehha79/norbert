@@ -371,6 +371,24 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   die früher notierten lk-Klassen (gleiche Spezifität, spätere Regel
   gewinnt) → Standard jetzt auf `.kontakt-spalte`, lk-Klassen an der
   Kachel greifen wieder. Beide Themen sichtgeprüft. Cache `?v=62`.
+- **Kontakt-Feinschliff nach Hasans Rückmeldung** (3 Punkte):
+  (a) Hintergrund neu in 2560 px exportiert (war auf Bildschirmbreite
+  hochgezogen = zu grob) und per `background-position: right bottom`
+  so gelegt, dass die grüne Pflanze rechts unten sitzt.
+  (b) **Karte jetzt interaktiv**: Leaflet 1.9.4 LOKAL
+  (js/extern/leaflet.js/.css, kein CDN) + eigene Kachel-Pyramide in
+  `bilder/karte/` — OSM (Straßen) und **Satellit** (Sentinel-2
+  cloudless © EOX, CC BY 4.0, 2016er-Ebene = kommerziell frei) für
+  Zoom 10–11, je 97 Kacheln einmalig per curl gespeichert (5,4 MB)
+  → zoombar + Karte/Satellit-Umschalter, aber weiterhin NULL
+  Fremdabrufe zur Laufzeit (DSGVO-Vorteil bleibt, kein Cookie-Banner
+  nötig). 50-km-Kreis + Standort-Marker als Leaflet-Overlays,
+  Mausrad-Zoom aus (Seiten-Scrollen), maxBounds aufs Kachel-Gebiet,
+  Startzoom 10 (bei 9 wäre das Gebiet schmaler als der Kasten —
+  Grauränder); statisches einzugsgebiet.jpg bleibt als
+  noscript-Rückfall. Quellen-Zeile unter der Karte erweitert.
+  (c) Orte-Chips per `justify-content: space-between` über die volle
+  Breite verteilt. main.js `?v=15`, Cache `?v=63`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

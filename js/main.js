@@ -197,6 +197,39 @@
       });
     }
 
+    /* ---------- Einzugsgebiets-Karte (Leaflet, nur lokale Kacheln) ---------- */
+    var kartenFeld = document.getElementById('einzugskarte');
+    if (kartenFeld && window.L) {
+      var mitte = [48.8129, 9.1013];   /* Stuttgart-Weilimdorf */
+      var karte = L.map(kartenFeld, {
+        center: mitte,
+        zoom: 10,
+        minZoom: 10,       /* bei 9 wäre das Kachel-Gebiet schmaler als der Kasten (Grauränder) */
+        maxZoom: 11,
+        maxBounds: [[48.30, 8.30], [49.32, 9.90]],
+        scrollWheelZoom: false         /* sonst hängt das Seiten-Scrollen in der Karte fest */
+      });
+      var strassen = L.tileLayer('bilder/karte/osm/{z}/{x}/{y}.png', {
+        minZoom: 10, maxZoom: 11,
+        attribution: '© OpenStreetMap-Mitwirkende'
+      });
+      var satellit = L.tileLayer('bilder/karte/sat/{z}/{x}/{y}.jpg', {
+        minZoom: 10, maxZoom: 11,
+        attribution: 'Sentinel-2 cloudless © EOX (CC BY 4.0)'
+      });
+      strassen.addTo(karte);
+      L.control.layers({ 'Karte': strassen, 'Satellit': satellit }, null, { collapsed: false }).addTo(karte);
+      L.circle(mitte, {
+        radius: 50000,
+        color: '#205a7d', weight: 3,
+        fillColor: '#205a7d', fillOpacity: 0.12
+      }).addTo(karte);
+      L.circleMarker(mitte, {
+        radius: 8, color: '#fff', weight: 3,
+        fillColor: '#205a7d', fillOpacity: 1
+      }).addTo(karte).bindPopup('Standort: Stuttgart-Weilimdorf');
+    }
+
     /* ---------- Sprachauswahl: Klick daneben schließt sie ---------- */
     var sprache = document.querySelector('.sprache');
     if (sprache) {
