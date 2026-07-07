@@ -1018,10 +1018,34 @@ body:has(dialog[open]) { overflow: hidden; }
 .rolle-zurueck { inset-inline-start: -8px; }
 .rolle-vor     { inset-inline-end: -8px; }
 
+/* ---------- Muster-Kennzeichnung + Avatar-Farben der Stimmen ---------- */
+.beispiel-etikett {
+  position: absolute;
+  top: 12px;
+  inset-inline-end: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--sand);
+  border: 1px solid var(--sand);
+  border-radius: 999px;
+  padding: 1px 9px;
+  opacity: 0.85;
+}
+.stimme-avatar { font-size: 14px; font-weight: 700; }
+.av-blau   { background: #2f8fc0; color: #fff; }
+.av-gruen  { background: #3e8e5a; color: #fff; }
+.av-gold   { background: #a8823c; color: #fff; }
+.av-rot    { background: #b5544a; color: #fff; }
+.av-petrol { background: #205a7d; color: #fff; }
+.av-orange { background: #c26a35; color: #fff; }
+.stern-leer { color: var(--linie); }
+
 /* ---------- Bewertung abgeben (Tafel im Vergleichs-Stil, Gold) ---------- */
-.bewertung { --vt: var(--sand); margin-block-start: 26px; }
-.bewertung-formular { display: grid; gap: 14px; padding-block-start: 4px; }
-.bewertung-zeile { display: grid; gap: 14px; }
+.bewertung { --vt: var(--sand); margin-block-start: 20px; }
+.bewertung-formular { display: grid; gap: 12px; padding-block-start: 2px; }
+.bewertung-zeile { display: grid; gap: 12px; }
 .sterne-wahl {
   display: flex;
   flex-direction: row-reverse;          /* DOM 5→1, Optik 1→5: so färbt :checked ~ alle Sterne links */
@@ -1033,7 +1057,7 @@ body:has(dialog[open]) { overflow: hidden; }
   opacity: 0;
 }
 .feld .sterne-wahl label {
-  font-size: 36px;
+  font-size: 30px;
   line-height: 1;
   color: var(--linie);
   cursor: pointer;
@@ -1046,7 +1070,8 @@ body:has(dialog[open]) { overflow: hidden; }
 .sterne-wahl input:focus-visible + label { outline: 3px solid var(--sand); outline-offset: 2px; border-radius: 4px; }
 .bewertung-knoepfe { display: flex; flex-wrap: wrap; gap: 12px; }
 .bewertung-knoepfe .knopf { flex: 1; }
-.bewertung-hinweis { font-size: 15px; color: var(--text-leise); margin: 0; }
+.bewertung-hinweis { font-size: 14px; color: var(--text-leise); margin: 0; }
+.bewertung-formular textarea { min-height: 90px; }
 
 /* ---------- FAQ ---------- */
 .faq {
@@ -1293,7 +1318,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .held-knoepfe .knopf { width: auto; }
   .karten-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 18px) / 2); gap: 18px; }
-  .bewertung-zeile { grid-template-columns: 1fr 1fr; }
+  .bewertung-zeile { grid-template-columns: auto 1fr 1fr; align-items: end; column-gap: 22px; }
   .schritte { grid-template-columns: repeat(2, 1fr); gap: 24px; row-gap: 44px; }
   .schritte-drei { grid-template-columns: 1fr; }   /* 3 Karten: erst ab 840px nebeneinander (Symmetrie) */
   .vertrauen-raster { grid-template-columns: repeat(2, 1fr); gap: 20px; }

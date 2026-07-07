@@ -91,6 +91,14 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   ab 840 px, Marke-Kante, Schatten, `align-items: start`. Aufruf-Block
   „Noch Fragen offen?" entfernt. main.js `?v=4` (Band-Pfeile +
   Bewertungs-Versand), Cache `?v=39`.
+- 18 **Muster-Bewertungen** eingesetzt (Hasans Wunsch, nur zum
+  Wirkungstest — werden vor Livegang gelöscht/ersetzt, siehe WICHTIG +
+  TODO): verschiedene Textlängen, Namen/Orte aus dem Einzugsgebiet,
+  farbige Initialen-Avatare (6 Palettenfarben), auch 4-Sterne-Karten;
+  jede Karte trägt ein „Beispiel"-Etikett (rechtliche Absicherung, UWG).
+  Bewertungs-Tafel kompakter: Sterne + Name + Ort in einer Zeile
+  (ab 640 px), Sterne 30 px, Textfeld flacher, Hinweis kleiner.
+  Cache `?v=40`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).

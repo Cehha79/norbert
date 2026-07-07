@@ -24,6 +24,12 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
   Drittservern lädt — das ist ein Qualitätsmerkmal, nicht vergessen bei Erweiterungen.
 - Impressum und Datenschutz sind noch **Entwurf** (Platzhalter) — vor dem
   Livegang befüllen und prüfen.
+- **MUSTER-BEWERTUNGEN vor dem Livegang entfernen!** Die 18 Kundenstimmen
+  auf kundenstimmen.html sind erfundene Layout-Muster (Hasans Wunsch, nur
+  zum Wirkungstest; jede trägt ein „Beispiel"-Etikett). Erfundene
+  Bewertungen ohne Kennzeichnung sind wettbewerbswidrig (UWG Anhang
+  Nr. 23b/23c, gefälschte Verbraucherbewertungen) und abmahnfähig — vor
+  dem Livegang durch echte, freigegebene Stimmen ersetzen oder löschen.
 
 ## Merksätze
 

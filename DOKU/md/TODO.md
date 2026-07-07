@@ -32,8 +32,9 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 - [ ] USt-Status fürs Impressum klären (§ 19 UStG Kleinunternehmer?) — „später"
 - [ ] Dauer der Fußmassage und der Reflexzonen-Wellnessmassage erfragen
 - [ ] Erreichbarkeits-Zeiten → `kontakt.html`
-- [ ] Kundenstimmen (mit Freigabe der Kunden) — bleiben laut Hasan vorerst
-  Platzhalter
+- [ ] Kundenstimmen: echte Stimmen (mit Freigabe der Kunden) einpflegen und
+  dabei die 18 **Muster-Bewertungen löschen** (nur Wirkungstest, tragen
+  „Beispiel"-Etikett — PFLICHT vor Livegang, siehe WICHTIG)
 
 ## Bauen (Phase 4–6)
 
