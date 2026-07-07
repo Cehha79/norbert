@@ -508,10 +508,15 @@ img { max-width: 100%; display: block; }
 /* Sozial-Leiste: vier gleich große, kleinere Knöpfe — außen bündig mit den
    Haupt-Knöpfen darüber, deutlich untergeordnet (kleiner in Höhe und Breite) */
 .sozial-leiste {
-  display: flex;
-  gap: 14px;                       /* kurzer Abstand innerhalb der 2er-Paare */
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* zwei Hälften wie die Haupt-Knöpfe darüber */
+  gap: 18px;
 }
-.sozial-knopf:nth-child(3) { margin-inline-start: auto; }   /* Paar links, Paar rechts */
+.sozial-paar {
+  display: flex;
+  justify-content: center;         /* Paar mittig unter seinem Haupt-Knopf */
+  gap: 14px;
+}
 .sozial-knopf {
   height: 38px;
   flex: 0 1 96px;
