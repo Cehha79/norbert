@@ -579,15 +579,14 @@ img { max-width: 100%; display: block; }
 /* Tafel wie die Schritt-Karten: Symbol-Kreis außen oben angesetzt */
 .vertrauen-punkt {
   position: relative;
-  font-size: 16.5px;
-  font-weight: 600;
-  color: var(--titel);
   background: var(--flaeche);
   border: 1px solid var(--linie);
   border-radius: var(--radius);
   box-shadow: var(--schatten);
-  padding: 44px 22px 22px;
+  padding: 54px 22px 24px;             /* wie .schritt – gleiche Tafel-Größe */
 }
+.vertrauen-punkt h3 { font-size: 19px; margin-block-end: 8px; }
+.vertrauen-punkt p { font-size: 16.5px; color: var(--text-leise); margin: 0; }
 .vertrauen-punkt svg {
   position: absolute;
   top: -22px;
