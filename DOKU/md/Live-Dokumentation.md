@@ -421,6 +421,12 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Puffer-Zeiten für Anfahrt) in
   `DOKU/Claude Ausgabe/Anleitung-Terminbuchung.html`. TODO-Abschnitt
   „Terminbuchung" angelegt.
+- **Buchungs-Link live** (Hasans Test-Konto, „nutze erst das"):
+  Tafel „Termin online buchen" verweist jetzt auf
+  cal.com/hasan-tepegoz-dzm3vx (neuer Tab, Link verifiziert HTTP 200);
+  Platzhalter-Etikett raus, Untertitel „Bestätigung sofort per
+  E-Mail". VOR LIVEGANG auf Norberts eigenes Konto tauschen
+  (TODO-Kommentar im HTML + TODO.md).
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

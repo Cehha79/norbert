@@ -57,13 +57,14 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 
 ## Terminbuchung (entschieden 07.07.: Google + Cal.com)
 
-- [ ] **Cal.com einrichten** (macht Hasan/Norbert selbst — Anleitung liegt in
-  `DOKU/Claude Ausgabe/Anleitung-Terminbuchung.html`): Konto mit Norberts
-  vorhandenem Google-Konto, Kalender verbinden, Verfügbarkeit + 3
-  Ereignistypen (48/30/57 €) anlegen
-- [ ] **Buchungs-Link eintragen**: Tafel „Termin online buchen" auf
-  kontakt.html zeigt noch `href="#"` mit Platzhalter — echten
-  cal.com-Link einsetzen, Platzhalter-Etikett entfernen
+- [x] Cal.com-Konto eingerichtet (07.07., Hasans Test-Konto) und
+  **Buchungs-Link eingetragen**: cal.com/hasan-tepegoz-dzm3vx auf der
+  Tafel „Termin online buchen"
+- [ ] **Vor Livegang: auf Norberts eigenes Cal.com-Konto umstellen**
+  (mit seinem Google-Konto, Anleitung in
+  `DOKU/Claude Ausgabe/Anleitung-Terminbuchung.html`) und den Link auf
+  kontakt.html tauschen (TODO-Kommentar steht an der Tafel);
+  Ereignistypen 48/30/57 € + Puffer + Pflichtfeld Adresse prüfen
 - [ ] Microsoft bewusst verworfen (Bookings nur im M365-Abo ~6–7 €/Monat)
 
 ## Shop-Ausbaustufe (später, von Hasan geplant)
