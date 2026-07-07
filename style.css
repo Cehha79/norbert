@@ -1562,7 +1562,8 @@ main a img, .leaflet-container img { cursor: pointer; }
   font-size: 15.5px;
   color: var(--text-leise);
 }
-.feld-einwilligung label { flex: 1; }
+.feld-einwilligung label { flex: 1; font-size: 14px; }
+.feld-einwilligung a { text-decoration: none; }
 .feld-einwilligung input {
   width: 22px; height: 22px;
   min-height: 0;

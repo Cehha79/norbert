@@ -605,6 +605,11 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   „Muster-Kasse zur Ansicht." und „Muster-Verbindung – echtes
   PayPal-Konto folgt." entfernt — in ALLEN 7 Kassen (de + 6 Sprachen).
   Nur HTML-Text, kein Cache-Bump nötig.
+- Nachschliff Einwilligungs-Zeile (Hasan: „die unterstriche weg" +
+  „etwas kleiner, dass kein zeilenumbruch"): `.feld-einwilligung a
+  { text-decoration: none }` und Label auf 14 px — Satz passt jetzt
+  einzeilig; gilt auch fürs Kontakt-Formular (gleiche Klasse).
+  Cache `?v=78` (alle 65 Seiten inkl. Sprachordner).
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
