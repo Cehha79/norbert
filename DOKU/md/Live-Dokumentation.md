@@ -73,6 +73,11 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   entfernt (Inhalt steht in der Anfahrt-Zeile der Tabelle; Details siehe
   Kontakt-Seite), Abschnitts-Abstand `--abstand` nochmals halbiert auf
   26–40 px. Cache `?v=36`.
+- Feinschliff Warum-Tafel: Ergänzungssatz „– beide Bereiche ergänzen
+  sich, ersetzen einander aber nicht." gleicht die zwei Textspalten aus
+  (vorher links eine Zeile weniger); letzter Abschnitt jeder Seite endet
+  jetzt 14 px über der Fußleiste (`main > section:last-child`).
+  Cache `?v=37`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).

@@ -599,6 +599,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Abschnitte ---------- */
 .abschnitt { padding-block: var(--abstand); }
+main > section:last-child { padding-block-end: 14px; }  /* knapp über der Fußleiste enden */
 .abschnitt-hell { background: transparent; }
 .abschnitt-kopf { max-width: 700px; margin-inline: auto; margin-block-end: 36px; text-align: center; }
 .abschnitt-kopf p { color: var(--text-leise); font-size: 18px; margin-block-start: 12px; }
