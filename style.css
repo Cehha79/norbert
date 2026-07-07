@@ -1063,11 +1063,11 @@ body:has(dialog[open]) { overflow: hidden; }
   opacity: 0;
 }
 .feld .sterne-wahl label {
-  font-size: 26px;
-  line-height: 1;
+  font-size: 34px;
+  line-height: 46px;                    /* gleiche Höhe wie die Eingabefelder daneben */
   color: var(--linie);
   cursor: pointer;
-  padding: 2px 4px;
+  padding: 0 4px;
   margin: 0;
 }
 .feld .sterne-wahl label.gewaehlt { color: var(--stern); }
@@ -1318,14 +1318,13 @@ body:has(dialog[open]) { overflow: hidden; }
   .held-knoepfe .knopf { width: auto; }
   .karten-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 18px) / 2); gap: 18px; }
-  .bewertung-zeile { grid-template-columns: auto 1fr 1fr; align-items: stretch; column-gap: 22px; }
-  /* Labels oben und Eingaben unten jeweils auf einer Linie */
-  .bewertung-zeile .feld {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0;
+  /* Sterne, Name und Ort in einer Zeile; Eingabefelder mit fester Breite */
+  .bewertung-zeile {
+    grid-template-columns: max-content minmax(0, 320px) minmax(0, 320px);
+    align-items: start;
+    column-gap: 26px;
   }
+  .bewertung-zeile .feld { margin: 0; }
   .bewertung-zeile .feld label { font-size: 16px; white-space: nowrap; }
   .schritte { grid-template-columns: repeat(2, 1fr); gap: 24px; row-gap: 44px; }
   .schritte-drei { grid-template-columns: 1fr; }   /* 3 Karten: erst ab 840px nebeneinander (Symmetrie) */

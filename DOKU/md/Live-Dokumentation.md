@@ -125,6 +125,10 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   normaler Reihenfolge 1→5, Klick auf Stern n füllt 1…n
   (`label.gewaehlt`), Hover vergrößert den Stern leicht. main.js `?v=6`,
   Cache `?v=44`.
+- Nachbesserung 2: Sterne direkt unter dem Label (kein Versatz mehr,
+  `line-height: 46px` = Feldhöhe), größer (34 px); Name/Ort-Felder auf
+  feste 320 px gekürzt (Hasans Vorgabe). Einzelauswahl getestet:
+  2 Sterne klicken → genau 2 gelb. Cache `?v=45`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
