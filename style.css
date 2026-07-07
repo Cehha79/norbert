@@ -1053,26 +1053,20 @@ body:has(dialog[open]) { overflow: hidden; }
 .bewertung-formular .feld textarea { min-height: 70px; }
 .bewertung .knopf { min-height: 46px; padding: 8px 18px; font-size: 16.5px; }
 .bewertung-zeile { display: grid; gap: 12px; }
-.sterne-wahl {
-  display: flex;                        /* Färbung übernimmt main.js: Klick auf Stern n füllt 1…n */
-  justify-content: flex-start;
-}
-.sterne-wahl input {
-  position: absolute;
-  width: 1px; height: 1px;
-  opacity: 0;
-}
-.feld .sterne-wahl label {
-  font-size: 34px;
+.sterne-wahl { display: flex; gap: 2px; }
+.stern {
+  border: none;
+  background: none;
+  padding: 0 3px;
+  font-size: 38px;
   line-height: 46px;                    /* gleiche Höhe wie die Eingabefelder daneben */
   color: var(--linie);
   cursor: pointer;
-  padding: 0 4px;
-  margin: 0;
 }
-.feld .sterne-wahl label.gewaehlt { color: var(--stern); }
-.feld .sterne-wahl label:hover { transform: scale(1.18); }
-.sterne-wahl input:focus-visible + label { outline: 3px solid var(--sand); outline-offset: 2px; border-radius: 4px; }
+.stern.gewaehlt { color: var(--stern); }
+.stern:hover { transform: scale(1.15); }
+.stern:focus-visible { outline: 3px solid var(--stern); outline-offset: 2px; border-radius: 6px; }
+.sterne-wahl.fehlt { box-shadow: 0 0 0 2px var(--fehler); border-radius: 10px; }
 .bewertung-knoepfe { display: flex; flex-wrap: wrap; gap: 12px; }
 .bewertung-knoepfe .knopf { flex: 1; }
 .bewertung-hinweis { font-size: 14px; color: var(--text-leise); margin: 0; }
@@ -1318,9 +1312,9 @@ body:has(dialog[open]) { overflow: hidden; }
   .held-knoepfe .knopf { width: auto; }
   .karten-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 18px) / 2); gap: 18px; }
-  /* Sterne, Name und Ort in einer Zeile; Eingabefelder mit fester Breite */
+  /* Sterne, Name und Ort: drei gleich breite Spalten über die volle Tafelbreite */
   .bewertung-zeile {
-    grid-template-columns: max-content minmax(0, 320px) minmax(0, 320px);
+    grid-template-columns: repeat(3, 1fr);
     align-items: start;
     column-gap: 26px;
   }

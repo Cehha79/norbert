@@ -104,36 +104,43 @@
     if (bewertung) {
       /* Sterne-Auswahl: Klick auf Stern n füllt die Sterne 1 bis n */
       var sterneWahl = bewertung.querySelector('.sterne-wahl');
-      if (sterneWahl) {
-        var sterneRadios = sterneWahl.querySelectorAll('input');
-        sterneRadios.forEach(function (radio) {
-          radio.addEventListener('change', function () {
-            var wert = parseInt(radio.value, 10);
-            sterneRadios.forEach(function (r) {
-              var label = sterneWahl.querySelector('label[for="' + r.id + '"]');
-              if (label) label.classList.toggle('gewaehlt', parseInt(r.value, 10) <= wert);
-            });
+      var sterneWert = document.getElementById('b-sterne');
+      var sterneKnoepfe = bewertung.querySelectorAll('.stern');
+      sterneKnoepfe.forEach(function (knopf) {
+        knopf.addEventListener('click', function () {
+          sterneWert.value = knopf.getAttribute('data-wert');
+          sterneWahl.classList.remove('fehlt');
+          sterneKnoepfe.forEach(function (k) {
+            k.classList.toggle('gewaehlt',
+              parseInt(k.getAttribute('data-wert'), 10) <= parseInt(sterneWert.value, 10));
           });
         });
-      }
+      });
+      var eingabenOk = function () {
+        if (!sterneWert.value) {
+          sterneWahl.classList.add('fehlt');
+          sterneKnoepfe[0].focus();
+          return false;
+        }
+        return bewertung.reportValidity();
+      };
       var bewertungsText = function () {
-        var sterne = bewertung.querySelector('input[name="sterne"]:checked');
         var name = document.getElementById('b-name').value.trim();
         var ort = document.getElementById('b-ort').value.trim();
         var text = document.getElementById('b-text').value.trim();
         return 'Meine Bewertung für Norberts mobile Fußpflege\n\n' +
-          'Sterne: ' + sterne.value + ' von 5\n' +
+          'Sterne: ' + sterneWert.value + ' von 5\n' +
           'Von: ' + name + (ort ? ', ' + ort : '') + '\n\n' +
           text + '\n\n' +
           'Mit der Veröffentlichung auf der Website bin ich einverstanden.';
       };
       document.getElementById('b-whatsapp').addEventListener('click', function () {
-        if (!bewertung.reportValidity()) return;
+        if (!eingabenOk()) return;
         window.open('https://wa.me/4917686961032?text=' +
           encodeURIComponent(bewertungsText()), '_blank', 'noopener');
       });
       document.getElementById('b-mail').addEventListener('click', function () {
-        if (!bewertung.reportValidity()) return;
+        if (!eingabenOk()) return;
         location.href = 'mailto:norbertsmobilefusspflege@gmx.de' +
           '?subject=' + encodeURIComponent('Meine Bewertung') +
           '&body=' + encodeURIComponent(bewertungsText());

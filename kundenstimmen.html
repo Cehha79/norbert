@@ -6,9 +6,9 @@
 <title>Kundenstimmen &amp; häufige Fragen – Norberts mobile Fußpflege</title>
 <meta name="description" content="Das sagen Kundinnen und Kunden über Norberts mobile Fußpflege – plus Antworten auf häufige Fragen zu Hausbesuch, Hygiene und Ablauf.">
 <link rel="icon" type="image/png" href="bilder/logo-klein.png">
-<link rel="stylesheet" href="style.css?v=45">
+<link rel="stylesheet" href="style.css?v=46">
 <script src="js/thema.js"></script>
-<script src="js/main.js?v=6" defer></script>
+<script src="js/main.js?v=7" defer></script>
 </head>
 <body>
 
@@ -252,13 +252,14 @@
       <form class="bewertung-formular" id="bewertung-formular">
         <div class="bewertung-zeile">
           <div class="feld">
-            <label for="b-sterne-1">Wie zufrieden waren Sie? *</label>
-            <div class="sterne-wahl" role="radiogroup" aria-label="Bewertung in Sternen">
-              <input type="radio" id="b-sterne-1" name="sterne" value="1" required><label for="b-sterne-1" title="1 Stern">★</label>
-              <input type="radio" id="b-sterne-2" name="sterne" value="2"><label for="b-sterne-2" title="2 Sterne">★</label>
-              <input type="radio" id="b-sterne-3" name="sterne" value="3"><label for="b-sterne-3" title="3 Sterne">★</label>
-              <input type="radio" id="b-sterne-4" name="sterne" value="4"><label for="b-sterne-4" title="4 Sterne">★</label>
-              <input type="radio" id="b-sterne-5" name="sterne" value="5"><label for="b-sterne-5" title="5 Sterne – sehr zufrieden">★</label>
+            <label id="sterne-titel">Wie zufrieden waren Sie? *</label>
+            <div class="sterne-wahl" aria-labelledby="sterne-titel">
+              <button type="button" class="stern" data-wert="1" aria-label="1 Stern">★</button>
+              <button type="button" class="stern" data-wert="2" aria-label="2 Sterne">★</button>
+              <button type="button" class="stern" data-wert="3" aria-label="3 Sterne">★</button>
+              <button type="button" class="stern" data-wert="4" aria-label="4 Sterne">★</button>
+              <button type="button" class="stern" data-wert="5" aria-label="5 Sterne – sehr zufrieden">★</button>
+              <input type="hidden" name="sterne" id="b-sterne">
             </div>
           </div>
           <div class="feld">
