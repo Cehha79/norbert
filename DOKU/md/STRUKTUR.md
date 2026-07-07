@@ -35,5 +35,5 @@ norberts-mobile-fusspflege.de).
 - Kopfleiste, Fußleiste und mobile Aktionsleiste sind auf allen Seiten
   identisch — bei Änderungen **alle sieben Seiten** anfassen.
 - Design nur über die Tokens am Anfang von `style.css` steuern
-  (`--gruen`, `--grund`, `--flaeche` …) — nie Farbwerte im HTML verstreuen.
+  (`--marke`, `--grund`, `--flaeche` …) — nie Farbwerte im HTML verstreuen.
 - DOKU-HTML wird aus `DOKU/md/*.md` erzeugt (Konverter-Skript, siehe REGELN).

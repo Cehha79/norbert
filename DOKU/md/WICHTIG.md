@@ -40,6 +40,8 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
 |---|---|
 | Statisch, Vanilla HTML/CSS/JS, kein Build | wie MikaTec/netz-atlas; schnell, wartbar, läuft direkt auf GitHub Pages |
 | Zwei Themen (hell Standard, dunkel wählbar) | Kundenwunsch; hell bewusst gedämpft (warmes Papierweiß statt Reinweiß) |
+| Palette Petrol-Blau + Gold (07.07., Entscheidung „B") | passt zum vorhandenen Kunden-Logo (`bilder/logo-alt.png`), Flyer und Arbeitskleidung auf allen Fotos; Tokens heißen `--marke`/`--marke-hover`/`--marke-hell` |
+| Logo in Kopf- und Fußleiste | Kundenwunsch („wichtig"); weißer Kreis, da das Logo weißen Grund hat |
 | Lora + Source Sans 3, lokal (WOFF2) | edel + sehr gut lesbar; DSGVO-Pflicht |
 | Karte als statisches OSM-Bild geplant | DSGVO-konform ohne Zwei-Klick-Lösung, null JS |
 | Formular-Dienst erst beim Livegang | GitHub Pages hat kein Backend; Dienst-Wahl offen (siehe TODO) |

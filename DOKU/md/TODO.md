@@ -16,20 +16,22 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 - [x] E-Mail-Adresse → norbertsmobilefusspflege@gmx.de überall eingetragen
 - [x] Impressum-Adresse → Mittenfeldstraße 39, 70499 Stuttgart; dazu
   Berufshaftpflicht (Allianz) + EU-Streitschlichtung
-- [ ] USt-Status fürs Impressum klären (§ 19 UStG Kleinunternehmer?)
-- [ ] Anfahrtsregelung (im Preis enthalten? Umkreis?) → `leistungen.html`
-- [ ] Einzugsgebiet: Stadtteile/Umland-Orte bestätigen →
-  `kontakt.html#einzugsgebiet` (aktuell nur „Stuttgart" fest)
-- [ ] Dauer je Leistung (für Preistabelle + FAQ „45–60 Min.")
-- [ ] WhatsApp-Nummer bestätigen (angenommen: gleiche Nummer
-  0176 8696 1032 → `wa.me/4917686961032`)
+- [x] Preise 48/30/57 € von Hasan bestätigt (07.07.)
+- [x] Anfahrt: **im Preis enthalten** → Preistabelle + Hinweis eingetragen
+- [x] Einzugsgebiet: **Weilimdorf + Umkreis bis 50 km** (von Hasan, erst 100,
+  dann auf 50 km korrigiert) → `kontakt.html#einzugsgebiet`
+- [x] Dauer: ca. 30 Minuten → Fachfußpflege-Zeile + FAQ; Dauer der beiden
+  Massagen noch offen (Platzhalter in der Tabelle)
+- [x] WhatsApp: gleiche Nummer bestätigt
+- [x] Zahlungsarten: bar, auf Rechnung, PayPal → FAQ
+- [x] Marken-Entscheidung: **B** — Palette Petrol-Blau/Gold passend zum Logo;
+  Logo in Kopf- und Fußleiste eingebaut (Tokens umbenannt: `--gruen` →
+  `--marke`)
+- [ ] USt-Status fürs Impressum klären (§ 19 UStG Kleinunternehmer?) — „später"
+- [ ] Dauer der Fußmassage und der Reflexzonen-Wellnessmassage erfragen
 - [ ] Erreichbarkeits-Zeiten → `kontakt.html`
-- [ ] Zahlungsarten → FAQ in `kundenstimmen.html`
-- [ ] Kundenstimmen (mit Freigabe der Kunden) → `kundenstimmen.html` + Auszug
-  `index.html`
-- [ ] **Marken-Frage mit Hasan/Kunde klären:** Kunden-Logo und Arbeitskleidung
-  sind BLAU/Gold, neues Web-Design ist GRÜN — Palette anpassen oder Grün
-  behalten? (Logo liegt in `bilder/logo-alt.png`)
+- [ ] Kundenstimmen (mit Freigabe der Kunden) — bleiben laut Hasan vorerst
+  Platzhalter
 
 ## Bauen (Phase 4–6)
 

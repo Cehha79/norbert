@@ -61,40 +61,42 @@
 
 /* ============================================================
    Design-Tokens – Thema HELL (Standard, bewusst gedämpft)
+   Palette: Petrol-Blau + Gold, abgestimmt auf das Kunden-Logo
+   (bilder/logo-alt.png: blaue Füße, goldene Schrift)
    ============================================================ */
 :root {
   color-scheme: light;
 
   /* Flächen */
-  --grund:       #efece4;   /* Seitengrund – warmes, ruhiges Papierweiß */
-  --flaeche:     #faf8f3;   /* Karten, Formulare, Kopfleiste */
-  --sektion:     #e7ebe2;   /* Wechsel-Abschnitte */
-  --kopf-hg:     rgba(250, 248, 243, 0.95);
+  --grund:       #eeece6;   /* Seitengrund – warmes, ruhiges Papierweiß */
+  --flaeche:     #faf9f5;   /* Karten, Formulare, Kopfleiste */
+  --sektion:     #e4e8e9;   /* Wechsel-Abschnitte */
+  --kopf-hg:     rgba(250, 249, 245, 0.95);
 
   /* Marke */
-  --gruen:       #2e5f4e;   /* Knöpfe, Badges (weiße Schrift darauf) */
-  --gruen-hover: #22463a;
-  --gruen-hell:  #dde7de;   /* Symbol-Flächen, Chips */
-  --titel:       #22463a;   /* Überschriften */
-  --akzent:      #2e5f4e;   /* Links, Symbole */
-  --akzent-hover:#1b3a2e;
-  --sand:        #a87f3e;   /* sparsamer warmer Akzent, Sterne */
+  --marke:       #205a7d;   /* Knöpfe, Badges (weiße Schrift darauf) */
+  --marke-hover: #17435e;
+  --marke-hell:  #dbe6ec;   /* Symbol-Flächen, Chips */
+  --titel:       #17435e;   /* Überschriften */
+  --akzent:      #205a7d;   /* Links, Symbole */
+  --akzent-hover:#102f42;
+  --sand:        #a8823c;   /* Gold-Akzent wie im Logo, Sterne */
 
   /* Text */
-  --text:        #262d29;
-  --text-leise:  #525c56;
-  --linie:       #d6d9cf;
+  --text:        #24292d;
+  --text-leise:  #525a60;
+  --linie:       #d5d8d4;
 
   /* Meldungen */
   --fehler:      #a33d2e;
-  --hinweis-hg:  #dde7de;
+  --hinweis-hg:  #dbe6ec;
   --warn-hg:     #f3e7e0;
   --platzhalter-hg: #f4ecd9;
 
   /* Dunkle Bereiche (Aufruf/Fußleiste – in beiden Themen dunkel) */
-  --tief:        #1d3a2f;
-  --tief-2:      #2e5f4e;
-  --tief-text:   #cfdcd4;
+  --tief:        #14344a;
+  --tief-2:      #205a7d;
+  --tief-text:   #c9d8e2;
 
   /* Schrift */
   --schrift-titel: "Lora", Georgia, serif;
@@ -110,36 +112,36 @@
 }
 
 /* ============================================================
-   Design-Tokens – Thema DUNKEL (ruhiges Grün-Anthrazit)
+   Design-Tokens – Thema DUNKEL (ruhiges Blau-Anthrazit)
    ============================================================ */
 :root[data-theme="dunkel"] {
   color-scheme: dark;
 
-  --grund:       #151c18;
-  --flaeche:     #1e2721;
-  --sektion:     #19211c;
-  --kopf-hg:     rgba(21, 28, 24, 0.93);
+  --grund:       #12191f;
+  --flaeche:     #1b252d;
+  --sektion:     #161f26;
+  --kopf-hg:     rgba(18, 25, 31, 0.93);
 
-  --gruen:       #35755b;
-  --gruen-hover: #418c6e;
-  --gruen-hell:  #26362d;
-  --titel:       #dbe8df;
-  --akzent:      #8ac3a6;
-  --akzent-hover:#aad8bf;
-  --sand:        #d9b877;
+  --marke:       #2e6e94;
+  --marke-hover: #3a83ad;
+  --marke-hell:  #223442;
+  --titel:       #d7e5ee;
+  --akzent:      #85b8d6;
+  --akzent-hover:#a5cde5;
+  --sand:        #d9bd77;
 
-  --text:        #e2e6e1;
-  --text-leise:  #a7b3ab;
-  --linie:       #33403a;
+  --text:        #e1e5e8;
+  --text-leise:  #a4b1ba;
+  --linie:       #32404a;
 
   --fehler:      #e08a76;
-  --hinweis-hg:  #24352c;
+  --hinweis-hg:  #223442;
   --warn-hg:     #382822;
   --platzhalter-hg: #35301f;
 
-  --tief:        #10201a;
-  --tief-2:      #1d3a2f;
-  --tief-text:   #b9c9c0;
+  --tief:        #0e2230;
+  --tief-2:      #205a7d;
+  --tief-text:   #b9cbd6;
 
   --schatten:    0 4px 20px rgba(0, 0, 0, 0.35);
   --schatten-gr: 0 10px 34px rgba(0, 0, 0, 0.5);
@@ -220,14 +222,16 @@ img { max-width: 100%; display: block; }
   min-width: 0;
 }
 .marke-zeichen {
-  width: 42px; height: 42px;
+  width: 44px; height: 44px;
   border-radius: 50%;
-  background: var(--gruen);
-  color: #fff;
+  background: #fff;             /* Logo hat weißen Grund – in beiden Themen */
+  border: 1px solid var(--linie);
   display: grid;
   place-items: center;
   flex-shrink: 0;
+  overflow: hidden;
 }
+.marke-zeichen img { width: 38px; height: 38px; object-fit: contain; }
 .marke-text { line-height: 1.2; min-width: 0; }
 .marke-name {
   font-family: var(--schrift-titel);
@@ -249,7 +253,7 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-knopf {
-  border: 2px solid var(--gruen);
+  border: 2px solid var(--marke);
   background: var(--flaeche);
   color: var(--titel);
   font: 600 16px var(--schrift-text);
@@ -288,19 +292,19 @@ img { max-width: 100%; display: block; }
   text-decoration: none;
   border-radius: var(--radius-kl);
 }
-.hauptnav a:hover { background: var(--gruen-hell); color: var(--titel); }
+.hauptnav a:hover { background: var(--marke-hell); color: var(--titel); }
 .hauptnav a[aria-current="page"] {
   color: var(--titel);
-  background: var(--gruen-hell);
+  background: var(--marke-hell);
   box-shadow: inset 4px 0 0 var(--sand);
 }
 .nav-termin {
-  background: var(--gruen);
+  background: var(--marke);
   color: #fff !important;
   text-align: center;
   margin-block-start: 8px;
 }
-.nav-termin:hover { background: var(--gruen-hover) !important; }
+.nav-termin:hover { background: var(--marke-hover) !important; }
 
 /* Hell-/Dunkel-Umschalter */
 .thema-knopf {
@@ -314,7 +318,7 @@ img { max-width: 100%; display: block; }
   cursor: pointer;
   flex-shrink: 0;
 }
-.thema-knopf:hover { border-color: var(--gruen); background: var(--gruen-hell); }
+.thema-knopf:hover { border-color: var(--marke); background: var(--marke-hell); }
 
 /* ---------- Knöpfe (Handy: volle Breite in Knopf-Gruppen) ---------- */
 .knopf {
@@ -332,10 +336,10 @@ img { max-width: 100%; display: block; }
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .knopf:hover { transform: translateY(-2px); box-shadow: var(--schatten); }
-.knopf-voll { background: var(--gruen); color: #fff; }
-.knopf-voll:hover { background: var(--gruen-hover); color: #fff; }
-.knopf-rand { border-color: var(--gruen); color: var(--titel); background: var(--flaeche); }
-.knopf-rand:hover { background: var(--gruen-hell); }
+.knopf-voll { background: var(--marke); color: #fff; }
+.knopf-voll:hover { background: var(--marke-hover); color: #fff; }
+.knopf-rand { border-color: var(--marke); color: var(--titel); background: var(--flaeche); }
+.knopf-rand:hover { background: var(--marke-hell); }
 .knopf-whatsapp { background: #1f7a4d; color: #fff; }
 .knopf-whatsapp:hover { background: #17603c; color: #fff; }
 .knopf svg { flex-shrink: 0; }
@@ -343,7 +347,7 @@ img { max-width: 100%; display: block; }
 /* ---------- Held (Basis: eine Spalte, Text vor Bild) ---------- */
 .held {
   background:
-    radial-gradient(700px 320px at 90% -10%, var(--gruen-hell) 0%, transparent 60%),
+    radial-gradient(700px 320px at 90% -10%, var(--marke-hell) 0%, transparent 60%),
     linear-gradient(180deg, var(--sektion) 0%, var(--grund) 78%);
   padding-block: var(--abstand);
 }
@@ -382,7 +386,7 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   box-shadow: var(--schatten-gr);
   aspect-ratio: 4 / 3;
-  background: var(--gruen-hell);
+  background: var(--marke-hell);
   max-width: 460px;
 }
 .held-bild img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
@@ -396,10 +400,10 @@ img { max-width: 100%; display: block; }
   text-align: center;
   color: var(--akzent);
   background:
-    linear-gradient(135deg, var(--gruen-hell) 25%, transparent 25%, transparent 50%,
-      var(--gruen-hell) 50%, var(--gruen-hell) 75%, transparent 75%) 0 0 / 28px 28px,
+    linear-gradient(135deg, var(--marke-hell) 25%, transparent 25%, transparent 50%,
+      var(--marke-hell) 50%, var(--marke-hell) 75%, transparent 75%) 0 0 / 28px 28px,
     var(--sektion);
-  border: 2px dashed var(--gruen);
+  border: 2px dashed var(--marke);
   border-radius: var(--radius);
   font-weight: 600;
   padding: 20px;
@@ -460,7 +464,7 @@ img { max-width: 100%; display: block; }
 .karte-symbol {
   width: 52px; height: 52px;
   border-radius: var(--radius-kl);
-  background: var(--gruen-hell);
+  background: var(--marke-hell);
   color: var(--akzent);
   display: grid;
   place-items: center;
@@ -500,7 +504,7 @@ img { max-width: 100%; display: block; }
   inset-inline-start: 22px;
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: var(--gruen);
+  background: var(--marke);
   color: #fff;
   font: 700 20px var(--schrift-text);
   display: grid;
@@ -519,7 +523,7 @@ img { max-width: 100%; display: block; }
 }
 .hinweis {
   background: var(--hinweis-hg);
-  border-inline-start: 5px solid var(--gruen);
+  border-inline-start: 5px solid var(--marke);
 }
 .abgrenzung {
   background: var(--warn-hg);
@@ -540,7 +544,7 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--schatten);
 }
 .preis-tabelle th {
-  background: var(--gruen);
+  background: var(--marke);
   color: #fff;
   text-align: start;
   padding: 13px 16px;
@@ -624,7 +628,7 @@ img { max-width: 100%; display: block; }
   flex-shrink: 0;
 }
 .faq details[open] summary::after { content: "–"; }
-.faq details[open] summary { background: var(--gruen-hell); }
+.faq details[open] summary { background: var(--marke-hell); }
 .faq .faq-antwort { padding: 4px 18px 18px; color: var(--text-leise); font-size: 17px; }
 
 /* ---------- Formular ---------- */
@@ -654,7 +658,7 @@ img { max-width: 100%; display: block; }
 }
 .feld textarea { min-height: 140px; resize: vertical; }
 .feld input:focus, .feld textarea:focus, .feld select:focus {
-  border-color: var(--gruen);
+  border-color: var(--marke);
   outline: none;
 }
 .feld-einwilligung {
@@ -668,7 +672,7 @@ img { max-width: 100%; display: block; }
   width: 22px; height: 22px;
   min-height: 0;
   margin-block-start: 3px;
-  accent-color: var(--gruen);
+  accent-color: var(--marke);
   flex-shrink: 0;
 }
 
@@ -716,7 +720,7 @@ img { max-width: 100%; display: block; }
   margin-block: 18px;
 }
 .orte-liste li {
-  background: var(--gruen-hell);
+  background: var(--marke-hell);
   color: var(--titel);
   font-weight: 600;
   font-size: 16px;
@@ -735,8 +739,8 @@ img { max-width: 100%; display: block; }
 .aufruf h2 { color: #fff; }
 .aufruf p { color: var(--tief-text); font-size: 18px; max-width: 620px; margin: 14px auto 28px; }
 .aufruf .held-knoepfe { justify-content: center; margin-block-end: 0; }
-.aufruf .knopf-voll { background: #fff; color: #1d3a2f; }
-.aufruf .knopf-voll:hover { background: #dde7de; }
+.aufruf .knopf-voll { background: #fff; color: #14344a; }
+.aufruf .knopf-voll:hover { background: #dbe6ec; }
 .aufruf .knopf-rand { border-color: #fff; color: #fff; background: transparent; }
 .aufruf .knopf-rand:hover { background: rgba(255, 255, 255, 0.14); }
 
@@ -754,6 +758,14 @@ img { max-width: 100%; display: block; }
   margin-block-end: 30px;
 }
 .fuss h3 { color: #fff; font-size: 18px; margin-block-end: 12px; }
+.fuss-logo {
+  width: 108px; height: 108px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 8px;
+  margin-block-end: 16px;
+}
+.fuss-logo img { width: 100%; height: 100%; object-fit: contain; }
 .fuss a { color: var(--tief-text); }
 .fuss a:hover { color: #fff; }
 .fuss ul { list-style: none; padding: 0; }

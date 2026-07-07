@@ -6,6 +6,19 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (nachts) — Phase 4 (Teil 2): Kundendaten komplett + Palette B
+
+- Hasans Antworten eingepflegt: Preise bestätigt; **Anfahrt im Preis
+  enthalten**; Einzugsgebiet **Weilimdorf + Umkreis bis 50 km** (Hasan
+  korrigierte 100 → 50 km); Dauer ca. 30 Min. (Fachfußpflege + FAQ);
+  Zahlung bar/Rechnung/PayPal; WhatsApp = gleiche Nummer.
+- **Design-Entscheidung B:** Palette von Grün auf **Petrol-Blau + Gold**
+  umgestellt (hell + dunkel), passend zu Kunden-Logo/Flyer/Arbeitskleidung.
+  Tokens umbenannt `--gruen`→`--marke` (+ `-hover`, `-hell`).
+- **Logo eingebaut** (Kundenwunsch): Kopfleiste (weißer Kreis, 44 px) und
+  Fußleiste (108 px) auf allen Seiten; Datei `bilder/logo-alt.png`.
+- Cache-Version `?v=5`; Sichtprüfung hell/dunkel nach Palettenwechsel.
+
 ## 2026-07-07 (abends) — Strato-Sicherung + Phase 4 (Teil 1)
 
 - Öffentliche alte Website vollständig gesichert nach
