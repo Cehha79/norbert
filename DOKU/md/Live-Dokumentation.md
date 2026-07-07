@@ -651,6 +651,16 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   mit Staging-Sperre aktiv, /DOKU/ = 404. Wiederholbarer
   Veröffentlichungs-Ablauf im lokalen README.md dokumentiert.
   Staging-Adresse: https://cehha79.github.io/norberts-mobile-fusspflege/
+- **Repo professionalisiert** (Hasans Auftrag „wie bei meinen anderen
+  Webseiten, alles sauber, wird von Leuten geprüft"): öffentliches
+  README im MikaTec-Stil (Badges, Überblick, Merkmale, Tech-Stack,
+  Projektstruktur-Baum, Architektur inkl. i18n-System, Design-System
+  „Petrol & Gold", rechtlicher Rahmen, Deployment) + `.nojekyll`
+  (MikaTec-Lehre gegen Pages-Build-Hänger). Alle 14 internen
+  `<!-- TODO … -->`-Arbeits-Kommentare aus den HTML-Dateien entfernt
+  (Cal.com-Tausch, Social-Links) — die Merker stehen vollständig in
+  DOKU/md/TODO.md. Ehrlicher Staging-Hinweis im README (Muster-Daten,
+  robots-Sperre).
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
