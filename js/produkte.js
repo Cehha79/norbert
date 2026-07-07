@@ -207,13 +207,19 @@
     return zeilen.join('\n');
   }
 
+  /* Produkt-Foto: eigenes Bild je Artikel, Bereichs-Bild als Rückfall */
+  function produktBild(p) {
+    return 'bilder/produkte/' + p.id + '.jpg" onerror="this.onerror=null;this.src=\'' +
+      KATEGORIEN[p.kat].bild + '\'';
+  }
+
   /* Gemeinsame Korb-Zeilen (Warenkorb-Seite + Kassen-Übersicht) */
   function korbZeilenHtml(korb, mitSteuerung) {
     return Object.keys(korb).filter(function (id) { return korb[id] > 0 && produkt(id); })
       .map(function (id) {
         var p = produkt(id);
         return '<div class="korb-zeile' + (mitSteuerung ? '' : ' korb-zeile-schlicht') + '" data-id="' + id + '">' +
-          '<img src="' + KATEGORIEN[p.kat].bild + '" alt="">' +
+          '<img src="' + produktBild(p) + '" alt="">' +
           '<div class="korb-name"><strong>' + p.name + '</strong><span>' + euro(p.preis) + ' · ' + p.inhalt + '</span></div>' +
           (mitSteuerung
             ? '<span class="menge" data-id="' + id + '">' +
@@ -270,7 +276,7 @@
         liste.innerHTML = daten.map(function (p) {
           return '<article class="produkt ' + KATEGORIEN[p.kat].farbe + '">' +
             (p.badge ? '<span class="p-badge">' + p.badge + '</span>' : '') +
-            '<img class="p-bild" src="' + KATEGORIEN[p.kat].bild + '" alt="" loading="lazy">' +
+            '<img class="p-bild" src="' + produktBild(p) + '" alt="" loading="lazy">' +
             '<div class="p-inhalt">' +
               '<h3>' + p.name + '</h3>' +
               '<div class="p-bewertung">' + sterneHtml(p.sterne) + ' <span>' + p.sterne.toFixed(1).replace('.', ',') + ' (' + p.stimmen + ')</span></div>' +

@@ -323,6 +323,23 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Kaffee-Peeling, Akupressur-Matte, Wert-Gutscheine 50/100 €).
   Weiterhin ALLES Muster-Daten (WICHTIG-Merker gilt).
   produkte.js `?v=5`, Cache `?v=59`.
+- **Eigenes Foto je Artikel** (Hasans Auftrag): 8 Agenten parallel
+  (einer je Bereich, gleiche Regeln: nur Pexels, URLs vor Download
+  verifiziert, markenfrei, Sichtprüfung, md5-Duplikatcheck) →
+  **116 von 128 Artikeln mit eigenem Foto** in `bilder/produkte/<id>.jpg`
+  (800 px). Rendering: `produktBild()` in produkte.js — Produktkarten,
+  Warenkorb- und Kassen-Zeilen laden das Artikel-Foto, bei fehlender
+  Datei springt per `onerror` das Bereichs-Bild ein. **Ehrlich ohne
+  Foto (12):** e4/e8/e12/e13/e16 (keine markenfreien Motive für
+  Schleifrollen/Fräser-Bits/UV-Box/Kompressions-Gerät auf Pexels),
+  k9/k15 (Einlegesohlen/Wärmflasche), n6 (Buffer-Block) — dazu 4
+  bereichsübergreifende Duplikate entfernt (e3=b4, w10=n9, n13=w6,
+  n4=w7; Doppelgänger in ~/.Trash, das jeweils passendere Produkt
+  behielt das Foto). Die Agenten haben unterwegs über 15 Kandidaten
+  wegen lesbarer Markennamen verworfen (u. a. STALEKS, beurer, OPI,
+  doTERRA). Alle Quellen mit Pexels-ID und Fotograf in der neuen
+  **DOKU/md/Bildquellen.md**. Sichtprüfung Bereiche w + e bestanden.
+  produkte.js `?v=6`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
