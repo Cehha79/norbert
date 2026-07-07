@@ -28,6 +28,28 @@
       });
     }
 
+    /* ---------- Video-Hintergrund (Produkte): Quelle je Thema ---------- */
+    var videoGrund = document.querySelector('.hintergrund-video video');
+    if (videoGrund) {
+      var setzeGrundVideo = function () {
+        var art = istDunkel() ? 'dunkel' : 'hell';
+        videoGrund.poster = 'bilder/hintergrund-schaum-' + art + '.jpg';
+        if (ruhig) return;                    /* reduzierte Bewegung: nur Standbild */
+        var quelle = 'bilder/hintergrund-schaum-' + art + '.mp4';
+        if (videoGrund.getAttribute('src') !== quelle) {
+          videoGrund.setAttribute('src', quelle);
+          var p = videoGrund.play();
+          if (p && p.catch) p.catch(function () {});
+        }
+      };
+      setzeGrundVideo();
+      /* Thema-Umschalter ändert data-theme am <html> — darauf reagieren */
+      if ('MutationObserver' in window) {
+        new MutationObserver(setzeGrundVideo)
+          .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+      }
+    }
+
     /* ---------- Mobile Navigation ---------- */
     var navKnopf = document.querySelector('.nav-knopf');
     var nav = document.querySelector('.hauptnav');

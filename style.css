@@ -1196,6 +1196,31 @@ body:has(dialog[open]) { overflow: hidden; }
   .kachel:hover img { transform: none; }
 }
 
+/* Video-Hintergrund (Produkte-Bereich): echtes Video hinter dem Inhalt,
+   Schleier in Seitengrund-Farbe hält den Text lesbar */
+.hintergrund-video {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.hintergrund-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hintergrund-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(238, 236, 230, 0.74);
+}
+:root[data-theme="dunkel"] .hintergrund-video::after { background: rgba(12, 16, 18, 0.7); }
+@supports (background: color-mix(in srgb, red 50%, transparent)) {
+  .hintergrund-video::after { background: color-mix(in srgb, var(--grund) 74%, transparent); }
+  :root[data-theme="dunkel"] .hintergrund-video::after { background: color-mix(in srgb, var(--grund) 70%, transparent); }
+}
+
 /* Bereichs-Seite (produkt-bereich.html) */
 .seitenkopf-bereich h1 { margin-inline: 0; }
 .zurueck-knopf {

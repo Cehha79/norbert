@@ -272,6 +272,17 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   `DOKU/Claude Ausgabe/Hintergrund-Auswahl.html` — **Hasans Wahl
   (Nr. 1–9) steht noch aus**, Einbau folgt danach. produkte.js `?v=4`,
   Cache `?v=57`.
+- **Video-Hintergrund eingebaut** (Hasans Wahl: hell = Nr. 2 feiner
+  Schaum / Kelly 4139990, dunkel = Nr. 3 langsame Bläschen /
+  Engin Akyurt 10420537): auf produkte.html und produkt-bereich.html
+  liegt ein fixes `<video>` hinter dem Inhalt (`.hintergrund-video`,
+  z-index −1, object-fit cover) mit Schleier in Seitengrund-Farbe
+  (color-mix 74 %/70 % + rgba-Fallback) für die Lesbarkeit. Dateien
+  lokal: `bilder/hintergrund-schaum-hell/-dunkel.mp4` (11/12 MB) +
+  Standbilder (.jpg, per ffmpeg, 1. Frame). main.js v9 wählt die
+  Quelle je Thema (MutationObserver auf `data-theme`, Wechsel sofort);
+  bei `prefers-reduced-motion` lädt KEIN Video — nur das Standbild als
+  Poster. Sichtprüfung hell/dunkel bestanden. Cache `?v=58`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
