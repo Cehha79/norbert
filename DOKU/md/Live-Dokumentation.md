@@ -189,6 +189,18 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
+- **Warenkorb + Kasse als stabile Tafeln** (Hasans Rückmeldung: Inhalte
+  schwebten frei auf dem Hintergrund, „soll stabil, robust,
+  professionell wirken"): `#korb-tabelle` und `.kasse-formular` sitzen
+  jetzt in derselben Tafel-Optik wie der Rest der Seite — Fläche,
+  Rand, 4-px-Marken-Linie oben, runde Ecken, Schatten, Innenabstand
+  20/22 px. Die Formular-Abschnitte der Kasse (Ihre Angaben, Lieferung/
+  Übergabe, Zahlart) haben Unterlinien-Überschriften (19 px,
+  `border-block-end`), die Einwilligungs-Zeile bricht sauber um
+  (`label { flex: 1 }` — vorher stand der Pflicht-Stern allein in der
+  nächsten Zeile). Sichtprüfung mit vorbefülltem Korb (2×49,90 +
+  3×24,90 = 174,50 €, MwSt. 27,86 €): beide Seiten sauber, hell wie
+  dunkel unverändert über Tokens. Cache `?v=53`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
