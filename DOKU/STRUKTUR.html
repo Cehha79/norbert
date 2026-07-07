@@ -32,33 +32,49 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 <div class="stamp">aus STRUKTUR.md aktualisiert am 2026-07-07</div>
 <h1>STRUKTUR</h1>
 <h2>Aufgabe dieser Datei</h2>
-<p>Ordner- und Dateiaufbau des Projekts „Norbert" (Kunden-Website norberts-mobile-fusspflege.de).</p>
+<p>Ordner- und Dateiaufbau des Projekts „Norbert" (Kunden-Website norberts-mobile-fusspflege.de; Staging live auf https://cehha79.github.io/norberts-mobile-fusspflege/).</p>
 <h2>Dateibaum</h2>
 <table>
 <tr><th>Pfad</th><th>Zweck</th></tr>
-<tr><td><code>index.html</code></td><td>Startseite: Held, Vertrauensleiste, Leistungs-Vorschau, Ablauf, Zahlen, Kundenstimmen-Auszug, Abgrenzung, Aufruf</td></tr>
-<tr><td><code>leistungen.html</code></td><td>Leistungs-Karten, Preistabelle, Anfahrts-Hinweis, Abgrenzung kosmetisch/podologisch (<code>#abgrenzung</code>)</td></tr>
-<tr><td><code>ueber-mich.html</code></td><td>Person, Werdegang (2012/2024/FAY), Stationen, Galerie</td></tr>
-<tr><td><code>kundenstimmen.html</code></td><td>Kundenstimmen (6 Plätze) + FAQ (8 Fragen) + Feedback-Aufruf</td></tr>
-<tr><td><code>kontakt.html</code></td><td>Kontakt-Kacheln (Anruf/WhatsApp/E-Mail/Zeiten), Formular, Einzugsgebiet (<code>#einzugsgebiet</code>)</td></tr>
-<tr><td><code>impressum.html</code></td><td>Pflichtseite § 5 DDG — noch Entwurf mit Platzhaltern, <code>noindex</code></td></tr>
-<tr><td><code>datenschutz.html</code></td><td>Pflichtseite DSGVO — noch Entwurf mit Platzhaltern, <code>noindex</code></td></tr>
-<tr><td><code>style.css</code></td><td>zentrales Stylesheet: Themen-Tokens (hell/dunkel), alle Komponenten, responsive</td></tr>
-<tr><td><code>js/thema.js</code></td><td>synchron im <code>&lt;head&gt;</code>: gespeichertes Thema vor dem ersten Zeichnen setzen (kein Flackern)</td></tr>
-<tr><td><code>js/main.js</code></td><td>Themen-Umschalter, mobiles Menü, Scroll-Einblenden, Zahlen-Zähler, Jahr in Fußleiste</td></tr>
-<tr><td><code>schriften/</code></td><td>Lora + Source Sans 3 als WOFF2 (regular/600/700, latin + latin-ext)</td></tr>
-<tr><td><code>bilder/</code></td><td>Fotos und Kartenbild (noch leer — echte Fotos folgen)</td></tr>
-<tr><td><code>DOKU/</code></td><td>Projekt-Doku: <code>.html</code>-Ansichten hier, Quellen in <code>DOKU/md/</code></td></tr>
-<tr><td><code>CLAUDE.md</code></td><td>Arbeitsanweisungen für Claude Code in diesem Projekt</td></tr>
-<tr><td><code>README.md</code></td><td>Kurzbeschreibung des Projekts</td></tr>
-<tr><td><code>.nojekyll</code></td><td>GitHub Pages: Jekyll-Verarbeitung abschalten</td></tr>
+<tr><td><code>index.html</code></td><td>Startseite: Held (mobil Foto zuerst), Vertrauens-Tafeln, Einblicke, Ablauf in 4 Schritten</td></tr>
+<tr><td><code>leistungen.html</code></td><td>Leistungs-Tafeln mit Detail-Masken, Preistabelle, Abgrenzung kosmetisch/podologisch (<code>#abgrenzung</code>)</td></tr>
+<tr><td><code>produkte.html</code></td><td>Shop: 8 Bereichs-Kacheln (Bild + Name + Artikel-Zahl)</td></tr>
+<tr><td><code>produkt-bereich.html</code></td><td>Shop: Artikel-Liste je Bereich (<code>?bereich=w/c/e/b/n/h/k/g</code>), Sortierung</td></tr>
+<tr><td><code>warenkorb.html</code></td><td>Warenkorb (localStorage <code>nf-warenkorb</code>), Mengen-Steuerung</td></tr>
+<tr><td><code>kasse.html</code></td><td>Kasse: Lieferarten (DHL-Muster), Zahlarten inkl. PayPal-Weiche, Versand per WhatsApp/E-Mail</td></tr>
+<tr><td><code>ueber-mich.html</code></td><td>Person, Werdegang (Pflegekraft seit 2012, FAY 2024), Stationen, Galerie</td></tr>
+<tr><td><code>kundenstimmen.html</code></td><td>Bewertungs-Band (mobil: Klick-Zeilen + Maske), FAQ-Masken, Bewertung abgeben</td></tr>
+<tr><td><code>kontakt.html</code></td><td>Kontakt-Knöpfe, Cal.com-Buchung, Formular, Orte, Zwei-Klick-Karte (<code>#einzugsgebiet</code>)</td></tr>
+<tr><td><code>impressum.html</code></td><td>§ 5 DDG, § 19 UStG, MikaTec-Support-Block, Haftung/Urheberrecht/Bildnachweise</td></tr>
+<tr><td><code>datenschutz.html</code></td><td>DSGVO inkl. Zwei-Klick-Karte, Cal.com, WhatsApp, technische Betreuung (MikaTec)</td></tr>
+<tr><td><code>tr/ en/ pl/ ru/ ar/ zh/</code></td><td><strong>6 Sprachversionen</strong> — je 9 Seiten (alles außer Impressum/Datenschutz); <code>ar/</code> komplett RTL, <code>zh/</code> mit System-Schrift-Override</td></tr>
+<tr><td><code>style.css</code></td><td>zentrales Stylesheet: Themen-Tokens hell/dunkel, Kennfarben <code>--lk</code>, alle Komponenten, responsive (Kaskade: mobil → 480 → 560 → 640 → 840 → 1000)</td></tr>
+<tr><td><code>js/thema.js</code></td><td>synchron im <code>&lt;head&gt;</code>: gespeichertes Thema vor dem ersten Zeichnen (kein Flackern)</td></tr>
+<tr><td><code>js/main.js</code></td><td>Umschalter, Menü, Masken (Leistungen/FAQ/Bilder/Stimmen), Formulare, WhatsApp-Direktstart (<code>nfWhatsApp</code>), Leaflet-Karte, Video-Wahl</td></tr>
+<tr><td><code>js/produkte.js</code></td><td>Shop-Motor + deutsches Datenmodell (128 Muster-Artikel) mit Sprach-Schnittstelle (<code>NF_BASIS/NF_TEXTE/NF_KATEGORIEN/NF_UEBERSETZUNG</code>)</td></tr>
+<tr><td><code>js/shop-&lt;code&gt;.js</code></td><td>Übersetzungen je Sprache: 13 Oberflächen-Texte, 8 Kategorien, 128 Artikel</td></tr>
+<tr><td><code>js/extern/</code></td><td>Leaflet 1.9.4 lokal (einzige Fremd-Bibliothek)</td></tr>
+<tr><td><code>schriften/</code></td><td>Lora + Source Sans 3 als WOFF2 (lokal, keine Font-CDNs)</td></tr>
+<tr><td><code>bilder/</code></td><td>Fotos, Bereichs-Kacheln, <code>produkte/</code> (116 Artikel-Fotos), Hintergrund-Videos + Poster, <code>og-bild.jpg</code>, <code>apple-touch-icon.png</code>, <code>einzugsgebiet.jpg</code></td></tr>
+<tr><td><code>sitemap.xml</code></td><td>65 URLs mit hreflang-Alternativen</td></tr>
+<tr><td><code>robots.txt</code></td><td><strong>Staging-Sperre</strong> (Disallow /) — vor Livegang freischalten</td></tr>
+<tr><td><code>server.py</code></td><td>lokaler Testserver, Port <strong>8081</strong> (bleibt lokal)</td></tr>
+<tr><td><code>DOKU/</code></td><td>Projekt-Doku: <code>.html</code>-Ansichten hier, Quellen in <code>DOKU/md/</code> (bleibt lokal, NICHT im öffentlichen Repo)</td></tr>
+<tr><td><code>CLAUDE.md</code></td><td>Arbeitsanweisungen für Claude Code (bleibt lokal)</td></tr>
+<tr><td><code>README.md</code></td><td>lokales README inkl. <strong>Veröffentlichungs-Ablauf</strong> (das öffentliche Repo hat ein eigenes)</td></tr>
 </table>
+<h2>Veröffentlichung</h2>
+<ul>
+<li>Öffentliches Repo: <code>Cehha79/norberts-mobile-fusspflege</code> (GitHub Pages) — enthält NUR die Website, ohne DOKU/, CLAUDE.md, server.py, .gitignore, lokales README. Ablauf: rsync-Kopie + push (siehe README.md).</li>
+<li>Lokales Repo = vollständige Arbeits-Historie inkl. DOKU.</li>
+</ul>
 <h2>Aufbau-Prinzipien</h2>
 <ul>
-<li>Flache Struktur wie bei <code>WEB/MikaTec</code>: jede Seite eine eigene HTML-Datei, ein gemeinsames Stylesheet, gemeinsames JS.</li>
-<li>Kopfleiste, Fußleiste und mobile Aktionsleiste sind auf allen Seiten identisch — bei Änderungen <strong>alle sieben Seiten</strong> anfassen.</li>
-<li>Design nur über die Tokens am Anfang von <code>style.css</code> steuern (<code>--marke</code>, <code>--grund</code>, <code>--flaeche</code> …) — nie Farbwerte im HTML verstreuen.</li>
-<li>DOKU-HTML wird aus <code>DOKU/md/*.md</code> erzeugt (Konverter-Skript, siehe REGELN).</li>
+<li>Flache Struktur wie bei <code>WEB/MikaTec</code>: jede Seite eine eigene HTML-Datei, ein Stylesheet, gemeinsames JS; Sprachversionen als Ordner-Kopien mit <code>../</code>-Pfaden.</li>
+<li>Kopfleiste (inkl. Schnell-Links Start/Leistungen + Sprachwahl) und fixe Fußzeile sind auf allen Seiten identisch — Änderungen auf <strong>allen 65 Seiten</strong> nachziehen (Skript!), Text-Änderungen zusätzlich in den 6 Sprachordnern und beim Shop in <code>js/shop-&lt;code&gt;.js</code>.</li>
+<li>Design nur über die Tokens am Anfang von <code>style.css</code> (<code>--marke</code>, <code>--grund</code>, <code>--flaeche</code>, <code>--lk</code> …) — nie Farbwerte im HTML verstreuen.</li>
+<li>Nach CSS/JS-Änderung Cache-Version <code>?v=N</code> überall gemeinsam hochzählen (Stand: style <strong>v=81</strong>, main.js <strong>v=20</strong>, produkte.js <strong>v=10</strong>, shop-*.js v=1).</li>
+<li>DOKU-HTML wird aus <code>DOKU/md/*.md</code> erzeugt: <code>python3 DOKU/md2doku.py</code>.</li>
 </ul>
 </main></body>
 </html>
