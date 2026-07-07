@@ -283,6 +283,17 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Quelle je Thema (MutationObserver auf `data-theme`, Wechsel sofort);
   bei `prefers-reduced-motion` lädt KEIN Video — nur das Standbild als
   Poster. Sichtprüfung hell/dunkel bestanden. Cache `?v=58`.
+- **Video-Qualität nachgebessert** (Hasan: unscharf, wackelt, stoppt,
+  springt): Ursachen — die Erst-Fassungen hatten nur 1366×720 bzw.
+  960×506 (auf Fensterbreite hochgezogen = unscharf), ein hartes
+  Schleifen-Ende (Sprung) und keine Streaming-Optimierung (Stocken).
+  Fix: UHD-Originale (2732×1440) beider Pexels-Videos geholt, mit
+  ffmpeg neu aufbereitet — **Full HD 1920×1012**, ruhiger
+  13-s-Ausschnitt, **nahtlose Schleife** als Palindrom (vorwärts +
+  rückwärts verkettet → 26 s ohne Sprungstelle), H.264 crf 23 preset
+  slow, `+faststart` (Streaming ohne Aussetzer), je 12–13 MB; Poster
+  neu erzeugt. Video-URL trägt jetzt `?v=2` (Browser-Cache!),
+  `preload="auto"` am Video-Element. main.js `?v=10`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
