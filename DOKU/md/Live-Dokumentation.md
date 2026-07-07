@@ -690,6 +690,19 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
     überlauffrei (scrollWidth = 375), Klick-Maske funktional
     (maske=offen, voller Text), Desktop-Gegencheck Kopf/Fuß sauber,
     Verweis-Check 0 Fehler.
+- **Kopfzeile einzeilig** (Hasans Nachbesserung: „Start soll oben
+  neben Logo, dann Leistungen, dann Menü/Warenkorb/H-D/Sprache, alle
+  in eine Zeile; im Menü nicht mehr doppelt; beim Seitenwechsel
+  gleich"): `.kopf-schnell` aus der zweiten Zeile in die Kopfzeile
+  verschoben (im DOM vor die Hauptnavigation, `margin-inline-end:
+  auto` hält sie am Logo); Menü-Dropdown blendet die ersten zwei
+  Punkte aus (`li:nth-child(-n+2)`, ab 840 px wieder alle). Der
+  Menü-Knopf trägt jetzt Burger-Symbol + Wort — unter 480 px wird er
+  zum runden ☰-Knopf. Unter 480 px alles verdichtet (Logo 34 px,
+  Rund-Knöpfe 36 px, Links 13 px, türkische Sonderregel wegen „Ana
+  Sayfa/Hizmetler"). Per iframe-Messung bei 375 px: de/tr/ru/zh/en
+  einzeilig ohne Abschneiden; Rest-Sicherheitsnetz = unsichtbares
+  seitliches Rollen der zwei Links. Cache `?v=81`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

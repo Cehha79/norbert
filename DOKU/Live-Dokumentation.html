@@ -130,6 +130,7 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 <li><strong>Kontakt-Kacheln mobil linksbündig</strong> (Symbole an einer Kante).</li>
 <li><strong>Datumsfeld gezähmt:</strong> <code>input[type="date"]</code> bekommt display:block + width:100 % + appearance:none — iOS gab ihm sonst eine Eigenbreite über den Tafelrand (Hasans Screenshot).</li>
 <li>Geprüft per 375-px-iframe-Messung: Start/Kundenstimmen/Kontakt überlauffrei (scrollWidth = 375), Klick-Maske funktional (maske=offen, voller Text), Desktop-Gegencheck Kopf/Fuß sauber, Verweis-Check 0 Fehler.</li>
+<li><strong>Kopfzeile einzeilig</strong> (Hasans Nachbesserung: „Start soll oben neben Logo, dann Leistungen, dann Menü/Warenkorb/H-D/Sprache, alle in eine Zeile; im Menü nicht mehr doppelt; beim Seitenwechsel gleich"): <code>.kopf-schnell</code> aus der zweiten Zeile in die Kopfzeile verschoben (im DOM vor die Hauptnavigation, <code>margin-inline-end: auto</code> hält sie am Logo); Menü-Dropdown blendet die ersten zwei Punkte aus (<code>li:nth-child(-n+2)</code>, ab 840 px wieder alle). Der Menü-Knopf trägt jetzt Burger-Symbol + Wort — unter 480 px wird er zum runden ☰-Knopf. Unter 480 px alles verdichtet (Logo 34 px, Rund-Knöpfe 36 px, Links 13 px, türkische Sonderregel wegen „Ana Sayfa/Hizmetler"). Per iframe-Messung bei 375 px: de/tr/ru/zh/en einzeilig ohne Abschneiden; Rest-Sicherheitsnetz = unsichtbares seitliches Rollen der zwei Links. Cache <code>?v=81</code>.</li>
 </ul>
 <h2>2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub</h2>
 <ul>
