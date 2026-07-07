@@ -34,6 +34,11 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   der sich Port 8080 automatisch zurückholt. Cache `?v=30` (style) /
   `?v=3` (main.js) jetzt wieder auf **allen** 7 Seiten einheitlich
   (waren auseinandergelaufen: nur index auf v=29, Rest v=7).
+- Nachbesserung auf Hasans Rückmeldung („zu schmal und zu lang"): Maske
+  auf **880 px** verbreitert, Foto als flaches Banner (5:2 statt 16:9),
+  Inhalt mittig auf max. 760 px. Cache `?v=31`. (Hasan hatte zudem kurz
+  eine Zwischenfassung erwischt: der 16:9-Fix kam nach dem v=30-Bump —
+  Merker: nach JEDER CSS-Änderung Version hochzählen, auch bei Nachfixen.)
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).

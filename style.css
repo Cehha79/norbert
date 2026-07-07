@@ -693,7 +693,7 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   border-top: 4px solid var(--lk, var(--marke));
   padding: 0;
-  width: min(560px, calc(100vw - 32px));
+  width: min(880px, calc(100vw - 32px));
   max-height: calc(100dvh - 40px);
   overflow: auto;
   background: var(--flaeche);
@@ -702,7 +702,7 @@ img { max-width: 100%; display: block; }
   margin: auto;
 }
 .maske::backdrop { background: rgba(8, 12, 16, 0.62); }
-.maske-bild { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.maske-bild { display: block; width: 100%; height: auto; aspect-ratio: 5 / 2; object-fit: cover; }
 .maske-schliessen {
   position: absolute;
   top: 12px;
@@ -718,7 +718,7 @@ img { max-width: 100%; display: block; }
 }
 .maske-schliessen:hover { background: rgba(12, 16, 20, 0.75); }
 .maske-schliessen:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-.maske-inhalt { padding: 22px 22px 26px; }
+.maske-inhalt { padding: 22px 22px 26px; max-width: 760px; margin-inline: auto; }
 .maske-inhalt h3 { color: var(--lk, var(--titel)); margin-block-end: 12px; }
 .maske-inhalt h4 {
   font-family: var(--schrift-titel);
