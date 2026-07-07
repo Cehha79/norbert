@@ -61,12 +61,18 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   `bilder/einzugsgebiet.jpg` — aus OSM-Kacheln (z9) gestitcht, Marker
   Weilimdorf + 50-km-Kreis; Attribution steht daneben
 - [x] Favicon: `bilder/logo-klein.png` (Original-Logo) eingebunden (07.07.);
-  App-Icons in weiteren Größen beim Livegang ergänzen
-- [ ] Open-Graph-Bild + `og:`-Metadaten für schönes Teilen (WhatsApp!)
+  `bilder/apple-touch-icon.png` (180 px, Logo auf Papierton) erzeugt und
+  auf allen 65 Seiten verlinkt (07.07.)
+- [x] Open-Graph-Bild + `og:`-Metadaten (07.07.): `bilder/og-bild.jpg`
+  (1200×630, Logo auf Papierton mit Marken-Linien) + og/twitter-Tags auf
+  allen 65 Seiten (Titel/Beschreibung je Seite, og:locale je Sprache)
 - [ ] Formular-Dienst optional: das Kontakt-Formular sendet seit 07.07.
   per WhatsApp/E-Mail (kein Backend nötig); echter Formular-Dienst nur,
   falls Norbert Anfragen ohne WhatsApp/Mail-Programm möchte
-- [ ] `sitemap.xml` + `robots.txt` beim Livegang (wie MikaTec)
+- [x] `sitemap.xml` (65 URLs mit hreflang-Alternativen) + `robots.txt`
+  angelegt (07.07.). ACHTUNG robots.txt = **Staging-Sperre** (Disallow /),
+  solange Muster-Daten drauf sind — **vor Livegang freischalten**
+  (vorbereitete Zeilen stehen als Kommentar in der Datei)
 - [ ] Impressum + Datenschutz fertigstellen, Entwurfs-Kästen entfernen
   (Grundausbau 07.07. erledigt: MikaTec-Struktur, Support-Block,
   Haftung/Urheberrecht/Bildnachweise, § 19 UStG, Formular-Absatz echt;

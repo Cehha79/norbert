@@ -620,6 +620,29 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Bewertungs-, Kontakt- und Kassen-Versand (produkte.js v=10, mit
   Rückfall) laufen über denselben Helfer. Vorher ersetzten manche
   wa.me-Links die Seite im selben Tab — daher „kein Zurück".
+- **Livegang-Vorbereitung + GitHub** (Hasans Auftrag „mach was ohne
+  Infos geht, dann ins GitHub, DOKU nicht hochladen"):
+  - Aufgeräumt: 9 unbenutzte `bilder/shop-*.jpg` (durch kachel-*.jpg
+    ersetzt gewesen) → `~/.Trash/norbert-aufraeumen-0707/`; .DS_Store
+    entfernt; `.gitignore` (.DS_Store, *_t.html).
+  - `bilder/apple-touch-icon.png` (180 px) + `bilder/og-bild.jpg`
+    (1200×630, Logo auf Papierton, Petrol-/Gold-Linie) per PIL erzeugt.
+  - og-/twitter-Metadaten auf allen 65 Seiten (Skript: Titel +
+    Beschreibung aus der Seite, og:url je Seite, og:locale je Sprache,
+    summary_large_image) + apple-touch-icon-Verweis.
+  - `sitemap.xml` (65 URLs, hreflang-Alternativen, xmllint-geprüft) und
+    `robots.txt` mit **Staging-Sperre** (Disallow / solange Muster-Daten;
+    Livegang-Fassung als Kommentar darin).
+  - **Handy-Kopfleiste repariert:** unter 480 px waren Logo (62 px) +
+    Menü + 3 Rund-Knöpfe zusammen ~464 px breit → Überlauf. Neue
+    Media-Query: Logo 46 px, Abstände 6 px, Menü-Knopf kompakter —
+    Klickflächen bleiben 44 px. Bei echten 375 px jetzt überlauffrei
+    (scrollWidth = 375). Cache `?v=79`.
+  - WICHTIGER MESS-MERKER: Headless-Chrome hat ~500 px
+    **Mindest-Fensterbreite** — „375-px-Screenshots" sind in Wahrheit
+    500 px (rechts beschnitten) und Media-Queries unter 500 greifen
+    nicht! Für echte Handy-Messungen die Seite in einen 375-px-iframe
+    laden (rahmen_t.html-Trick).
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

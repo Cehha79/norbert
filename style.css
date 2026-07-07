@@ -1416,6 +1416,15 @@ main a img, .leaflet-container img { cursor: pointer; }
   color: var(--titel);
 }
 .zahlart-chip svg { flex: none; }
+/* Schmale Handys: Kopfleiste verdichten, damit Logo + Menü + 3 Rund-Knöpfe
+   nebeneinander passen (Klickflächen bleiben 44 px) */
+@media (max-width: 480px) {
+  .kopf-innen { gap: 6px; }
+  .kopf-rechts { gap: 6px; }
+  .marke-zeichen img { width: 46px; height: 46px; }
+  .nav-knopf { padding: 8px 10px; font-size: 15px; }
+}
+
 @media (max-width: 560px) {
   .zahlarten { grid-template-columns: repeat(3, 1fr); }
   .zahlarten-titel { grid-column: 1 / -1; }
