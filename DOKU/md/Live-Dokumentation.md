@@ -99,6 +99,16 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Bewertungs-Tafel kompakter: Sterne + Name + Ort in einer Zeile
   (ab 640 px), Sterne 30 px, Textfeld flacher, Hinweis kleiner.
   Cache `?v=40`.
+- **FAQ als Masken** (Hasans Wunsch statt Aufklappen): jede der 8 Fragen
+  ist jetzt eine klickbare Tafel (`.faq-frage`, ›-Pfeil, Hover-Anheben)
+  und öffnet eine ausführliche Maske — mit Eckdaten-Chips, Ablauf-Listen,
+  „Gut zu wissen"-Hinweisen, internen Verweisen (Preisliste, Abgrenzung,
+  Kontakt) und wo passend Fotos (Hausbesuch = Norberts echtes
+  Arbeitsfoto, Dauer, Hygiene). Gesetzes-Bezug bei „Unterschied" und
+  „Diabetiker": PodG erklärt + Link auf gesetze-im-internet.de/podg
+  (extern, target=_blank) + Hinweis ärztliche Verordnung/Krankenkasse.
+  main.js `?v=5`: Doppel-Öffnen-Schutz (`if (!maske.open)`).
+  Cache `?v=41`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).

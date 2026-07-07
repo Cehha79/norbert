@@ -138,7 +138,7 @@
     document.querySelectorAll('[data-maske]').forEach(function (tafel) {
       var maske = document.getElementById(tafel.getAttribute('data-maske'));
       if (!maske || typeof maske.showModal !== 'function') return;
-      function oeffnen() { maske.showModal(); }
+      function oeffnen() { if (!maske.open) maske.showModal(); }
       tafel.addEventListener('click', oeffnen);
       tafel.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); oeffnen(); }

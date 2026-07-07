@@ -6,9 +6,9 @@
 <title>Kundenstimmen &amp; häufige Fragen – Norberts mobile Fußpflege</title>
 <meta name="description" content="Das sagen Kundinnen und Kunden über Norberts mobile Fußpflege – plus Antworten auf häufige Fragen zu Hausbesuch, Hygiene und Ablauf.">
 <link rel="icon" type="image/png" href="bilder/logo-klein.png">
-<link rel="stylesheet" href="style.css?v=40">
+<link rel="stylesheet" href="style.css?v=41">
 <script src="js/thema.js"></script>
-<script src="js/main.js?v=4" defer></script>
+<script src="js/main.js?v=5" defer></script>
 </head>
 <body>
 
@@ -295,60 +295,201 @@
       <h2>Gut zu wissen vor dem ersten Termin</h2>
     </div>
     <div class="faq einblenden">
-      <details>
-        <summary>Wie läuft ein Hausbesuch ab?</summary>
-        <div class="faq-antwort">Wir vereinbaren einen Termin, und ich komme
-        pünktlich zu Ihnen nach Hause. Ich bringe alles mit: Instrumente,
-        Fußbad und Pflegeprodukte. Sie brauchen nur einen Stuhl, eine
-        Steckdose in der Nähe und etwa eine Stunde Zeit.</div>
-      </details>
-      <details>
-        <summary>Muss ich etwas vorbereiten?</summary>
-        <div class="faq-antwort">Nein, im Grunde nicht. Ein bequemer Sitzplatz
-        mit etwas Platz davor genügt – alles andere bringe ich mit. Ein
-        Handtuch kann hilfreich sein, ist aber kein Muss.</div>
-      </details>
-      <details>
-        <summary>Wie lange dauert eine Fußpflege?</summary>
-        <div class="faq-antwort">Rechnen Sie mit etwa 30 Minuten für die
-        Fachfußpflege. Ich nehme mir die Zeit, die Ihre Füße brauchen –
-        ohne Hektik.</div>
-      </details>
-      <details>
-        <summary>Wie stellen Sie die Hygiene sicher?</summary>
-        <div class="faq-antwort">Hygiene ist die Grundlage meiner Arbeit: Die
-        Instrumente werden nach jedem Einsatz gereinigt, desinfiziert und
-        hygienisch aufbereitet. Auch Handschuhe und frische Unterlagen gehören
-        selbstverständlich dazu.</div>
-      </details>
-      <details>
-        <summary>Behandeln Sie auch Diabetiker?</summary>
-        <div class="faq-antwort">Kosmetische Fußpflege ist bei Diabetes
-        grundsätzlich möglich, solange die Füße gesund sind. Liegt ein
-        diabetisches Fußsyndrom oder eine andere krankhafte Veränderung vor,
-        gehört die Fußpflege in podologische Hände – dabei berate ich Sie
-        ehrlich und offen.</div>
-      </details>
-      <details>
-        <summary>Was ist der Unterschied zur medizinischen Fußpflege?</summary>
-        <div class="faq-antwort">Ich biete kosmetische Fußpflege für gesunde
-        Füße an: Nagelpflege, Hornhautentfernung, Pflege. Medizinische
-        Fußpflege (Podologie) ist eine gesetzlich geregelte Heilbehandlung
-        für krankhafte Veränderungen – dafür verweise ich Sie an eine
-        podologische Praxis.</div>
-      </details>
-      <details>
-        <summary>Wie kann ich bezahlen?</summary>
-        <div class="faq-antwort">Ganz wie es Ihnen passt: bar, auf Rechnung
-        oder per PayPal.</div>
-      </details>
-      <details>
-        <summary>Was, wenn ich einen Termin absagen muss?</summary>
-        <div class="faq-antwort">Kein Problem – sagen Sie bitte möglichst
-        frühzeitig Bescheid, gern telefonisch oder per WhatsApp. Dann finden
-        wir gemeinsam einen neuen Termin.</div>
-      </details>
+      <div class="faq-frage" role="button" tabindex="0" data-maske="maske-faq-hausbesuch" aria-haspopup="dialog">Wie läuft ein Hausbesuch ab?</div>
+      <div class="faq-frage" role="button" tabindex="0" data-maske="maske-faq-vorbereiten" aria-haspopup="dialog">Muss ich etwas vorbereiten?</div>
+      <div class="faq-frage" role="button" tabindex="0" data-maske="maske-faq-dauer" aria-haspopup="dialog">Wie lange dauert eine Fußpflege?</div>
+      <div class="faq-frage" role="button" tabindex="0" data-maske="maske-faq-hygiene" aria-haspopup="dialog">Wie stellen Sie die Hygiene sicher?</div>
+      <div class="faq-frage" role="button" tabindex="0" data-maske="maske-faq-diabetes" aria-haspopup="dialog">Behandeln Sie auch Diabetiker?</div>
+      <div class="faq-frage" role="button" tabindex="0" data-maske="maske-faq-unterschied" aria-haspopup="dialog">Was ist der Unterschied zur medizinischen Fußpflege?</div>
+      <div class="faq-frage" role="button" tabindex="0" data-maske="maske-faq-bezahlen" aria-haspopup="dialog">Wie kann ich bezahlen?</div>
+      <div class="faq-frage" role="button" tabindex="0" data-maske="maske-faq-absagen" aria-haspopup="dialog">Was, wenn ich einen Termin absagen muss?</div>
     </div>
+
+    <!-- ========== FAQ-Masken (öffnen per Klick auf eine Frage) ========== -->
+    <dialog class="maske" id="maske-faq-hausbesuch" aria-labelledby="mfh-titel">
+      <img class="maske-bild" src="bilder/arbeit-pflege.jpg" alt="Norbert Szczepanik bei der Fußpflege während eines Hausbesuchs" width="1600" height="640">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mfh-titel">Wie läuft ein Hausbesuch ab?</h3>
+        <ul class="maske-eckdaten">
+          <li>Termin nach Absprache</li>
+          <li>Bei Ihnen zu Hause</li>
+          <li>Anfahrt inklusive</li>
+        </ul>
+        <p>Ein Hausbesuch ist herrlich unkompliziert: keine Praxis, keine
+        Parkplatzsuche, kein Wartezimmer. Ich bringe die komplette
+        Ausstattung mit – vom Fußbad über die hygienisch aufbereiteten
+        Instrumente bis zur Pflegecreme.</p>
+        <h4>So läuft Ihr Termin ab</h4>
+        <ol class="maske-ablauf">
+          <li>Termin telefonisch oder per WhatsApp vereinbaren</li>
+          <li>Ich komme pünktlich und baue auf – ein Stuhl und eine Steckdose genügen</li>
+          <li>Warmes Fußbad zum Einstieg</li>
+          <li>Pflege oder Massage, in aller Ruhe</li>
+          <li>Abschluss mit Pflegecreme – bezahlt wird bar, per Rechnung oder PayPal</li>
+        </ol>
+        <div class="maske-knoepfe">
+          <a class="knopf knopf-voll" href="kontakt.html">Termin anfragen</a>
+          <a class="knopf knopf-rand" href="leistungen.html">Leistungen &amp; Preise</a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="maske" id="maske-faq-vorbereiten" aria-labelledby="mfv-titel">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mfv-titel">Muss ich etwas vorbereiten?</h3>
+        <p>Nein – Sie machen es sich bequem, den Rest übernehme ich. Alles,
+        was für die Fußpflege gebraucht wird, bringe ich mit.</p>
+        <h4>Hilfreich ist nur</h4>
+        <ol class="maske-ablauf">
+          <li>Ein bequemer Sitzplatz mit etwas Platz davor</li>
+          <li>Eine Steckdose in der Nähe</li>
+          <li>Auf Wunsch ein eigenes Handtuch – kein Muss</li>
+        </ol>
+        <p class="maske-hinweis"><strong>Tipp:</strong> Strümpfe und
+        Fußschmuck am besten schon vor dem Termin ablegen – dann bleibt
+        die ganze Zeit für die Pflege.</p>
+      </div>
+    </dialog>
+
+    <dialog class="maske" id="maske-faq-dauer" aria-labelledby="mfd-titel">
+      <img class="maske-bild" src="bilder/leistung-fusspflege.jpg" alt="Fußpflegerin arbeitet konzentriert mit dem Gerät an den Zehennägeln" width="1600" height="640">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mfd-titel">Wie lange dauert eine Fußpflege?</h3>
+        <ul class="maske-eckdaten">
+          <li>Fachfußpflege ca. 30 Minuten</li>
+          <li>Massagen: <span class="platzhalter">Dauer folgt</span></li>
+        </ul>
+        <p>Für die Fachfußpflege können Sie mit etwa 30 Minuten rechnen –
+        je nach Zustand der Füße auch etwas mehr. Ich arbeite grundsätzlich
+        ohne Zeitdruck: Ihre Füße bekommen die Zeit, die sie brauchen.</p>
+        <p>Fußpflege und Massage lassen sich wunderbar in einem Termin
+        verbinden – erst die Pflege, dann die Entspannung.</p>
+        <div class="maske-knoepfe">
+          <a class="knopf knopf-rand" href="leistungen.html">Zur Preisliste</a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="maske" id="maske-faq-hygiene" aria-labelledby="mfhy-titel">
+      <img class="maske-bild" src="bilder/arbeit-geraet.jpg" alt="Professionelles Fußpflege-Gerät im Einsatz – fachgerechte Nagelpflege" width="1600" height="640">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mfhy-titel">Wie stellen Sie die Hygiene sicher?</h3>
+        <p>Hygiene ist die Grundlage jeder seriösen Fußpflege – hier gibt
+        es bei mir keine Kompromisse. Mein beruflicher Hintergrund aus der
+        Pflege prägt meinen Umgang mit Sauberkeit bis heute.</p>
+        <h4>Meine festen Regeln</h4>
+        <ol class="maske-ablauf">
+          <li>Instrumente werden nach jedem Einsatz gereinigt, desinfiziert und hygienisch aufbereitet</li>
+          <li>Einmalhandschuhe bei jeder Pflege</li>
+          <li>Frische Unterlagen bei jedem Kunden</li>
+          <li>Geprüfte, hautfreundliche Pflegeprodukte</li>
+        </ol>
+        <p class="maske-hinweis"><strong>Gut zu wissen:</strong> Sie dürfen
+        mich jederzeit auf die Hygiene ansprechen – ich zeige Ihnen gern,
+        wie die Instrumente aufbereitet werden.</p>
+      </div>
+    </dialog>
+
+    <dialog class="maske" id="maske-faq-diabetes" aria-labelledby="mfdi-titel">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mfdi-titel">Behandeln Sie auch Diabetiker?</h3>
+        <p>Bei Diabetes ist kosmetische Fußpflege grundsätzlich möglich –
+        solange Ihre Füße gesund sind. Sagen Sie mir am besten schon bei
+        der Terminvereinbarung kurz Bescheid, dann arbeite ich mit
+        besonders viel Sorgfalt.</p>
+        <h4>Wichtig zu wissen</h4>
+        <p>Beim <strong>diabetischen Fußsyndrom</strong> oder anderen
+        krankhaften Veränderungen gehört die Fußpflege in eine podologische
+        Praxis. Die podologische Behandlung kann dann ärztlich verordnet
+        werden – die Kosten übernimmt in diesen Fällen häufig die
+        Krankenkasse. Sprechen Sie dazu Ihre Hausärztin oder Ihren
+        Hausarzt an.</p>
+        <p class="maske-hinweis"><strong>Mein Versprechen:</strong> Ich
+        sage Ihnen ehrlich, ob ich Ihnen helfen kann – oder welche
+        Anlaufstelle die richtige für Sie ist.</p>
+        <div class="maske-knoepfe">
+          <a class="knopf knopf-rand" href="leistungen.html#abgrenzung">Kosmetisch oder Podologie? Der Vergleich</a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="maske" id="maske-faq-unterschied" aria-labelledby="mfu-titel">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mfu-titel">Was ist der Unterschied zur medizinischen Fußpflege?</h3>
+        <p>„Podologie" und „medizinische Fußpflege" sind in Deutschland
+        <strong>gesetzlich geschützte Bezeichnungen</strong>: Sie erfordern
+        eine staatliche Ausbildung nach dem Podologengesetz (PodG) und
+        umfassen die Behandlung krankhafter Füße – oft auf ärztliche
+        Verordnung.</p>
+        <p>Ich biete <strong>kosmetische Fußpflege</strong> an: die
+        fachgerechte Pflege gesunder Füße – Fußbad, Nagel- und
+        Nagelhautpflege, Hornhautentfernung, Wellnessmassagen. Beide
+        Bereiche ergänzen sich, ersetzen einander aber nicht.</p>
+        <h4>Zum Nachlesen</h4>
+        <ol class="maske-ablauf">
+          <li><a href="leistungen.html#abgrenzung">Der direkte Vergleich auf meiner Leistungs-Seite</a></li>
+          <li><a href="https://www.gesetze-im-internet.de/podg/" target="_blank" rel="noopener">Podologengesetz (PodG) im Wortlaut – gesetze-im-internet.de</a></li>
+        </ol>
+      </div>
+    </dialog>
+
+    <dialog class="maske" id="maske-faq-bezahlen" aria-labelledby="mfb-titel">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mfb-titel">Wie kann ich bezahlen?</h3>
+        <ul class="maske-eckdaten">
+          <li>Bar</li>
+          <li>Auf Rechnung</li>
+          <li>PayPal</li>
+        </ul>
+        <p>Ganz wie es Ihnen passt: bar direkt beim Termin, bequem auf
+        Rechnung oder per PayPal. Die Preise stehen vorher fest – keine
+        versteckten Kosten, die Anfahrt ist immer inklusive.</p>
+        <p class="maske-hinweis"><strong>Gut zu wissen:</strong> Auf Wunsch
+        erhalten Sie selbstverständlich immer eine Rechnung.</p>
+        <div class="maske-knoepfe">
+          <a class="knopf knopf-rand" href="leistungen.html">Zur Preisliste</a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="maske" id="maske-faq-absagen" aria-labelledby="mfa-titel">
+      <button class="maske-schliessen" type="button" aria-label="Fenster schließen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="maske-inhalt">
+        <h3 id="mfa-titel">Was, wenn ich einen Termin absagen muss?</h3>
+        <p>Kein Problem – es kann immer etwas dazwischenkommen. Sagen Sie
+        einfach möglichst frühzeitig Bescheid, telefonisch oder per
+        WhatsApp. Dann finden wir gemeinsam einen neuen Termin, der Ihnen
+        passt.</p>
+        <div class="maske-knoepfe">
+          <a class="knopf knopf-voll" href="tel:+4917686961032">0176&nbsp;8696&nbsp;1032</a>
+          <a class="knopf knopf-whatsapp" href="https://wa.me/4917686961032" rel="noopener">WhatsApp schreiben</a>
+        </div>
+      </div>
+    </dialog>
+
   </div>
 </section>
 

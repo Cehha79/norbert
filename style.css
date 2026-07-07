@@ -1080,37 +1080,32 @@ body:has(dialog[open]) { overflow: hidden; }
   gap: 12px;
   align-items: start;                   /* geöffnete Frage zieht Nachbarn nicht mit */
 }
-.faq details {
+.faq-frage {
   background: var(--flaeche);
   border: 1px solid var(--linie);
   border-inline-start: 4px solid var(--marke);
   border-radius: var(--radius-kl);
   box-shadow: var(--schatten);
-  overflow: hidden;
-}
-.faq summary {
   padding: 16px 18px;
   font-size: 17.5px;
   font-weight: 600;
   color: var(--titel);
   cursor: pointer;
-  list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after {
-  content: "+";
+.faq-frage:hover { transform: translateY(-2px); box-shadow: var(--schatten-gr); }
+.faq-frage:focus-visible { outline: 3px solid var(--marke); outline-offset: 3px; }
+.faq-frage::after {
+  content: "›";
   font-size: 26px;
   color: var(--akzent);
   line-height: 1;
   flex-shrink: 0;
 }
-.faq details[open] summary::after { content: "–"; }
-.faq details[open] summary { background: var(--marke-hell); }
-.faq .faq-antwort { padding: 4px 18px 18px; color: var(--text-leise); font-size: 17px; }
 
 /* ---------- Formular ---------- */
 .formular {
