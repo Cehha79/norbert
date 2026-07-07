@@ -241,6 +241,37 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   E-Mail-API mit PDF-Auftrag + Kalender-Terminbuchung (TODO,
   Abschnitt „Shop-Ausbaustufe"); Weg: erst GitHub Pages, dann Domain.
   produkte.js `?v=3`, Cache `?v=56`.
+- **Produkte-Bereich umgebaut: Bild-Kacheln + eigene Bereichs-Seite**
+  (Hasans Auftrag, Verständnis bestätigt): (a) Aus 9 Bereichen wurden
+  **8** — „Hygiene & Desinfektion" in „Werkzeuge, Instrumente &
+  Hygiene" zusammengelegt (Hasans Wahl; alle 10 d-Artikel tragen jetzt
+  kat 'w' → 20 Artikel). (b) produkte.html zeigt statt der schmalen
+  Balken-Tafeln ein **Kachel-Raster**: 2 Spalten × 4 Reihen
+  (`.kachel-raster`, mobil 1 Spalte), jede Kachel gleich groß (16:9),
+  **Name + Artikel-Zahl außen über der Kachel** (`.kachel-name`,
+  Zahl füllt JS über `data-kat`), Bild als Foto-Kachel mit sanftem
+  Zoom beim Zeigen (hinter prefers-reduced-motion). (c) **Neue Seite
+  produkt-bereich.html**: Klick auf eine Kachel öffnet den Bereich als
+  eigene Seite (`?bereich=<kat>`, ungültige Werte fallen auf 'w'
+  zurück) — Zurück-Knopf oben (`.zurueck-knopf`) und unten,
+  linksbündiger Seitenkopf (`.seitenkopf-bereich`, Regel bewusst NACH
+  `.seitenkopf`), Sortierung + Produktkarten + Warenkorb wie gehabt;
+  Seitentitel wird je Bereich gesetzt. Altes `.kategorie*`-CSS und der
+  Inline-Listen-Block entfernt. (d) **Agent 1 (Bilder):** 8 verifizierte
+  Pexels-Gruppenbilder (Sortimente, keine Einzelprodukte, keine
+  lesbaren Marken) als `bilder/kachel-*.jpg` — IDs 9706941 (Werkzeuge,
+  Justyna Grochowska), 8101520 (Cremes, Polina Kovaleva), 14018564
+  (Geräte, Mehmet Turgut Kirkgoz), 19695948 (Fußbad, Jonathan Borba),
+  34930142 (Nagelpflege, J. A. Otegui Auzmendi), 10574838 (Hornhaut,
+  Ron Lach), 7796990 (Komfort, Alesia Kozik), 7356379 (Geschenke,
+  Alina Vilchenko); die alten `bilder/shop-*.jpg` (9 Stück) sind damit
+  unbenutzt. (e) **Agent 2 (Videos):** 9 Kandidaten für einen echten
+  Video-Hintergrund (Schaum/Bläschen, Fenster mit Regentropfen, Wasser
+  mit Blumen — reale Aufnahmen, Pexels, ≤ 15 MB, lokal) in
+  `DOKU/Claude Ausgabe/Hintergrund-Kandidaten/`; Auswahl-Seite
+  `DOKU/Claude Ausgabe/Hintergrund-Auswahl.html` — **Hasans Wahl
+  (Nr. 1–9) steht noch aus**, Einbau folgt danach. produkte.js `?v=4`,
+  Cache `?v=57`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

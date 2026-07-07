@@ -1154,42 +1154,58 @@ body:has(dialog[open]) { overflow: hidden; }
   color: var(--titel);
 }
 
-/* Bereichs-Tafeln */
-.kategorien {
+/* Bereichs-Kacheln (produkte.html): Name außen darüber, Bild als Kachel */
+.kachel-raster {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 26px;
 }
-.kategorie {
-  --lk: var(--marke);
+.kachel-name {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  justify-content: space-between;
   gap: 12px;
+  margin-block-end: 10px;
+}
+.kachel-name strong {
+  font-family: var(--schrift-titel);
+  font-size: clamp(19px, 2.2vw, 23px);
+  color: var(--titel);
+}
+.kachel-zahl { font-size: 15px; color: var(--text-leise); white-space: nowrap; }
+.kachel {
+  display: block;
+  aspect-ratio: 16 / 9;
   background: var(--flaeche);
   border: 1px solid var(--linie);
-  border-inline-start: 4px solid var(--lk);
-  border-radius: var(--radius-kl);
+  border-radius: var(--radius);
   box-shadow: var(--schatten);
-  padding: 12px 14px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
 }
-.kategorie:hover { transform: translateY(-2px); box-shadow: var(--schatten-gr); }
-.kategorie:focus-visible { outline: 3px solid var(--lk); outline-offset: 3px; }
-.kategorie.aktiv { border-color: var(--lk); background: var(--marke-hell); }
-.kategorie-symbol {
-  width: 42px; height: 42px;
-  border-radius: var(--radius-kl);
-  background: var(--lk);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  flex: none;
+.kachel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
 }
-.kategorie-text { display: grid; line-height: 1.3; }
-.kategorie-text strong { color: var(--titel); font-size: 16.5px; }
-.kategorie-zahl { font-size: 14px; color: var(--text-leise); }
-.kategorie-pfeil { margin-inline-start: auto; font-size: 24px; color: var(--lk); }
+.kachel:hover img { transform: scale(1.04); }
+.kachel:focus-visible { outline: 3px solid var(--marke); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .kachel img { transition: none; }
+  .kachel:hover img { transform: none; }
+}
+
+/* Bereichs-Seite (produkt-bereich.html) */
+.seitenkopf-bereich h1 { margin-inline: 0; }
+.zurueck-knopf {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--marke);
+  margin-block-end: 10px;
+}
 
 /* Listen-Kopf mit Sortierung */
 .liste-zeile {
@@ -1649,6 +1665,8 @@ body:has(dialog[open]) { overflow: hidden; }
   max-width: 560px;
   margin: 8px auto 0;
 }
+/* Bereichs-Seite: linksbündig mit Zurück-Knopf (muss NACH .seitenkopf stehen) */
+.seitenkopf.seitenkopf-bereich { text-align: start; }
 
 /* ---------- Rechtstexte ---------- */
 .rechtstext { max-width: 780px; margin-inline: auto; }
@@ -1663,7 +1681,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .held-knoepfe .knopf { width: auto; }
   .karten-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 18px) / 2); gap: 18px; }
-  .kategorien { grid-template-columns: 1fr 1fr; }
+  .kachel-raster { grid-template-columns: repeat(2, 1fr); gap: 24px 28px; }
   .produkt-raster { grid-template-columns: 1fr 1fr; }
   .p-korb { flex: 1; }
   .p-kauf { flex: 1; }
@@ -1770,7 +1788,6 @@ body:has(dialog[open]) { overflow: hidden; }
 
   .karten-raster { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 40px) / 3); gap: 20px; }  /* 2 Reihen × 3 sichtbare Spalten */
-  .kategorien { grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .produkt-raster { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .kasse-raster { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 30px; }
   .schritte { grid-template-columns: repeat(4, 1fr); }

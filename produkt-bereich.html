@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impressum – Norberts mobile Fußpflege</title>
-<meta name="description" content="Impressum von Norberts mobiler Fußpflege.">
-<meta name="robots" content="noindex">
+<title>Produkt-Bereich – Norberts mobile Fußpflege Stuttgart</title>
+<meta name="description" content="Produkte eines Bereichs – Auswahl aus meiner täglichen Arbeit.">
 <link rel="icon" type="image/png" href="bilder/logo-klein.png">
 <link rel="stylesheet" href="style.css?v=57">
 <script src="js/thema.js"></script>
 <script src="js/main.js?v=8" defer></script>
+<script src="js/produkte.js?v=4" defer></script>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
       <ul>
         <li><a href="index.html">Start</a></li>
         <li><a href="leistungen.html">Leistungen</a></li>
-        <li><a href="produkte.html">Produkte</a></li>
+        <li><a href="produkte.html" aria-current="page">Produkte</a></li>
         <li><a href="ueber-mich.html">Über mich</a></li>
         <li><a href="kundenstimmen.html">Kundenstimmen</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
@@ -55,66 +55,38 @@
   </div>
 </header>
 
+
 <main>
 
-<section class="seitenkopf">
+<!-- ================= Seitenkopf ================= -->
+<section class="seitenkopf seitenkopf-bereich">
   <div class="rahmen">
-    <h1>Impressum</h1>
+    <a class="zurueck-knopf" href="produkte.html">‹ Zurück zu allen Bereichen</a>
+    <h1 id="liste-titel">Produkte</h1>
   </div>
 </section>
 
-<section class="abschnitt" style="padding-top:16px;">
-  <div class="rahmen rechtstext">
-
-    <div class="abgrenzung">
-      <strong>Entwurf:</strong> Vor dem Livegang wird nur noch die
-      Umsatzsteuer-Angabe ergänzt und alles abschließend geprüft.
+<!-- ================= Produktliste ================= -->
+<section class="abschnitt" style="padding-top:8px;" id="liste-kopf">
+  <div class="rahmen">
+    <div class="liste-zeile">
+      <span id="liste-info" class="liste-info"></span>
+      <label class="sortier-feld">Sortieren:
+        <select id="sortierung">
+          <option value="beliebt">Beliebteste</option>
+          <option value="preis-auf">Preis aufsteigend</option>
+          <option value="preis-ab">Preis absteigend</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </label>
     </div>
-
-    <h2>Angaben gemäß § 5 DDG</h2>
-    <p>
-      Norbert Szczepanik<br>
-      Norberts mobile Fußpflege<br>
-      Mittenfeldstraße 39<br>
-      70499 Stuttgart
-    </p>
-
-    <h2>Kontakt</h2>
-    <p>
-      Telefon: <a href="tel:+4917686961032">0176&nbsp;8696&nbsp;1032</a><br>
-      E-Mail: <a href="mailto:norbertsmobilefusspflege@gmx.de">norbertsmobilefusspflege@gmx.de</a>
-    </p>
-
-    <h2>Redaktionell verantwortlich</h2>
-    <p>
-      Norbert Szczepanik<br>
-      Mittenfeldstraße 39, 70499 Stuttgart
-    </p>
-
-    <h2>Berufshaftpflichtversicherung</h2>
-    <p>Name und Sitz des Versicherers:<br>
-    Allianz Versicherung, Deutschland</p>
-
-    <h2>Umsatzsteuer</h2>
-    <p><span class="platzhalter">Angabe folgt – je nach Status: USt-IdNr. oder
-    Hinweis auf die Kleinunternehmerregelung nach § 19 UStG.</span></p>
-
-    <h2>EU-Streitschlichtung</h2>
-    <p>Die Europäische Kommission stellt eine Plattform zur
-    Online-Streitbeilegung (OS) bereit:
-    <a href="https://ec.europa.eu/consumers/odr/" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.<br>
-    Meine E-Mail-Adresse finden Sie oben im Impressum.</p>
-
-    <h2>Verbraucherstreitbeilegung</h2>
-    <p>Ich bin nicht bereit und nicht verpflichtet, an
-    Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-    teilzunehmen.</p>
-
-    <h2>Hinweis zur Tätigkeit</h2>
-    <p>Angeboten wird ausschließlich kosmetische Fußpflege (Pflege gesunder
-    Füße). Es handelt sich nicht um medizinische Fußpflege (Podologie) im
-    Sinne des Podologengesetzes.</p>
-
+    <div class="produkt-raster" id="produkt-liste"></div>
+    <div class="maske-knoepfe" style="max-width:420px; margin-inline:auto; margin-block-start:26px;">
+      <a class="knopf knopf-rand" href="produkte.html">‹ Zurück zu allen Bereichen</a>
+    </div>
+    <p class="shop-hinweis"><span class="platzhalter">Alle Artikel, Preise und
+    Bewertungen sind Muster-Beispiele zur Ansicht – sie werden vor dem Livegang
+    durch das echte Sortiment ersetzt.</span></p>
   </div>
 </section>
 
@@ -127,6 +99,13 @@
     <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
   </div>
 </footer>
+
+<!-- ================= Mobile Aktionsleiste ================= -->
+<div class="aktionsleiste" aria-label="Schnellkontakt">
+  <a class="knopf knopf-rand" href="tel:+4917686961032">Anrufen</a>
+  <a class="knopf knopf-whatsapp" href="https://wa.me/4917686961032" rel="noopener">WhatsApp</a>
+  <a class="knopf knopf-voll" href="kontakt.html">Termin</a>
+</div>
 
 </body>
 </html>

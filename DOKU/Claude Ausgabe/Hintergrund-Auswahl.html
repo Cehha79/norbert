@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hintergrund-Video – Auswahl der Kandidaten</title>
+<style>
+  :root {
+    --marke: #205a7d; --titel: #17394e; --text: #2b3a44;
+    --flaeche: #faf7f0; --linie: #d8d2c6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font: 400 17px/1.55 "Source Sans 3", "Segoe UI", sans-serif;
+    color: var(--text);
+    background: #eef2f4;
+    padding: 36px 22px 60px;
+  }
+  .rahmen { max-width: 1180px; margin-inline: auto; }
+  h1 { color: var(--titel); font-size: 30px; margin-block-end: 6px; }
+  .untertitel { color: #5b6b75; margin-block-end: 8px; }
+  .hinweis {
+    background: #fdf3d7; border: 1px solid #e3c96e; border-radius: 10px;
+    padding: 10px 14px; font-size: 15.5px; margin-block: 14px 30px;
+  }
+  h2 {
+    color: var(--titel); font-size: 22px;
+    margin-block: 34px 14px; padding-block-end: 8px;
+    border-block-end: 2px solid var(--marke);
+  }
+  .raster { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
+  .karte {
+    background: var(--flaeche); border: 1px solid var(--linie);
+    border-top: 4px solid var(--marke); border-radius: 12px;
+    overflow: hidden; box-shadow: 0 8px 22px rgba(23, 57, 78, .12);
+  }
+  .karte video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #000; }
+  .karte-text { padding: 12px 16px 16px; }
+  .karte-text strong { color: var(--titel); font-size: 18px; }
+  .karte-text p { font-size: 15px; color: #5b6b75; margin-block-start: 4px; }
+  .nummer {
+    display: inline-grid; place-items: center;
+    min-width: 34px; height: 34px; padding-inline: 8px;
+    background: var(--marke); color: #fff; font-weight: 700;
+    border-radius: 8px; margin-inline-end: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="rahmen">
+  <h1>Hintergrund-Video für den Produkte-Bereich</h1>
+  <p class="untertitel">9 Kandidaten von Pexels (Lizenz: kommerziell frei, lokal gespeichert, keine Fremdabrufe).
+  Alle Videos laufen hier in Endlos-Schleife und ohne Ton — genau wie später als Seiten-Hintergrund.</p>
+  <div class="hinweis">Zum Auswählen einfach die Nummer nennen (z. B. „Nimm Nr. 7").
+  Auf der Website bekommt das Video eine ruhige Abdunklung, damit Text lesbar bleibt,
+  und ein Standbild für Nutzer mit reduzierter Bewegung.</div>
+
+  <h2>Schaum &amp; Bläschen</h2>
+  <div class="raster">
+    <div class="karte"><video src="Hintergrund-Kandidaten/schaum-1.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">1</span>Schäumende Bläschen</strong>
+      <p>Ron Lach · 1280×720 · 42,5 s · 14 MB — Nahaufnahme, ruhige Bewegung</p></div></div>
+    <div class="karte"><video src="Hintergrund-Kandidaten/schaum-2.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">2</span>Feiner Schaum</strong>
+      <p>Kelly · 1366×720 · 30,3 s · 11 MB — feine Schaumbläschen</p></div></div>
+    <div class="karte"><video src="Hintergrund-Kandidaten/schaum-3.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">3</span>Langsame Bläschen</strong>
+      <p>Engin Akyurt · 960×506 · 64,9 s · 12 MB — sehr langsame Bewegung</p></div></div>
+  </div>
+
+  <h2>Fenster mit Tropfen</h2>
+  <div class="raster">
+    <div class="karte"><video src="Hintergrund-Kandidaten/fenster-tropfen-1.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">4</span>Regentropfen nah</strong>
+      <p>Zuzanna Musial · 1280×720 · 12,0 s · 4,1 MB — Nahaufnahme auf Glas</p></div></div>
+    <div class="karte"><video src="Hintergrund-Kandidaten/fenster-tropfen-2.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">5</span>Tropfen an der Scheibe</strong>
+      <p>Gültekin Kaya · 1280×720 · 44,0 s · 15 MB — stetiger Regen</p></div></div>
+    <div class="karte"><video src="Hintergrund-Kandidaten/fenster-tropfen-3.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">6</span>Ablaufendes Regenwasser</strong>
+      <p>Aleks BM · 960×540 · 50,6 s · 6,0 MB — Wasser läuft langsam herab</p></div></div>
+  </div>
+
+  <h2>Wasser mit Blumen</h2>
+  <div class="raster">
+    <div class="karte"><video src="Hintergrund-Kandidaten/wasser-blumen-1.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">7</span>Blütenblätter auf Wasser</strong>
+      <p>Polina · 1280×720 · 9,2 s · 2,7 MB — Spa-Anmutung</p></div></div>
+    <div class="karte"><video src="Hintergrund-Kandidaten/wasser-blumen-2.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">8</span>Schwimmende Blumen</strong>
+      <p>Roman Odintsov · 1366×720 · 12,4 s · 1,3 MB — sehr kleine Datei</p></div></div>
+    <div class="karte"><video src="Hintergrund-Kandidaten/wasser-blumen-3.mp4" autoplay muted loop playsinline></video>
+      <div class="karte-text"><strong><span class="nummer">9</span>Treibende Blüten</strong>
+      <p>Taryn Elliott · 1280×720 · 7,9 s · 2,6 MB — ruhig, warme Farben</p></div></div>
+  </div>
+</div>
+</body>
+</html>

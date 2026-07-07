@@ -9,17 +9,18 @@
   var KORB_KEY = 'nf-warenkorb';
   var MWST = 0.19;
 
-  /* ================= Kategorien ================= */
+  /* ================= Kategorien =================
+     8 Bereiche — Hygiene & Desinfektion wurde in Werkzeuge & Instrumente
+     zusammengelegt (Hasans Vorgabe, 07.07.); die d-Artikel tragen kat 'w'. */
   var KATEGORIEN = {
-    w: { titel: 'Werkzeuge & Instrumente', farbe: 'lk-blau',   bild: 'bilder/shop-werkzeuge.jpg' },
-    c: { titel: 'Cremes & Balsame',        farbe: 'lk-gruen',  bild: 'bilder/shop-cremes.jpg' },
-    e: { titel: 'Elektrische Geräte',      farbe: 'lk-gold',   bild: 'bilder/shop-geraete.jpg' },
-    b: { titel: 'Fußbäder & Zusätze',      farbe: 'lk-rot',    bild: 'bilder/shop-fussbad.jpg' },
-    n: { titel: 'Nagelpflege',             farbe: 'lk-petrol', bild: 'bilder/shop-nagelpflege.jpg' },
-    h: { titel: 'Hornhaut & Peeling',      farbe: 'lk-orange', bild: 'bilder/shop-peeling.jpg' },
-    k: { titel: 'Komfort & Entlastung',    farbe: 'lk-blau',   bild: 'bilder/shop-komfort.jpg' },
-    d: { titel: 'Hygiene & Desinfektion',  farbe: 'lk-gruen',  bild: 'bilder/shop-hygiene.jpg' },
-    g: { titel: 'Geschenke & Gutscheine',  farbe: 'lk-gold',   bild: 'bilder/shop-geschenke.jpg' }
+    w: { titel: 'Werkzeuge, Instrumente & Hygiene', farbe: 'lk-blau',   bild: 'bilder/kachel-werkzeuge.jpg' },
+    c: { titel: 'Cremes & Balsame',                 farbe: 'lk-gruen',  bild: 'bilder/kachel-cremes.jpg' },
+    e: { titel: 'Elektrische Geräte',               farbe: 'lk-gold',   bild: 'bilder/kachel-geraete.jpg' },
+    b: { titel: 'Fußbäder & Zusätze',               farbe: 'lk-rot',    bild: 'bilder/kachel-fussbaeder.jpg' },
+    n: { titel: 'Nagelpflege',                      farbe: 'lk-petrol', bild: 'bilder/kachel-nagelpflege.jpg' },
+    h: { titel: 'Hornhaut & Peeling',               farbe: 'lk-orange', bild: 'bilder/kachel-hornhaut.jpg' },
+    k: { titel: 'Komfort & Entlastung',             farbe: 'lk-blau',   bild: 'bilder/kachel-komfort.jpg' },
+    g: { titel: 'Geschenke & Gutscheine',           farbe: 'lk-gold',   bild: 'bilder/kachel-geschenke.jpg' }
   };
 
   /* ================= Muster-Produkte (je Kategorie 10) ================= */
@@ -109,16 +110,16 @@
     { id: 'k10', kat: 'k', name: 'Fußgymnastik-Set',               info: 'Ball, Band und Übungsanleitung für starke Füße.',                       inhalt: 'Set, 3-teilig',    preis: 16.90, sterne: 4.6, stimmen: 12, lager: 'ok',    badge: '' },
 
     /* --- Hygiene & Desinfektion --- */
-    { id: 'd1',  kat: 'd', name: 'Hand-Desinfektionsgel',          info: 'Hautschonend mit Aloe – für unterwegs.',                                inhalt: '100 ml', grund: '4,90 € / 100 ml',  preis: 4.90,  sterne: 4.5, stimmen: 40, lager: 'ok',    badge: '' },
-    { id: 'd2',  kat: 'd', name: 'Flächen-Desinfektionsspray',     info: 'Schnell wirksam – für Geräte und Arbeitsflächen.',                      inhalt: '250 ml', grund: '3,16 € / 100 ml',  preis: 7.90,  sterne: 4.6, stimmen: 27, lager: 'ok',    badge: '' },
-    { id: 'd3',  kat: 'd', name: 'Einmalhandschuhe Nitril (100)',  info: 'Puderfrei, reißfest – Größe S bis XL.',                                 inhalt: '100 Stück',        preis: 12.90, sterne: 4.7, stimmen: 61, lager: 'ok',    badge: 'Bestseller' },
-    { id: 'd4',  kat: 'd', name: 'Fußspray antibakteriell',        info: 'Erfrischt und schützt – ideal nach dem Sport.',                         inhalt: '150 ml', grund: '5,93 € / 100 ml',  preis: 8.90,  sterne: 4.4, stimmen: 25, lager: 'ok',    badge: '' },
-    { id: 'd5',  kat: 'd', name: 'Instrumenten-Desinfektionsbad',  info: 'Wanne mit Sieb-Einsatz für die Instrumenten-Pflege.',                   inhalt: '1 Stück · 1 l',    preis: 16.90, sterne: 4.5, stimmen: 14, lager: 'ok',    badge: '' },
-    { id: 'd6',  kat: 'd', name: 'Desinfektions-Konzentrat',       info: 'Ergibt bis zu 25 l gebrauchsfertige Lösung.',                           inhalt: '500 ml', grund: '25,80 € / 1 l',    preis: 12.90, sterne: 4.6, stimmen: 19, lager: 'wenig', badge: '' },
-    { id: 'd7',  kat: 'd', name: 'Einweg-Unterlagen (50er)',       info: 'Saugstark und hygienisch – 40 × 60 cm.',                                inhalt: '50 Stück',         preis: 11.90, sterne: 4.3, stimmen: 16, lager: 'ok',    badge: '' },
-    { id: 'd8',  kat: 'd', name: 'Schuh-Desinfektionsspray',       info: 'Neutralisiert Gerüche direkt im Schuh.',                                inhalt: '150 ml', grund: '6,60 € / 100 ml',  preis: 9.90,  sterne: 4.4, stimmen: 22, lager: 'ok',    badge: '' },
-    { id: 'd9',  kat: 'd', name: 'Hygiene-Reise-Set',              info: 'Gel, Spray und Tücher in der Kulturtasche.',                            inhalt: 'Set, 3-teilig',    preis: 14.90, sterne: 4.5, stimmen: 11, lager: 'ok',    badge: 'Neu' },
-    { id: 'd10', kat: 'd', name: 'Desinfektionstücher (80er)',     info: 'Spenderdose mit 80 feuchten Tüchern.',                                  inhalt: '80 Tücher',        preis: 8.90,  sterne: 4.4, stimmen: 18, lager: 'ok',    badge: '' },
+    { id: 'd1',  kat: 'w', name: 'Hand-Desinfektionsgel',          info: 'Hautschonend mit Aloe – für unterwegs.',                                inhalt: '100 ml', grund: '4,90 € / 100 ml',  preis: 4.90,  sterne: 4.5, stimmen: 40, lager: 'ok',    badge: '' },
+    { id: 'd2',  kat: 'w', name: 'Flächen-Desinfektionsspray',     info: 'Schnell wirksam – für Geräte und Arbeitsflächen.',                      inhalt: '250 ml', grund: '3,16 € / 100 ml',  preis: 7.90,  sterne: 4.6, stimmen: 27, lager: 'ok',    badge: '' },
+    { id: 'd3',  kat: 'w', name: 'Einmalhandschuhe Nitril (100)',  info: 'Puderfrei, reißfest – Größe S bis XL.',                                 inhalt: '100 Stück',        preis: 12.90, sterne: 4.7, stimmen: 61, lager: 'ok',    badge: 'Bestseller' },
+    { id: 'd4',  kat: 'w', name: 'Fußspray antibakteriell',        info: 'Erfrischt und schützt – ideal nach dem Sport.',                         inhalt: '150 ml', grund: '5,93 € / 100 ml',  preis: 8.90,  sterne: 4.4, stimmen: 25, lager: 'ok',    badge: '' },
+    { id: 'd5',  kat: 'w', name: 'Instrumenten-Desinfektionsbad',  info: 'Wanne mit Sieb-Einsatz für die Instrumenten-Pflege.',                   inhalt: '1 Stück · 1 l',    preis: 16.90, sterne: 4.5, stimmen: 14, lager: 'ok',    badge: '' },
+    { id: 'd6',  kat: 'w', name: 'Desinfektions-Konzentrat',       info: 'Ergibt bis zu 25 l gebrauchsfertige Lösung.',                           inhalt: '500 ml', grund: '25,80 € / 1 l',    preis: 12.90, sterne: 4.6, stimmen: 19, lager: 'wenig', badge: '' },
+    { id: 'd7',  kat: 'w', name: 'Einweg-Unterlagen (50er)',       info: 'Saugstark und hygienisch – 40 × 60 cm.',                                inhalt: '50 Stück',         preis: 11.90, sterne: 4.3, stimmen: 16, lager: 'ok',    badge: '' },
+    { id: 'd8',  kat: 'w', name: 'Schuh-Desinfektionsspray',       info: 'Neutralisiert Gerüche direkt im Schuh.',                                inhalt: '150 ml', grund: '6,60 € / 100 ml',  preis: 9.90,  sterne: 4.4, stimmen: 22, lager: 'ok',    badge: '' },
+    { id: 'd9',  kat: 'w', name: 'Hygiene-Reise-Set',              info: 'Gel, Spray und Tücher in der Kulturtasche.',                            inhalt: 'Set, 3-teilig',    preis: 14.90, sterne: 4.5, stimmen: 11, lager: 'ok',    badge: 'Neu' },
+    { id: 'd10', kat: 'w', name: 'Desinfektionstücher (80er)',     info: 'Spenderdose mit 80 feuchten Tüchern.',                                  inhalt: '80 Tücher',        preis: 8.90,  sterne: 4.4, stimmen: 18, lager: 'ok',    badge: '' },
 
     /* --- Geschenke & Gutscheine --- */
     { id: 'g1',  kat: 'g', name: 'Gutschein Fachfußpflege',        info: 'Der Klassiker zum Verschenken – die komplette Pflege als Hausbesuch.',  inhalt: '1 Gutschein',      preis: 48.00, sterne: 5.0, stimmen: 24, lager: 'ok',    badge: 'Bestseller' },
@@ -195,27 +196,28 @@
   document.addEventListener('DOMContentLoaded', function () {
 
     /* ============================================================
-       1) Katalog (produkte.html)
+       1a) Bereichs-Übersicht (produkte.html): Artikel-Zahlen füllen
+       ============================================================ */
+    document.querySelectorAll('.kachel-zahl[data-kat]').forEach(function (z) {
+      var kat = z.getAttribute('data-kat');
+      var zahl = PRODUKTE.filter(function (p) { return p.kat === kat; }).length;
+      z.textContent = zahl + ' Artikel';
+    });
+
+    /* ============================================================
+       1b) Bereichs-Seite (produkt-bereich.html?bereich=<kat>)
        ============================================================ */
     var liste = document.getElementById('produkt-liste');
     if (liste) {
       var listeTitel = document.getElementById('liste-titel');
       var listeInfo = document.getElementById('liste-info');
       var sortierung = document.getElementById('sortierung');
-      var aktiveKat = 'w';
+      var kat = new URLSearchParams(location.search).get('bereich');
+      if (!KATEGORIEN[kat]) kat = 'w';
+      listeTitel.textContent = KATEGORIEN[kat].titel;
+      document.title = KATEGORIEN[kat].titel + ' – Norberts mobile Fußpflege Stuttgart';
 
-      document.querySelectorAll('.kategorie').forEach(function (tafel) {
-        var kat = tafel.getAttribute('data-kat');
-        var zahl = PRODUKTE.filter(function (p) { return p.kat === kat; }).length;
-        var z = tafel.querySelector('.kategorie-zahl');
-        if (z) z.textContent = zahl + ' Artikel';
-      });
-
-      var zeigeKategorie = function (kat, scrollen) {
-        aktiveKat = kat;
-        document.querySelectorAll('.kategorie').forEach(function (t) {
-          t.classList.toggle('aktiv', t.getAttribute('data-kat') === kat);
-        });
+      var zeigeListe = function () {
         var daten = PRODUKTE.filter(function (p) { return p.kat === kat; });
         var art = sortierung ? sortierung.value : 'beliebt';
         daten.sort(function (a, b) {
@@ -224,7 +226,6 @@
           if (art === 'name') return a.name.localeCompare(b.name, 'de');
           return (b.sterne * 100 + b.stimmen) - (a.sterne * 100 + a.stimmen);
         });
-        listeTitel.textContent = KATEGORIEN[kat].titel;
         listeInfo.textContent = daten.length + ' Artikel';
         /* Höhe kurz festhalten, damit die Seite beim Austausch nicht springt */
         liste.style.minHeight = liste.offsetHeight + 'px';
@@ -253,22 +254,9 @@
           '</article>';
         }).join('');
         requestAnimationFrame(function () { liste.style.minHeight = ''; });
-        if (scrollen) {
-          var ziel = document.getElementById('liste-kopf');
-          if (ziel) requestAnimationFrame(function () {
-            ziel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
-        }
       };
 
-      document.querySelectorAll('.kategorie').forEach(function (tafel) {
-        function auf() { zeigeKategorie(tafel.getAttribute('data-kat'), true); }
-        tafel.addEventListener('click', auf);
-        tafel.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); auf(); }
-        });
-      });
-      if (sortierung) sortierung.addEventListener('change', function () { zeigeKategorie(aktiveKat, false); });
+      if (sortierung) sortierung.addEventListener('change', zeigeListe);
 
       liste.addEventListener('click', function (e) {
         var minus = e.target.closest('.menge-minus');
@@ -294,7 +282,7 @@
         if (kaufKnopf) location.href = 'kasse.html';
       });
 
-      zeigeKategorie('w', false);
+      zeigeListe();
     }
 
     /* ============================================================
