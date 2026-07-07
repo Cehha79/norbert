@@ -509,9 +509,9 @@ img { max-width: 100%; display: block; }
    Haupt-Knöpfen darüber, deutlich untergeordnet (kleiner in Höhe und Breite) */
 .sozial-leiste {
   display: flex;
-  justify-content: space-between;
-  gap: 14px;
+  gap: 14px;                       /* kurzer Abstand innerhalb der 2er-Paare */
 }
+.sozial-knopf:nth-child(3) { margin-inline-start: auto; }   /* Paar links, Paar rechts */
 .sozial-knopf {
   height: 38px;
   flex: 0 1 96px;
