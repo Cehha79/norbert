@@ -6,6 +6,20 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (nachts, 4) — Startseite entschlackt (Hasans Vorgabe)
+
+- Auf Hasans Wunsch von der Startseite entfernt: Badge „Ausgebildeter
+  Fachfußpfleger", Zeile „Oder rufen Sie direkt an …",
+  Leistungs-Vorschau (3 Karten), Zahlen-Sektion (14+/100 %/1),
+  Kundenstimmen-Auszug.
+- Startseite jetzt: Held → Vertrauensleiste → Ablauf (4 Schritte) →
+  Abgrenzungs-Hinweis → Aufruf → Fußleiste. Leistungen/Preise sind über
+  den Held-Knopf und die Navigation erreichbar.
+- Zwischenfall: erster Entfernungs-Versuch hatte durch einen mehrdeutigen
+  Suchanker die Kopfzeile beschädigt → per `git checkout` wiederhergestellt
+  und mit eindeutigen Ankern sauber neu ausgeführt (Merke: Anker immer auf
+  Eindeutigkeit prüfen, Text kommt auch in Meta-Beschreibungen vor).
+
 ## 2026-07-07 (nachts, 3) — Logo: Original in hoher Auflösung statt Nachbau
 
 - Hasan: Logo soll **original bleiben**, nur bessere Qualität. Fund: Auf dem
