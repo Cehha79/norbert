@@ -526,26 +526,32 @@ img { max-width: 100%; display: block; }
   padding: 20px;
 }
 
-/* ---------- Vertrauensleiste (Basis: untereinander) ---------- */
+/* ---------- Vertrauens-Tafeln (Basis: untereinander) ---------- */
 .vertrauen {
-  border-block: 1px solid var(--linie);
-  background: var(--flaeche);
-  padding-block: 22px;
+  padding-block: clamp(28px, 4.5vw, 52px);
 }
 .vertrauen-raster {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 16px;
 }
 .vertrauen-punkt {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  text-align: center;
   gap: 12px;
   font-size: 16.5px;
   font-weight: 600;
   color: var(--titel);
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  box-shadow: var(--schatten);
+  padding: 24px 18px;
 }
-.vertrauen-punkt svg { flex-shrink: 0; }
+.vertrauen-punkt svg { flex-shrink: 0; width: 38px; height: 38px; }
 
 /* Farbige Symbol-Linien */
 .vp-gold  { color: #a8823c; }
@@ -953,14 +959,6 @@ img { max-width: 100%; display: block; }
   .schritte { grid-template-columns: repeat(2, 1fr); gap: 24px; row-gap: 44px; }
   .schritte-drei { grid-template-columns: 1fr; }   /* 3 Karten: erst ab 840px nebeneinander (Symmetrie) */
   .vertrauen-raster { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-
-  /* Vertrauens-Punkte ab hier zentriert übereinander – symmetrisches Raster */
-  .vertrauen-punkt {
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
-    gap: 10px;
-  }
   .zahlen-raster { grid-template-columns: repeat(3, 1fr); }
   .fuss-raster { grid-template-columns: 1fr 1fr; gap: 34px; }
   .formular { padding: 30px 28px; }
