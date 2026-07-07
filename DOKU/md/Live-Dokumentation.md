@@ -39,6 +39,10 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Inhalt mittig auf max. 760 px. Cache `?v=31`. (Hasan hatte zudem kurz
   eine Zwischenfassung erwischt: der 16:9-Fix kam nach dem v=30-Bump —
   Merker: nach JEDER CSS-Änderung Version hochzählen, auch bei Nachfixen.)
+- Seitenkopf aller Unterseiten kompakter (Hasan: „zu breit und zu viel"):
+  H1 kleiner (clamp 27–40 px statt bis 52), Untertext max. 560 px breit,
+  Abstände gestrafft (`padding-block` 24–40/14–22 px), Inline-Abstand zum
+  ersten Abschnitt einheitlich 16 px auf allen 6 Unterseiten. Cache `?v=32`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
