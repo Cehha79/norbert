@@ -435,6 +435,10 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Symbol-oben-Layout); das Formular sitzt darunter mittig
   (`.formular-mitte`, max. 920 px). Alte `.kontakt-raster`/
   `.kontakt-spalte`-Regeln entfernt. Cache `?v=65`.
+- Nachschliff (Hasan): Kontaktwege-Reihe auf **920 px = Formular-Breite**
+  begrenzt (bündig) und die Kacheln zu **Knöpfen** reduziert — nur
+  Symbol (38 px) + Überschrift, mittig, einzeilig (nowrap); Untertexte
+  raus, alte Unterzeilen-/Spalten-Regeln bereinigt. Cache `?v=66`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
