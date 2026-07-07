@@ -62,7 +62,7 @@
 /* ============================================================
    Design-Tokens – Thema HELL (Standard, bewusst gedämpft)
    Palette: Petrol-Blau + Gold, abgestimmt auf das Kunden-Logo
-   (bilder/logo-alt.png: blaue Füße, goldene Schrift)
+   (bilder/logo.png: blaue Füße, goldene Schrift)
    ============================================================ */
 :root {
   color-scheme: light;
@@ -222,12 +222,12 @@ img { max-width: 100%; display: block; }
   min-width: 0;
 }
 .marke-zeichen {
-  width: 46px; height: 46px;
+  width: 54px; height: 54px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
 }
-.marke-zeichen img { width: 46px; height: 46px; }
+.marke-zeichen img { width: 54px; height: 54px; object-fit: contain; }
 .marke-text { line-height: 1.2; min-width: 0; }
 .marke-name {
   font-family: var(--schrift-titel);
@@ -755,10 +755,10 @@ img { max-width: 100%; display: block; }
 }
 .fuss h3 { color: #fff; font-size: 18px; margin-block-end: 12px; }
 .fuss-logo {
-  width: 112px; height: 112px;
+  width: 170px;
   margin-block-end: 16px;
 }
-.fuss-logo img { width: 100%; height: 100%; }
+.fuss-logo img { width: 100%; height: auto; }
 .fuss a { color: var(--tief-text); }
 .fuss a:hover { color: #fff; }
 .fuss ul { list-style: none; padding: 0; }

@@ -41,8 +41,8 @@ Wichtige Entscheidungen, Warnungen und Merksätze zur Kunden-Website
 | Statisch, Vanilla HTML/CSS/JS, kein Build | wie MikaTec/netz-atlas; schnell, wartbar, läuft direkt auf GitHub Pages |
 | Zwei Themen (hell Standard, dunkel wählbar) | Kundenwunsch; hell bewusst gedämpft (warmes Papierweiß statt Reinweiß) |
 | Palette Petrol-Blau + Gold (07.07., Entscheidung „B") | passt zum vorhandenen Kunden-Logo (`bilder/logo-alt.png`), Flyer und Arbeitskleidung auf allen Fotos; Tokens heißen `--marke`/`--marke-hover`/`--marke-hell` |
-| Logo neu als Vektor `bilder/logo.svg` (07.07.) | das alte PNG war klein/verlustbehaftet und wurde unscharf; SVG-Nachbau (zwei Füße im Ring, Gold-Funkeln) ist in jeder Größe scharf; **Telefonnummer bewusst raus** (Hasans Vorgabe); Original bleibt als `bilder/logo-alt.png` liegen |
-| Logo in Kopf- (46 px), Fußleiste (112 px) und als Favicon | Kundenwunsch („wichtig"); SVG bringt eigene helle Scheibe mit — funktioniert auf hell und dunkel |
+| **Original-Logo in hoher Auflösung** (07.07.) | Hasan lehnte den SVG-Nachbau ab — Original soll bleiben. Lösung: Originaldatei in 1595×1600 px vom Strato-Server geholt (transparenter Grund!), nur die **Telefonnummer unten abgeschnitten** (Hasans Vorgabe). Dateien: `bilder/logo.png` (800 px) + `bilder/logo-klein.png` (400 px, für Kopf/Fuß/Favicon) |
+| Kein Zeichen-Ausschnitt fürs Logo | die goldene Schrift ist im Original ÜBER die Fußspitze gemalt — sauberes Freistellen unmöglich ohne Verschmieren; daher überall das komplette Logo |
 | Lora + Source Sans 3, lokal (WOFF2) | edel + sehr gut lesbar; DSGVO-Pflicht |
 | Karte als statisches OSM-Bild geplant | DSGVO-konform ohne Zwei-Klick-Lösung, null JS |
 | Formular-Dienst erst beim Livegang | GitHub Pages hat kein Backend; Dienst-Wahl offen (siehe TODO) |

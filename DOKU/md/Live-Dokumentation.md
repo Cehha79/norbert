@@ -6,6 +6,19 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (nachts, 3) — Logo: Original in hoher Auflösung statt Nachbau
+
+- Hasan: Logo soll **original bleiben**, nur bessere Qualität. Fund: Auf dem
+  Strato-Server lag die unverkleinerte Originaldatei (1595×1600 px,
+  transparenter Hintergrund) — heruntergeladen und verwendet.
+- Telefonnummer unten per präzisem PNG-Zuschnitt entfernt (eigenes
+  Skript, da sips-Crop unzuverlässig); Versuch eines runden
+  Zeichen-Ausschnitts verworfen (Schrift ist über die Fußspitze gemalt).
+- Eingesetzt: `bilder/logo-klein.png` (400 px) in Kopfleiste (54 px),
+  Fußleiste (170 px) und als Favicon; `bilder/logo.png` (800 px) als
+  große Fassung. SVG-Nachbau, Zeichen-Ausschnitt und altes Mini-PNG
+  gelöscht. Cache `?v=7`.
+
 ## 2026-07-07 (nachts, 2) — Logo als hochwertiges SVG neu gebaut
 
 - Hasans Rückmeldung: eingebautes PNG-Logo wirkte unscharf/minderwertig →
