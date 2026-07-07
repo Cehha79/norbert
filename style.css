@@ -1662,22 +1662,30 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 .karte-start-kasten p { font-size: 14.5px; color: var(--text-leise); margin-block-end: 12px; }
 .gebiet-quelle { font-size: 13px; color: var(--text-leise); margin-block-start: 6px; }
+/* Orte als Kennfarben-Knöpfe im Stil der Kontaktwege-Reihe */
 .orte-liste {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;   /* Chips gleichmäßig über die volle Breite */
-  gap: 10px;
+  --lk: var(--marke);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
   list-style: none;
   padding: 0;
-  margin-block: 18px;
+  margin-block: 18px 22px;
 }
 .orte-liste li {
-  background: var(--marke-hell);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-top: 4px solid var(--lk);
+  border-radius: var(--radius);
+  box-shadow: var(--schatten);
   color: var(--titel);
   font-weight: 600;
-  font-size: 16px;
-  padding: 8px 18px;
-  border-radius: 999px;
+  font-size: 15.5px;
+  padding: 12px 10px;
   margin: 0;
 }
 
@@ -1847,6 +1855,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .sozial-knopf { height: 52px; }
   .sozial-knopf svg { width: 26px; height: 26px; }
   .kontakt-wege { grid-template-columns: repeat(4, 1fr); }
+  .orte-liste { grid-template-columns: repeat(6, 1fr); }
   .karten-tafel { grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr); }
   .karten-feld { min-height: 440px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }

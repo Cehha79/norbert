@@ -439,6 +439,11 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   begrenzt (bündig) und die Kacheln zu **Knöpfen** reduziert — nur
   Symbol (38 px) + Überschrift, mittig, einzeilig (nowrap); Untertexte
   raus, alte Unterzeilen-/Spalten-Regeln bereinigt. Cache `?v=66`.
+- Orte-Chips im gleichen Knopf-Stil (Hasans Wunsch „wie die oben"):
+  sechs gleich breite Kennfarben-Knöpfe (`.orte-liste` als Raster,
+  2 Spalten mobil / 6 ab 1000 px; lk-blau/gruen/gold/petrol/rot/
+  orange, Tafel-Optik mit 4-px-Oberlinie), bündig über der
+  Karten-Tafel. Cache `?v=67`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
