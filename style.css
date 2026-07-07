@@ -226,12 +226,12 @@ img { max-width: 100%; display: block; }
   min-width: 0;
 }
 .marke-zeichen {
-  width: 54px; height: 54px;
+  width: 62px; height: 62px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
 }
-.marke-zeichen img { width: 54px; height: 54px; object-fit: contain; }
+.marke-zeichen img { width: 62px; height: 62px; object-fit: contain; }
 .marke-text { line-height: 1.2; min-width: 0; }
 .marke-name {
   font-family: var(--schrift-titel);
@@ -1003,7 +1003,9 @@ img { max-width: 100%; display: block; }
   .marke-zusatz { font-size: 13px; }
   .nav-knopf { display: none; }
 
-  /* Navigation dauerhaft sichtbar in der Kopfzeile */
+  /* Navigation dauerhaft sichtbar, beginnt links neben dem Logo */
+  .kopf-innen { justify-content: flex-start; gap: 22px; }
+  .kopf-rechts { margin-inline-start: auto; }
   .hauptnav {
     display: block;
     position: static;
