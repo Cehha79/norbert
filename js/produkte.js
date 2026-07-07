@@ -1,12 +1,13 @@
-// Norberts mobile Fußpflege — Produkte-Seite (Katalog + Warenkorb).
+// Norberts mobile Fußpflege — Shop (Katalog, Warenkorb-Seite, Kasse).
 // ACHTUNG: Alle Artikel sind MUSTER-DATEN (nur zur Ansicht) — vor dem
 // Livegang durch Norberts echte Produkte und Preise ersetzen!
-// Warenkorb liegt in localStorage ('nf-warenkorb'), Bestellung geht als
-// unverbindliche Anfrage per WhatsApp oder E-Mail raus (kein Bezahlsystem).
+// Warenkorb liegt in localStorage ('nf-warenkorb'); die Bestellung geht
+// per WhatsApp oder E-Mail raus (kein Bezahlsystem auf der Seite).
 (function () {
   'use strict';
 
   var KORB_KEY = 'nf-warenkorb';
+  var MWST = 0.19;
 
   /* ================= Kategorien ================= */
   var KATEGORIEN = {
@@ -133,9 +134,7 @@
   ];
 
   /* ================= Hilfen ================= */
-  function euro(betrag) {
-    return betrag.toFixed(2).replace('.', ',') + ' €';
-  }
+  function euro(betrag) { return betrag.toFixed(2).replace('.', ',') + ' €'; }
   function sterneHtml(wert) {
     var voll = Math.round(wert);
     return '<span class="p-sterne" aria-label="' + wert.toFixed(1).replace('.', ',') + ' von 5 Sternen">' +
@@ -151,196 +150,246 @@
   function produkt(id) {
     return PRODUKTE.filter(function (p) { return p.id === id; })[0];
   }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var liste = document.getElementById('produkt-liste');
-    if (!liste) return;
-
-    var listeTitel = document.getElementById('liste-titel');
-    var listeInfo = document.getElementById('liste-info');
-    var sortierung = document.getElementById('sortierung');
-    var aktiveKat = 'w';
-
-    /* ---------- Kategorie-Zähler in die Tafeln schreiben ---------- */
-    document.querySelectorAll('.kategorie').forEach(function (tafel) {
-      var kat = tafel.getAttribute('data-kat');
-      var zahl = PRODUKTE.filter(function (p) { return p.kat === kat; }).length;
-      var z = tafel.querySelector('.kategorie-zahl');
-      if (z) z.textContent = zahl + ' Artikel';
+  function korbSummen(korb) {
+    var summe = 0;
+    Object.keys(korb).forEach(function (id) {
+      var p = produkt(id);
+      if (p && korb[id] > 0) summe += p.preis * korb[id];
     });
-
-    /* ---------- Produktliste rendern ---------- */
-    function zeigeKategorie(kat, scrollen) {
-      aktiveKat = kat;
-      document.querySelectorAll('.kategorie').forEach(function (t) {
-        t.classList.toggle('aktiv', t.getAttribute('data-kat') === kat);
-      });
-      var daten = PRODUKTE.filter(function (p) { return p.kat === kat; });
-      var art = sortierung ? sortierung.value : 'beliebt';
-      daten.sort(function (a, b) {
-        if (art === 'preis-auf') return a.preis - b.preis;
-        if (art === 'preis-ab') return b.preis - a.preis;
-        if (art === 'name') return a.name.localeCompare(b.name, 'de');
-        return (b.sterne * 100 + b.stimmen) - (a.sterne * 100 + a.stimmen); /* beliebt */
-      });
-      listeTitel.textContent = KATEGORIEN[kat].titel;
-      listeInfo.textContent = daten.length + ' Artikel';
-      var korb = korbLaden();
-      liste.innerHTML = daten.map(function (p) {
-        var menge = korb[p.id] || 0;
-        return '<article class="produkt ' + KATEGORIEN[p.kat].farbe + '">' +
-          (p.badge ? '<span class="p-badge">' + p.badge + '</span>' : '') +
-          '<img class="p-bild" src="' + KATEGORIEN[p.kat].bild + '" alt="" loading="lazy">' +
-          '<div class="p-inhalt">' +
-            '<h3>' + p.name + '</h3>' +
-            '<div class="p-bewertung">' + sterneHtml(p.sterne) + ' <span>' + p.sterne.toFixed(1).replace('.', ',') + ' (' + p.stimmen + ')</span></div>' +
-            '<p class="p-info">' + p.info + '</p>' +
-            '<p class="p-meta">' + p.inhalt + (p.grund ? ' · ' + p.grund : '') + '</p>' +
-            '<p class="p-lager ' + (p.lager === 'ok' ? 'auf-lager' : 'wenig') + '">' +
-              (p.lager === 'ok' ? '● Auf Lager' : '● Nur noch wenige') + '</p>' +
-            '<div class="p-fuss">' +
-              '<span class="p-preis">' + euro(p.preis) + '</span>' +
-              '<span class="menge" data-id="' + p.id + '">' +
-                '<button type="button" class="menge-minus" aria-label="Menge verringern">−</button>' +
-                '<span class="menge-zahl">' + (menge > 0 ? menge : 1) + '</span>' +
-                '<button type="button" class="menge-plus" aria-label="Menge erhöhen">+</button>' +
-              '</span>' +
-              '<button type="button" class="knopf knopf-voll p-korb" data-id="' + p.id + '">In den Warenkorb</button>' +
-            '</div>' +
-          '</div>' +
-        '</article>';
-      }).join('');
-      if (scrollen) {
-        var ziel = document.getElementById('liste-kopf');
-        if (ziel) ziel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    document.querySelectorAll('.kategorie').forEach(function (tafel) {
-      function auf() { zeigeKategorie(tafel.getAttribute('data-kat'), true); }
-      tafel.addEventListener('click', auf);
-      tafel.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); auf(); }
-      });
+    return { summe: summe, mwst: summe - summe / (1 + MWST) };
+  }
+  function positionenText(korb) {
+    var zeilen = [];
+    Object.keys(korb).forEach(function (id) {
+      var p = produkt(id);
+      if (!p || korb[id] < 1) return;
+      zeilen.push(korb[id] + ' × ' + p.name + ' (' + p.inhalt + ') — ' + euro(p.preis * korb[id]));
     });
-    if (sortierung) sortierung.addEventListener('change', function () { zeigeKategorie(aktiveKat, false); });
+    return zeilen.join('\n');
+  }
 
-    /* ---------- Mengen-Stepper + In den Warenkorb (Delegation) ---------- */
-    liste.addEventListener('click', function (e) {
-      var minus = e.target.closest('.menge-minus');
-      var plus = e.target.closest('.menge-plus');
-      var korbKnopf = e.target.closest('.p-korb');
-      if (minus || plus) {
-        var stepper = (minus || plus).closest('.menge');
-        var zahl = stepper.querySelector('.menge-zahl');
-        var wert = parseInt(zahl.textContent, 10) + (plus ? 1 : -1);
-        zahl.textContent = Math.max(1, Math.min(99, wert));
-      }
-      if (korbKnopf) {
-        var id = korbKnopf.getAttribute('data-id');
-        var mengeEl = liste.querySelector('.menge[data-id="' + id + '"] .menge-zahl');
-        var menge = parseInt(mengeEl.textContent, 10);
-        var korb = korbLaden();
-        korb[id] = (korb[id] || 0) + menge;
-        korbSpeichern(korb);
-        korbKnopf.textContent = '✓ Im Warenkorb';
-        setTimeout(function () { korbKnopf.textContent = 'In den Warenkorb'; }, 1400);
-      }
-    });
-
-    /* ---------- Warenkorb-Maske ---------- */
-    var maske = document.getElementById('warenkorb-maske');
-    var korbListe = document.getElementById('korb-liste');
-    var korbSumme = document.getElementById('korb-summe');
-    var korbLeerHinweis = document.getElementById('korb-leer');
-    var korbAktionen = document.getElementById('korb-aktionen');
-
-    function korbRendern() {
-      var korb = korbLaden();
-      var ids = Object.keys(korb).filter(function (id) { return korb[id] > 0 && produkt(id); });
-      var summe = 0;
-      korbListe.innerHTML = ids.map(function (id) {
+  /* Gemeinsame Korb-Zeilen (Warenkorb-Seite + Kassen-Übersicht) */
+  function korbZeilenHtml(korb, mitSteuerung) {
+    return Object.keys(korb).filter(function (id) { return korb[id] > 0 && produkt(id); })
+      .map(function (id) {
         var p = produkt(id);
-        var zeile = p.preis * korb[id];
-        summe += zeile;
-        return '<div class="korb-zeile" data-id="' + id + '">' +
+        return '<div class="korb-zeile' + (mitSteuerung ? '' : ' korb-zeile-schlicht') + '" data-id="' + id + '">' +
           '<img src="' + KATEGORIEN[p.kat].bild + '" alt="">' +
           '<div class="korb-name"><strong>' + p.name + '</strong><span>' + euro(p.preis) + ' · ' + p.inhalt + '</span></div>' +
-          '<span class="menge" data-id="' + id + '">' +
-            '<button type="button" class="menge-minus" aria-label="Menge verringern">−</button>' +
-            '<span class="menge-zahl">' + korb[id] + '</span>' +
-            '<button type="button" class="menge-plus" aria-label="Menge erhöhen">+</button>' +
-          '</span>' +
-          '<span class="korb-zeilensumme">' + euro(zeile) + '</span>' +
-          '<button type="button" class="korb-entfernen" aria-label="' + p.name + ' entfernen">' +
-            '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg>' +
-          '</button>' +
+          (mitSteuerung
+            ? '<span class="menge" data-id="' + id + '">' +
+                '<button type="button" class="menge-minus" aria-label="Menge verringern">−</button>' +
+                '<span class="menge-zahl">' + korb[id] + '</span>' +
+                '<button type="button" class="menge-plus" aria-label="Menge erhöhen">+</button>' +
+              '</span>'
+            : '<span class="korb-anzahl">' + korb[id] + ' ×</span>') +
+          '<span class="korb-zeilensumme">' + euro(p.preis * korb[id]) + '</span>' +
+          (mitSteuerung
+            ? '<button type="button" class="korb-entfernen" aria-label="' + p.name + ' entfernen">' +
+              '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg></button>'
+            : '') +
         '</div>';
       }).join('');
-      korbSumme.textContent = euro(summe);
-      var leer = ids.length === 0;
-      korbLeerHinweis.hidden = !leer;
-      korbAktionen.hidden = leer;
-      document.getElementById('korb-tabelle').hidden = leer;
-    }
+  }
 
-    function maskeOeffnen() {
-      korbRendern();
-      if (!maske.open) maske.showModal();
-    }
+  document.addEventListener('DOMContentLoaded', function () {
 
-    /* Kopf-Knopf: auf dieser Seite Maske öffnen statt zu springen */
-    var kopfKnopf = document.querySelector('.korb-knopf');
-    if (kopfKnopf) kopfKnopf.addEventListener('click', function (e) { e.preventDefault(); maskeOeffnen(); });
-    if (location.hash === '#warenkorb') maskeOeffnen();
+    /* ============================================================
+       1) Katalog (produkte.html)
+       ============================================================ */
+    var liste = document.getElementById('produkt-liste');
+    if (liste) {
+      var listeTitel = document.getElementById('liste-titel');
+      var listeInfo = document.getElementById('liste-info');
+      var sortierung = document.getElementById('sortierung');
+      var aktiveKat = 'w';
 
-    maske.querySelector('.maske-schliessen').addEventListener('click', function () { maske.close(); });
-    maske.addEventListener('click', function (e) { if (e.target === maske) maske.close(); });
-
-    korbListe.addEventListener('click', function (e) {
-      var zeile = e.target.closest('.korb-zeile');
-      if (!zeile) return;
-      var id = zeile.getAttribute('data-id');
-      var korb = korbLaden();
-      if (e.target.closest('.menge-plus')) korb[id] = Math.min(99, (korb[id] || 0) + 1);
-      if (e.target.closest('.menge-minus')) korb[id] = Math.max(0, (korb[id] || 0) - 1);
-      if (e.target.closest('.korb-entfernen')) korb[id] = 0;
-      if (korb[id] === 0) delete korb[id];
-      korbSpeichern(korb);
-      korbRendern();
-    });
-
-    document.getElementById('korb-leeren').addEventListener('click', function () {
-      korbSpeichern({});
-      korbRendern();
-    });
-
-    /* ---------- Bestellung als Anfrage (WhatsApp / E-Mail) ---------- */
-    function bestellText() {
-      var korb = korbLaden();
-      var zeilen = [];
-      var summe = 0;
-      Object.keys(korb).forEach(function (id) {
-        var p = produkt(id);
-        if (!p || korb[id] < 1) return;
-        zeilen.push(korb[id] + ' × ' + p.name + ' (' + p.inhalt + ') — ' + euro(p.preis * korb[id]));
-        summe += p.preis * korb[id];
+      document.querySelectorAll('.kategorie').forEach(function (tafel) {
+        var kat = tafel.getAttribute('data-kat');
+        var zahl = PRODUKTE.filter(function (p) { return p.kat === kat; }).length;
+        var z = tafel.querySelector('.kategorie-zahl');
+        if (z) z.textContent = zahl + ' Artikel';
       });
-      return 'Bestell-Anfrage an Norberts mobile Fußpflege\n\n' +
-        zeilen.join('\n') + '\n\nGesamt: ' + euro(summe) +
-        '\n\nBitte melden Sie sich bei mir wegen Übergabe und Bezahlung ' +
-        '(bar, Rechnung oder PayPal). Vielen Dank!';
-    }
-    document.getElementById('korb-whatsapp').addEventListener('click', function () {
-      window.open('https://wa.me/4917686961032?text=' + encodeURIComponent(bestellText()), '_blank', 'noopener');
-    });
-    document.getElementById('korb-mail').addEventListener('click', function () {
-      location.href = 'mailto:norbertsmobilefusspflege@gmx.de' +
-        '?subject=' + encodeURIComponent('Bestell-Anfrage') +
-        '&body=' + encodeURIComponent(bestellText());
-    });
 
-    /* Start: erste Kategorie anzeigen */
-    zeigeKategorie('w', false);
+      var zeigeKategorie = function (kat, scrollen) {
+        aktiveKat = kat;
+        document.querySelectorAll('.kategorie').forEach(function (t) {
+          t.classList.toggle('aktiv', t.getAttribute('data-kat') === kat);
+        });
+        var daten = PRODUKTE.filter(function (p) { return p.kat === kat; });
+        var art = sortierung ? sortierung.value : 'beliebt';
+        daten.sort(function (a, b) {
+          if (art === 'preis-auf') return a.preis - b.preis;
+          if (art === 'preis-ab') return b.preis - a.preis;
+          if (art === 'name') return a.name.localeCompare(b.name, 'de');
+          return (b.sterne * 100 + b.stimmen) - (a.sterne * 100 + a.stimmen);
+        });
+        listeTitel.textContent = KATEGORIEN[kat].titel;
+        listeInfo.textContent = daten.length + ' Artikel';
+        /* Höhe kurz festhalten, damit die Seite beim Austausch nicht springt */
+        liste.style.minHeight = liste.offsetHeight + 'px';
+        liste.innerHTML = daten.map(function (p) {
+          return '<article class="produkt ' + KATEGORIEN[p.kat].farbe + '">' +
+            (p.badge ? '<span class="p-badge">' + p.badge + '</span>' : '') +
+            '<img class="p-bild" src="' + KATEGORIEN[p.kat].bild + '" alt="" loading="lazy">' +
+            '<div class="p-inhalt">' +
+              '<h3>' + p.name + '</h3>' +
+              '<div class="p-bewertung">' + sterneHtml(p.sterne) + ' <span>' + p.sterne.toFixed(1).replace('.', ',') + ' (' + p.stimmen + ')</span></div>' +
+              '<p class="p-info">' + p.info + '</p>' +
+              '<p class="p-meta">' + p.inhalt + (p.grund ? ' · ' + p.grund : '') + '</p>' +
+              '<p class="p-lager ' + (p.lager === 'ok' ? 'auf-lager' : 'wenig') + '">' +
+                (p.lager === 'ok' ? '● Auf Lager' : '● Nur noch wenige') + '</p>' +
+              '<div class="p-fuss">' +
+                '<span class="p-preis">' + euro(p.preis) + '</span>' +
+                '<span class="menge" data-id="' + p.id + '">' +
+                  '<button type="button" class="menge-minus" aria-label="Menge verringern">−</button>' +
+                  '<span class="menge-zahl">1</span>' +
+                  '<button type="button" class="menge-plus" aria-label="Menge erhöhen">+</button>' +
+                '</span>' +
+                '<button type="button" class="knopf knopf-voll p-korb" data-id="' + p.id + '">In den Warenkorb</button>' +
+                '<button type="button" class="knopf knopf-rand p-kauf" data-id="' + p.id + '">Jetzt kaufen</button>' +
+              '</div>' +
+            '</div>' +
+          '</article>';
+        }).join('');
+        requestAnimationFrame(function () { liste.style.minHeight = ''; });
+        if (scrollen) {
+          var ziel = document.getElementById('liste-kopf');
+          if (ziel) requestAnimationFrame(function () {
+            ziel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+      };
+
+      document.querySelectorAll('.kategorie').forEach(function (tafel) {
+        function auf() { zeigeKategorie(tafel.getAttribute('data-kat'), true); }
+        tafel.addEventListener('click', auf);
+        tafel.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); auf(); }
+        });
+      });
+      if (sortierung) sortierung.addEventListener('change', function () { zeigeKategorie(aktiveKat, false); });
+
+      liste.addEventListener('click', function (e) {
+        var minus = e.target.closest('.menge-minus');
+        var plus = e.target.closest('.menge-plus');
+        var korbKnopf = e.target.closest('.p-korb');
+        var kaufKnopf = e.target.closest('.p-kauf');
+        if (minus || plus) {
+          var stepper = (minus || plus).closest('.menge');
+          var zahl = stepper.querySelector('.menge-zahl');
+          zahl.textContent = Math.max(1, Math.min(99, parseInt(zahl.textContent, 10) + (plus ? 1 : -1)));
+        }
+        var id = (korbKnopf || kaufKnopf) && (korbKnopf || kaufKnopf).getAttribute('data-id');
+        if (id) {
+          var mengeEl = liste.querySelector('.menge[data-id="' + id + '"] .menge-zahl');
+          var korb = korbLaden();
+          korb[id] = (korb[id] || 0) + parseInt(mengeEl.textContent, 10);
+          korbSpeichern(korb);
+        }
+        if (korbKnopf) {
+          korbKnopf.textContent = '✓ Im Warenkorb';
+          setTimeout(function () { korbKnopf.textContent = 'In den Warenkorb'; }, 1400);
+        }
+        if (kaufKnopf) location.href = 'kasse.html';
+      });
+
+      zeigeKategorie('w', false);
+    }
+
+    /* ============================================================
+       2) Warenkorb-Seite (warenkorb.html)
+       ============================================================ */
+    var korbListe = document.getElementById('korb-liste');
+    if (korbListe) {
+      var korbRendern = function () {
+        var korb = korbLaden();
+        korbListe.innerHTML = korbZeilenHtml(korb, true);
+        var s = korbSummen(korb);
+        document.getElementById('korb-zwischensumme').textContent = euro(s.summe);
+        document.getElementById('korb-summe').textContent = euro(s.summe);
+        document.getElementById('korb-mwst').textContent = 'darin enthalten: ' + euro(s.mwst);
+        var leer = s.summe === 0;
+        document.getElementById('korb-leer').hidden = !leer;
+        document.getElementById('korb-leer-knopf').hidden = !leer;
+        document.getElementById('korb-tabelle').hidden = leer;
+      };
+      korbListe.addEventListener('click', function (e) {
+        var zeile = e.target.closest('.korb-zeile');
+        if (!zeile) return;
+        var id = zeile.getAttribute('data-id');
+        var korb = korbLaden();
+        if (e.target.closest('.menge-plus')) korb[id] = Math.min(99, (korb[id] || 0) + 1);
+        if (e.target.closest('.menge-minus')) korb[id] = Math.max(0, (korb[id] || 0) - 1);
+        if (e.target.closest('.korb-entfernen')) korb[id] = 0;
+        if (korb[id] === 0) delete korb[id];
+        korbSpeichern(korb);
+        korbRendern();
+      });
+      document.getElementById('korb-leeren').addEventListener('click', function () {
+        korbSpeichern({});
+        korbRendern();
+      });
+      korbRendern();
+    }
+
+    /* ============================================================
+       3) Kasse (kasse.html)
+       ============================================================ */
+    var kasse = document.getElementById('kasse-formular');
+    if (kasse) {
+      var kasseListe = document.getElementById('kasse-liste');
+      var korb = korbLaden();
+      var s = korbSummen(korb);
+      if (s.summe === 0) {
+        document.getElementById('kasse-leer').hidden = false;
+        document.getElementById('kasse-bereich').hidden = true;
+      } else {
+        kasseListe.innerHTML = korbZeilenHtml(korb, false);
+        document.getElementById('kasse-zwischensumme').textContent = euro(s.summe);
+        document.getElementById('kasse-summe').textContent = euro(s.summe);
+        document.getElementById('kasse-mwst').textContent = 'darin enthalten: ' + euro(s.mwst);
+      }
+
+      var feld = function (id) { return document.getElementById(id).value.trim(); };
+      var radio = function (name) {
+        var r = kasse.querySelector('input[name="' + name + '"]:checked');
+        return r ? r.value : '';
+      };
+      var bestellTextKasse = function () {
+        var k = korbLaden();
+        var sm = korbSummen(k);
+        return 'Verbindliche Bestellung – Norberts mobile Fußpflege\n\n' +
+          positionenText(k) + '\n' +
+          'Zwischensumme: ' + euro(sm.summe) + '\n' +
+          'Gesamt: ' + euro(sm.summe) + ' (inkl. 19 % MwSt.: ' + euro(sm.mwst) + ')\n\n' +
+          'Name: ' + feld('ka-name') + '\n' +
+          'Telefon: ' + feld('ka-telefon') + '\n' +
+          (feld('ka-mail') ? 'E-Mail: ' + feld('ka-mail') + '\n' : '') +
+          'Adresse: ' + feld('ka-strasse') + ', ' + feld('ka-plz') + ' ' + feld('ka-ort') + '\n' +
+          'Lieferung: ' + radio('lieferung') + '\n' +
+          (feld('ka-termin') ? 'Wunschtermin: ' + feld('ka-termin') + '\n' : '') +
+          'Zahlart: ' + radio('zahlart') + '\n' +
+          (feld('ka-bemerkung') ? 'Bemerkung: ' + feld('ka-bemerkung') + '\n' : '') +
+          '\nWiderrufsbelehrung und AGB wurden akzeptiert.';
+      };
+      var absenden = function (weg) {
+        if (!kasse.reportValidity()) return;
+        var text = bestellTextKasse();
+        if (weg === 'whatsapp') {
+          window.open('https://wa.me/4917686961032?text=' + encodeURIComponent(text), '_blank', 'noopener');
+        } else {
+          location.href = 'mailto:norbertsmobilefusspflege@gmx.de' +
+            '?subject=' + encodeURIComponent('Bestellung') +
+            '&body=' + encodeURIComponent(text);
+        }
+        korbSpeichern({});
+        document.getElementById('kasse-bereich').hidden = true;
+        document.getElementById('kasse-fertig').hidden = false;
+        window.scrollTo({ top: 0 });
+      };
+      document.getElementById('kasse-whatsapp').addEventListener('click', function () { absenden('whatsapp'); });
+      document.getElementById('kasse-mail-knopf').addEventListener('click', function () { absenden('mail'); });
+    }
   });
 })();

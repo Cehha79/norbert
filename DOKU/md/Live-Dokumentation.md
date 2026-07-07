@@ -168,6 +168,24 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Fotos lokal (bilder/shop-*.jpg, Lizenz frei), Muster-Hinweis auf der
   Seite als Platzhalter-Text. Funktionstest bestanden: 1×49,90 +
   2×24,90 = 99,70 € korrekt, Badge zeigt 3. Cache `?v=50`.
+- **Shop-Ausbau 2** (Hasans Feinheiten): (a) Sprung-Fix beim
+  Bereichswechsel (Listen-Höhe wird beim Neuaufbau festgehalten,
+  Scrollen erst nach dem Rendern); (b) **Warenkorb ist jetzt eine
+  eigene Seite** warenkorb.html (Maske entfernt, Korb-Knopf führt von
+  überall dorthin) mit strukturiertem Summenblock: Zwischensumme,
+  Lieferung/Übergabe, Gesamt, **ausgewiesene 19 % MwSt.** („darin
+  enthalten: …"); (c) je Produkt zusätzlich **„Jetzt kaufen"** (legt in
+  den Korb und springt zur Kasse); (d) **kasse.html**: Checkout mit
+  Name/Telefon/E-Mail/Adresse, Lieferart (Übergabe beim Termin /
+  Lieferung / Abholung), Wunschtermin (Datum), Zahlart (Bar/Rechnung/
+  PayPal), Bemerkung, Pflicht-Checkbox Widerruf/AGB (Platzhalter-Links,
+  folgt vor Livegang), Bestell-Übersicht (sticky) und Knöpfen
+  **„Zahlungspflichtig bestellen"** (§ 312j BGB-Beschriftung) per
+  WhatsApp/E-Mail; danach Bestätigungs-Ansicht + Korb wird geleert.
+  Global gefixt: `[hidden]` gewinnt jetzt immer (display:none
+  !important) — vorher hebelte display:flex das Attribut aus.
+  produkte.js v2, Cache `?v=52`. Getestet: Summen korrekt
+  (118,60 € · MwSt. 18,94 €), Badge 4.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
