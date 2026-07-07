@@ -303,6 +303,14 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   `hintergrund-schaum-*`-Dateien entfernt (in git-Historie
   erhalten). Video-/Poster-URLs `?v=3`, main.js `?v=11`.
   Stand: hell = Regen-Fenster (Nr. 5), dunkel = Bläschen (Nr. 3).
+- **Finale Video-Wahl aus Hasans eigener Kandidaten-Seite**
+  (~/Desktop/Hin.html, 10 höher aufgelöste Kandidaten): **hell =
+  „Tropfen im Abendlicht"** (Pexels 2960875, Tarin Golden, Full HD
+  30 fps), **dunkel = „Ablaufendes Regenwasser"** (Pexels 5197762,
+  Aleks BM, UHD 2560×1440 → auf 1920 skaliert). Gleiche Aufbereitung
+  (13-s-Ausschnitt ab Sek. 5, Palindrom-Schleife, crf 23, faststart);
+  hell 12 MB, dunkel 5,9 MB. Video-/Poster-URLs `?v=4`,
+  main.js `?v=12`. Beide Themen sichtgeprüft.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
