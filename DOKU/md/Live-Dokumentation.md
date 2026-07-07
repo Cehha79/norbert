@@ -109,6 +109,14 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   (extern, target=_blank) + Hinweis ärztliche Verordnung/Krankenkasse.
   main.js `?v=5`: Doppel-Öffnen-Schutz (`if (!maske.open)`).
   Cache `?v=41`.
+- Feinschliff auf Hasans Rückmeldung: neues Token `--stern`
+  (typisches Bewertungs-Gelb, hell #e9a800 / dunkel #f2c14e) für alle
+  Sterne (Stimmen-Karten, Auswahl-Sterne) und als Kennfarbe der
+  Bewertungs-Tafel (vorher Gold/Orange); Bewertungs-Tafel kompakter
+  (kleinere Kachel/Überschrift, Felder 46 px, Textfeld 70 px — die
+  globale 140-px-Textarea-Regel hatte die kompakte überschrieben,
+  jetzt per Spezifität gelöst); Abstand des letzten Abschnitts zur
+  Fußleiste wieder größer (44 px). Cache `?v=42`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).

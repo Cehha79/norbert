@@ -80,7 +80,8 @@
   --titel:       #17435e;   /* Überschriften */
   --akzent:      #205a7d;   /* Links, Symbole */
   --akzent-hover:#102f42;
-  --sand:        #a8823c;   /* Gold-Akzent wie im Logo, Sterne */
+  --sand:        #a8823c;   /* Gold-Akzent wie im Logo */
+  --stern:       #e9a800;   /* typisches Bewertungs-Gelb (Sterne) */
 
   /* Text */
   --text:        #000000;
@@ -135,6 +136,7 @@
   --akzent:      #85b8d6;
   --akzent-hover:#a5cde5;
   --sand:        #d9bd77;
+  --stern:       #f2c14e;
 
   --text:        #e1e5e8;
   --text-leise:  #a4b1ba;
@@ -599,7 +601,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Abschnitte ---------- */
 .abschnitt { padding-block: var(--abstand); }
-main > section:last-child { padding-block-end: 14px; }  /* knapp über der Fußleiste enden */
+main > section:last-child { padding-block-end: 44px; }  /* ruhiger Abschluss vor der Fußleiste */
 .abschnitt-hell { background: transparent; }
 .abschnitt-kopf { max-width: 700px; margin-inline: auto; margin-block-end: 36px; text-align: center; }
 .abschnitt-kopf p { color: var(--text-leise); font-size: 18px; margin-block-start: 12px; }
@@ -977,7 +979,7 @@ body:has(dialog[open]) { overflow: hidden; }
   margin: 0;
   scroll-snap-align: start;
 }
-.stimme .sterne { color: var(--sand); letter-spacing: 3px; font-size: 19px; }
+.stimme .sterne { color: var(--stern); letter-spacing: 3px; font-size: 19px; }
 .stimme blockquote { font-size: 17px; color: var(--text); margin: 0; }
 .stimme figcaption {
   margin-block-start: auto;
@@ -1042,9 +1044,14 @@ body:has(dialog[open]) { overflow: hidden; }
 .av-orange { background: #c26a35; color: #fff; }
 .stern-leer { color: var(--linie); }
 
-/* ---------- Bewertung abgeben (Tafel im Vergleichs-Stil, Gold) ---------- */
-.bewertung { --vt: var(--sand); margin-block-start: 20px; }
-.bewertung-formular { display: grid; gap: 12px; padding-block-start: 2px; }
+/* ---------- Bewertung abgeben (Tafel im Vergleichs-Stil, Bewertungs-Gelb) ---------- */
+.bewertung { --vt: var(--stern); margin-block-start: 20px; padding: 16px 20px 14px; }
+.bewertung .vergleich-kopf h3 { font-size: 19px; }
+.bewertung .vergleich-zeichen { width: 32px; height: 32px; }
+.bewertung-formular { display: grid; gap: 10px; padding-block-start: 2px; }
+.bewertung-formular .feld input { min-height: 46px; padding: 8px 14px; }
+.bewertung-formular .feld textarea { min-height: 70px; }
+.bewertung .knopf { min-height: 46px; padding: 8px 18px; font-size: 16.5px; }
 .bewertung-zeile { display: grid; gap: 12px; }
 .sterne-wahl {
   display: flex;
@@ -1057,7 +1064,7 @@ body:has(dialog[open]) { overflow: hidden; }
   opacity: 0;
 }
 .feld .sterne-wahl label {
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1;
   color: var(--linie);
   cursor: pointer;
@@ -1066,7 +1073,7 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 .feld .sterne-wahl label:hover,
 .feld .sterne-wahl label:hover ~ label,
-.feld .sterne-wahl input:checked ~ label { color: var(--sand); }
+.feld .sterne-wahl input:checked ~ label { color: var(--stern); }
 .sterne-wahl input:focus-visible + label { outline: 3px solid var(--sand); outline-offset: 2px; border-radius: 4px; }
 .bewertung-knoepfe { display: flex; flex-wrap: wrap; gap: 12px; }
 .bewertung-knoepfe .knopf { flex: 1; }
