@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anleitung: Online-Terminbuchung mit Google Kalender + Cal.com</title>
+<style>
+  :root { --marke: #205a7d; --titel: #17394e; --text: #2b3a44; --flaeche: #faf7f0; --linie: #d8d2c6; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font: 400 17px/1.6 "Source Sans 3", "Segoe UI", sans-serif; color: var(--text); background: #eef2f4; padding: 36px 22px 60px; }
+  .rahmen { max-width: 860px; margin-inline: auto; }
+  h1 { color: var(--titel); font-size: 28px; margin-block-end: 6px; }
+  .untertitel { color: #5b6b75; margin-block-end: 24px; }
+  .hinweis { background: #fdf3d7; border: 1px solid #e3c96e; border-radius: 10px; padding: 10px 14px; font-size: 15.5px; margin-block: 14px 26px; }
+  .schritt { background: var(--flaeche); border: 1px solid var(--linie); border-top: 4px solid var(--marke); border-radius: 12px; box-shadow: 0 8px 22px rgba(23,57,78,.10); padding: 18px 20px; margin-block-end: 18px; }
+  .schritt h2 { color: var(--titel); font-size: 20px; margin-block-end: 8px; }
+  .nummer { display: inline-grid; place-items: center; min-width: 32px; height: 32px; background: var(--marke); color: #fff; font-weight: 700; border-radius: 8px; margin-inline-end: 10px; }
+  ul, ol { padding-inline-start: 22px; margin-block: 6px; }
+  li { margin-block-end: 4px; }
+  code { background: #e8eef2; padding: 1px 6px; border-radius: 6px; font-size: 15px; }
+  .fertig { background: #e3f1e9; border: 1px solid #bcdccb; border-radius: 10px; padding: 12px 14px; margin-block-start: 24px; }
+</style>
+</head>
+<body>
+<div class="rahmen">
+  <h1>Online-Terminbuchung einrichten</h1>
+  <p class="untertitel">Google Kalender (Verfügbarkeit) + Cal.com (Buchungsseite) für Norberts mobile Fußpflege.
+  Dauer: etwa 20 Minuten, einmalig. Kosten: 0 €.</p>
+
+  <div class="hinweis">Diese Schritte macht ihr selbst (Zugangsdaten bleiben bei euch).
+  Danach schickst du mir nur den fertigen Buchungs-Link — ich trage ihn auf der Website ein.</div>
+
+  <div class="schritt">
+    <h2><span class="nummer">1</span>Cal.com-Konto anlegen</h2>
+    <ol>
+      <li><code>https://cal.com/signup</code> öffnen.</li>
+      <li>Auf <strong>„Mit Google fortfahren"</strong> klicken und mit Norberts vorhandenem Google-Konto anmelden.</li>
+      <li>Benutzernamen wählen — er wird Teil des Buchungs-Links, z. B. <code>norberts-fusspflege</code> → Link wird <code>cal.com/norberts-fusspflege</code>.</li>
+      <li>Sprache in den Einstellungen auf Deutsch stellen (Settings → General → Language), falls nicht automatisch.</li>
+    </ol>
+  </div>
+
+  <div class="schritt">
+    <h2><span class="nummer">2</span>Google Kalender verbinden</h2>
+    <ol>
+      <li>Cal.com fragt bei der Anmeldung mit Google meist direkt nach dem Kalender-Zugriff — <strong>zulassen</strong>.</li>
+      <li>Falls nicht: Einstellungen → <strong>Apps / Kalender</strong> → Google Calendar → verbinden.</li>
+      <li>Prüfen: Als Kalender für <strong>neue Buchungen</strong> und für die <strong>Konflikt-Prüfung</strong> Norberts Hauptkalender wählen. Dann wird nichts doppelt vergeben: Was im Google Kalender belegt ist, bietet Cal.com nicht an.</li>
+    </ol>
+  </div>
+
+  <div class="schritt">
+    <h2><span class="nummer">3</span>Verfügbarkeit einstellen (Tage + Uhrzeiten)</h2>
+    <ol>
+      <li>In Cal.com links <strong>„Verfügbarkeit"</strong> (Availability) öffnen.</li>
+      <li>Arbeitszeiten je Wochentag festlegen, z. B. Mo–Fr 8:00–18:00, Samstag aus oder nach Wunsch.</li>
+      <li>Das ist die Stelle, an der Norbert später <strong>jederzeit selbst</strong> Zeiten ändert. Einzelne freie Tage (Urlaub, privat) trägt er einfach als Termin in seinen Google Kalender ein — die Zeiten sind dann automatisch nicht buchbar.</li>
+    </ol>
+  </div>
+
+  <div class="schritt">
+    <h2><span class="nummer">4</span>Ereignistypen anlegen (die buchbaren Leistungen)</h2>
+    <p>Links <strong>„Ereignistypen"</strong> (Event Types) → für jede Leistung einen Eintrag:</p>
+    <ul>
+      <li><strong>Fachfußpflege (Hausbesuch)</strong> — Dauer 45 Min (30 Min Pflege + Puffer), Beschreibung + Preis 48 € in den Text.</li>
+      <li><strong>Fußmassage</strong> — Dauer nach Norberts Angabe, Preis 30 €.</li>
+      <li><strong>Reflexzonen-Wellnessmassage</strong> — Dauer nach Angabe, Preis 57 €.</li>
+      <li>Bei jedem Typ unter „Fragen"/Booking questions zusätzlich <strong>Telefonnummer</strong> und <strong>Adresse für den Hausbesuch</strong> als Pflichtfelder ergänzen.</li>
+      <li>Empfehlenswert: <strong>Puffer nach dem Termin</strong> (Fahrzeit!) z. B. 30 Min, und „Mindestvorlauf" z. B. 24 Stunden.</li>
+    </ul>
+  </div>
+
+  <div class="schritt">
+    <h2><span class="nummer">5</span>Link an mich</h2>
+    <p>Buchungs-Link kopieren (<code>https://cal.com/BENUTZERNAME</code>) und an Hasan schicken.
+    Ich trage ihn in die Tafel <strong>„Termin online buchen"</strong> auf der Kontakt-Seite ein
+    und aktualisiere die Datenschutzerklärung mit dem endgültigen Stand.</p>
+  </div>
+
+  <div class="fertig"><strong>Danach läuft es so:</strong> Kunde klickt „Termin online buchen" → wählt
+  Leistung und freie Zeit → bekommt automatisch eine Bestätigung per E-Mail → der Termin steht sofort
+  in Norberts Google Kalender (Handy). Absagen/Verschieben geht für beide Seiten über die Links in der Bestätigungs-Mail.</div>
+</div>
+</body>
+</html>

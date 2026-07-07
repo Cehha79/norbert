@@ -407,6 +407,20 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   (~/.Trash/karte-lokal-kacheln), Leaflet bleibt lokal. WICHTIG-
   Merker zum Cookie-Banner um die Zwei-Klick-Ausnahme ergänzt.
   main.js `?v=16`, Cache `?v=64`. Beide Zustände sichtgeprüft.
+- **Online-Terminbuchung entschieden + vorbereitet** (Hasans Wahl nach
+  Beratung: **Google + Cal.com**; Microsoft verworfen, weil Bookings
+  nur im M365-Abo steckt; Norbert hat bereits ein Google-Konto):
+  Tafeln „Erreichbarkeit" und „Hausbesuche" entfernt (Hasans Auftrag),
+  stattdessen **„Termin online buchen"** als erste Kontakt-Tafel
+  (gold, Kalender-Symbol) — Link noch `#` mit Platzhalter-Etikett,
+  bis Cal.com eingerichtet ist. Ablauf: Norbert pflegt Verfügbarkeit
+  im Google Kalender/Cal.com, Kunden buchen direkt, Bestätigung
+  automatisch. **Datenschutz**: neuer Absatz „Online-Terminbuchung
+  (Cal.com)" unter Kontaktaufnahme (reiner Link — Daten fließen erst
+  beim Klick). **Anleitung** für die Einrichtung (5 Schritte, inkl.
+  Puffer-Zeiten für Anfahrt) in
+  `DOKU/Claude Ausgabe/Anleitung-Terminbuchung.html`. TODO-Abschnitt
+  „Terminbuchung" angelegt.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

@@ -55,6 +55,17 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 - [ ] `sitemap.xml` + `robots.txt` beim Livegang (wie MikaTec)
 - [ ] Impressum + Datenschutz fertigstellen, Entwurfs-Kästen entfernen
 
+## Terminbuchung (entschieden 07.07.: Google + Cal.com)
+
+- [ ] **Cal.com einrichten** (macht Hasan/Norbert selbst — Anleitung liegt in
+  `DOKU/Claude Ausgabe/Anleitung-Terminbuchung.html`): Konto mit Norberts
+  vorhandenem Google-Konto, Kalender verbinden, Verfügbarkeit + 3
+  Ereignistypen (48/30/57 €) anlegen
+- [ ] **Buchungs-Link eintragen**: Tafel „Termin online buchen" auf
+  kontakt.html zeigt noch `href="#"` mit Platzhalter — echten
+  cal.com-Link einsetzen, Platzhalter-Etikett entfernen
+- [ ] Microsoft bewusst verworfen (Bookings nur im M365-Abo ~6–7 €/Monat)
+
 ## Shop-Ausbaustufe (später, von Hasan geplant)
 
 - [ ] **E-Mail-Anbindung über API**: Bestellung geht automatisch als
@@ -65,8 +76,8 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   (`paypal.me/NorbertsFusspflege`, in js/produkte.js markiert) mit dem
   Gesamtbetrag; vor Livegang durch Norberts echten PayPal.Me-Namen
   ersetzen oder echten PayPal-Checkout bauen
-- [ ] **Kalender-Anbindung**: Kunden buchen Termine direkt im Kalender
-  auf der Seite (hängt mit der API-Anbindung zusammen)
+- [x] **Kalender-Anbindung** → über Google + Cal.com gelöst (siehe eigener
+  Abschnitt „Terminbuchung"); tiefere API-Integration bleibt Option
 - [ ] DHL-Versandpreise (5,49 € / Express 12,99 €) sind **Muster** —
   echte Konditionen mit Norbert klären
 - [ ] Ablauf laut Hasan: erst GitHub Pages, wenn fertig → richtige Domain
