@@ -397,7 +397,7 @@ img { max-width: 100%; display: block; }
   gap: 14px;
 }
 .sozial-knopf {
-  height: 58px;
+  height: 48px;
   border-radius: var(--radius-kl);
   display: grid;
   place-items: center;
@@ -898,8 +898,8 @@ img { max-width: 100%; display: block; }
   .held-knoepfe { flex-wrap: nowrap; gap: 18px; }
   .held-knoepfe .knopf { flex: 1; }
   .sozial-leiste { gap: 18px; }
-  .sozial-knopf { height: 62px; }
-  .sozial-knopf svg { width: 30px; height: 30px; }
+  .sozial-knopf { height: 52px; }
+  .sozial-knopf svg { width: 26px; height: 26px; }
   .kontakt-raster { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .abschnitt-kopf { margin-block-end: 44px; }
