@@ -506,6 +506,37 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Fußpflegeschule FAY"** umformuliert — die Ausbildung dort bleibt
   als Fakt, die Kooperation wird nicht mehr behauptet. Nur
   Text-Änderung, kein Cache-Bump nötig.
+- **Impressum + Datenschutz ausgebaut** (Hasans Auftrag „besser machen,
+  meine Daten als Firma und auch der Support der Seite"; Vorlage =
+  MikaTec-Impressum von mika-tec.com):
+  - Impressum in **MikaTec-Struktur**: „Angaben gemäß § 5 DDG (ehem.
+    TMG) / § 18 MStV" mit „Norbert Szczepanik — Einzelunternehmen",
+    Kontakt mit Web/Telefon/E-Mail, **Umsatzsteuer: Kleinunternehmer
+    § 19 UStG** (Hasans Ansage „ich bin auch Kleingewerbe … passe
+    seines dementsprechend an"), „Verantwortlich i.S.d. § 18 Abs. 2
+    MStV", Berufshaftpflicht.
+  - Neu: Block **„Website-Erstellung & technischer Support"** mit
+    MikaTec – Hasan Tepegöz (Einzelunternehmen), Pontoiser Straße 54,
+    71034 Böblingen, www.mika-tec.com, info@mika-tec.com,
+    0173 5904496 + Zuständigkeits-Satz (Technik → MikaTec, Fußpflege →
+    Norbert).
+  - Neu: Haftung für Inhalte, Haftung für Links, Urheberrecht,
+    **Bildnachweise** (eigene Fotos, Pexels-Lizenz, OSM-Attribution
+    fürs Karten-Vorschaubild). **EU-Streitschlichtung entfernt** — die
+    OS-Plattform der EU-Kommission wurde im Juli 2025 eingestellt;
+    Verbraucherstreitbeilegungs-Absatz bleibt.
+  - Datenschutz: Abschnitt 3 heißt jetzt „Hosting und technische
+    Betreuung" (+ MikaTec als technischer Betreuer, ausdrücklich ohne
+    Zugriff auf Besucherdaten); Formular-Platzhalter ersetzt durch die
+    echte Beschreibung (Formular sendet nichts an einen Server,
+    öffnet nur WhatsApp/E-Mail-Programm; gilt auch für
+    Warenkorb-Anfragen); Entwurfs-Kasten entschärft (nur noch
+    Schluss-Prüfung + Stand-Datum offen).
+  - Folge aus § 19: **Warenkorb- und Kassen-Summen weisen keine MwSt
+    mehr aus** — Zeile „Alle Preise inkl. 19 % MwSt." ersetzt durch
+    „Kleinunternehmer gemäß § 19 UStG …", produkte.js ohne
+    MWST-Rechnung, Bestelltext „(umsatzsteuerfrei nach § 19 UStG)".
+    Cache produkte.js `?v=8`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

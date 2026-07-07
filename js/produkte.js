@@ -7,7 +7,6 @@
   'use strict';
 
   var KORB_KEY = 'nf-warenkorb';
-  var MWST = 0.19;
 
   /* ================= Kategorien =================
      8 Bereiche — Hygiene & Desinfektion wurde in Werkzeuge & Instrumente
@@ -195,7 +194,7 @@
       var p = produkt(id);
       if (p && korb[id] > 0) summe += p.preis * korb[id];
     });
-    return { summe: summe, mwst: summe - summe / (1 + MWST) };
+    return { summe: summe };
   }
   function positionenText(korb) {
     var zeilen = [];
@@ -340,7 +339,6 @@
         var s = korbSummen(korb);
         document.getElementById('korb-zwischensumme').textContent = euro(s.summe);
         document.getElementById('korb-summe').textContent = euro(s.summe);
-        document.getElementById('korb-mwst').textContent = 'darin enthalten: ' + euro(s.mwst);
         var leer = s.summe === 0;
         document.getElementById('korb-leer').hidden = !leer;
         document.getElementById('korb-leer-knopf').hidden = !leer;
@@ -389,7 +387,7 @@
         var r = kasse.querySelector('input[name="lieferung"]:checked');
         return r ? parseFloat(r.getAttribute('data-versand') || '0') : 0;
       };
-      /* Bestell-Übersicht rechts: Gesamt inkl. Versand, MwSt. daraus */
+      /* Bestell-Übersicht rechts: Gesamt inkl. Versand (§ 19 UStG, keine USt.) */
       var summenZeigen = function () {
         var sm = korbSummen(korbLaden());
         var v = versand();
@@ -397,7 +395,6 @@
         document.getElementById('kasse-zwischensumme').textContent = euro(sm.summe);
         document.getElementById('kasse-lieferkosten').textContent = euro(v);
         document.getElementById('kasse-summe').textContent = euro(g);
-        document.getElementById('kasse-mwst').textContent = 'darin enthalten: ' + euro(g - g / 1.19);
       };
       /* PayPal gewählt? Dann läuft die Bestellung über PayPal statt WhatsApp/E-Mail */
       var zahlartZeigen = function () {
@@ -426,7 +423,7 @@
           positionenText(k) + '\n' +
           'Zwischensumme: ' + euro(sm.summe) + '\n' +
           'Lieferung / Versand: ' + euro(v) + ' (' + radio('lieferung') + ')\n' +
-          'Gesamt: ' + euro(g) + ' (inkl. 19 % MwSt.: ' + euro(g - g / 1.19) + ')\n\n' +
+          'Gesamt: ' + euro(g) + ' (umsatzsteuerfrei nach § 19 UStG)\n\n' +
           'Name: ' + feld('ka-name') + '\n' +
           'Telefon: ' + feld('ka-telefon') + '\n' +
           (feld('ka-mail') ? 'E-Mail: ' + feld('ka-mail') + '\n' : '') +

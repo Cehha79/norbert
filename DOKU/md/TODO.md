@@ -29,7 +29,9 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   `--marke`)
 - [ ] **YouTube- und TikTok-Kanal-Adressen von Norbert** — die zwei
   Sozial-Knöpfe im Held zeigen bis dahin ins Leere (`href="#"`)
-- [ ] USt-Status fürs Impressum klären (§ 19 UStG Kleinunternehmer?) — „später"
+- [x] USt-Status fürs Impressum: **Kleinunternehmer § 19 UStG** (Hasans
+  Ansage 07.07., wie MikaTec) — Impressum, Warenkorb- und Kassen-Summen
+  weisen keine USt mehr aus; beim Livegang mit Norbert gegenprüfen
 - [ ] Dauer der Fußmassage und der Reflexzonen-Wellnessmassage erfragen
 - [ ] Erreichbarkeits-Zeiten → `kontakt.html`
 - [ ] Kundenstimmen: echte Stimmen (mit Freigabe der Kunden) einpflegen und
@@ -54,6 +56,9 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   falls Norbert Anfragen ohne WhatsApp/Mail-Programm möchte
 - [ ] `sitemap.xml` + `robots.txt` beim Livegang (wie MikaTec)
 - [ ] Impressum + Datenschutz fertigstellen, Entwurfs-Kästen entfernen
+  (Grundausbau 07.07. erledigt: MikaTec-Struktur, Support-Block,
+  Haftung/Urheberrecht/Bildnachweise, § 19 UStG, Formular-Absatz echt;
+  offen nur noch Schluss-Prüfung + Stand-Datum)
 
 ## Terminbuchung (entschieden 07.07.: Google + Cal.com)
 
