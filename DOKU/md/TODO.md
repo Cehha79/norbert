@@ -44,8 +44,8 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 - [ ] PL/AR/ZH von Muttersprachlern gegenlesen lassen (Norbert: Polnisch?)
 - [ ] Statisches OSM-Kartenbild des Einzugsgebiets erzeugen →
   `bilder/einzugsgebiet.webp` (Attribution steht schon daneben)
-- [x] Favicon: `bilder/logo.svg` als SVG-Favicon eingebunden (07.07.);
-  PNG-Fallback/App-Icons für ältere Geräte beim Livegang ergänzen
+- [x] Favicon: `bilder/logo-klein.png` (Original-Logo) eingebunden (07.07.);
+  App-Icons in weiteren Größen beim Livegang ergänzen
 - [ ] Open-Graph-Bild + `og:`-Metadaten für schönes Teilen (WhatsApp!)
 - [ ] Formular-Dienst wählen und anschließen (`kontakt.html`, action-URL),
   Datenschutzerklärung ergänzen
