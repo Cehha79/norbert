@@ -6,6 +6,24 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
+
+- Feinschliff-Serie nach Hasans Screenshots: Firmenname aus der
+  Kopfleiste in den Held (große Hauptüberschrift, Slogan kleiner),
+  Sprachauswahl als runder Flaggen-Knopf ganz rechts (DE/EN/PL/AR/ZH,
+  Verweise noch Platzhalter), Kopf- und Fußleiste schwarz-metallisch-
+  glasig, Vertrauensbereich als 4 Tafeln baugleich zu den Schritt-Karten
+  (farbige Symbol-Kreise außen), Sozial-Kacheln statt Kreise, eine
+  einzige Hintergrund-Ebene, Fließtexte hell = richtig schwarz.
+- **Tiefen-Hintergrund:** 2 Recherche-Agenten (Techniken + Beispiele),
+  Vergleichsseite mit 10 Varianten in 2 Runden; Hasans Wahl: Variante H
+  (Sternen-Staub), verfeinert: nur feiner Staub in zwei Ebenen, 5
+  Mini-Funkeln, keine Licht-Höfe. Umgesetzt als Body-Hintergrund auf
+  allen Seiten + Schatten-Tokens (getönt, Lichtkante) + Boden-Ellipsen.
+  Entscheidungs-Datei danach in den Papierkorb. Cache `?v=29`.
+- Merker: `server.py` (no-store) für die lokale Ansicht nutzen —
+  Browser-Cache hatte mehrfach alte Stände gezeigt.
+
 ## 2026-07-07 (nachts, 5) — Held-Umbau + Sozial-Leiste, Startseite weiter gekürzt
 
 - Überschrift fest zweizeilig: „Gepflegte Füße" / „Bequem bei Ihnen zu
