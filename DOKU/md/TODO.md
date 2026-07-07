@@ -8,22 +8,28 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 
 ## Von Hasan / vom Kunden benötigt (Phase 4)
 
-- [ ] Preisliste (PDF der alten Strato-Seite) → Preise + Dauer in
-  `leistungen.html` (Karten + Tabelle) eintragen
-- [ ] Anfahrtsregelung (Pauschale oder Umkreis inklusive) → `leistungen.html`
-- [ ] Einzugsgebiet: Ortsliste → `kontakt.html#einzugsgebiet`
-- [ ] Fotos: Porträt, Arbeit/Hausbesuch, Ausstattung → `bilder/` (als WebP,
-  Platzhalter in `index.html`, `ueber-mich.html` ersetzen)
-- [ ] E-Mail-Adresse des Kunden → Fußleiste (4×), `kontakt.html`,
-  `impressum.html`, `datenschutz.html`
-- [ ] WhatsApp-Nummer bestätigen (aktuell angenommen: gleiche Nummer
+- [x] Preise → aus dem Flyer der alten Seite übernommen (Fachfußpflege 48 €,
+  Fußmassage 30 €, Reflexzonen-Wellnessmassage 57 €) — **vom Kunden
+  bestätigen lassen, ob aktuell**
+- [x] Fotos → 4 Arbeitsfotos + Porträt aus der Strato-Sicherung in `bilder/`
+  übernommen; Logo als `bilder/logo-alt.png` gesichert (noch unbenutzt)
+- [x] E-Mail-Adresse → norbertsmobilefusspflege@gmx.de überall eingetragen
+- [x] Impressum-Adresse → Mittenfeldstraße 39, 70499 Stuttgart; dazu
+  Berufshaftpflicht (Allianz) + EU-Streitschlichtung
+- [ ] USt-Status fürs Impressum klären (§ 19 UStG Kleinunternehmer?)
+- [ ] Anfahrtsregelung (im Preis enthalten? Umkreis?) → `leistungen.html`
+- [ ] Einzugsgebiet: Stadtteile/Umland-Orte bestätigen →
+  `kontakt.html#einzugsgebiet` (aktuell nur „Stuttgart" fest)
+- [ ] Dauer je Leistung (für Preistabelle + FAQ „45–60 Min.")
+- [ ] WhatsApp-Nummer bestätigen (angenommen: gleiche Nummer
   0176 8696 1032 → `wa.me/4917686961032`)
 - [ ] Erreichbarkeits-Zeiten → `kontakt.html`
 - [ ] Zahlungsarten → FAQ in `kundenstimmen.html`
 - [ ] Kundenstimmen (mit Freigabe der Kunden) → `kundenstimmen.html` + Auszug
   `index.html`
-- [ ] Impressum-Daten: ladungsfähige Adresse, USt-Status (§ 19 UStG?)
-- [ ] Ungefähre Dauer einer Fußpflege bestätigen (FAQ-Platzhalter „45–60 Min.")
+- [ ] **Marken-Frage mit Hasan/Kunde klären:** Kunden-Logo und Arbeitskleidung
+  sind BLAU/Gold, neues Web-Design ist GRÜN — Palette anpassen oder Grün
+  behalten? (Logo liegt in `bilder/logo-alt.png`)
 
 ## Bauen (Phase 4–6)
 

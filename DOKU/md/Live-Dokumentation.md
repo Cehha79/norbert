@@ -6,6 +6,24 @@
 
 Chronik der Arbeit am Projekt — neueste Einträge oben.
 
+## 2026-07-07 (abends) — Strato-Sicherung + Phase 4 (Teil 1)
+
+- Öffentliche alte Website vollständig gesichert nach
+  `~/Desktop/Strato-Sicherung Norbert/` (203 Dateien; Strato-Baukasten hat
+  keinen Export — Sicherung über die veröffentlichte Seite; Session-Link-
+  Warnung an Hasan, Strato-Kündigung erst nach Domain-Umzug!).
+- Funde: Flyer-PDF mit Preisen (48/30/57 €), Impressum (Mittenfeldstraße 39,
+  70499 Stuttgart), E-Mail norbertsmobilefusspflege@gmx.de, Berufshaftpflicht
+  Allianz, 4 Arbeitsfotos + Porträt + Logo (blau/gold).
+- Eingepflegt: echte Leistungen/Preise (3 Angebote statt 6 Vermutungs-Karten),
+  Fotos (Held, Porträt, Galerie), E-Mail überall, Impressum + Datenschutz-
+  Verantwortlicher, Vertrauenspunkt „Berufshaftpflichtversichert (Allianz)",
+  Stuttgart in Titel/Texten/Einzugsgebiet, Flyer als
+  `DOKU/Preisliste-Flyer-alt.pdf` gesichert.
+- Offen (siehe TODO): USt-Status, Anfahrtsregelung, Stadtteile, Dauer je
+  Leistung, Zeiten, Zahlungsarten, Kundenstimmen, WhatsApp-Bestätigung,
+  Marken-Frage Blau/Grün.
+
 ## 2026-07-07 (später) — Mobile-First-Umbau + Sprachen entschieden
 
 - Kundenklärung durch Hasan: Seite wird hauptsächlich im **Handy-Browser**
