@@ -951,33 +951,116 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 .zahl-text { font-size: 17px; color: var(--text-leise); }
 
-/* ---------- Kundenstimmen (Basis: eine Spalte) ---------- */
+/* ---------- Kundenstimmen: Band mit 2 Reihen, seitlich rollbar ---------- */
+.stimmen-rolle { position: relative; }
 .stimmen-raster {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
+  grid-auto-flow: column;               /* füllt spaltenweise: 2 Reihen, beliebig viele Spalten */
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-columns: 86%;               /* Handy: gut eine Karte sichtbar */
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px 2px 14px;                /* Luft für Schatten + Rollbalken */
+  scrollbar-width: thin;
+  scrollbar-color: var(--marke) transparent;
 }
 .stimme {
   background: var(--flaeche);
   border: 1px solid var(--linie);
   border-radius: var(--radius);
-  padding: 24px 22px;
+  padding: 20px;
   box-shadow: var(--schatten);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  margin: 0;
+  scroll-snap-align: start;
 }
 .stimme .sterne { color: var(--sand); letter-spacing: 3px; font-size: 19px; }
-.stimme blockquote { font-size: 17px; color: var(--text); }
-.stimme figcaption { font-size: 16px; font-weight: 600; color: var(--text-leise); margin-block-start: auto; }
+.stimme blockquote { font-size: 17px; color: var(--text); margin: 0; }
+.stimme figcaption {
+  margin-block-start: auto;
+  padding-block-start: 10px;
+  border-block-start: 1px solid var(--linie);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-leise);
+}
+.stimme-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--marke-hell);
+  color: var(--akzent);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.rolle-pfeil {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px; height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--marke);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: var(--schatten);
+}
+.rolle-pfeil:hover { background: var(--marke-hover); }
+.rolle-zurueck { inset-inline-start: -8px; }
+.rolle-vor     { inset-inline-end: -8px; }
+
+/* ---------- Bewertung abgeben (Tafel im Vergleichs-Stil, Gold) ---------- */
+.bewertung { --vt: var(--sand); margin-block-start: 26px; }
+.bewertung-formular { display: grid; gap: 14px; padding-block-start: 4px; }
+.bewertung-zeile { display: grid; gap: 14px; }
+.sterne-wahl {
+  display: flex;
+  flex-direction: row-reverse;          /* DOM 5→1, Optik 1→5: so färbt :checked ~ alle Sterne links */
+  justify-content: flex-end;
+}
+.sterne-wahl input {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+}
+.feld .sterne-wahl label {
+  font-size: 36px;
+  line-height: 1;
+  color: var(--linie);
+  cursor: pointer;
+  padding: 2px 4px;
+  margin: 0;
+}
+.feld .sterne-wahl label:hover,
+.feld .sterne-wahl label:hover ~ label,
+.feld .sterne-wahl input:checked ~ label { color: var(--sand); }
+.sterne-wahl input:focus-visible + label { outline: 3px solid var(--sand); outline-offset: 2px; border-radius: 4px; }
+.bewertung-knoepfe { display: flex; flex-wrap: wrap; gap: 12px; }
+.bewertung-knoepfe .knopf { flex: 1; }
+.bewertung-hinweis { font-size: 15px; color: var(--text-leise); margin: 0; }
 
 /* ---------- FAQ ---------- */
-.faq { max-width: 780px; margin-inline: auto; }
+.faq {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: start;                   /* geöffnete Frage zieht Nachbarn nicht mit */
+}
 .faq details {
   background: var(--flaeche);
   border: 1px solid var(--linie);
+  border-inline-start: 4px solid var(--marke);
   border-radius: var(--radius-kl);
-  margin-block-end: 12px;
+  box-shadow: var(--schatten);
   overflow: hidden;
 }
 .faq summary {
@@ -1208,7 +1291,9 @@ body:has(dialog[open]) { overflow: hidden; }
 @media (min-width: 640px) {
   .rahmen { padding-inline: 22px; }
   .held-knoepfe .knopf { width: auto; }
-  .karten-raster, .stimmen-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .karten-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .stimmen-raster { grid-auto-columns: calc((100% - 18px) / 2); gap: 18px; }
+  .bewertung-zeile { grid-template-columns: 1fr 1fr; }
   .schritte { grid-template-columns: repeat(2, 1fr); gap: 24px; row-gap: 44px; }
   .schritte-drei { grid-template-columns: 1fr; }   /* 3 Karten: erst ab 840px nebeneinander (Symmetrie) */
   .vertrauen-raster { grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -1249,6 +1334,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .vergleich { grid-template-columns: 1fr 1fr; gap: 24px; }
   .vergleich-text { columns: 2; column-gap: 40px; }
+  .faq { grid-template-columns: 1fr 1fr; gap: 14px 24px; }
   .abschnitt-kopf { margin-block-end: 44px; }
   .abschnitt-kopf p, .seitenkopf p, .aufruf p { font-size: 19px; }
 }
@@ -1295,7 +1381,8 @@ body:has(dialog[open]) { overflow: hidden; }
   }
   .nav-termin { margin-block-start: 0; margin-inline-start: 4px; }
 
-  .karten-raster, .stimmen-raster { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .karten-raster { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .stimmen-raster { grid-auto-columns: calc((100% - 40px) / 3); gap: 20px; }  /* 2 Reihen × 3 sichtbare Spalten */
   .schritte { grid-template-columns: repeat(4, 1fr); }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .vertrauen-raster { grid-template-columns: repeat(4, 1fr); gap: 22px; }

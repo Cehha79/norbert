@@ -84,6 +84,48 @@
       }
     }
 
+    /* ---------- Kundenstimmen: Pfeile rollen das Band seitlich ---------- */
+    var rolle = document.querySelector('.stimmen-rolle');
+    if (rolle) {
+      var band = rolle.querySelector('.stimmen-raster');
+      rolle.querySelectorAll('.rolle-pfeil').forEach(function (pfeil) {
+        pfeil.addEventListener('click', function () {
+          var richtung = pfeil.classList.contains('rolle-vor') ? 1 : -1;
+          band.scrollBy({
+            left: richtung * band.clientWidth,
+            behavior: ruhig ? 'auto' : 'smooth'
+          });
+        });
+      });
+    }
+
+    /* ---------- Bewertung absenden: öffnet WhatsApp bzw. E-Mail-Programm ---------- */
+    var bewertung = document.getElementById('bewertung-formular');
+    if (bewertung) {
+      var bewertungsText = function () {
+        var sterne = bewertung.querySelector('input[name="sterne"]:checked');
+        var name = document.getElementById('b-name').value.trim();
+        var ort = document.getElementById('b-ort').value.trim();
+        var text = document.getElementById('b-text').value.trim();
+        return 'Meine Bewertung für Norberts mobile Fußpflege\n\n' +
+          'Sterne: ' + sterne.value + ' von 5\n' +
+          'Von: ' + name + (ort ? ', ' + ort : '') + '\n\n' +
+          text + '\n\n' +
+          'Mit der Veröffentlichung auf der Website bin ich einverstanden.';
+      };
+      document.getElementById('b-whatsapp').addEventListener('click', function () {
+        if (!bewertung.reportValidity()) return;
+        window.open('https://wa.me/4917686961032?text=' +
+          encodeURIComponent(bewertungsText()), '_blank', 'noopener');
+      });
+      document.getElementById('b-mail').addEventListener('click', function () {
+        if (!bewertung.reportValidity()) return;
+        location.href = 'mailto:norbertsmobilefusspflege@gmx.de' +
+          '?subject=' + encodeURIComponent('Meine Bewertung') +
+          '&body=' + encodeURIComponent(bewertungsText());
+      });
+    }
+
     /* ---------- Sprachauswahl: Klick daneben schließt sie ---------- */
     var sprache = document.querySelector('.sprache');
     if (sprache) {

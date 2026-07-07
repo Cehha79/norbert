@@ -78,6 +78,19 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   (vorher links eine Zeile weniger); letzter Abschnitt jeder Seite endet
   jetzt 14 px über der Fußleiste (`main > section:last-child`).
   Cache `?v=37`.
+- **Kundenstimmen-Seite neu** (Hasans Auftrag): Stimmen als rollbares
+  Band `.stimmen-rolle` — 2 Reihen, auf Desktop 3 Spalten sichtbar
+  (`grid-auto-flow: column` + `grid-auto-columns`), seitlich per
+  Scroll-Snap und runden Pfeil-Knöpfen zu weiteren Stimmen (12
+  Platzhalter), Karten mit Avatar-Kreis und Trennlinie. **Bewertung
+  abgeben** direkt auf der Seite: Gold-Tafel im Vergleichs-Stil mit
+  Sterne-Auswahl (Radio-Gruppe, row-reverse-Technik, ohne JS gefärbt),
+  Name/Ort/Text; Absenden öffnet WhatsApp bzw. E-Mail-Programm mit
+  fertigem Text (statisch, kein Backend, DSGVO-schonend — gesendet wird
+  erst dort). FAQ „Gut zu wissen" an den Tafel-Stil angepasst: 2 Spalten
+  ab 840 px, Marke-Kante, Schatten, `align-items: start`. Aufruf-Block
+  „Noch Fragen offen?" entfernt. main.js `?v=4` (Band-Pfeile +
+  Bewertungs-Versand), Cache `?v=39`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
