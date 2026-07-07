@@ -1323,15 +1323,32 @@ body:has(dialog[open]) { overflow: hidden; }
   font-size: 18px;
 }
 .korb-fuss strong { font-family: var(--schrift-titel); font-size: 24px; color: var(--titel); }
-.korb-zahlarten { font-size: 14px; color: var(--text-leise); margin-block: 4px 0; }
-.korb-zahlarten span {
-  display: inline-block;
+.korb-zahlarten { font-size: 14px; color: var(--text-leise); margin-block: 8px 0; }
+.zahlarten {
+  display: grid;
+  grid-template-columns: auto repeat(3, 1fr);
+  gap: 10px;
+  align-items: center;
+  margin-block-start: 14px;
+}
+.zahlarten-titel { font-weight: 600; color: var(--text-leise); font-size: 15px; }
+.zahlart-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  background: var(--flaeche);
   border: 1px solid var(--linie);
-  border-radius: 999px;
-  padding: 1px 10px;
-  margin-inline-end: 4px;
+  border-radius: var(--radius-kl);
   font-weight: 600;
   color: var(--titel);
+}
+.zahlart-chip svg { flex: none; }
+@media (max-width: 560px) {
+  .zahlarten { grid-template-columns: repeat(3, 1fr); }
+  .zahlarten-titel { grid-column: 1 / -1; }
 }
 .knopf-still {
   background: none;
@@ -1364,7 +1381,7 @@ body:has(dialog[open]) { overflow: hidden; }
 .korb-zeile-schlicht img { width: 44px; height: 44px; }
 
 /* Kasse */
-.kasse-raster { display: grid; grid-template-columns: 1fr; gap: 26px; align-items: start; }
+.kasse-raster { display: grid; grid-template-columns: 1fr; gap: 26px; align-items: stretch; }
 .kasse-formular {
   background: var(--flaeche);
   border: 1px solid var(--linie);
@@ -1402,10 +1419,35 @@ body:has(dialog[open]) { overflow: hidden; }
   border-radius: var(--radius);
   box-shadow: var(--schatten);
   padding: 20px;
-  position: sticky;
-  top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .kasse-uebersicht h2 { font-size: 22px; margin-block-end: 12px; }
+.kasse-uebersicht .summen { margin-block-start: auto; }
+.kasse-weiter { margin-block: 18px 20px; }
+.kasse-weiter h3 {
+  font: 600 17px var(--schrift-text);
+  color: var(--titel);
+  margin-block-end: 10px;
+  padding-block-end: 8px;
+  border-block-end: 1px solid var(--linie);
+}
+.kasse-weiter ol { list-style: none; display: grid; gap: 10px; }
+.kasse-weiter li { display: flex; gap: 12px; align-items: flex-start; }
+.kasse-weiter .schritt-nr {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: var(--marke-hell);
+  color: var(--marke);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius-kl);
+  font: 700 15px var(--schrift-text);
+}
+.kasse-weiter p { font-size: 16px; margin: 2px 0 0; }
+.kasse-weiter p strong { color: var(--titel); }
 .kasse-senden { flex-direction: column; }
 .kasse-fertig { text-align: center; padding-block: 34px 10px; }
 .kasse-fertig h2 { margin-block-end: 10px; }

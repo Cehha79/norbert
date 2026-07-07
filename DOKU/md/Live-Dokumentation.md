@@ -201,6 +201,25 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   nächsten Zeile). Sichtprüfung mit vorbefülltem Korb (2×49,90 +
   3×24,90 = 174,50 €, MwSt. 27,86 €): beide Seiten sauber, hell wie
   dunkel unverändert über Tokens. Cache `?v=53`.
+- **Bestell-Tafel der Kasse auf volle Höhe** (Hasans Auftrag: rechte
+  Tafel so lang wie das Formular, auch bei wenig Inhalt): Raster von
+  `align-items: start` auf `stretch`, Sticky entfernt, Übersicht als
+  Flex-Spalte — Positionen oben, Summenblock/Knöpfe per
+  `margin-block-start: auto` unten bündig. Neuer Füll-Inhalt
+  **„So geht es weiter"** (`.kasse-weiter`): drei nummerierte Schritte
+  (Absenden → Bestätigung → Übergabe & Zahlung) mit Nummern-Kacheln in
+  `--marke-hell`. Getestet mit 1 und mit 4 Artikeln: Tafel behält in
+  beiden Fällen die volle Länge. Cache `?v=54`.
+- **Zahlarten mit Original-Symbolen** (Hasans Auftrag: Knöpfe gleich
+  groß, Farbe mit Original-Symbolen): Warenkorb-Zeile „Zahlung" jetzt
+  drei **gleich breite Kacheln** (`.zahlarten`, Raster
+  `auto + repeat(3, 1fr)`, 44 px hoch; unter 560 px Titel eigene
+  Zeile) mit Inline-SVGs in Originalfarben — Geldschein grün
+  (#2e7d4f), Rechnungs-Dokument petrol (#2f6f92), PayPal-Doppel-P in
+  den Original-Blautönen (#003087/#009cde); keine Fremdabrufe, keine
+  Bilddateien. Dieselben Symbole zusätzlich in der Zahlart-Auswahl
+  der Kasse (Radio-Liste). Erklär-Satz zur Übergabe steht jetzt als
+  eigene Zeile darunter. Cache `?v=55`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

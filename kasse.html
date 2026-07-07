@@ -6,7 +6,7 @@
 <title>Kasse – Norberts mobile Fußpflege Stuttgart</title>
 <meta name="description" content="Bestellung abschließen – Lieferung, Wunschtermin und Zahlart wählen.">
 <link rel="icon" type="image/png" href="bilder/logo-klein.png">
-<link rel="stylesheet" href="style.css?v=53">
+<link rel="stylesheet" href="style.css?v=55">
 <script src="js/thema.js"></script>
 <script src="js/main.js?v=8" defer></script>
 <script src="js/produkte.js?v=2" defer></script>
@@ -132,9 +132,9 @@
 
         <h2>Zahlart</h2>
         <div class="wahl-liste" role="radiogroup" aria-label="Zahlart">
-          <label><input type="radio" name="zahlart" value="Bar bei Übergabe" checked> Bar bei Übergabe</label>
-          <label><input type="radio" name="zahlart" value="Rechnung"> Rechnung (per E-Mail)</label>
-          <label><input type="radio" name="zahlart" value="PayPal"> PayPal</label>
+          <label><input type="radio" name="zahlart" value="Bar bei Übergabe" checked> <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="1.5" y="6" width="21" height="12" rx="2" fill="#e8f3ea" stroke="#2e7d4f" stroke-width="1.6"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="#2e7d4f" stroke-width="1.6"/><path d="M5.2 9.6v4.8M18.8 9.6v4.8" stroke="#2e7d4f" stroke-width="1.6" stroke-linecap="round"/></svg> Bar bei Übergabe</label>
+          <label><input type="radio" name="zahlart" value="Rechnung"> <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 2.5h9l4 4v15H6z" fill="#eef4f8" stroke="#2f6f92" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 2.5v4h4" fill="none" stroke="#2f6f92" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h7M9 15h7M9 18h4.5" stroke="#2f6f92" stroke-width="1.6" stroke-linecap="round"/></svg> Rechnung (per E-Mail)</label>
+          <label><input type="radio" name="zahlart" value="PayPal"> <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6.8 19.5 9 5h4.2a3.7 3.7 0 0 1 0 7.4H9.3" fill="none" stroke="#003087" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.2 21.5 12.4 7h4.2a3.7 3.7 0 0 1 0 7.4h-3.9" fill="none" stroke="#009cde" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> PayPal</label>
         </div>
 
         <div class="feld">
@@ -153,6 +153,19 @@
       <aside class="kasse-uebersicht">
         <h2>Ihre Bestellung</h2>
         <div id="kasse-liste"></div>
+
+        <div class="kasse-weiter">
+          <h3>So geht es weiter</h3>
+          <ol>
+            <li><span class="schritt-nr">1</span>
+              <p><strong>Bestellung absenden</strong> – per WhatsApp oder E-Mail, ganz wie Sie mögen.</p></li>
+            <li><span class="schritt-nr">2</span>
+              <p><strong>Bestätigung</strong> – ich melde mich persönlich und stimme Übergabe oder Lieferung mit Ihnen ab.</p></li>
+            <li><span class="schritt-nr">3</span>
+              <p><strong>Übergabe &amp; Zahlung</strong> – bequem zur gewählten Zahlart, auf Wunsch direkt beim nächsten Termin.</p></li>
+          </ol>
+        </div>
+
         <div class="summen">
           <div class="summen-zeile"><span>Zwischensumme</span><span id="kasse-zwischensumme">0,00 €</span></div>
           <div class="summen-zeile"><span>Lieferung / Übergabe</span><span>0,00 €</span></div>

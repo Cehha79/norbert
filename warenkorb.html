@@ -6,7 +6,7 @@
 <title>Warenkorb – Norberts mobile Fußpflege Stuttgart</title>
 <meta name="description" content="Ihr Warenkorb – Artikel prüfen, Mengen ändern und zur Kasse gehen.">
 <link rel="icon" type="image/png" href="bilder/logo-klein.png">
-<link rel="stylesheet" href="style.css?v=53">
+<link rel="stylesheet" href="style.css?v=55">
 <script src="js/thema.js"></script>
 <script src="js/main.js?v=8" defer></script>
 <script src="js/produkte.js?v=2" defer></script>
@@ -84,9 +84,14 @@
         <div class="summen-zeile summen-gesamt"><span>Gesamt</span><strong id="korb-summe">0,00 €</strong></div>
         <div class="summen-zeile summen-mwst"><span>Alle Preise inkl. 19&nbsp;% MwSt.</span><span id="korb-mwst">darin enthalten: 0,00 €</span></div>
       </div>
-      <p class="korb-zahlarten">Zahlung:
-      <span>Bar</span><span>Rechnung</span><span>PayPal</span> ·
-      Übergabe persönlich, zum Termin oder Lieferung nach Absprache.</p>
+      <div class="zahlarten">
+        <span class="zahlarten-titel">Zahlung:</span>
+        <span class="zahlart-chip"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="1.5" y="6" width="21" height="12" rx="2" fill="#e8f3ea" stroke="#2e7d4f" stroke-width="1.6"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="#2e7d4f" stroke-width="1.6"/><path d="M5.2 9.6v4.8M18.8 9.6v4.8" stroke="#2e7d4f" stroke-width="1.6" stroke-linecap="round"/></svg> Bar</span>
+        <span class="zahlart-chip"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 2.5h9l4 4v15H6z" fill="#eef4f8" stroke="#2f6f92" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 2.5v4h4" fill="none" stroke="#2f6f92" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h7M9 15h7M9 18h4.5" stroke="#2f6f92" stroke-width="1.6" stroke-linecap="round"/></svg> Rechnung</span>
+        <span class="zahlart-chip"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6.8 19.5 9 5h4.2a3.7 3.7 0 0 1 0 7.4H9.3" fill="none" stroke="#003087" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.2 21.5 12.4 7h4.2a3.7 3.7 0 0 1 0 7.4h-3.9" fill="none" stroke="#009cde" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> PayPal</span>
+      </div>
+      <p class="korb-zahlarten">Übergabe persönlich, zum Termin oder
+      Lieferung nach Absprache.</p>
       <div class="maske-knoepfe" id="korb-aktionen">
         <a class="knopf knopf-voll" href="kasse.html">Zur Kasse</a>
         <a class="knopf knopf-rand" href="produkte.html">Weiter einkaufen</a>
