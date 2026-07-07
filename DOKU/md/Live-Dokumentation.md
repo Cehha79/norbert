@@ -69,6 +69,10 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
 - **Fußleiste fixiert** (ab 1000 px): bleibt beim Scrollen immer sichtbar
   (`position: fixed` + 62 px Body-Puffer). Mobil bewusst NICHT fixiert —
   dort sitzt unten bereits die fixe Aktionsleiste. Cache `?v=35`.
+- Weiter verdichtet: „Anfahrt inklusive"-Hinweiskasten unter der Tabelle
+  entfernt (Inhalt steht in der Anfahrt-Zeile der Tabelle; Details siehe
+  Kontakt-Seite), Abschnitts-Abstand `--abstand` nochmals halbiert auf
+  26–40 px. Cache `?v=36`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
