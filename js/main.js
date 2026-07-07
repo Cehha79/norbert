@@ -169,6 +169,34 @@
       });
     }
 
+    /* ---------- Kontakt-Formular: Anfrage per WhatsApp oder E-Mail ---------- */
+    var kontakt = document.getElementById('kontakt-formular');
+    if (kontakt) {
+      var kFeld = function (id) { return document.getElementById(id).value.trim(); };
+      var kText = function () {
+        var anliegen = kontakt.querySelector('input[name="anliegen"]:checked');
+        return 'Termin-Anfrage – Norberts mobile Fußpflege\n\n' +
+          'Name: ' + kFeld('f-name') + '\n' +
+          'Telefon: ' + kFeld('f-telefon') + '\n' +
+          (kFeld('f-ort') ? 'Wohnort: ' + kFeld('f-ort') + '\n' : '') +
+          (anliegen ? 'Anliegen: ' + anliegen.value + '\n' : '') +
+          (kFeld('f-termin') ? 'Wunschtermin: ' + kFeld('f-termin') + '\n' : '') +
+          (kFeld('f-nachricht') ? '\n' + kFeld('f-nachricht') + '\n' : '') +
+          '\nEinwilligung zur Verarbeitung meiner Angaben liegt vor.';
+      };
+      document.getElementById('f-whatsapp').addEventListener('click', function () {
+        if (!kontakt.reportValidity()) return;
+        window.open('https://wa.me/4917686961032?text=' +
+          encodeURIComponent(kText()), '_blank', 'noopener');
+      });
+      document.getElementById('f-mail').addEventListener('click', function () {
+        if (!kontakt.reportValidity()) return;
+        location.href = 'mailto:norbertsmobilefusspflege@gmx.de' +
+          '?subject=' + encodeURIComponent('Termin-Anfrage') +
+          '&body=' + encodeURIComponent(kText());
+      });
+    }
+
     /* ---------- Sprachauswahl: Klick daneben schließt sie ---------- */
     var sprache = document.querySelector('.sprache');
     if (sprache) {

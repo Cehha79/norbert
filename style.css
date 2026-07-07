@@ -1548,26 +1548,43 @@ body:has(dialog[open]) { overflow: hidden; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 26px;
-  align-items: start;
+  align-items: stretch;
 }
+/* Kontaktwege als Kennfarben-Tafeln – Spalte füllt die volle Formular-Höhe */
+.kontakt-spalte { display: flex; flex-direction: column; gap: 14px; height: 100%; }
 .kontakt-kachel {
+  --lk: var(--marke);
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 14px;
   background: var(--flaeche);
   border: 1px solid var(--linie);
+  border-top: 4px solid var(--lk);
   border-radius: var(--radius);
-  padding: 18px;
-  margin-block-end: 14px;
+  padding: 16px 18px;
   text-decoration: none;
   color: var(--text);
   box-shadow: var(--schatten);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .kontakt-kachel:hover { transform: translateY(-3px); box-shadow: var(--schatten-gr); color: var(--text); }
-.kontakt-kachel .karte-symbol { margin: 0; }
-.kontakt-kachel strong { display: block; font-size: 18px; color: var(--titel); }
-.kontakt-kachel span { font-size: 16px; color: var(--text-leise); }
+.kontakt-symbol {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-kl);
+  background: var(--lk);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.kontakt-kachel strong { display: block; font-size: 17.5px; color: var(--titel); }
+.kontakt-kachel span { font-size: 15.5px; color: var(--text-leise); }
+.lk-wa { --lk: #25d366; }
+.zeiten { flex: 1; display: grid; gap: 4px; }
+.zeiten div { display: flex; justify-content: space-between; gap: 12px; font-size: 15.5px; }
+.zeiten div span:first-child { font-weight: 600; color: var(--titel); }
 
 /* ---------- Karte (Einzugsgebiet) ---------- */
 .gebiet-karte {

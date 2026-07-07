@@ -43,13 +43,15 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   `hreflang`-Verweise; Sprachwahl in der Kopfleiste ist gebaut (07.07.,
   ersetzt den Termin-Knopf) — **Verweise dort aktivieren** (aktuell `#`)
 - [ ] PL/AR/ZH von Muttersprachlern gegenlesen lassen (Norbert: Polnisch?)
-- [ ] Statisches OSM-Kartenbild des Einzugsgebiets erzeugen →
-  `bilder/einzugsgebiet.webp` (Attribution steht schon daneben)
+- [x] Statisches OSM-Kartenbild des Einzugsgebiets erzeugt (07.07.):
+  `bilder/einzugsgebiet.jpg` — aus OSM-Kacheln (z9) gestitcht, Marker
+  Weilimdorf + 50-km-Kreis; Attribution steht daneben
 - [x] Favicon: `bilder/logo-klein.png` (Original-Logo) eingebunden (07.07.);
   App-Icons in weiteren Größen beim Livegang ergänzen
 - [ ] Open-Graph-Bild + `og:`-Metadaten für schönes Teilen (WhatsApp!)
-- [ ] Formular-Dienst wählen und anschließen (`kontakt.html`, action-URL),
-  Datenschutzerklärung ergänzen
+- [ ] Formular-Dienst optional: das Kontakt-Formular sendet seit 07.07.
+  per WhatsApp/E-Mail (kein Backend nötig); echter Formular-Dienst nur,
+  falls Norbert Anfragen ohne WhatsApp/Mail-Programm möchte
 - [ ] `sitemap.xml` + `robots.txt` beim Livegang (wie MikaTec)
 - [ ] Impressum + Datenschutz fertigstellen, Entwurfs-Kästen entfernen
 

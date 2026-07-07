@@ -340,6 +340,28 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   doTERRA). Alle Quellen mit Pexels-ID und Fotograf in der neuen
   **DOKU/md/Bildquellen.md**. Sichtprüfung Bereiche w + e bestanden.
   produkte.js `?v=6`.
+- **Kontakt-Bereich groß ausgebaut** (Hasans Auftrag): (a) Kontaktwege
+  als **Kennfarben-Tafeln** (`.kontakt-kachel` mit `--lk`-Oberlinie +
+  Symbol-Kachel): Anrufen grün, WhatsApp im Original-Grün
+  (`.lk-wa` #25d366, Hörer im Sprechblasen-Symbol), E-Mail blau,
+  Erreichbarkeit gold (Zeilen Mo–Fr/Samstag, Zeiten weiter
+  Platzhalter), NEU fünfte Tafel „Hausbesuche" petrol; Spalte als
+  Flex — alle Tafeln gleich hoch, bündig mit der Formular-Höhe.
+  (b) **Formular auf Kassen-Niveau und endlich funktionsfähig**:
+  Tafel-Optik (`.kasse-formular`), Doppel-Zeilen Name/Telefon +
+  Wohnort/Wunschtermin (date), NEU Abschnitt „Ihr Anliegen"
+  (Radio-Liste mit Preisen 48/30/57 € + Allgemeine Frage), Nachricht
+  optional, Absenden **per WhatsApp oder E-Mail** (main.js v13,
+  gleiche Technik wie Kasse/Bewertung — vorher toter
+  `action="#"`-Knopf). (c) **Echtes Kartenbild**
+  `bilder/einzugsgebiet.jpg`: aus 15 OSM-Kacheln (z9) lokal gestitcht
+  (curl + Pillow; Framework-Python-SSL-Problem umgangen), Marker
+  Weilimdorf + 50-km-Kreis in Markenfarbe, 1280×768, Attribution
+  bleibt; Platzhalter-Kasten raus. (d) Orte-Zeile neu (Hasans
+  Vorgabe): Stuttgart · Ludwigsburg · Gerlingen · Weilimdorf ·
+  Umkreis 50 km · … fragen Sie einfach nach. Cache `?v=60`.
+  OFFEN: Hasans gewünschtes Hintergrund-Bild (Tropfen/Blätter) —
+  Datei liegt noch nicht vor.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
