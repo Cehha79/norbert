@@ -383,11 +383,19 @@ img { max-width: 100%; display: block; }
   margin-block-end: 22px;
 }
 
-/* Sozial-Leiste: Plattform-Knöpfe in Original-Farben */
+/* Aktions-Gruppe: Haupt-Knöpfe + Sozial-Leiste bündig an einer Linie */
+.held-aktionen {
+  display: grid;
+  gap: 22px;
+}
+.held-aktionen .held-knoepfe { margin-block-end: 0; }
+
+/* Sozial-Leiste: Plattform-Knöpfe in Original-Farben,
+   über die Breite der Knopfzeile verteilt (bündige Kanten) */
 .sozial-leiste {
   display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+  justify-content: space-between;
+  gap: 12px;
 }
 .sozial-knopf {
   width: 54px; height: 54px;
@@ -886,7 +894,7 @@ img { max-width: 100%; display: block; }
     padding-block: 14px;
   }
   .held-raster > div:first-child > * { margin-block: 0; }
-  .sozial-leiste { gap: 26px; }
+  .held-aktionen { width: fit-content; }   /* Sozial-Leiste = Breite der Knopfzeile */
   .kontakt-raster { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .abschnitt-kopf { margin-block-end: 44px; }
