@@ -1412,6 +1412,10 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 .wahl-liste input { accent-color: var(--marke); width: 18px; height: 18px; flex: none; }
 .wahl-liste label:has(input:checked) { border-color: var(--marke); background: var(--marke-hell); }
+.wahl-liste svg { flex: none; }
+.wahl-preis { margin-inline-start: auto; font-weight: 700; color: var(--titel); white-space: nowrap; }
+.knopf-paypal { background: #003087; color: #fff; }
+.knopf-paypal:hover { background: #012169; color: #fff; }
 .kasse-uebersicht {
   background: var(--flaeche);
   border: 1px solid var(--linie);
@@ -1663,7 +1667,8 @@ body:has(dialog[open]) { overflow: hidden; }
   .produkt-raster { grid-template-columns: 1fr 1fr; }
   .p-korb { flex: 1; }
   .p-kauf { flex: 1; }
-  .kasse-zeile { grid-template-columns: 1fr 1fr; align-items: start; column-gap: 16px; }
+  /* .bewertung-zeile darunter hat 3 Spalten – hier gewinnen 2 volle Spalten (Spezifität) */
+  .kasse-zeile.bewertung-zeile { grid-template-columns: repeat(2, 1fr); align-items: start; column-gap: 16px; }
   .kasse-zeile .feld label { white-space: normal; }
   /* Sterne, Name und Ort: drei gleich breite Spalten über die volle Tafelbreite */
   .bewertung-zeile {

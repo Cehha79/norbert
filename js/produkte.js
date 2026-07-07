@@ -340,15 +340,11 @@
     if (kasse) {
       var kasseListe = document.getElementById('kasse-liste');
       var korb = korbLaden();
-      var s = korbSummen(korb);
-      if (s.summe === 0) {
+      if (korbSummen(korb).summe === 0) {
         document.getElementById('kasse-leer').hidden = false;
         document.getElementById('kasse-bereich').hidden = true;
       } else {
         kasseListe.innerHTML = korbZeilenHtml(korb, false);
-        document.getElementById('kasse-zwischensumme').textContent = euro(s.summe);
-        document.getElementById('kasse-summe').textContent = euro(s.summe);
-        document.getElementById('kasse-mwst').textContent = 'darin enthalten: ' + euro(s.mwst);
       }
 
       var feld = function (id) { return document.getElementById(id).value.trim(); };
@@ -356,13 +352,49 @@
         var r = kasse.querySelector('input[name="' + name + '"]:checked');
         return r ? r.value : '';
       };
+      /* Versandkosten der gewählten Lieferart (data-versand am Radio) */
+      var versand = function () {
+        var r = kasse.querySelector('input[name="lieferung"]:checked');
+        return r ? parseFloat(r.getAttribute('data-versand') || '0') : 0;
+      };
+      /* Bestell-Übersicht rechts: Gesamt inkl. Versand, MwSt. daraus */
+      var summenZeigen = function () {
+        var sm = korbSummen(korbLaden());
+        var v = versand();
+        var g = sm.summe + v;
+        document.getElementById('kasse-zwischensumme').textContent = euro(sm.summe);
+        document.getElementById('kasse-lieferkosten').textContent = euro(v);
+        document.getElementById('kasse-summe').textContent = euro(g);
+        document.getElementById('kasse-mwst').textContent = 'darin enthalten: ' + euro(g - g / 1.19);
+      };
+      /* PayPal gewählt? Dann läuft die Bestellung über PayPal statt WhatsApp/E-Mail */
+      var zahlartZeigen = function () {
+        var pp = radio('zahlart') === 'PayPal';
+        document.getElementById('kasse-whatsapp').hidden = pp;
+        document.getElementById('kasse-mail-knopf').hidden = pp;
+        document.getElementById('kasse-paypal').hidden = !pp;
+        document.getElementById('kasse-hinweis-standard').hidden = pp;
+        document.getElementById('kasse-hinweis-paypal').hidden = !pp;
+      };
+      kasse.querySelectorAll('input[name="lieferung"]').forEach(function (r) {
+        r.addEventListener('change', summenZeigen);
+      });
+      kasse.querySelectorAll('input[name="zahlart"]').forEach(function (r) {
+        r.addEventListener('change', zahlartZeigen);
+      });
+      summenZeigen();
+      zahlartZeigen();
+
       var bestellTextKasse = function () {
         var k = korbLaden();
         var sm = korbSummen(k);
+        var v = versand();
+        var g = sm.summe + v;
         return 'Verbindliche Bestellung – Norberts mobile Fußpflege\n\n' +
           positionenText(k) + '\n' +
           'Zwischensumme: ' + euro(sm.summe) + '\n' +
-          'Gesamt: ' + euro(sm.summe) + ' (inkl. 19 % MwSt.: ' + euro(sm.mwst) + ')\n\n' +
+          'Lieferung / Versand: ' + euro(v) + ' (' + radio('lieferung') + ')\n' +
+          'Gesamt: ' + euro(g) + ' (inkl. 19 % MwSt.: ' + euro(g - g / 1.19) + ')\n\n' +
           'Name: ' + feld('ka-name') + '\n' +
           'Telefon: ' + feld('ka-telefon') + '\n' +
           (feld('ka-mail') ? 'E-Mail: ' + feld('ka-mail') + '\n' : '') +
@@ -372,6 +404,12 @@
           'Zahlart: ' + radio('zahlart') + '\n' +
           (feld('ka-bemerkung') ? 'Bemerkung: ' + feld('ka-bemerkung') + '\n' : '') +
           '\nWiderrufsbelehrung und AGB wurden akzeptiert.';
+      };
+      var fertig = function () {
+        korbSpeichern({});
+        document.getElementById('kasse-bereich').hidden = true;
+        document.getElementById('kasse-fertig').hidden = false;
+        window.scrollTo({ top: 0 });
       };
       var absenden = function (weg) {
         if (!kasse.reportValidity()) return;
@@ -383,13 +421,20 @@
             '?subject=' + encodeURIComponent('Bestellung') +
             '&body=' + encodeURIComponent(text);
         }
-        korbSpeichern({});
-        document.getElementById('kasse-bereich').hidden = true;
-        document.getElementById('kasse-fertig').hidden = false;
-        window.scrollTo({ top: 0 });
+        fertig();
       };
       document.getElementById('kasse-whatsapp').addEventListener('click', function () { absenden('whatsapp'); });
       document.getElementById('kasse-mail-knopf').addEventListener('click', function () { absenden('mail'); });
+      document.getElementById('kasse-paypal').addEventListener('click', function () {
+        if (!kasse.reportValidity()) return;
+        /* Bestell-Daten in die Zwischenablage – bei PayPal als Nachricht einfügbar */
+        var text = bestellTextKasse();
+        try { if (navigator.clipboard) navigator.clipboard.writeText(text); } catch (e) {}
+        var g = korbSummen(korbLaden()).summe + versand();
+        /* Platzhalter-Konto – vor dem Livegang durch Norberts echten PayPal.Me-Namen ersetzen */
+        window.open('https://www.paypal.me/NorbertsFusspflege/' + g.toFixed(2) + 'EUR', '_blank', 'noopener');
+        fertig();
+      });
     }
   });
 })();

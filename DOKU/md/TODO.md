@@ -53,6 +53,22 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 - [ ] `sitemap.xml` + `robots.txt` beim Livegang (wie MikaTec)
 - [ ] Impressum + Datenschutz fertigstellen, Entwurfs-Kästen entfernen
 
+## Shop-Ausbaustufe (später, von Hasan geplant)
+
+- [ ] **E-Mail-Anbindung über API**: Bestellung geht automatisch als
+  E-Mail mit **PDF-Auftrag** an Norbert (statische Seite kann das nicht
+  selbst — braucht Dienst/Backend; Wahl offen)
+- [ ] **Echtes PayPal-Konto** anschließen — aktuell öffnet der
+  PayPal-Knopf einen PayPal.Me-**Platzhalter**
+  (`paypal.me/NorbertsFusspflege`, in js/produkte.js markiert) mit dem
+  Gesamtbetrag; vor Livegang durch Norberts echten PayPal.Me-Namen
+  ersetzen oder echten PayPal-Checkout bauen
+- [ ] **Kalender-Anbindung**: Kunden buchen Termine direkt im Kalender
+  auf der Seite (hängt mit der API-Anbindung zusammen)
+- [ ] DHL-Versandpreise (5,49 € / Express 12,99 €) sind **Muster** —
+  echte Konditionen mit Norbert klären
+- [ ] Ablauf laut Hasan: erst GitHub Pages, wenn fertig → richtige Domain
+
 ## Prüfung (Phase 5)
 
 - [ ] Beide Themen (hell/dunkel) auf allen 7 Seiten prüfen

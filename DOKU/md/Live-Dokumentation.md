@@ -220,6 +220,27 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   Bilddateien. Dieselben Symbole zusätzlich in der Zahlart-Auswahl
   der Kasse (Radio-Liste). Erklär-Satz zur Übergabe steht jetzt als
   eigene Zeile darunter. Cache `?v=55`.
+- **Kasse: Felder bündig, DHL-Versand, PayPal-Weiche** (Hasans Auftrag,
+  Verständnis-Rückfrage bestätigt): (a) Formular-Doppelzeilen
+  (Name/Telefon, PLZ/Ort) liefen nur bis 2/3 — Ursache: die spätere
+  `.bewertung-zeile`-Regel (3 Spalten) schlug `.kasse-zeile` (gleiche
+  Spezifität); Fix `.kasse-zeile.bewertung-zeile` mit
+  `repeat(2, 1fr)` — alle Zeilen jetzt volle Tafelbreite, gleiche
+  Feldhöhen. (b) Lieferung um **Versand per DHL (5,49 €)** und
+  **DHL Express (12,99 €)** ergänzt (Muster-Preise), jede Lieferart
+  zeigt ihren Preis rechtsbündig (`.wahl-preis`); die Bestell-Übersicht
+  rechnet live: Zeile „Lieferung / Versand", Gesamt inkl. Versand,
+  MwSt. neu (Test: 128,10 + 12,99 = 141,09 €, MwSt. 22,53 € ✓).
+  (c) Zahlart heißt jetzt **„Rechnung / Überweisung (per E-Mail)"**.
+  (d) **PayPal-Weiche**: bei Zahlart PayPal verschwinden die
+  WhatsApp-/E-Mail-Knöpfe, stattdessen blauer Knopf „Zahlungspflichtig
+  bestellen – mit PayPal" (#003087) — kopiert die Bestell-Daten in die
+  Zwischenablage und öffnet PayPal.Me mit dem Gesamtbetrag
+  (Platzhalter-Konto, siehe TODO). Bestelltext enthält jetzt auch
+  Versandzeile und Gesamt inkl. Versand. Später laut Hasan:
+  E-Mail-API mit PDF-Auftrag + Kalender-Terminbuchung (TODO,
+  Abschnitt „Shop-Ausbaustufe"); Weg: erst GitHub Pages, dann Domain.
+  produkte.js `?v=3`, Cache `?v=56`.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 

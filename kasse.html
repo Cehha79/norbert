@@ -6,10 +6,10 @@
 <title>Kasse – Norberts mobile Fußpflege Stuttgart</title>
 <meta name="description" content="Bestellung abschließen – Lieferung, Wunschtermin und Zahlart wählen.">
 <link rel="icon" type="image/png" href="bilder/logo-klein.png">
-<link rel="stylesheet" href="style.css?v=55">
+<link rel="stylesheet" href="style.css?v=56">
 <script src="js/thema.js"></script>
 <script src="js/main.js?v=8" defer></script>
-<script src="js/produkte.js?v=2" defer></script>
+<script src="js/produkte.js?v=3" defer></script>
 </head>
 <body>
 
@@ -121,9 +121,11 @@
 
         <h2>Lieferung / Übergabe</h2>
         <div class="wahl-liste" role="radiogroup" aria-label="Lieferart">
-          <label><input type="radio" name="lieferung" value="Übergabe beim nächsten Termin" checked> Übergabe beim nächsten Fußpflege-Termin</label>
-          <label><input type="radio" name="lieferung" value="Lieferung nach Absprache"> Lieferung nach Absprache (im Einzugsgebiet)</label>
-          <label><input type="radio" name="lieferung" value="Abholung nach Absprache"> Abholung nach Absprache</label>
+          <label><input type="radio" name="lieferung" value="Übergabe beim nächsten Termin" data-versand="0" checked> Übergabe beim nächsten Fußpflege-Termin <span class="wahl-preis">0,00&nbsp;€</span></label>
+          <label><input type="radio" name="lieferung" value="Lieferung nach Absprache" data-versand="0"> Lieferung nach Absprache (im Einzugsgebiet) <span class="wahl-preis">0,00&nbsp;€</span></label>
+          <label><input type="radio" name="lieferung" value="Abholung nach Absprache" data-versand="0"> Abholung nach Absprache <span class="wahl-preis">0,00&nbsp;€</span></label>
+          <label><input type="radio" name="lieferung" value="Versand per DHL" data-versand="5.49"> Versand per DHL (2–4 Werktage) <span class="wahl-preis">5,49&nbsp;€</span></label>
+          <label><input type="radio" name="lieferung" value="DHL Express" data-versand="12.99"> DHL Express (1–2 Werktage) <span class="wahl-preis">12,99&nbsp;€</span></label>
         </div>
         <div class="feld">
           <label for="ka-termin">Wunschtermin (optional)</label>
@@ -133,7 +135,7 @@
         <h2>Zahlart</h2>
         <div class="wahl-liste" role="radiogroup" aria-label="Zahlart">
           <label><input type="radio" name="zahlart" value="Bar bei Übergabe" checked> <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="1.5" y="6" width="21" height="12" rx="2" fill="#e8f3ea" stroke="#2e7d4f" stroke-width="1.6"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="#2e7d4f" stroke-width="1.6"/><path d="M5.2 9.6v4.8M18.8 9.6v4.8" stroke="#2e7d4f" stroke-width="1.6" stroke-linecap="round"/></svg> Bar bei Übergabe</label>
-          <label><input type="radio" name="zahlart" value="Rechnung"> <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 2.5h9l4 4v15H6z" fill="#eef4f8" stroke="#2f6f92" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 2.5v4h4" fill="none" stroke="#2f6f92" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h7M9 15h7M9 18h4.5" stroke="#2f6f92" stroke-width="1.6" stroke-linecap="round"/></svg> Rechnung (per E-Mail)</label>
+          <label><input type="radio" name="zahlart" value="Rechnung / Überweisung"> <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 2.5h9l4 4v15H6z" fill="#eef4f8" stroke="#2f6f92" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 2.5v4h4" fill="none" stroke="#2f6f92" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h7M9 15h7M9 18h4.5" stroke="#2f6f92" stroke-width="1.6" stroke-linecap="round"/></svg> Rechnung / Überweisung (per E-Mail)</label>
           <label><input type="radio" name="zahlart" value="PayPal"> <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6.8 19.5 9 5h4.2a3.7 3.7 0 0 1 0 7.4H9.3" fill="none" stroke="#003087" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.2 21.5 12.4 7h4.2a3.7 3.7 0 0 1 0 7.4h-3.9" fill="none" stroke="#009cde" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> PayPal</label>
         </div>
 
@@ -168,17 +170,22 @@
 
         <div class="summen">
           <div class="summen-zeile"><span>Zwischensumme</span><span id="kasse-zwischensumme">0,00 €</span></div>
-          <div class="summen-zeile"><span>Lieferung / Übergabe</span><span>0,00 €</span></div>
+          <div class="summen-zeile"><span>Lieferung / Versand</span><span id="kasse-lieferkosten">0,00 €</span></div>
           <div class="summen-zeile summen-gesamt"><span>Gesamt</span><strong id="kasse-summe">0,00 €</strong></div>
           <div class="summen-zeile summen-mwst"><span>Alle Preise inkl. 19&nbsp;% MwSt.</span><span id="kasse-mwst">darin enthalten: 0,00 €</span></div>
         </div>
         <div class="maske-knoepfe kasse-senden">
           <button type="button" class="knopf knopf-whatsapp" id="kasse-whatsapp">Zahlungspflichtig bestellen – per WhatsApp</button>
           <button type="button" class="knopf knopf-rand" id="kasse-mail-knopf">Zahlungspflichtig bestellen – per E-Mail</button>
+          <button type="button" class="knopf knopf-paypal" id="kasse-paypal" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6.8 19.5 9 5h4.2a3.7 3.7 0 0 1 0 7.4H9.3" fill="none" stroke="#9fd6f2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.2 21.5 12.4 7h4.2a3.7 3.7 0 0 1 0 7.4h-3.9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Zahlungspflichtig bestellen – mit PayPal</button>
         </div>
-        <p class="korb-zahlarten" style="margin-block-start:10px;">Die Bestellung
+        <p class="korb-zahlarten" id="kasse-hinweis-standard" style="margin-block-start:10px;">Die Bestellung
         öffnet sich in WhatsApp bzw. Ihrem E-Mail-Programm – erst dort senden
         Sie sie ab. <span class="platzhalter">Muster-Kasse zur Ansicht.</span></p>
+        <p class="korb-zahlarten" id="kasse-hinweis-paypal" hidden style="margin-block-start:10px;">Es
+        öffnet sich PayPal mit dem Gesamtbetrag. Ihre Bestell-Daten werden dabei
+        in die Zwischenablage kopiert – fügen Sie sie bei PayPal als Nachricht
+        ein. <span class="platzhalter">Muster-Verbindung – echtes PayPal-Konto folgt.</span></p>
       </aside>
     </div>
 
