@@ -406,7 +406,7 @@ img { max-width: 100%; display: block; }
   background:
     radial-gradient(700px 320px at 90% -10%, var(--marke-hell) 0%, transparent 60%),
     linear-gradient(180deg, var(--sektion) 0%, var(--grund) 78%);
-  padding-block: var(--abstand);
+  padding-block: clamp(24px, 4vw, 44px) clamp(40px, 6.5vw, 76px);
 }
 .held-raster {
   display: grid;
@@ -1003,9 +1003,10 @@ img { max-width: 100%; display: block; }
   .marke-zusatz { font-size: 13px; }
   .nav-knopf { display: none; }
 
-  /* Navigation dauerhaft sichtbar, beginnt links neben dem Logo */
-  .kopf-innen { justify-content: flex-start; gap: 22px; }
+  /* Navigation dauerhaft sichtbar, beginnt direkt am Logo */
+  .kopf-innen { justify-content: flex-start; gap: 12px; }
   .kopf-rechts { margin-inline-start: auto; }
+  .hauptnav ul { margin-inline-start: -10px; }  /* Link-Innenabstand ausgleichen */
   .hauptnav {
     display: block;
     position: static;
