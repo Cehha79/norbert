@@ -461,7 +461,17 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   color: var(--titel);
 }
-.vertrauen-punkt svg { color: var(--akzent); flex-shrink: 0; }
+.vertrauen-punkt svg { flex-shrink: 0; }
+
+/* Farbige Symbol-Linien */
+.vp-gold  { color: #a8823c; }
+.vp-rot   { color: #b5544a; }
+.vp-blau  { color: #2f8fc0; }
+.vp-gruen { color: #3e8e5a; }
+:root[data-theme="dunkel"] .vp-gold  { color: #d9bd77; }
+:root[data-theme="dunkel"] .vp-rot   { color: #e0897e; }
+:root[data-theme="dunkel"] .vp-blau  { color: #7cc0e4; }
+:root[data-theme="dunkel"] .vp-gruen { color: #7cc79a; }
 
 /* ---------- Abschnitte ---------- */
 .abschnitt { padding-block: var(--abstand); }
@@ -869,6 +879,14 @@ img { max-width: 100%; display: block; }
   .schritte { grid-template-columns: repeat(2, 1fr); gap: 24px; row-gap: 44px; }
   .schritte-drei { grid-template-columns: 1fr; }   /* 3 Karten: erst ab 840px nebeneinander (Symmetrie) */
   .vertrauen-raster { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  /* Vertrauens-Punkte ab hier zentriert übereinander – symmetrisches Raster */
+  .vertrauen-punkt {
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 10px;
+  }
   .zahlen-raster { grid-template-columns: repeat(3, 1fr); }
   .fuss-raster { grid-template-columns: 1fr 1fr; gap: 34px; }
   .formular { padding: 30px 28px; }
