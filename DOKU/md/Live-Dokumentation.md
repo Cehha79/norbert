@@ -661,6 +661,35 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   (Cal.com-Tausch, Social-Links) — die Merker stehen vollständig in
   DOKU/md/TODO.md. Ehrlicher Staging-Hinweis im README (Muster-Daten,
   robots-Sperre).
+- **Handy-Feinschliff-Serie nach Hasans Smartphone-Test** (Cache
+  `?v=80`, main.js `?v=20`, alle 65 Seiten):
+  - **Schnell-Leiste im Kopf:** Start + Leistungen als sichtbare Links
+    unter der Kopfzeile, solange die volle Navigation im Menü-Knopf
+    steckt (unter 840 px); Links je Seite aus der übersetzten
+    Hauptnavigation kopiert (`.kopf-schnell`, aktive Seite mit
+    Gold-Unterstrich).
+  - **Held mobil:** Foto kommt zuerst (`order: -1`, ab 840 px wieder
+    rechts); Haupt-Knöpfe kompakt (max. 300 px, 46 px hoch, mittig) —
+    ab 640 px wieder wie gehabt.
+  - **Aktionsleiste (Anrufen/WhatsApp/Termin) KOMPLETT entfernt**
+    (Hasans Wunsch) — stattdessen ist die **Fußzeile jetzt auf allen
+    Breiten fixiert** und immer sichtbar (safe-area-Polster fürs
+    iPhone); Fußtext überall gekürzt: „© 2026 Norberts mobile
+    Fußpflege" ohne Ortszusatz (alle Sprachen, auch PC).
+  - **Kundenstimmen mobil als Zeilen:** unter 840 px zeigt jede
+    Bewertung nur Avatar + Name + Sterne + Beispiel-Etikett
+    (einzeilig, Ellipsis); Klick öffnet die volle Bewertung als
+    Maske (`.stimme-maske`, main.js). Wichtig gelernt: Grid-Elemente
+    brauchen `min-width: 0`, sonst Überlauf (Karte war 462 px breit
+    in 339-px-Spur). Roll-Pfeile mobil ausgeblendet.
+  - **Kontakt-Kacheln mobil linksbündig** (Symbole an einer Kante).
+  - **Datumsfeld gezähmt:** `input[type="date"]` bekommt display:block
+    + width:100 % + appearance:none — iOS gab ihm sonst eine
+    Eigenbreite über den Tafelrand (Hasans Screenshot).
+  - Geprüft per 375-px-iframe-Messung: Start/Kundenstimmen/Kontakt
+    überlauffrei (scrollWidth = 375), Klick-Maske funktional
+    (maske=offen, voller Text), Desktop-Gegencheck Kopf/Fuß sauber,
+    Verweis-Check 0 Fehler.
 
 ## 2026-07-07 (morgens) — Feinschliff-Serie + Tiefen-Hintergrund Sternen-Staub
 
