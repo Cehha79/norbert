@@ -102,6 +102,20 @@
     /* ---------- Bewertung absenden: öffnet WhatsApp bzw. E-Mail-Programm ---------- */
     var bewertung = document.getElementById('bewertung-formular');
     if (bewertung) {
+      /* Sterne-Auswahl: Klick auf Stern n füllt die Sterne 1 bis n */
+      var sterneWahl = bewertung.querySelector('.sterne-wahl');
+      if (sterneWahl) {
+        var sterneRadios = sterneWahl.querySelectorAll('input');
+        sterneRadios.forEach(function (radio) {
+          radio.addEventListener('change', function () {
+            var wert = parseInt(radio.value, 10);
+            sterneRadios.forEach(function (r) {
+              var label = sterneWahl.querySelector('label[for="' + r.id + '"]');
+              if (label) label.classList.toggle('gewaehlt', parseInt(r.value, 10) <= wert);
+            });
+          });
+        });
+      }
       var bewertungsText = function () {
         var sterne = bewertung.querySelector('input[name="sterne"]:checked');
         var name = document.getElementById('b-name').value.trim();

@@ -1054,9 +1054,8 @@ body:has(dialog[open]) { overflow: hidden; }
 .bewertung .knopf { min-height: 46px; padding: 8px 18px; font-size: 16.5px; }
 .bewertung-zeile { display: grid; gap: 12px; }
 .sterne-wahl {
-  display: flex;
-  flex-direction: row-reverse;          /* DOM 5→1, Optik 1→5: so färbt :checked ~ alle Sterne links */
-  justify-content: flex-end;
+  display: flex;                        /* Färbung übernimmt main.js: Klick auf Stern n füllt 1…n */
+  justify-content: flex-start;
 }
 .sterne-wahl input {
   position: absolute;
@@ -1071,9 +1070,8 @@ body:has(dialog[open]) { overflow: hidden; }
   padding: 2px 4px;
   margin: 0;
 }
-.feld .sterne-wahl label:hover,
-.feld .sterne-wahl label:hover ~ label,
-.feld .sterne-wahl input:checked ~ label { color: var(--stern); }
+.feld .sterne-wahl label.gewaehlt { color: var(--stern); }
+.feld .sterne-wahl label:hover { transform: scale(1.18); }
 .sterne-wahl input:focus-visible + label { outline: 3px solid var(--sand); outline-offset: 2px; border-radius: 4px; }
 .bewertung-knoepfe { display: flex; flex-wrap: wrap; gap: 12px; }
 .bewertung-knoepfe .knopf { flex: 1; }
@@ -1320,7 +1318,15 @@ body:has(dialog[open]) { overflow: hidden; }
   .held-knoepfe .knopf { width: auto; }
   .karten-raster { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .stimmen-raster { grid-auto-columns: calc((100% - 18px) / 2); gap: 18px; }
-  .bewertung-zeile { grid-template-columns: auto 1fr 1fr; align-items: end; column-gap: 22px; }
+  .bewertung-zeile { grid-template-columns: auto 1fr 1fr; align-items: stretch; column-gap: 22px; }
+  /* Labels oben und Eingaben unten jeweils auf einer Linie */
+  .bewertung-zeile .feld {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+  }
+  .bewertung-zeile .feld label { font-size: 16px; white-space: nowrap; }
   .schritte { grid-template-columns: repeat(2, 1fr); gap: 24px; row-gap: 44px; }
   .schritte-drei { grid-template-columns: 1fr; }   /* 3 Karten: erst ab 840px nebeneinander (Symmetrie) */
   .vertrauen-raster { grid-template-columns: repeat(2, 1fr); gap: 20px; }

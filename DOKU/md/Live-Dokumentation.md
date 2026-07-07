@@ -117,6 +117,14 @@ Chronik der Arbeit am Projekt — neueste Einträge oben.
   globale 140-px-Textarea-Regel hatte die kompakte überschrieben,
   jetzt per Spezifität gelöst); Abstand des letzten Abschnitts zur
   Fußleiste wieder größer (44 px). Cache `?v=42`.
+- Bewertungs-Zeile nachgebessert: die drei Labels (Sterne/Name/Ort)
+  beginnen jetzt oben auf einer Linie (Feld als Flex-Spalte mit
+  `space-between`), Labels in der Zeile 16 px + nowrap. Sterne-Auswahl
+  von der CSS-row-reverse-Technik auf **JS-Färbung** umgestellt
+  (Hasans Meldung „man kann nur einen Stern auswählen"): Radios in
+  normaler Reihenfolge 1→5, Klick auf Stern n füllt 1…n
+  (`label.gewaehlt`), Hover vergrößert den Stern leicht. main.js `?v=6`,
+  Cache `?v=44`.
 - Sichtprüfung headless (hell/dunkel/520 px + offene Maske): sauber.
   Merker bestätigt: unter ~500 px Fensterbreite klemmt headless Chrome
   (Testartefakt, kein Seitenfehler).
