@@ -158,7 +158,7 @@
       };
       document.getElementById('b-whatsapp').addEventListener('click', function () {
         if (!eingabenOk()) return;
-        window.open('https://wa.me/4917686961032?text=' +
+        window.open('https://wa.me/491735904496?text=' +
           encodeURIComponent(bewertungsText()), '_blank', 'noopener');
       });
       document.getElementById('b-mail').addEventListener('click', function () {
@@ -186,7 +186,7 @@
       };
       document.getElementById('f-whatsapp').addEventListener('click', function () {
         if (!kontakt.reportValidity()) return;
-        window.open('https://wa.me/4917686961032?text=' +
+        window.open('https://wa.me/491735904496?text=' +
           encodeURIComponent(kText()), '_blank', 'noopener');
       });
       document.getElementById('f-mail').addEventListener('click', function () {
