@@ -390,16 +390,15 @@ img { max-width: 100%; display: block; }
 }
 .held-aktionen .held-knoepfe { margin-block-end: 0; }
 
-/* Sozial-Leiste: Plattform-Knöpfe in Original-Farben,
-   über die Breite der Knopfzeile verteilt (bündige Kanten) */
+/* Sozial-Leiste: vier gleich große Kacheln über die volle Breite */
 .sozial-leiste {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
 }
 .sozial-knopf {
-  width: 54px; height: 54px;
-  border-radius: 50%;
+  height: 58px;
+  border-radius: var(--radius-kl);
   display: grid;
   place-items: center;
   color: #fff;
@@ -898,8 +897,9 @@ img { max-width: 100%; display: block; }
   /* Eine Einheit: Knöpfe und Sozial-Leiste über die volle Textbreite */
   .held-knoepfe { flex-wrap: nowrap; gap: 18px; }
   .held-knoepfe .knopf { flex: 1; }
-  .sozial-knopf { width: 66px; height: 66px; }
-  .sozial-knopf svg { width: 32px; height: 32px; }
+  .sozial-leiste { gap: 18px; }
+  .sozial-knopf { height: 62px; }
+  .sozial-knopf svg { width: 30px; height: 30px; }
   .kontakt-raster { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; }
   .schritte-drei { grid-template-columns: repeat(3, 1fr); }
   .abschnitt-kopf { margin-block-end: 44px; }
