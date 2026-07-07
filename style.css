@@ -201,14 +201,18 @@ img { max-width: 100%; display: block; }
   padding: 2px 8px;
 }
 
-/* ---------- Kopfleiste (Basis: Handy mit Menü-Knopf) ---------- */
+/* ---------- Kopfleiste: schwarz-metallisch-glasig ---------- */
 .kopf {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--kopf-hg);
-  backdrop-filter: blur(8px);
-  border-block-end: 1px solid var(--linie);
+  background: linear-gradient(100deg,
+    rgba(10, 12, 15, 0.93) 0%,
+    rgba(42, 46, 52, 0.88) 45%,
+    rgba(13, 16, 19, 0.93) 100%);
+  backdrop-filter: blur(10px);
+  border-block-end: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .kopf-innen {
   display: flex;
@@ -253,9 +257,9 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-knopf {
-  border: 2px solid var(--marke);
-  background: var(--flaeche);
-  color: var(--titel);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f2f4f5;
   font: 600 16px var(--schrift-text);
   padding: 9px 13px;
   border-radius: var(--radius-kl);
@@ -270,8 +274,8 @@ img { max-width: 100%; display: block; }
   position: absolute;
   top: 100%;
   inset-inline: 0;
-  background: var(--flaeche);
-  border-block-end: 1px solid var(--linie);
+  background: rgba(16, 18, 22, 0.97);
+  border-block-end: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: var(--schatten-gr);
 }
 .hauptnav.offen { display: block; }
@@ -288,15 +292,15 @@ img { max-width: 100%; display: block; }
   padding: 14px 12px;
   font-size: 18px;
   font-weight: 600;
-  color: var(--text);
+  color: #e7eaec;
   text-decoration: none;
   border-radius: var(--radius-kl);
 }
-.hauptnav a:hover { background: var(--marke-hell); color: var(--titel); }
+.hauptnav a:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 .hauptnav a[aria-current="page"] {
-  color: var(--titel);
-  background: var(--marke-hell);
-  box-shadow: inset 4px 0 0 var(--sand);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 4px 0 0 #d9bd77;
 }
 .nav-termin {
   background: var(--marke);
@@ -318,23 +322,23 @@ img { max-width: 100%; display: block; }
 .sprache { position: relative; }
 .sprache summary {
   width: 44px; height: 44px;
-  border: 2px solid var(--linie);
+  border: 2px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
-  background: var(--flaeche);
+  background: rgba(255, 255, 255, 0.06);
   display: grid;
   place-items: center;
   cursor: pointer;
   list-style: none;
 }
 .sprache summary::-webkit-details-marker { display: none; }
-.sprache[open] summary, .sprache summary:hover { border-color: var(--marke); }
+.sprache[open] summary, .sprache summary:hover { border-color: #fff; }
 .flagge { width: 26px; height: 26px; display: block; }
 .sprache-liste {
   list-style: none;
   padding: 8px;
   margin-block-start: 8px;
-  background: var(--flaeche);
-  border: 1px solid var(--linie);
+  background: rgba(18, 20, 24, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-kl);
   box-shadow: var(--schatten-gr);
   min-width: 170px;
@@ -351,31 +355,31 @@ img { max-width: 100%; display: block; }
   padding: 9px 12px;
   border-radius: 8px;
   text-decoration: none;
-  color: var(--text);
+  color: #e7eaec;
   font-weight: 600;
   font-size: 16.5px;
 }
 .sprache-liste .flagge { width: 22px; height: 22px; flex-shrink: 0; }
-.sprache-liste a:hover { background: var(--marke-hell); color: var(--titel); }
+.sprache-liste a:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 .sprache-liste a[aria-current="true"] {
-  color: var(--titel);
-  box-shadow: inset 4px 0 0 var(--sand);
-  background: var(--marke-hell);
+  color: #fff;
+  box-shadow: inset 4px 0 0 #d9bd77;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Hell-/Dunkel-Umschalter */
 .thema-knopf {
   width: 44px; height: 44px;
-  border: 2px solid var(--linie);
+  border: 2px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
-  background: var(--flaeche);
-  color: var(--titel);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f2f4f5;
   display: grid;
   place-items: center;
   cursor: pointer;
   flex-shrink: 0;
 }
-.thema-knopf:hover { border-color: var(--marke); background: var(--marke-hell); }
+.thema-knopf:hover { border-color: #fff; background: rgba(255, 255, 255, 0.12); }
 
 /* ---------- Knöpfe (Handy: volle Breite in Knopf-Gruppen) ---------- */
 .knopf {
@@ -886,18 +890,18 @@ img { max-width: 100%; display: block; }
 /* ---------- Fußleiste: schlank, metallisch-glasig ---------- */
 .fuss {
   background: linear-gradient(100deg,
-    rgba(17, 42, 60, 0.94) 0%,
-    rgba(37, 92, 126, 0.88) 45%,
-    rgba(23, 58, 82, 0.94) 100%);
+    rgba(10, 12, 15, 0.94) 0%,
+    rgba(42, 46, 52, 0.88) 45%,
+    rgba(13, 16, 19, 0.94) 100%);
   backdrop-filter: blur(8px);
-  border-block-start: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  color: var(--tief-text);
+  border-block-start: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: #c9ccd0;
   padding-block: 16px;
   font-size: 15px;
 }
 .fuss a { color: #fff; }
-.fuss a:hover { color: var(--sand); }
+.fuss a:hover { color: #d9bd77; }
 .fuss-innen {
   display: flex;
   flex-wrap: wrap;
@@ -1037,7 +1041,7 @@ img { max-width: 100%; display: block; }
   .hauptnav a { padding: 10px 10px; font-size: 16.5px; white-space: nowrap; }
   .hauptnav a[aria-current="page"] {
     background: transparent;
-    box-shadow: inset 0 -3px 0 var(--sand);
+    box-shadow: inset 0 -3px 0 #d9bd77;
     border-radius: var(--radius-kl) var(--radius-kl) 0 0;
   }
   .nav-termin { margin-block-start: 0; margin-inline-start: 4px; }
