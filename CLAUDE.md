@@ -45,12 +45,16 @@ Skripte: `js/thema.js` (synchron), `js/main.js` (defer), Shop =
   Erlaubt: „kosmetische Fußpflege", „Pflege gesunder Füße".
 - Der Abgrenzungs-Hinweis (keine podologischen Fälle) bleibt auf der
   Leistungs-Seite.
-- Shop-Artikel (128) und Kundenstimmen (18) sind **gekennzeichnete
+- Shop-Artikel (144) und Kundenstimmen (18) sind **gekennzeichnete
   Muster-Daten** — vor Livegang ersetzen (siehe WICHTIG/TODO). Darum ist
   `robots.txt` auf Disallow (Staging-Sperre).
-- Keine Fremdabrufe (Schriften/Bilder/Skripte lokal). Einzige dokumentierte
-  Ausnahme: die Zwei-Klick-Karte lädt OSM-/EOX-Kacheln erst nach
-  Einwilligung. Kein Cookie-Banner nötig — so halten.
+- Keine Fremdabrufe (Schriften/Bilder/Skripte lokal). Zwei dokumentierte
+  Ausnahmen: die Zwei-Klick-Karte lädt OSM-/EOX-Kacheln erst nach
+  Einwilligung, und der Besucherzähler sendet an
+  `norbert.goatcounter.com/count`. Das Zählskript selbst liegt lokal
+  (`js/extern/goatcounter.js`, ISC, gegenüber dem Original um den
+  `localStorage`-Zugriff gekürzt und um Do-Not-Track ergänzt) — deshalb
+  kein Zugriff aufs Endgerät und **kein Cookie-Banner nötig — so halten**.
 
 ## Konventionen
 
@@ -59,7 +63,27 @@ Skripte: `js/thema.js` (synchron), `js/main.js` (defer), Shop =
 - Fehlende Kundendaten als `<span class="platzhalter">…</span>` markieren —
   nie erfinden.
 - Nach CSS/JS-Änderung Cache-Version `?v=N` in **allen 65** HTML-Dateien
-  hochzählen (Stand: style v=81, main.js v=20, produkte.js v=10).
+  hochzählen (Stand: style v=151, thema.js v=2, main.js v=28, produkte.js v=11, shop-<code>.js v=2). Auch die
+  Bilder tragen eine Version: Logo `v=1` (`logo-frei.png`,
+  `logo-klein.png`, `apple-touch-icon.png`, `og-bild.jpg`), Hintergründe
+  `v=4` (`hintergrund-*.webp`). In der Kopfleiste steht das freigestellte
+  `logo-frei.png` (nur auf dunklem Grund brauchbar), Favicon und Icons
+  behalten den schwarzen Kachel-Grund.
+- Seiten-Hintergründe: `<body class="seite-…">` + `.hintergrund-bild`;
+  Bildpfade **nur in style.css** (relativ zum Stylesheet, gelten so auch in
+  den Sprachordnern), je Bereich hell/dunkel in 1600/2560/3840 px
+  (`image-set` — Retina braucht die 3840er Stufe!). Kein JavaScript.
+  Bilder ändern → beide Themen und den Kontrast neu messen.
+- Text über den Hintergrundbildern braucht eine eigene Fläche (88 %
+  `--flaeche`): Selektor-Liste im Block „Textflächen und Tafeln" in
+  `style.css`. Neue Textelemente ohne Karte dort ergänzen. Ganze Abschnitte
+  nur dann als Tafel (`.abschnitt-tafel`, Token `--tafel`: weiß/tiefschwarz),
+  wenn sie KEINE eigenen Karten haben — sonst Kasten in Kasten.
+- **Schrift-Hierarchie fällt von oben nach unten.** Steht eine Rubrik-/
+  Überzeile (`.ueberzeile`, z. B. „EINZUGSGEBIET") über dem Titel, ist SIE
+  die größte Schrift; `h1`/`h2` darunter sind kleiner, der Vorspann am
+  kleinsten. Semantik bleibt (h1/h2 sind weiter die Überschriften), nur die
+  Optik dreht sich. Hasans feste Regel — nicht umdrehen.
 - Fließtext ≥ 18 px, Klickflächen ≥ 44 px (Kopfzeile unter 480 px: 36–40 px
   als bewusste Ausnahme), Bewegung hinter `prefers-reduced-motion`
   (Zielgruppe 45+).

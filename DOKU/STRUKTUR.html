@@ -29,7 +29,7 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 </style>
 </head>
 <body><main>
-<div class="stamp">aus STRUKTUR.md aktualisiert am 2026-07-07</div>
+<div class="stamp">aus STRUKTUR.md aktualisiert am 2026-07-10</div>
 <h1>STRUKTUR</h1>
 <h2>Aufgabe dieser Datei</h2>
 <p>Ordner- und Dateiaufbau des Projekts „Norbert" (Kunden-Website norberts-mobile-fusspflege.de; Staging live auf https://cehha79.github.io/norberts-mobile-fusspflege/).</p>
@@ -50,12 +50,12 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 <tr><td><code>tr/ en/ pl/ ru/ ar/ zh/</code></td><td><strong>6 Sprachversionen</strong> — je 9 Seiten (alles außer Impressum/Datenschutz); <code>ar/</code> komplett RTL, <code>zh/</code> mit System-Schrift-Override</td></tr>
 <tr><td><code>style.css</code></td><td>zentrales Stylesheet: Themen-Tokens hell/dunkel, Kennfarben <code>--lk</code>, alle Komponenten, responsive (Kaskade: mobil → 480 → 560 → 640 → 840 → 1000)</td></tr>
 <tr><td><code>js/thema.js</code></td><td>synchron im <code>&lt;head&gt;</code>: gespeichertes Thema vor dem ersten Zeichnen (kein Flackern)</td></tr>
-<tr><td><code>js/main.js</code></td><td>Umschalter, Menü, Masken (Leistungen/FAQ/Bilder/Stimmen), Formulare, WhatsApp-Direktstart (<code>nfWhatsApp</code>), Leaflet-Karte, Video-Wahl</td></tr>
-<tr><td><code>js/produkte.js</code></td><td>Shop-Motor + deutsches Datenmodell (128 Muster-Artikel) mit Sprach-Schnittstelle (<code>NF_BASIS/NF_TEXTE/NF_KATEGORIEN/NF_UEBERSETZUNG</code>)</td></tr>
-<tr><td><code>js/shop-&lt;code&gt;.js</code></td><td>Übersetzungen je Sprache: 13 Oberflächen-Texte, 8 Kategorien, 128 Artikel</td></tr>
-<tr><td><code>js/extern/</code></td><td>Leaflet 1.9.4 lokal (einzige Fremd-Bibliothek)</td></tr>
+<tr><td><code>js/main.js</code></td><td>Umschalter, Menü, Masken (Leistungen/FAQ/Bilder/Stimmen), Formulare, WhatsApp-Direktstart (<code>nfWhatsApp</code>), Leaflet-Karte</td></tr>
+<tr><td><code>js/produkte.js</code></td><td>Shop-Motor + deutsches Datenmodell (144 Muster-Artikel, 9 Bereiche) mit Sprach-Schnittstelle (<code>NF_BASIS/NF_TEXTE/NF_KATEGORIEN/NF_UEBERSETZUNG</code>)</td></tr>
+<tr><td><code>js/shop-&lt;code&gt;.js</code></td><td>Übersetzungen je Sprache: 13 Oberflächen-Texte, 9 Kategorien, 144 Artikel</td></tr>
+<tr><td><code>js/extern/</code></td><td>Leaflet 1.9.4 lokal; <code>goatcounter.js</code> (Besucherzähler, ISC, lokal ausgeliefert und um den <code>localStorage</code>-Zugriff gekürzt)</td></tr>
 <tr><td><code>schriften/</code></td><td>Lora + Source Sans 3 als WOFF2 (lokal, keine Font-CDNs)</td></tr>
-<tr><td><code>bilder/</code></td><td>Fotos, Bereichs-Kacheln, <code>produkte/</code> (116 Artikel-Fotos), Hintergrund-Videos + Poster, <code>og-bild.jpg</code>, <code>apple-touch-icon.png</code>, <code>einzugsgebiet.jpg</code></td></tr>
+<tr><td><code>bilder/</code></td><td>Fotos, Bereichs-Kacheln, <code>produkte/</code> (116 Artikel-Fotos), <code>hintergrund-*.webp</code> (7 Bereiche × hell/dunkel × 3 Größen), <code>og-bild.jpg</code>, <code>apple-touch-icon.png</code>, <code>einzugsgebiet.jpg</code></td></tr>
 <tr><td><code>sitemap.xml</code></td><td>65 URLs mit hreflang-Alternativen</td></tr>
 <tr><td><code>robots.txt</code></td><td><strong>Staging-Sperre</strong> (Disallow /) — vor Livegang freischalten</td></tr>
 <tr><td><code>server.py</code></td><td>lokaler Testserver, Port <strong>8081</strong> (bleibt lokal)</td></tr>
@@ -73,7 +73,8 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 <li>Flache Struktur wie bei <code>WEB/MikaTec</code>: jede Seite eine eigene HTML-Datei, ein Stylesheet, gemeinsames JS; Sprachversionen als Ordner-Kopien mit <code>../</code>-Pfaden.</li>
 <li>Kopfleiste (inkl. Schnell-Links Start/Leistungen + Sprachwahl) und fixe Fußzeile sind auf allen Seiten identisch — Änderungen auf <strong>allen 65 Seiten</strong> nachziehen (Skript!), Text-Änderungen zusätzlich in den 6 Sprachordnern und beim Shop in <code>js/shop-&lt;code&gt;.js</code>.</li>
 <li>Design nur über die Tokens am Anfang von <code>style.css</code> (<code>--marke</code>, <code>--grund</code>, <code>--flaeche</code>, <code>--lk</code> …) — nie Farbwerte im HTML verstreuen.</li>
-<li>Nach CSS/JS-Änderung Cache-Version <code>?v=N</code> überall gemeinsam hochzählen (Stand: style <strong>v=81</strong>, main.js <strong>v=20</strong>, produkte.js <strong>v=10</strong>, shop-*.js v=1).</li>
+<li>Nach CSS/JS-Änderung Cache-Version <code>?v=N</code> überall gemeinsam hochzählen (Stand: style <strong>v=151</strong>, thema.js <strong>v=2</strong>, main.js <strong>v=28</strong>, produkte.js <strong>v=11</strong>, shop-*.js v=2). Auch die Bilder tragen eine Version: Logo <strong>v=1</strong>, Hintergründe <strong>v=4</strong>; ohne sie zeigen Browser den alten Stand.</li>
+<li>Seiten-Hintergrund: <code>&lt;body&gt;</code> trägt eine Bereichs-Klasse (<code>seite-start</code> …<code>seite-warenkorb</code>), das CSS wählt daran Bild für hell/dunkel in drei Größen (1600/2560/3840 px, <code>image-set</code> für Retina). Die Bildpfade stehen nur in <code>style.css</code> (relativ zum Stylesheet, gelten daher auch in den Sprachordnern) — nie im HTML.</li>
 <li>DOKU-HTML wird aus <code>DOKU/md/*.md</code> erzeugt: <code>python3 DOKU/md2doku.py</code>.</li>
 </ul>
 </main></body>

@@ -33,7 +33,7 @@ Neuen Stand hochladen:
 ```
 D=$(mktemp -d)
 gh repo clone Cehha79/norberts-mobile-fusspflege "$D"
-rsync -a --delete --exclude ".git" --exclude "DOKU" --exclude "CLAUDE.md"   --exclude "server.py" --exclude ".gitignore" --exclude "README.md"   --exclude ".DS_Store" ./ "$D/"
+rsync -a --delete --exclude ".git" --exclude "DOKU" --exclude "CLAUDE.md"   --exclude "server.py" --exclude ".gitignore" --exclude "README.md"   --exclude ".DS_Store" --exclude "*_t.html" ./ "$D/"
 cd "$D" && git add -A && git commit -m "Stand JJJJ-MM-TT" && git push
 ```
 

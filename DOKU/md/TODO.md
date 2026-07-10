@@ -32,6 +32,21 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 - [x] USt-Status fürs Impressum: **Kleinunternehmer § 19 UStG** (Hasans
   Ansage 07.07., wie MikaTec) — Impressum, Warenkorb- und Kassen-Summen
   weisen keine USt mehr aus; beim Livegang mit Norbert gegenprüfen
+- [x] **Lesbarkeit über den Hintergrundbildern hergestellt** (10.07.):
+  Textblöcke bekommen eine Fläche mit 88 % Deckkraft; schlechtester
+  gerechneter Kontrast 4,9:1 (leiser Text, dunkles Thema) — WCAG AA erfüllt.
+  Schleier bleibt bei 15 %, die Fotos wirken. Elemente und Rechnung stehen
+  in der Live-Dokumentation vom 10.07.
+- [ ] **Alte Hintergrund-Dateien entscheiden** (seit 10.07. ohne Verweis,
+  nichts wurde gelöscht): `bilder/hintergrund-kontakt.jpg`,
+  `hintergrund-hell.jpg`, `hintergrund-dunkel.jpg`, `hintergrund-hell.mp4`
+  (12,1 MB), `hintergrund-dunkel.mp4` (5,9 MB) — zusammen 19,5 MB, die
+  sonst unnötig ins öffentliche Repo wandern
+- [ ] **Neues Logo mit Norbert abstimmen** (Wechsel am 10.07. auf Hasans
+  Anweisung). Es ist seine Marke: auf allen Arbeitsfotos, dem Flyer und der
+  Kleidung steht noch das alte Logo. Entweder Norbert bestätigt das neue,
+  oder Fotos/Kleidung/Website laufen auseinander. Bedenken siehe
+  `Live-Dokumentation.md` (10.07.)
 - [ ] Dauer der Fußmassage und der Reflexzonen-Wellnessmassage erfragen
 - [ ] Erreichbarkeits-Zeiten → `kontakt.html`
 - [ ] Kundenstimmen: echte Stimmen (mit Freigabe der Kunden) einpflegen und
@@ -53,10 +68,10 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   Sprachversionen mitziehen (Ordner en/tr/pl/ru/ar/zh)
 - [x] Shop mehrsprachig (07.07., Hasans Auftrag): produkte.js mit
   Sprach-Schnittstelle (NF_BASIS/NF_TEXTE/NF_KATEGORIEN/NF_UEBERSETZUNG),
-  je Sprache js/shop-<code>.js (128 Artikel übersetzt) + 4 Shop-Seiten
+  je Sprache js/shop-<code>.js (144 Artikel übersetzt) + 4 Shop-Seiten
   im Sprachordner; Bestell-Nachricht an Norbert bleibt IMMER deutsch
 - [ ] Beim Tausch der Muster-Artikel gegen Norberts echtes Sortiment:
-  alle 6 js/shop-<code>.js-Dateien mit übersetzen (128 Einträge je Datei)
+  alle 6 js/shop-<code>.js-Dateien mit übersetzen (144 Einträge je Datei)
 - [x] Statisches OSM-Kartenbild des Einzugsgebiets erzeugt (07.07.):
   `bilder/einzugsgebiet.jpg` — aus OSM-Kacheln (z9) gestitcht, Marker
   Weilimdorf + 50-km-Kreis; Attribution steht daneben
@@ -73,10 +88,28 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   angelegt (07.07.). ACHTUNG robots.txt = **Staging-Sperre** (Disallow /),
   solange Muster-Daten drauf sind — **vor Livegang freischalten**
   (vorbereitete Zeilen stehen als Kommentar in der Datei)
-- [ ] Impressum + Datenschutz fertigstellen, Entwurfs-Kästen entfernen
-  (Grundausbau 07.07. erledigt: MikaTec-Struktur, Support-Block,
-  Haftung/Urheberrecht/Bildnachweise, § 19 UStG, Formular-Absatz echt;
-  offen nur noch Schluss-Prüfung + Stand-Datum)
+- [x] Impressum + Datenschutz fertiggestellt (10.07.): Entwurfs-Kästen
+  entfernt, Stand-Datum gesetzt (10. Juli 2026), Platzhalter raus.
+  Beide öffnen als Maske, bleiben aber eigene Seiten (§ 5 DDG).
+- [ ] **Rechtstexte vor Livegang gegenlesen lassen** — sie tragen keinen
+  Entwurfs-Hinweis mehr, gelten also als final. Ändert sich vorher etwas an
+  Cal.com, WhatsApp, GitHub Pages oder den Bildquellen, muss die
+  Datenschutzerklärung nachgezogen und das Stand-Datum aktualisiert werden.
+- [ ] **GoatCounter: Auftragsverarbeitungsvertrag (Art. 28 DSGVO) klären.**
+  GoatCounter verarbeitet in Norberts Auftrag; ein AVV ist auf der Website
+  des Anbieters nicht öffentlich hinterlegt. Bei `support@goatcounter.com`
+  anfragen. Der Betreiber (Name, Rechtsform, Anschrift) ist ebenfalls nicht
+  öffentlich dokumentiert — vor Livegang erfragen und in Abschnitt 5 der
+  Datenschutzerklärung ergänzen. **Nicht erfinden.**
+- [ ] **GoatCounter: eigene Aufrufe ausblenden** — in den Einstellungen des
+  Kontos `norbert` unter „Ignore IP addresses" Norberts und Hasans IP
+  eintragen. Der frühere Weg über `#toggle-goatcounter` wurde bewusst
+  ausgebaut (er hätte einen Cookie-Banner nötig gemacht).
+- [ ] **GoatCounter: Restrisiko § 25 TDDG.** Die Zählung greift nicht auf das
+  Endgerät zu, es wird nur eine IP-Adresse übertragen und dort verworfen.
+  Nach Auffassung von GoatCounter und Fathom ist das einwilligungsfrei; eine
+  gefestigte Rechtsprechung fehlt. Beim Gegenlesen der Rechtstexte mit
+  bewerten lassen.
 
 ## Terminbuchung (entschieden 07.07.: Google + Cal.com)
 
@@ -119,7 +152,45 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
 ## Prüfung (Phase 5)
 
 - [ ] Beide Themen (hell/dunkel) auf allen 7 Seiten prüfen
+- [ ] **Produktfotos für die 16 neuen Muster-Artikel** (w3, w8, w11–w16,
+      d8, d10–d16). Sie zeigen derzeit über den `onerror`-Rückfall das
+      Bereichsbild. Ebenso fehlen weiterhin Fotos für e-, k- und n-Artikel.
+- [ ] **Eigenes Bereichsbild für Hygiene & Desinfektion**: aktuell ein
+      quadratischer Ausschnitt aus `bilder/produkte/d5.jpg`.
 - [ ] Responsive: 375 px (Handy), 768 px (Tablet), 1280 px (Desktop)
 - [ ] Kontraste messen (Ziel: WCAG AA, 4,5:1 Fließtext)
 - [ ] Alle Links klicken (intern, tel:, wa.me), Formular-Pflichtfelder testen
 - [ ] Rechtstexte gegen Wortwahl-Regeln aus `WICHTIG.md` prüfen
+
+## Nach der Prüfrunde vom 10.07. offen
+
+- [ ] **WhatsApp-Nummer bestätigen lassen** — Knöpfe zeigen jetzt auf Norberts
+  `0176 8696 1032` (vorher fälschlich Hasans MikaTec-Nummer). Nutzt Norbert dort
+  WhatsApp? Falls nein, Nummer erfragen. Betrifft 21 HTML-Seiten + `main.js` +
+  `produkte.js`.
+- [ ] **Tote CSS-Regeln entfernen** (~90 Zeilen, alle belegt ohne HTML/JS-Treffer):
+  `.nur-vorleser`, `.marke-text/.marke-name/.marke-zusatz`, `.held-marke`,
+  `.held-telefon`, `.bild-platzhalter`, `.zahlen-raster/.zahl-wert/.zahl-text`,
+  `.hintergrund-video`, `.korb-fuss`, `.formular` (nackt), `.zeiten`,
+  `.nav-termin`, `.aufruf` (ganzer Block), `.fuss-raster`. Vorsicht: erst gegen
+  `js/main.js` und `js/produkte.js` gegenprüfen (dynamische Klassen).
+- [ ] **Kennfarben als Tokens** — `#2f8fc0 #3e8e5a #a8823c #b5544a #c26a35` stehen
+  vierfach im Stylesheet (`.vp-*`, `.lk-*`, `.av-*`, `.vt-*`), je mit eigener
+  Dunkel-Variante. Eine Änderung erfordert bis zu 8 Stellen.
+- [ ] **28 Produktfotos fehlen** (nicht 16): `w3 w8 w10–w16 e3 e4 e8 e12 e13 e16
+  n4 n6 n13 k9 k15 d8 d10–d16`. Rückfall auf das Bereichsbild funktioniert,
+  erzeugt aber je Artikel einen 404 in der Konsole.
+- [ ] **Zwei wirkungslose CSS-Deklarationen**: `.kopf-innen { gap: 12px }` (von
+  `gap: 34px` im selben Media-Block geschlagen) und die Basis-Farben von
+  `.stimme-avatar` (immer von `.av-*` überschrieben).
+- [ ] **Media-Queries stehen nicht aufsteigend** (900 vor 840, 1100 vor 1000).
+  Aktuell kein Konflikt, aber eine später ergänzte Regel bräche still.
+- [ ] **Hintergrund-Videos komprimieren** — `hintergrund-hell.mp4` (12 MB) und
+  `hintergrund-dunkel.mp4` (5,9 MB) sind zusammen fast die Hälfte des
+  Website-Gewichts. **Achtung:** In der Prüfung widersprachen sich zwei Agenten;
+  die eigene Messung ergab **null Verweise** aus HTML/CSS/JS. Sie sind tot und
+  wurden nach dem Push gelöscht — dieser Punkt entfällt, falls sie nicht
+  zurückkehren.
+- [ ] **Grenzwertige Produkt-Claims** vor Livegang prüfen: „Fußspray
+  antibakteriell" (d4), „Schrunden-Salbe" (c3) — bei Kosmetik nach Kosmetik-VO
+  bzw. LFGB heikel.

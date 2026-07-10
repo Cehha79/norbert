@@ -29,10 +29,374 @@ pre code{background:transparent;color:inherit;padding:0;border-radius:0}
 </style>
 </head>
 <body><main>
-<div class="stamp">aus Live-Dokumentation.md aktualisiert am 2026-07-07</div>
+<div class="stamp">aus Live-Dokumentation.md aktualisiert am 2026-07-10</div>
 <h1>Live-Dokumentation</h1>
+<h2>2026-07-10 (Abschluss) — Große Prüfrunde mit 11 Agenten, Fixes, Veröffentlichung</h2>
+<p>Elf parallele Prüf-Agenten haben Code, Struktur, Recht, Handy-Darstellung, Barrierefreiheit, Datenschutz, Shop-Daten, Sicherheit und Dateibestand geprüft. Kein Ergebnis wurde geschätzt — jeder Befund ist im Browser oder per Skript gemessen. Was gefunden wurde, ist behoben.</p>
+<h3>Behoben (kritisch)</h3>
+<ul>
+<li><strong>WhatsApp führte zum Entwickler statt zum Kunden.</strong> Alle 21 <code>wa.me</code>-Links und beide Skripte (<code>main.js</code>, <code>produkte.js</code>) zeigten auf <code>491735904496</code> — Hasans MikaTec-Nummer. Jetzt <code>4917686961032</code> (Norbert, wie im Impressum). Die MikaTec-Nummer bleibt nur im Impressum als Support-Kontakt stehen. <strong>Offen:</strong> Nutzt Norbert auf dieser Nummer WhatsApp? Mit ihm klären.</li>
+<li><strong>Muster-Daten waren nicht als solche erkennbar.</strong> Die 144 Artikel und Preise sind erfunden, auf keiner Shop-Seite stand ein sichtbarer Hinweis (nur ein Kommentar im Quelltext). Das ist ein UWG-Risiko, solange die Seite erreichbar ist. Jetzt trägt jede der vier Shop-Seiten in allen sieben Sprachen einen <code>.hinweis</code>-Kasten unter dem Seitenkopf (28 Seiten).</li>
+<li><strong>Die Datenschutzerklärung behauptete etwas Falsches.</strong> In Abschnitt 2 stand „speichert nichts auf Ihrem Gerät". Tatsächlich legt die Seite drei localStorage-Einträge an (<code>nf-thema</code>, <code>nf-warenkorb</code>, <code>nf-karte</code>), von denen nur einer genannt war. Der Satz gilt jetzt ausdrücklich nur für den passiven Besuch; ein neuer Unterabschnitt „Was Ihr Browser speichert" listet alle drei Einträge samt Rechtsgrundlage (§ 25 Abs. 2 Nr. 2 TDDG).</li>
+<li><strong><code>measure_t.html</code> wäre öffentlich gelandet.</strong> Der rsync-Befehl im README schloss <code>*_t.html</code> nicht aus — die Dateien sind nur lokal per <code>.gitignore</code> geschützt, und die wird nicht mitkopiert. <code>--exclude "*_t.html"</code> ergänzt.</li>
+</ul>
+<h3>Behoben (Handy und Barrierefreiheit)</h3>
+<ul>
+<li><strong>320-px-Überlauf im Held-Block</strong> (23 px, alle Sprachen, in <code>ar/</code> spiegelbildlich): <code>grid-template-columns: 1fr</code> ist <code>minmax(auto, 1fr)</code> und wird von einem min-content-Kind gesprengt → <code>minmax(0, 1fr)</code>. Die restlichen 2 px kamen vom Firmennamen mit <code>white-space: nowrap</code>; unter 345 px ist er jetzt 20 px groß. Nachgemessen bei 320/360/375/390/430 px: überall kein Überlauf.</li>
+<li><strong>Mengen-Knöpfe im Shop</strong> waren 34 × 34 px → 44 × 44 px (eigene Projektregel).</li>
+<li><strong>Sozial-Knöpfe</strong> bleiben optisch 38 px hoch (Hasans Vorgabe); ein unsichtbares <code>::after</code> bringt die Tastfläche auf 44 px.</li>
+<li><strong>Fußzeilen-Links</strong>: Leiste bleibt 29 px, die Links erreichen über <code>min-height: 24px</code> + Innenabstand das AA-Minimum (WCAG 2.5.8). 44 px ginge nur mit höherer Leiste.</li>
+<li><strong>Menü-Knopf hatte auf dem Handy keinen Namen</strong> — unter 480 px wird der Text „Menü" ausgeblendet, das Symbol ist <code>aria-hidden</code>. Jetzt festes <code>aria-label</code> auf allen 65 Seiten, übersetzt.</li>
+<li><strong><code>aria-label="Schnell-Navigation"</code> war in allen 54 Sprachdateien deutsch.</strong> Übersetzt.</li>
+<li><strong>Sprachnamen im Umschalter</strong> tragen jetzt ihr eigenes <code>lang</code> (WCAG 3.1.2), Arabisch zusätzlich <code>dir="rtl"</code>.</li>
+<li><strong>Fehler bei der Sternebewertung</strong> wurde nur durch einen roten Schatten angezeigt. Jetzt ein sichtbarer Text mit <code>role="alert"</code> und <code>aria-invalid</code> — Farbe darf die Information nicht allein tragen.</li>
+</ul>
+<h3>Behoben (Kontraste, in beiden Themen nachgerechnet)</h3>
+<p>Die Kennfarben <code>--lk</code>/<code>--vt</code> färben Rahmen und Symbolflächen. Für Text sind sie zu hell. Statt sie zu ändern (das hätte das Design verändert), gibt es jetzt dunklere Text-Varianten <code>--lk-text</code> und <code>--vt-text</code>.</p>
+<table>
+<tr><th>Stelle</th><th>vorher</th><th>jetzt</th><th>Grenze</th></tr>
+<tr><td>Leistungs-Titel (hell)</td><td>3,1–3,6:1</td><td>5,1–5,3:1</td><td>4,5:1</td></tr>
+<tr><td>Vergleichs-Titel (hell)</td><td>2,1:1</td><td>5,5:1</td><td>4,5:1</td></tr>
+<tr><td>Lager-Status grün/orange</td><td>3,8 / 4,0:1</td><td>6,1 / 6,6:1</td><td>4,5:1</td></tr>
+<tr><td>leere Bewertungssterne</td><td>1,4:1</td><td>3,4:1</td><td>3:1</td></tr>
+<tr><td>WhatsApp-Symbol</td><td>2,0:1</td><td>5,3:1</td><td>3:1</td></tr>
+<tr><td>Zurück-Link (dunkel)</td><td>3,2:1</td><td>8,3:1</td><td>4,5:1</td></tr>
+</table>
+<p>Neues Token <code>--stern-leer</code>. Das WhatsApp-Grün ist jetzt dasselbe wie beim Textknopf (<code>#1f7a4d</code>) — das helle Marken-Grün <code>#25d366</code> ließ das weiße Symbol verschwinden.</p>
+<h3>Geprüft und in Ordnung</h3>
+<p>2106 interne Links (kein toter), keine doppelten IDs, keine Konsolenfehler auf 11 Seiten, keine XSS-Lücke, beim Seitenaufruf null externe Verbindungen (die Karte lädt erst nach Klick), Shop-Daten in allen 6 Sprachen identisch (144/144 Artikel-IDs), Summen auf den Cent genau, Warenkorb übersteht Seiten- und Sprachwechsel, RTL sauber gespiegelt, keine Geheimnisse im Code, keine GPS-Daten in den Bild-Metadaten, <code>robots.txt</code> auf Disallow.</p>
+<h3>Bewusst nicht geändert</h3>
+<ul>
+<li><strong>Kopf- und Fußleiste bleiben in beiden Themen schwarz.</strong> Ein Versuch mit marineblauen Leisten im Hellmodus wurde von Hasan verworfen. Nicht erneut vorschlagen.</li>
+<li><strong>~90 Zeilen tote CSS-Regeln</strong> (<code>.aufruf</code>, <code>.zahlen-raster</code>, <code>.held-marke</code> …) und die vierfach duplizierte Kennfarben-Palette: als TODO notiert, nicht im selben Durchgang angefasst — Aufräumen und Fehlerbehebung nicht mischen.</li>
+<li><strong>28 Artikel ohne eigenes Foto</strong> (nicht 16, wie zuvor dokumentiert). Der <code>onerror</code>-Rückfall auf das Bereichsbild funktioniert, erzeugt aber je Artikel einen 404. Betrifft nur die Muster-Daten.</li>
+</ul>
+<p><strong>Cache:</strong> <code>style.css</code> <strong>v=151</strong>, <code>main.js</code> <strong>v=28</strong>, <code>thema.js</code> <strong>v=2</strong>, <code>goatcounter.js</code> <strong>v=1</strong>, <code>produkte.js</code> <strong>v=11</strong>, <code>shop-&lt;code&gt;.js</code> <strong>v=2</strong>.</p>
+<h3>Übergabe / Nächster Schritt</h3>
+<p><strong>Stand:</strong> Alles committet und auf GitHub Pages veröffentlicht (Staging, weiter per <code>robots.txt</code> gesperrt). Die Website läuft, keine bekannten Fehler.</p>
+<p><strong>Nächste Session startet mit:</strong> dem Kundentermin. Hasan trifft Norbert und klärt die Punkte, die nur der Kunde beantworten kann (siehe unten). Erst danach lohnt weitere Arbeit am Shop.</p>
+<p><strong>Entscheidungen, die Norbert treffen muss:</strong> 1. <strong>WhatsApp-Nummer</strong> — die Knöpfe zeigen jetzt auf <code>0176 8696 1032</code>. Nutzt er auf dieser Nummer WhatsApp? Falls nicht: welche Nummer? 2. <strong>Produkte</strong> — echte Artikel, Preise, Verfügbarkeiten und Fotos. Solange Muster-Daten stehen, bleibt der Hinweis-Kasten und die <code>robots.txt</code>-Sperre. 28 der 144 Artikel haben kein eigenes Foto. 3. <strong>Kundenstimmen</strong> — die 18 Bewertungen sind erfunden und als „BEISPIEL" markiert. Echte Stimmen einholen oder den Abschnitt entfernen. 4. <strong>Berufshaftpflicht</strong> — im Impressum fehlen Anschrift des Versicherers und räumlicher Geltungsbereich (§ 5 Abs. 1 Nr. 7 DDG). Steht als Platzhalter. 5. <strong>AGB und Widerrufsbelehrung</strong> — fehlen noch, bei Verkauf an Verbraucher Pflicht. Die Links in der Kasse zeigen derzeit ins Leere (<code>href="#"</code>). 6. <strong>YouTube und TikTok</strong> — Kanal-Adressen fehlen, die Knöpfe zeigen auf <code>#</code>.</p>
+<p><strong>Offene Fragen, die Hasan klären muss:</strong></p>
+<ul>
+<li><strong>GoatCounter</strong>: Auftragsverarbeitungsvertrag nach Art. 28 DSGVO ist nicht öffentlich hinterlegt; Betreibername, Rechtsform und Anschrift ebenfalls nicht. Bei <code>support@goatcounter.com</code> anfragen und in Abschnitt 5 der Datenschutzerklärung nachtragen. Nichts erfinden.</li>
+<li><strong>GoatCounter</strong>: eigene IP unter „Ignore IP addresses" eintragen, sonst zählen Norberts und Hasans eigene Aufrufe mit.</li>
+<li><strong>Rechtstexte gegenlesen lassen.</strong> Sie tragen keinen Entwurfs-Hinweis mehr. Besonders: das Restrisiko nach § 25 TDDG bei der Reichweitenmessung.</li>
+</ul>
+<p><strong>Verschoben (bewusst, nicht vergessen):</strong></p>
+<ul>
+<li>~90 Zeilen tote CSS-Regeln entfernen (Liste in TODO.md).</li>
+<li>Kennfarben-Palette als Tokens zusammenfassen — dieselben fünf Farben stehen vierfach im Stylesheet (<code>.vp-*</code>, <code>.lk-*</code>, <code>.av-*</code>, <code>.vt-*</code>).</li>
+<li>Die beiden Hintergrund-Videos (18 MB) stärker komprimieren.</li>
+<li>Beim echten Livegang: <code>robots.txt</code> freigeben, <code>CNAME</code> für die eigene Domain anlegen, <code>noindex</code> auf Impressum/Datenschutz bewusst entscheiden.</li>
+</ul>
 <h2>Aufgabe dieser Datei</h2>
 <p>Chronik der Arbeit am Projekt — neueste Einträge oben.</p>
+<h2>2026-07-10 (später) — Textflächen: Bilder bleiben stark, Text wird lesbar</h2>
+<p>Hasans Freigabe für die saubere Lösung. Die Textblöcke bekommen selbst eine leicht deckende Fläche (88 % <code>--flaeche</code>, feiner Rand, <code>backdrop-filter</code>), so wie es die Karten schon hatten. Das Bild bleibt rundherum voll sichtbar und der Schleier kann bei 15 % bleiben.</p>
+<p><strong>Warum 88 %?</strong> Gerechnet, nicht geraten. Über der dunkelstmöglichen Bildstelle (Schwarz) ergibt <code>#faf9f5</code> bei 88 % die Farbe RGB (220, 219, 216):</p>
+<table>
+<tr><th>Thema</th><th>Textfarbe</th><th>schlechtester Kontrast</th></tr>
+<tr><td>Hell</td><td><code>#000000</code></td><td>15,2:1</td></tr>
+<tr><td>Hell</td><td>Leisetext <code>#1d1d1d</code></td><td>12,2:1</td></tr>
+<tr><td>Hell</td><td>Titel <code>#17435e</code></td><td>7,6:1</td></tr>
+<tr><td>Dunkel</td><td><code>#e1e5e8</code></td><td>8,5:1</td></tr>
+<tr><td>Dunkel</td><td>Leisetext <code>#a4b1ba</code></td><td><strong>4,9:1</strong></td></tr>
+<tr><td>Dunkel</td><td>Titel <code>#d7e5ee</code></td><td>8,3:1</td></tr>
+</table>
+<p>Der ungünstigste Fall (leiser Text im dunklen Thema über einer weißen Bildstelle) liegt mit 4,9:1 über der Norm von 4,5:1. <strong>WCAG AA ist damit wieder erfüllt</strong> — und die Fotos wirken trotzdem.</p>
+<p><strong>Betroffene Elemente</strong> (alle per CSS, kein HTML angefasst): <code>.held-raster &gt; div:first-child</code>, <code>.abschnitt-kopf</code>, <code>.seitenkopf &gt; .rahmen</code>, <code>.vorstellung</code>, <code>.kachel-name</code>, <code>.sortier-feld</code>, <code>.liste-info</code>, <code>#korb-leer</code>, <code>#kasse-leer</code>. Die letzten sechs kamen erst durch eine Sichtprüfung aller sieben Seiten dazu — dort stand Text noch nackt auf dem Bild (Shop-Bereichszeilen, Sortierleiste, Artikelzahl, Leer-Hinweise, Textspalte auf „Über mich").</p>
+<p><strong>Verworfenes Messverfahren, offen gesagt:</strong> Ein Versuch, den Kontrast an den echten Textpixeln zu messen (zwei Aufnahmen, einmal mit <code>color: transparent</code>, Differenz = Schrift), lieferte unbrauchbare Werte — die Einblend-Animationen (<code>.einblenden</code>) zeigen in beiden Aufnahmen verschiedene Zustände, die Differenz fand Bildflächen statt Schrift. Die Zahlen wurden verworfen statt geglättet. Belastbar ist die obige Rechnung plus Sichtprüfung.</p>
+<p><strong>Bild für „Leistungen" (hell) getauscht</strong> auf Hasans Wunsch: <code>007-badewanne-eukalyptus-oel-hell-real-5k.png</code> (5120×2880). Das alte <code>003-aloe-hydrogel-hell-real-5k.png</code> liegt unangetastet in <code>2 Leistung/Hell/_ersetzt/</code>.</p>
+<p><strong>Nachbesserung am selben Tag (Hasans Vorgaben):</strong></p>
+<ul>
+<li><strong>Kopf-Kästen laufen über die volle Rasterbreite</strong>, bündig mit dem Inhalt darunter — aber als eigener Kasten, nicht mit ihm verbunden. Nur die Textzeilen darin bleiben auf 700 px begrenzt (Lesbarkeit).</li>
+<li><strong>Neue Tafel für die Bilder-Galerie</strong> auf der Startseite: Kopf und Fotos sitzen auf EINER Fläche über die volle Breite. Grund reinweiß im hellen, <strong>tief schwarz</strong> im dunklen Thema (neues Token <code>--tafel</code>, 92 % Deckkraft). Klasse <code>.abschnitt-tafel</code> auf allen sieben index-Seiten gesetzt.</li>
+<li><strong>Bewusst KEINE Tafel</strong> bei Abschnitten, die schon eigene Karten tragen: Kontakt-Formular, Abgrenzung auf „Leistungen", Produkt-Kacheln, „Über mich". Dort stünde sonst Kasten in Kasten. Hasans ausdrückliche Ansage. Ein erster Versuch, alle <code>.abschnitt</code> pauschal zu Tafeln zu machen, wurde deshalb zurückgenommen.</li>
+</ul>
+<ul>
+<li><strong>Alle Kopf-Kästen sind jetzt Tafeln</strong> (Hasans Vorgabe): Grund reinweiß im hellen, <strong>tief schwarz</strong> im dunklen Thema (<code>--tafel</code>, 92 %). Betrifft Seitenköpfe, Abschnitts-Köpfe, die Held-Textspalte und den Bereichs-Kopf.</li>
+<li><strong>Schrift und Höhe im Kopf nachgezogen:</strong> Titel <code>clamp(28px, 5.4vw, 42px)</code> mit engerer Zeilenhöhe, Vorspann 19 px, Textbreite 640 px (ausgewogener Umbruch), letztes Element ohne Abstand nach unten — die Tafel wirkte sonst unten leer.</li>
+<li><strong>Fehler gefunden und behoben:</strong> Der eigene Innenabstand der Tafel ersetzt das <code>padding-inline: 18px</code> von <code>.rahmen</code>. Ohne Gegenmaßnahme klebten die Tafeln auf schmalen Fenstern am Bildschirmrand. Gelöst über <code>max-width: min(var(--breite), 100% - 36px)</code>; bei 500 px und 1000 px gegengeprüft.</li>
+</ul>
+<ul>
+<li><strong>Kontakt: Kopf und die vier Knöpfe in EINER Tafel</strong> (Hasans Vorgabe). Dafür wurde der Block <code>.kontakt-wege</code> per Skript aus der Abschnitts-Section in den Kopf-Rahmen verschoben — in allen <strong>sieben</strong> kontakt-Seiten, die arabische RTL-Fassung eingeschlossen (Knopfreihe spiegelt korrekt). Das Formular bleibt darunter als eigene Karte. Im CSS ist die Knopfreihe von der 640-px-Textbreite ausgenommen.</li>
+<li><strong>Karten in Tafeln abgesetzt</strong> (neues Token <code>--karte-auf-tafel</code>: <code>#f1eee6</code> hell, <code>#131b22</code> dunkel). Auf reinweißem bzw. tiefschwarzem Grund verschwänden Karten sonst. Betrifft heute die Kontakt-Kacheln; die Regel greift ebenso für alles, was künftig in <code>.abschnitt-tafel</code> landet. In der Bilder-Galerie liegen nur Fotos, keine Karten.</li>
+</ul>
+<ul>
+<li><strong>Kopf-Typografie nachgeschärft</strong> (Hasans Feinschliff): Überzeile 16 px mit weiterem Sperrsatz und 18 px Abstand zur Überschrift, dichter am oberen Rand der Tafel; Titel eine Spur kleiner (<code>clamp(26px, 4.6vw, 36px)</code>); Vorspann 17 px und auf 780 px Breite verteilt, damit er höchstens zwei ausgewogene Zeilen bildet.</li>
+</ul>
+<ul>
+<li><strong>Kontakt-Formular ist eine eigene Tafel</strong> (schwarz/weiß wie der Kopf), die Eingabefelder je Thema getrennt:</li>
+</ul>
+<table>
+<tr><th>Thema</th><th>Tafel</th><th>Feld</th><th>Schrift</th><th>Kontrast</th></tr>
+<tr><td>Hell</td><td>weiß</td><td>grau <code>#e3e1da</code></td><td><code>#14181c</code></td><td>13,6:1</td></tr>
+<tr><td>Dunkel</td><td>tief schwarz</td><td>weiß <code>#eeebe4</code></td><td><code>#14181c</code></td><td>15,0:1</td></tr>
+</table>
+<p>Reinweiß wurde bewusst vermieden — es flimmert auf schwarzem Grund. Platzhalter <code>#5b5f63</code> liegt bei 4,9:1 bzw. 5,4:1, also über der Norm.</p>
+<p><strong>Fallstrick, der mich erst auflaufen ließ:</strong> Das Kontakt-Formular ist <code>&lt;form class="kasse-formular" id="kontakt-formular"&gt;</code> — es <strong>teilt die Klasse mit der Kasse</strong>. Der erste Versuch zielte auf <code>.formular</code>; diese CSS-Klasse wird von <strong>keinem</strong> HTML benutzt (tote Regel), die Änderung hatte also gar keine Wirkung. Jetzt wird über die ID gezielt, damit die Kasse nicht mitgefärbt wird. Gegengeprüft: Kasse unverändert.</p>
+<ul>
+<li><strong>Breiten vereinheitlicht:</strong> <code>.formular-mitte</code> (vorher 920 px) ist von seiner Sonderbreite befreit; Tafeln stehen auf <code>min(var(--breite) - 36px, 100% - 36px)</code>, also auf der Kante des Inhalts eines normalen <code>.rahmen</code>. Kopf-Tafel und Formular fluchten auf jeder Fensterbreite.</li>
+</ul>
+<ul>
+<li><strong>Einzugsgebiet ebenso in EINE Tafel:</strong> Die Orts-Liste (<code>ul.orte-liste</code>) wurde per Skript in den <code>.abschnitt-kopf</code> gezogen — in allen sieben kontakt-Seiten. Überschrift und Orte stehen jetzt auf derselben Fläche, die Chips tragen <code>--karte-auf-tafel</code>. Die Zwei-Klick-Karte bleibt darunter als eigene Tafel.</li>
+</ul>
+<ul>
+<li><strong>Umbruch in den Kopf-Überschriften behoben:</strong> Die 640-px-Textbreite hatte auch Überzeile und Überschrift erfasst — „Unterwegs in Stuttgart und Umgebung" brach dadurch unnötig um. Überschriften nutzen jetzt die volle Tafelbreite (<code>text-wrap: balance</code> für schmale Fenster), nur der Vorspann bleibt auf 760 px und damit bei zwei Zeilen. Abschnitts- Überschrift und Seitentitel teilen sich die Größe <code>clamp(26px, 4.2vw, 38px)</code> und bilden die klare Spitze der Hierarchie.</li>
+</ul>
+<ul>
+<li><strong>Karten-Tafel</strong> (Adresse + Zwei-Klick-Karte) trägt jetzt die Tafel-Optik (weiß/tief schwarz). Der Adressblock ist transparent und zeigt den Tafel-Grund — er soll sich davon NICHT absetzen (Hasans Vorgabe).</li>
+</ul>
+<ul>
+<li><strong>Fehler behoben: Karte lief beim Scrollen über die Fußleiste.</strong> Leaflet vergibt seinen Ebenen und Bedienelementen z-index-Werte bis 1000. Die fixe Fußleiste liegt bei <code>z-index: 40</code> — die Kartenkacheln wanderten also darüber. Gelöst mit <code>isolation: isolate</code> auf <code>.karten-tafel</code>: Leaflets Werte bleiben damit in einem eigenen Stapel-Kontext innerhalb der Tafel.</li>
+</ul>
+<ul>
+<li><strong>Quellen-Zeile unter der Karte entfernt</strong> (<code>.gebiet-quelle</code>, 7 Seiten, dazu die tote CSS-Regel). <strong>Die Lizenzhinweise sind nicht verschwunden, sondern in die Karte gewandert</strong> — sie sind rechtlich Pflicht: OpenStreetMap steht unter ODbL (Namensnennung), Sentinel-2 cloudless unter CC BY 4.0. <code>js/main.js</code> nennt jetzt in der Leaflet-Attribution „© OpenStreetMap-Mitwirkende (ODbL)" mit Link auf die Copyright-Seite und „Sentinel-2 cloudless © EOX IT Services GmbH (CC BY 4.0)" mit Link auf s2maps.eu. Der Hinweis zur Zwei-Klick-Lösung steht weiterhin im Aktivieren-Overlay und in der Datenschutzerklärung.</li>
+</ul>
+<ul>
+<li><strong>Schrift-Hierarchie umgedreht — Hasans Regel, dreimal angesagt:</strong> Die Rubrik-Zeile („EINZUGSGEBIET", „KONTAKT &amp; TERMIN") ist die <strong>größte</strong> Schrift (<code>clamp(20px, 2.8vw, 30px)</code>), der Titel darunter tritt zurück (<code>clamp(19px, 2.4vw, 26px)</code>), der Vorspann ist am kleinsten (16 px). Größen fallen von oben nach unten. Semantisch bleiben <code>h1</code>/<code>h2</code> die Überschriften — für Suchmaschinen und Screenreader zählt die Auszeichnung, nicht die Schriftgröße. Die Regel steht jetzt in <code>CLAUDE.md</code>, damit sie nicht wieder verloren geht.</li>
+</ul>
+<ul>
+<li><strong>Kundenstimmen-Band auf eigener Tafel</strong> (<code>.abschnitt-tafel</code>, schwarz bzw. weiß). Die Stimmen-Karten bleiben klein und seitlich rollbar; sie setzen sich per <code>--karte-auf-tafel</code> vom Grund ab. Sieben Seiten.</li>
+</ul>
+<ul>
+<li><strong>FAQ-Kopf einzeilig:</strong> Die zweite Zeile („Gut zu wissen vor dem ersten Termin") ist entfallen. Damit die Seite ihre Überschrift nicht verliert, wurde die Rubrik-Zeile selbst zum <code>&lt;h2 class="ueberzeile"&gt;</code> — sie ist nach Hasans Hierarchie ohnehin die optische Hauptüberschrift. Die h2-Grundregel (Titelschrift, Titelfarbe) wird für diesen Fall überschrieben, damit die Rubrik-Optik erhalten bleibt.</li>
+</ul>
+<ul>
+<li><strong>Kopf-Kästen zwei Punkte kleiner und flacher</strong> (Hasans Vorgabe, gilt einheitlich für ALLE Kopf-Kästen der Website):</li>
+</ul>
+<table>
+<tr><th>Element</th><th>vorher</th><th>jetzt</th></tr>
+<tr><td>Rubrik (<code>.ueberzeile</code>)</td><td><code>clamp(20px, 2.8vw, 30px)</code></td><td><code>clamp(18px, 2.4vw, 28px)</code></td></tr>
+<tr><td>Titel (<code>h1</code>/<code>h2</code>)</td><td><code>clamp(19px, 2.4vw, 26px)</code></td><td><code>clamp(17px, 2.2vw, 24px)</code></td></tr>
+<tr><td>Innenabstand</td><td><code>clamp(18px, 2.4vw, 28px)</code></td><td><code>clamp(14px, 1.8vw, 22px)</code></td></tr>
+</table>
+<p>Ein Kopf, der nur die Rubrik trägt (FAQ), wird über <code>:has(&gt; h2.ueberzeile:only-child)</code> zusätzlich flacher. Browser ohne <code>:has()</code>-Unterstützung zeigen ihn schlicht etwas höher — nichts bricht.</p>
+<ul>
+<li><strong>Drei weitere Tafeln</strong> (je sieben Sprachen): Leistungs-Karten und Preisliste auf <code>leistungen.html</code>, „Ihr Hausbesuch in vier Schritten" auf <code>index.html</code>. Die Preistabelle und ihre Zeilen setzen sich per <code>--karte-auf-tafel</code> ab. Die Abschnitte wurden über ihren Inhalt erkannt (<code>.karten-raster</code>, <code>.preis-tabelle</code>, <code>.schritt</code>), nicht über Zeilennummern.</li>
+<li><strong>Ohne Tafel bleibt weiterhin die Abgrenzung</strong> („Das übernehme ich" / Podologie) auf <code>leistungen.html</code> — dort stehen eigene Karten, es gäbe Kasten in Kasten. Ebenso Kontakt-Formular und Produkt-Kacheln.</li>
+</ul>
+<ul>
+<li><strong>„Über mich" als Tafel, Porträt nach rechts</strong> (<code>ueber-mich.html</code>, sieben Sprachen): Der Abschnitt <code>.person-raster</code> wird zur Tafel. Damit kein Kasten in Kasten entsteht, verlieren die beiden Spalten (<code>.vorstellung</code> und die Bild-Spalte) darin ihre eigene Textfläche — Grund, Rand und Innenabstand werden zurückgesetzt. Ab 840 px tauschen die Spalten per <code>order</code> die Seite (Bild rechts, Text links); die Spaltenbreiten drehen mit (<code>0.85fr / 1.15fr</code>), damit das Porträt die breitere Spalte behält. Unter 840 px bleibt die einspaltige Reihenfolge: Bild oben, Text darunter. Der Hinweis-Kasten „Mein Anspruch" behält bewusst seine Hervorhebung.</li>
+</ul>
+<p>Stand: <strong>42 Tafeln</strong> auf <strong>28 Seiten</strong> (Startseite Galerie + Ablauf, Leistungen ×2, Kundenstimmen, Kontakt, „Über mich" — je sieben Sprachen).</p>
+<ul>
+<li><strong>Qualifikations-Kopf einzeilig</strong> (<code>ueber-mich.html</code>, sieben Sprachen): „Meine Stationen" entfällt, die Rubrik „Qualifikation" wird selbst zum <code>&lt;h2 class="ueberzeile"&gt;</code> — dieselbe Lösung wie beim FAQ-Kopf. Der Kasten eines solchen Nur-Rubrik-Kopfes ist jetzt rund halb so hoch wie ein zweizeiliger (<code>padding-block: clamp(9px, 1.1vw, 13px)</code> statt <code>12–18px</code>). Betrifft auch den FAQ-Kopf auf <code>kundenstimmen.html</code> — beide bleiben so gleich hoch.</li>
+</ul>
+<ul>
+<li><strong>Ring um die Symbol- und Nummern-Kreise entfernt</strong> (<code>.vertrauen-punkt svg</code>, <code>.schritt::before</code>). Der Ring war ein <code>box-shadow: 0 0 0 5px var(--ring)</code> in Hintergrundfarbe. Solange die Abschnitte einfarbig waren, verschwand er im Grund; über den Hintergrundbildern und auf den schwarzen Tafeln stand er als sichtbarer Rahmen um die Kreise. Der Token <code>--ring</code> ist damit unbenutzt und wurde aus beiden Themen gestrichen.</li>
+</ul>
+<ul>
+<li><strong>Kopf- und Fußleiste metallisch schwarz</strong> — in <strong>beiden</strong> Themen gleich. Vorher lag über beiden ein Verlauf mit grauer Mitte (<code>rgba(42,46,52,…)</code>) plus <code>backdrop-filter</code>, wodurch das Hintergrundbild durchschimmerte. Jetzt teilen sich <code>.kopf</code> und <code>.fuss</code> einen deckenden Grund aus drei Lagen: Streiflicht quer (<code>linear-gradient(100deg, …)</code>), eine feine senkrechte Bürstung (<code>repeating-linear-gradient(90deg, … 1px 3px)</code>) und darunter <code>#14181d → #05070a → #000</code>. Der <code>backdrop-filter</code> entfällt (deckend, spart Rechenzeit). Die Tokens <code>--kopf-hg</code> waren bereits unbenutzt und wurden entfernt.</li>
+</ul>
+<ul>
+<li><strong>Logo in der Kopfleiste freigestellt</strong> — neue Datei <code>bilder/logo-frei.png</code> (256 px, Palette mit weichem Alpha, 27 KB). Der schwarze Kachel-Grund ist weg, das Wappen steht direkt auf der Metall-Leiste.</li>
+</ul>
+<p>Ein einfacher „Schwarz raus"-Schlüssel war nicht möglich: das Wappen enthält selbst tiefschwarze Flächen (Füße, Schild-Grund). Entfernt wurde darum nur das Schwarz, das vom Bildrand aus zusammenhängend erreichbar ist (Flood-Fill über alle Pixel mit Helligkeit &lt; 96). Im Außenbereich ergibt sich die Deckkraft weich aus der Helligkeit (<code>(L − 24) / (96 − 24)</code>), damit keine harte Treppe und kein schwarzer Saum entsteht — 118 Alpha- Stufen bleiben erhalten.</p>
+<p><strong>Nur die Kopfleiste</strong> nutzt das freigestellte Bild. Favicon (<code>logo-klein.png</code>), <code>apple-touch-icon.png</code> und <code>og-bild.jpg</code> behalten ihren schwarzen Grund: der Flood-Fill nimmt auch die Kreisscheibe hinter dem Wappen mit, weshalb die Füße auf hellem Grund weiß erschienen. Auf der jetzt in beiden Themen schwarzen Leiste spielt das keine Rolle.</p>
+<ul>
+<li><strong>Logo größer</strong>: <code>.marke-zeichen</code> von 62 auf <strong>76 px</strong> (unter 480 px von 34 auf <strong>42 px</strong>). Das freigestellte Wappen hat im Quadrat Luft am Rand und wirkte darum kleiner als die frühere Kachel. Die Kopfleiste wächst dadurch von 66 auf 76 px; auf 500 px und 700 px Breite bleibt die Zeile einreihig.</li>
+</ul>
+<ul>
+<li><strong>Versuch verworfen: Edelstein-Band in der Kopfleiste.</strong> Ein Band aus <code>futuristic-gem-water-8k-05.png</code> als Grund der Kopfleiste wirkte unruhig und wurde zurückgenommen. Beide Bilder liegen in <code>~/.Trash</code>, die Leiste ist wieder metallisch schwarz. Die Messungen dazu bleiben nützlich: Die schärfste Zone des Fotos liegt bei y = 2600 (Kantenvarianz 147 gegenüber 30 bei y = 1800 — dort greift die Tiefenunschärfe der Aufnahme).</li>
+</ul>
+<ul>
+<li><strong>Logo und Kopfleiste kompakter</strong>: <code>.marke-zeichen</code> 76 → <strong>60 px</strong> (unter 480 px 42 → <strong>36 px</strong>), <code>.kopf-innen</code> <code>min-height</code> 66 → <strong>58 px</strong>. Die Leiste ist damit 60 px hoch statt 76.</li>
+</ul>
+<ul>
+<li><strong>Freistehende Kacheln jetzt schwarz</strong> (hell: weiß): <code>.vertrauen-punkt</code>, <code>.schritt</code>, <code>.vergleich-tafel</code> und <code>.faq-frage</code> nutzen <code>var(--tafel)</code> statt <code>var(--flaeche)</code>. Das betrifft nur Kacheln, die direkt über einem Hintergrundbild stehen. Kacheln <strong>auf</strong> einer Tafel behalten <code>--karte-auf-tafel</code> — die Regeln dort sind spezifischer und greifen weiter.</li>
+</ul>
+<ul>
+<li><strong>Held-Block auf der Startseite: Größen und Verteilung.</strong></li>
+<li>Schrift-Stufen deutlicher getrennt: Firma 39 → <strong>34 px</strong>, Firmen-Zusatz 17 → <strong>15 px</strong>, Slogan 26 → <strong>23 px</strong>, Fließtext 20 → <strong>19 px</strong>.</li>
+<li>Die Text-Spalte verteilte ihre Blöcke mit <code>space-between</code> über die volle Bildhöhe — dadurch klafften unterschiedlich große Lücken. Jetzt <code>justify-content: center</code> mit einem einheitlichen <code>gap</code> (<code>clamp(20px, 2.4vw, 34px)</code>).</li>
+<li>Die Haupt-Knöpfe hatten <code>max-width: 280px</code> und standen mittig in ihrer Rasterhälfte, also nicht bündig zur Textkante. Jetzt füllen sie ihre Hälfte (<code>max-width: none</code>, <code>justify-self: stretch</code>).</li>
+<li>Die vier Sozial-Kacheln lagen in zwei <code>.sozial-paar</code>-Flexboxen mit eigener Mittelachse — ungleiche Breiten, ungleiche Abstände. Die Paare lösen sich jetzt per <code>display: contents</code> auf, alle vier Kacheln liegen im selben <code>repeat(4, 1fr)</code>-Raster: gleiche Breite, gleicher Abstand, außen bündig mit den Knöpfen darüber.</li>
+</ul>
+<ul>
+<li><strong>Produkt-Bereiche: 9 statt 8, im 3×3-Raster</strong> (alle sieben Sprachen). „Werkzeuge, Instrumente &amp; Hygiene" ist wieder getrennt in <strong>Werkzeuge &amp; Instrumente</strong> (<code>w</code>) und <strong>Hygiene &amp; Desinfektion</strong> (<code>d</code>) — damit ergeben neun Bereiche genau drei Reihen zu drei Kacheln.</li>
+</ul>
+<ul>
+<li>Die acht <code>d</code>-Artikel trugen seit 07.07. <code>kat: 'w'</code> und wurden zurückgehängt. Beide Bereiche waren danach halb leer, also <strong>16 neue Muster-Artikel</strong> geschrieben (w3, w8, w11–w16 und d8, d10–d16). Jetzt <strong>144 Artikel</strong> (9 × 16), in allen sieben Sprachen vollständig übersetzt — je ein Sprach-Agent für tr/en/pl/ru/ar/zh.</li>
+<li>Bereichsbild <code>bilder/kachel-hygiene.jpg</code>: quadratischer Ausschnitt aus dem vorhandenen Artikelbild <code>bilder/produkte/d5.jpg</code> (Instrumenten-Sterilisation, ohne Gesicht). Ein eigenes Bereichsfoto gibt es dafür nicht.</li>
+<li><strong>Die 16 neuen Artikel haben kein eigenes Foto.</strong> Sie greifen auf den vorhandenen <code>onerror</code>-Rückfall zurück und zeigen das Bereichsbild. Vor dem Livegang mit echten Produktfotos ersetzen (siehe TODO).</li>
+</ul>
+<p>Kachel-Raster: <code>.kachel</code> ist jetzt <strong>quadratisch</strong> (<code>aspect-ratio: 1/1</code>) statt 16:9, ab 900 px drei Spalten. Damit alle Kacheln einer Reihe auf einer Linie stehen — auch wenn ein Name zwei Zeilen braucht und arabische Zeilen höher sind — liegen Name und Kachel per <strong><code>subgrid</code></strong> in gemeinsamen Rasterzeilen (<code>grid-row: span 2</code>). Browser ohne <code>subgrid</code> bekommen über <code>min-height</code> denselben Effekt.</p>
+<ul>
+<li><strong>Bereichs-Name liegt jetzt IM Bild</strong> (<code>.kachel-name</code>), nicht mehr in einem eigenen Kasten darüber. Der Name ist absolut über die Kachel gelegt (<code>pointer-events: none</code>, der Klick geht durch). Damit weiße Schrift auch auf hellen Fotos lesbar bleibt, liegt darunter ein Verlauf von Schwarz nach Durchsichtig — ein Rahmen wäre wieder ein Kasten.</li>
+</ul>
+<p>Deckkraft gerechnet, nicht geschätzt: die Kopfzone der Kachelbilder erreicht im 95. Perzentil Luminanzen bis <strong>0,98</strong> (Nagelpflege) bzw. 0,86 (Werkzeuge). Bei 74 % Schleier ergäbe das nur 2,8:1. Bei <strong>86 %</strong> bleiben 0,137 → <strong>4,7:1</strong>, also WCAG AA auch für die kleine Zeile „16 Artikel" (15 px, braucht 4,5:1).</p>
+<p><code>.kachel-name</code> wurde dafür aus den vier Selektor-Listen des Blocks „Textflächen und Tafeln" entfernt. Die <code>subgrid</code>-Lösung von vorhin entfällt — der Name nimmt keinen Platz mehr im Fluss ein, alle Kacheln stehen ohnehin auf einer Linie.</p>
+<ul>
+<li><strong>„16 Artikel" kleiner</strong>: 15 → 13 px. Weil kleinere Schrift mehr Kontrast braucht, gleichzeitig von 86 % auf 92 % Weiß — sonst rutscht sie unter 4,5:1.</li>
+</ul>
+<ul>
+<li><strong>Impressum und Datenschutz öffnen als Maske</strong>, nicht mehr als neue Seite. Der Fußzeilen-Link behält sein <code>href</code>; JavaScript fängt den Klick ab, holt dieselbe Datei per <code>fetch</code>, schneidet <code>.rechtstext</code> heraus und zeigt ihn im <code>&lt;dialog class="maske rechts-maske"&gt;</code>.</li>
+</ul>
+<p><strong>Warum die Seiten bleiben:</strong> § 5 DDG verlangt, dass das Impressum unmittelbar erreichbar ist. Beides ist weiterhin eine echte Seite, direkt aufrufbar, ohne JavaScript nutzbar und für Suchmaschinen sichtbar. Schlägt <code>fetch</code> fehl (z. B. Aufruf über <code>file://</code>), führt der Link ganz normal auf die Seite. <code>Strg</code>/<code>Cmd</code>-Klick öffnet weiter einen neuen Tab.</p>
+<p>Aufbau der Maske: fester Kopf (Titel + Schließer) und darunter ein rollender Körper (<code>overflow-y: auto</code>, <code>overscroll-behavior: contain</code>). Höhe <code>min(80dvh, 760px)</code> — die Maske wird nie länger als der Bildschirm, der Titel bleibt beim Rollen stehen. Fließtext im <strong>Blocksatz</strong> mit Silbentrennung; unter 560 px linksbündig, weil Blocksatz in einer schmalen Spalte Löcher reißt. Abschnitte sind durch feine Linien getrennt, Kopf und Körper teilen sich <code>--tafel</code>.</p>
+<p>Externe Links in der Maske bekommen <code>target="_blank"</code>, damit die Maske nicht hinterrücks verlassen wird.</p>
+<p>Die Sprachordner verlinken weiterhin auf die <strong>deutschen</strong> Rechtsseiten (<code>../impressum.html</code>) — daran ändert die Maske nichts.</p>
+<ul>
+<li><strong>Kopfzeilen-Knöpfe weiter auseinander</strong>: <code>.kopf-rechts</code> <code>gap</code> 10 → 16 px. Unter 480 px bleibt es bei 2 px, sonst passt die Zeile nicht mehr.</li>
+</ul>
+<ul>
+<li><strong>Entwurfs-Hinweise entfernt</strong> aus <code>impressum.html</code> und <code>datenschutz.html</code> (die beiden <code>.abgrenzung</code>-Kästen). Das <strong>Stand-Datum</strong> der Datenschutzerklärung steht jetzt fest: <code>&lt;time datetime="2026-07-10"&gt;10. Juli 2026&lt;/time&gt;</code> statt Platzhalter. Damit gelten beide Texte als fertig — der letzte Platzhalter auf den Rechtsseiten ist weg.</li>
+</ul>
+<ul>
+<li><strong>Köpfe umgebaut: Rubrik führt, alles linksbündig</strong> (alle sieben Sprachen). Hasans Muster vom 10.07., zuerst an der Galerie-Tafel erprobt:</li>
+</ul>
+<table>
+<tr><th>Kopf</th><th>vorher</th><th>nachher</th></tr>
+<tr><td>Galerie (index)</td><td>Rubrik / h2 / Vorspann</td><td>nur Rubrik</td></tr>
+<tr><td>Ablauf (index)</td><td>Rubrik / h2</td><td>nur Rubrik</td></tr>
+<tr><td>Preisliste (leistungen)</td><td>Rubrik / h2 / Vorspann</td><td>nur Rubrik</td></tr>
+<tr><td>Kundenstimmen (Seitenkopf)</td><td>Rubrik / h1 / Vorspann</td><td>nur Rubrik</td></tr>
+<tr><td>Kontakt (Seitenkopf)</td><td>Rubrik / h1 / Vorspann</td><td>nur Rubrik (Knöpfe bleiben)</td></tr>
+<tr><td>Über mich (Seitenkopf)</td><td>Rubrik / h1 / Vorspann</td><td>Rubrik + Titel <strong>nebeneinander</strong></td></tr>
+<tr><td>Produkte (Seitenkopf)</td><td>Rubrik / h1 / Vorspann</td><td>Rubrik + Titel nebeneinander</td></tr>
+<tr><td>Leistungen (Seitenkopf)</td><td>Rubrik / h1 / Vorspann</td><td>Rubrik + Titel nebeneinander</td></tr>
+<tr><td>Abgrenzung (leistungen)</td><td>Rubrik / h2 / Vorspann</td><td>Rubrik + Titel nebeneinander</td></tr>
+</table>
+<p><strong>Semantik bleibt:</strong> Die Rubrik-Zeile wird selbst zum <code>h1</code> (Seitenköpfe) bzw. <code>h2</code> (Abschnitte); jede Seite hat weiterhin genau eine <code>h1</code> (geprüft). Steht ein Titel daneben, sitzt er als <code>&lt;span class="kopf-titel"&gt;</code> <strong>in</strong> der Überschrift — eine Zeile, <code>flex</code> mit <code>flex-wrap</code>, auf schmalen Schirmen rutscht er darunter. <code>text-align: start</code> statt <code>center</code> für <code>.seitenkopf</code> und <code>.abschnitt-kopf</code> — im arabischen RTL-Layout spiegelt das automatisch.</p>
+<p>Die Kopf-Kästen sind deutlich flacher: 8/9 px Innenabstand bei reiner Rubrik, 11/13 px mit Titel daneben; die Tafel darüber rückt auf 12 px heran, der Abstand nach unten von 36 auf 14 px.</p>
+<p><strong>Nicht angetastet:</strong> Der Abgrenzungs-Inhalt auf <code>leistungen.html</code> (die zwei Vergleichs-Kacheln und der Podologengesetz-Kasten). Nur der einleitende Satz darüber ist entfallen — er wiederholte, was darunter ausführlich steht.</p>
+<p>Nachgereicht: Der <strong>Galerie-Kopf</strong> war zunächst nur deutsch umgebaut (Hasans Probelauf) und wurde in den sechs Sprachordnern nachgezogen. Gegenprobe über alle neun Shop-/Inhaltsseiten × sieben Sprachen: identische Kopf-Struktur, kein <code>&lt;span class="ueberzeile"&gt;</code> mehr im Projekt.</p>
+<p>Nachgezogen (10.07., zweiter Durchgang): <strong>Einzugsgebiet</strong> (kontakt) nur Rubrik — die Orte-Kacheln stehen weiter im selben Kopf, die 50-km-Angabe bleibt in der Info-Karte unten erhalten. <strong>Warenkorb</strong> und <strong>Kasse</strong>: Zeile 2 entfällt, der Vorspann rückt neben die Rubrik — als <code>&lt;span class="kopf-zusatz"&gt;</code> in Fließtext-Schrift, nicht als Titel, sonst kippt die Hierarchie.</p>
+<ul>
+<li><strong>Warenkorb-Breite angeglichen</strong>: <code>.korb-rahmen</code> war auf 900 px begrenzt und stand schmaler als die Kopf-Tafel. Jetzt dieselbe Formel (<code>min(calc(var(--breite) - 36px), 100% - 36px)</code>) und <code>padding-inline: 0</code>, damit die Kanten fluchten. (<code>max-width: none</code> allein war falsch — das hebt auch die 1120-px-Grenze von <code>.rahmen</code> auf, der Inhalt lief über die Seite.)</li>
+</ul>
+<ul>
+<li><strong>Copyright-Zeile aus der Fußleiste entfernt</strong> (alle 65 Seiten). Übrig bleiben Impressum und Datenschutz, <strong>links bündig</strong> mit der Tafel darüber (gemessen: beide Kanten bei 112 px, Fenster 1300 px): <code>.fuss-innen</code> von <code>space-between</code> auf <code>flex-start</code> (v=142, davor kurz <code>center</code>), und das <code>margin-inline-start: auto</code> an <code>.fuss-links</code> musste weg — es stammte aus dem alten Zwei-Spalten-Aufbau und drückte die Links weiter nach rechts. Der Jahres-Block in <code>main.js</code> (<code>[data-jahr]</code>) hatte kein Ziel mehr und wurde gelöscht.</li>
+</ul>
+<p>Rechtlich unbedenklich: Ein Copyright-Vermerk ist keine Pflicht, das Urheberrecht besteht ohne ihn. Der Hinweis im Impressum bleibt.</p>
+<ul>
+<li><strong>Held-Knöpfe: eine Zeile, gleiche Breite — in allen Sprachen.</strong> „Termin anfragen" ist kurz, „Request an appointment" und „Записаться на приём" sind es nicht. Die Knöpfe wurden zweizeilig, wuchsen in der Höhe und schoben die Sozial-Leiste nach unten; das Symbol rutschte nach oben.</li>
+</ul>
+<ul>
+<li><code>white-space: nowrap</code> erzwingt eine Zeile, die Schriftgröße skaliert stattdessen mit der Spaltenbreite (<code>clamp(14px, 1.15vw, 18px)</code>).</li>
+<li><code>grid-template-columns: 1fr 1fr</code> machte die Knöpfe <strong>ungleich breit</strong>: eine <code>1fr</code>-Spalte wächst mit ihrem Textinhalt (bei 700 px stand englisch 215 gegen 137 px). Jetzt <code>minmax(0, 1fr)</code>.</li>
+<li>Zwischen 840 und 1100 px ist die Textspalte zu schmal für zwei einzeilige Knöpfe — dort stehen sie untereinander über die volle Breite.</li>
+</ul>
+<p>Nachgemessen über sieben Sprachen × zehn Fensterbreiten (500–1440 px): überall gleiche Breite, gleiche Höhe, kein Überlauf.</p>
+<ul>
+<li><strong>Hauptüberschrift golden</strong>: <code>.held-firma</code> nutzt <code>var(--sand)</code> — dasselbe Gold wie das Logo. Kontrast gerechnet: hell 3,55:1, dunkel 11,5:1. Die Zeile ist 34 px fett, gilt also als große Schrift (Schwelle 3,0:1) — WCAG AA erfüllt. Für Fließtext wäre dieses Gold zu schwach.</li>
+</ul>
+<ul>
+<li><strong>Held-Textblock beginnt oben</strong> statt vertikal mittig (<code>justify-content: flex-start</code>, Innenabstand oben 14 → 4 px).</li>
+</ul>
+<ul>
+<li><strong>Leerraum unter dem Held-Block beseitigt</strong> (v=136): Das Porträt hatte ein festes <code>aspect-ratio</code> und war damit oft kürzer als die Textspalte. Jetzt <code>aspect-ratio: auto; align-self: stretch; min-height: 420px</code> — das Bild zieht sich auf die Höhe der Textspalte, beide Spalten enden bündig. Die Abstände in der Textspalte skalieren mit (<code>gap: clamp(20px, 2.4vw, 32px)</code>).</li>
+</ul>
+<ul>
+<li><strong>Held-Textspalte füllt die Tafel</strong> (v=139): <code>justify-content: space-between</code> statt <code>flex-start</code> — Überschrift oben, Knopf-Block unten, der freie Platz verteilt sich gleichmäßig auf die drei Zwischenräume. Ein <code>margin-block-start: auto</code> am Knopf-Block (v=137) war falsch: es schob nur die Knöpfe nach unten und ließ ein großes Loch darüber stehen.</li>
+</ul>
+<ul>
+<li><strong>Leisten bleiben schwarz — endgültig.</strong> Ein Versuch, Kopf- und Fußleiste im Hellmodus marineblau einzufärben (<code>--leiste-*</code>-Tokens), wurde von Hasan verworfen: „so wie es war". Beide Themen tragen dasselbe metallische Schwarz (<code>#05070a</code>). Nicht erneut vorschlagen.</li>
+</ul>
+<ul>
+<li><strong>Logo öffnet sich groß</strong> (<code>main.js</code> v=27, <code>style.css</code> v=149): Klick auf das Wappen in der Kopfleiste zeigt es in derselben Bild-Maske wie die Galerie — Klasse <code>.logo-maske</code>, 520 px breit statt 1100 px (quadratisch, sonst erschlagend). Gezeigt wird <code>logo.png</code> (800 px, mit Kachel-Grund), nicht das freigestellte <code>logo-frei.png</code>. Der Pfad wird aus dem <code>src</code> der Kopfleiste abgeleitet, damit er in den Sprachordnern (<code>../bilder/…</code>) stimmt. Progressive Enhancement: Das <code>href="index.html"</code> bleibt im HTML — ohne JavaScript, mit Cmd/Strg-Klick oder mittlerer Maustaste führt das Logo weiter zur Startseite.</li>
+</ul>
+<ul>
+<li><strong>Besucherzähler GoatCounter</strong> (Konto <code>norbert</code>, alle 65 Seiten). Der offizielle Weg (<code>&lt;script src="//gc.zgo.at/count.js"&gt;</code>) schied aus zwei geprüften Gründen aus: das Skript <strong>liest <code>localStorage</code></strong> (Schlüssel <code>skipgc</code>) und wertet <strong>kein Do-Not-Track</strong> aus. Das Auslesen des Endgeräts ist genau der Tatbestand des § 25 TDDG — es hätte einen Cookie-Banner nötig gemacht und die Regel „keine Fremdskripte" gebrochen.</li>
+</ul>
+<p>Stattdessen liegt das Skript lokal unter <code>js/extern/goatcounter.js</code> (ISC — Änderung erlaubt, Herkunft im Kopf vermerkt). Zwei Eingriffe: 1. Der <code>localStorage</code>-Zugriff ist entfernt (Filter <strong>und</strong> der Schalter <code>#toggle-goatcounter</code>). Eigene Aufrufe blendet Norbert über „Ignore IP addresses" in den GoatCounter-Einstellungen aus. 2. Neu: Sendet der Browser <code>doNotTrack</code> oder <code>globalPrivacyControl</code>, wird gar nicht gezählt.</p>
+<p>Nachgemessen (Headless-Chrome, <code>sendBeacon</code> abgefangen, <code>localStorage</code> überwacht): ohne Signal genau ein Zählaufruf an <code>norbert.goatcounter.com/count</code>, die einzigen <code>localStorage</code>-Zugriffe der Seite stammen aus <code>thema.js</code> (<code>nf-thema</code>) und dem Warenkorb (<code>nf-warenkorb</code>). Mit <code>doNotTrack = '1'</code>: <strong>null</strong> Aufrufe.</p>
+<p>Datenschutzerklärung: neuer <strong>Abschnitt 5 „Reichweitenmessung (GoatCounter)"</strong>, Karte/Rechte/Stand rücken auf 6/7/8; Abschnitt 2 („keine Inhalte von Drittservern") entsprechend berichtigt. Genannt sind Art. 6 Abs. 1 lit. f DSGVO, die Hetzner-Server (Deutschland/Finnland), die acht Stunden Sitzungs-Kennung im Arbeitsspeicher und der Widerspruch über Do-Not-Track.</p>
+<ul>
+<li><strong>Fußleiste halbiert</strong> (v=145): 58 → <strong>29 px</strong> (mobil 43 → 28 px). <code>padding-block</code> 16 → 4 px, Schrift 15 → 14 px, <code>line-height: 1.45</code>. Die Links sind damit 20 px hoch — unter den 44 px, die für Klickflächen gelten. Bewusste Ausnahme wie bei der Kopfleiste unter 480 px: es sind zwei Rechts-Links, keine Bedienelemente.</li>
+</ul>
+<ul>
+<li><strong>Seite startet immer hell</strong> (<code>js/thema.js</code> v=2): Bisher folgte sie ohne gespeicherte Wahl der System-Einstellung (<code>prefers-color-scheme: dark</code>) und startete auf dunkel eingestellten Geräten dunkel. Jetzt wird nur noch eine eigene Wahl des Besuchers ausgewertet. Gegenprobe mit <code>--force-dark-mode</code>: Seite bleibt hell.</li>
+</ul>
+<p>Dabei aufgefallen: <code>thema.js</code> wurde als einziges Skript <strong>ohne</strong> <code>?v=</code> eingebunden — auf GitHub Pages hätten Besucher mit altem Cache weiter den Dunkelstart bekommen. Trägt jetzt <code>?v=2</code> auf allen 65 Seiten.</p>
+<ul>
+<li><strong>Rubrik-Köpfe kleiner</strong> (v=144, Hasans Vorgabe): Rubrik 28 → <strong>22 px</strong> (<code>clamp(16px, 1.9vw, 22px)</code>), Titel daneben 24 → <strong>20 px</strong> (<code>clamp(15px, 1.6vw, 20px)</code>), Vorspann bleibt bei 16 px. Die <code>vw</code>-Steigung des Titels ist flacher als die der Rubrik, sonst holt er sie in der Mitte ein: bei 1000 px standen sie mit 1,85vw fast gleichauf (19 zu 18,5 px). Jetzt 19 zu 16 px — die Hierarchie hält über die ganze Spanne.</li>
+</ul>
+<ul>
+<li><strong>Knopf-Block von der Tafelkante abgehoben</strong> (v=141): <code>padding-block-end: 42px</code> statt 22 px, Abstand nach unten jetzt 43 px (gemessen bei 900–1440 px).</li>
+</ul>
+<p><strong>Falle:</strong> Das <code>padding-block: 4px 10px</code> an <code>.held-raster &gt; div:first-child</code> in der 840-px-Regel war seit v=136 wirkungslos. Die Textflächen-Regel <code>body[class*="seite-"] .held-raster &gt; div:first-child { padding: clamp(…) … }</code> hat die höhere Spezifität und gewinnt trotz späterer Position. Wer den Innenabstand dieser Tafeln ändert, braucht dasselbe <code>body[class*="seite-"]</code>- Präfix — sonst passiert gar nichts.</p>
+<ul>
+<li><strong>Galerie-Bilder liefen aus der Tafel</strong> (v=138): Die 840-px-Regel aus v=136 galt für <strong>jedes</strong> <code>.held-bild</code> — auch für die drei Galerie-Bilder, die dieselbe Klasse tragen. <code>min-height: 420px</code> erzwang bei 4:3 eine Breite von 560 px pro Bild, das Raster sprengte die Tafel. Selektor auf <code>.held-raster &gt; .held-bild</code> verengt. Nachgemessen bei 1300 px: Raster 1010 px, drei Bilder à 321 px, rechte Kante genau bündig.</li>
+</ul>
+<ul>
+<li><strong>Anruf-Knopf ruft an</strong> (alle sieben <code>index.html</code>): Der Telefon-Knopf der Sozial-Leiste führte auf <code>kontakt.html</code>. Jetzt <code>tel:+4917686961032</code> — Norberts Nummer aus dem Impressum. <code>aria-label</code>/<code>title</code> nennen die Nummer im Klartext und sind übersetzt (Ara / Call / Zadzwoń / Позвонить / اتصل / 拨打电话). Die Klasse <code>.sozial-kontakt</code> bleibt (steuert nur die Farbe).</li>
+</ul>
+<p><strong>Cache:</strong> <code>style.css</code> <strong>v=136</strong>, <code>main.js</code> <strong>v=28</strong>, <code>produkte.js</code> <strong>v=11</strong>, <code>shop-&lt;code&gt;.js</code> <strong>v=2</strong>, Hintergrundbilder <code>?v=4</code>, Logo <code>?v=1</code> (jetzt auch <code>logo-frei.png</code>).</p>
+<h2>2026-07-10 — Seiten-Hintergründe: je Bereich ein Bild für hell und dunkel</h2>
+<p>Hasan hat 14 Bilder vorbereitet (<code>~/Desktop/Norbert Hintergrundbilder/</code>, sieben Bereiche × hell/dunkel). Vorgabe: nicht verzerrt, nicht willkürlich beschnitten, Qualität halten, und auf dem Handy keine langen Ladezeiten.</p>
+<p><strong>Der Zielkonflikt, offen benannt:</strong> Bildschirmfüllend, unverzerrt und unbeschnitten geht zugleich nicht — die Bilder sind 16:9, ein Handy im Hochformat ist etwa 1:2. Gewählt: <code>cover</code> (füllt, verzerrt nichts, beschneidet die Ränder). Verzerrung ist damit ausgeschlossen.</p>
+<p><strong>Umwandlung</strong> (Pillow, nur verkleinert, nie hochgerechnet):</p>
+<ul>
+<li><strong>Drei Stufen</strong> je Bild: 1600 px (Handy), 2560 px (Desktop), 3840 px (Retina). Ausgewählt über Fensterbreite (<code>@media</code>) <strong>und</strong> Pixeldichte (<code>image-set</code>, 1x/2x).</li>
+<li>Format WebP. Aus <strong>150,7 MB PNG</strong> wurden <strong>10,3 MB</strong> in 42 Dateien.</li>
+<li>Je Seitenaufruf lädt der Browser genau <strong>ein</strong> Bild: 60–248 KB auf dem Handy, 190–743 KB auf einem Retina-Desktop. Die Originale im Quellordner sind unberührt.</li>
+</ul>
+<blockquote><strong>Erst falsch gemacht, dann korrigiert:</strong> Zunächst waren nur zwei Stufen</blockquote>
+<blockquote>bis 2560 px angelegt, mit der Begründung, mehr stelle kein Browser dar.</blockquote>
+<blockquote>Das gilt nur bei einfacher Pixeldichte. Auf einem Retina-Bildschirm</blockquote>
+<blockquote>verlangt ein 2000 px breites Fenster real 4000 Bildpunkte — die Bilder</blockquote>
+<blockquote>wurden hochgerechnet und wirkten unscharf (von Hasan sofort bemerkt).</blockquote>
+<blockquote>Daher die 3840er Stufe und <code>image-set</code>. Die Quellen der Bereiche</blockquote>
+<blockquote><strong>Kundenstimmen</strong> und <strong>Warenkorb</strong> sind nur 1672 px breit; sie können</blockquote>
+<blockquote>die oberen Stufen nicht bedienen und bleiben auf Retina etwas weicher.</blockquote>
+<blockquote>Hochgerechnet wurde bewusst nicht.</blockquote>
+<p><strong>Einbau — bewusst ohne JavaScript:</strong></p>
+<ul>
+<li>Das vorhandene <code>.hintergrund-bild</code> (fest, <code>cover</code>, Schleier) wurde erweitert statt eine zweite Mechanik daneben zu stellen.</li>
+<li><code>&lt;body&gt;</code> trägt eine Bereichs-Klasse (<code>seite-start</code>, <code>seite-leistungen</code>, <code>seite-produkte</code>, <code>seite-ueber-mich</code>, <code>seite-kundenstimmen</code>, <code>seite-kontakt</code>, <code>seite-warenkorb</code>); das CSS wählt daran vier Bild-Variablen (hell/dunkel × klein/groß).</li>
+<li>Die Pfade stehen <strong>in style.css</strong> und sind relativ zum Stylesheet — sie gelten damit unverändert in allen sechs Sprachordnern. Kein Bildpfad im HTML.</li>
+<li>Der Browser lädt nur das Bild, das die geltende Regel benutzt. Der Themenwechsel läuft rein über <code>data-theme</code>, ohne Skript.</li>
+<li>Betroffen: <strong>63 Seiten</strong> (alle außer Impressum und Datenschutz — reine Rechtstexte bleiben ohne Bild).</li>
+</ul>
+<p><strong>Video-Hintergrund entfernt.</strong> <code>produkte.html</code> und <code>produkt-bereich.html</code> hatten seit 07.07. ein Schaum-Video. Da für „Produkte" nun Bilder vorliegen, ersetzt das Bild das Video (14 Seiten). Der zugehörige JS-Block in <code>main.js</code> wurde entfernt, er lief sonst ins Leere.</p>
+<p><strong>Schleier stark zurückgenommen — auf Hasans ausdrückliche Vorgabe:</strong> „Fließtext ist jetzt nicht wichtig, die Bilder müssen gut sein."</p>
+<table>
+<tr><th></th><th>Ausgang</th><th>Schritt 2</th><th>jetzt</th></tr>
+<tr><td>Hell</td><td>60 % Papierton</td><td>30 %</td><td><strong>15 %</strong></td></tr>
+<tr><td>Dunkel</td><td>82 %, dann 74 %</td><td>45 %</td><td><strong>35 %</strong></td></tr>
+</table>
+<p><strong>Zuschnitt auf die scharfe Zone.</strong> Nach dem ersten Schleier-Rückbau blieb der Eindruck „unscharf mit Schimmer" — zu Recht, aber die Ursache lag nicht in der Verarbeitung. Die Messung am <strong>Original bei voller Auflösung</strong> (Kantenvarianz, 1:1-Ausschnitte, keine Skalierung) zeigt: die Bilder sind fotografisch teilunscharf. Bei <code>start-hell</code> steigt die Schärfe von 155 (oberes Band) auf 388 (unteres Band); der „Schimmer" oben ist der Wasserdampf im Motiv selbst. Beides lässt sich nicht wegrechnen.</p>
+<p>Darum wird je Bild ein 16:9-Fenster mit 75 % der Bildbreite auf die schärfste Zone gelegt (senkrecht verschoben, waagerecht mittig). Bei 5120×2880 sind das genau <strong>3840×2160 — die große Stufe entsteht damit ohne jede Skalierung, Pixel für Pixel aus dem Original.</strong> Die kleineren Stufen werden daraus verkleinert und leicht nachgeschärft (Unsharp Mask), weil Verkleinern immer Kantenschärfe kostet.</p>
+<p>Gewählte Ausschnitte (Beispiele): <code>start-hell</code> y 720–2880 (untere Hälfte, Wasser und Kamelien), <code>produkte-hell</code> y 0–2160 (obere Hälfte). <strong>Kundenstimmen</strong> und <strong>Warenkorb</strong> haben nur 1672-px-Quellen und keine Reserve zum Zuschneiden; sie werden nur nachgeschärft.</p>
+<p><strong>Preis dafür, gemessen (WCAG AA verlangt 4,5:1 für Fließtext):</strong></p>
+<p>Der Fließtext ist im hellen Thema reines Schwarz. Gemessen wurde der Hintergrund mit Schleier, ohne Text (Inhalt per <code>visibility:hidden</code> ausgeblendet, Screenshot, relative Luminanz je Bildpunkt):</p>
+<table>
+<tr><th>Seite</th><th>schlechtester Kontrast</th><th>Fläche unter der Norm</th></tr>
+<tr><td>index</td><td><strong>1,3:1</strong></td><td><strong>50,0 %</strong></td></tr>
+<tr><td>warenkorb</td><td>1,3:1</td><td><strong>39,6 %</strong></td></tr>
+<tr><td>produkte</td><td>1,4:1</td><td>1,6 %</td></tr>
+<tr><td>kontakt</td><td>1,5:1</td><td>4,8 %</td></tr>
+<tr><td>kundenstimmen</td><td>1,6:1</td><td>0,8 %</td></tr>
+<tr><td>ueber-mich</td><td>2,8:1</td><td>0,9 %</td></tr>
+<tr><td>leistungen</td><td>3,3:1</td><td>0,0 %</td></tr>
+</table>
+<p>Mit 60 % Schleier lag der schlechteste Wert noch bei 6,4:1 (hell) und 6,0:1 (dunkel), also überall über der Norm. <strong>Der jetzige Stand erfüllt WCAG AA auf keiner einzigen Seite.</strong> Auf der Startseite liegt die Hälfte der Fläche darunter. Das ist bewusst so entschieden (Bilder zuerst) und muss über eigene Flächen hinter den Textblöcken geheilt werden — siehe TODO. Bei einer Website für die Zielgruppe 45+ ist das kein Schönheitsfehler, sondern der Punkt, an dem eine Prüfung ansetzt.</p>
+<p><strong>Cache:</strong> <code>style.css</code> auf <strong>v=85</strong>, <code>main.js</code> auf <strong>v=21</strong>, die Hintergrundbilder auf <code>?v=3</code>.</p>
+<p><strong>Ungenutzt geworden</strong> (nicht gelöscht, Entscheidung offen, siehe TODO): <code>bilder/hintergrund-kontakt.jpg</code>, <code>hintergrund-hell.jpg</code>, <code>hintergrund-dunkel.jpg</code>, <code>hintergrund-hell.mp4</code> (12,1 MB), <code>hintergrund-dunkel.mp4</code> (5,9 MB) — zusammen 19,5 MB ohne jeden Verweis.</p>
+<h2>2026-07-10 — Logo gewechselt (goldenes Wappen auf schwarzer Kachel)</h2>
+<p>Auf Hasans Anweisung ersetzt. Quelle ausdrücklich nur diese eine Datei: <code>~/Desktop/Norbert Hintergrundbilder/LOGO/10-topas-sonnengold-emblem.webp</code> (2048×2048, ohne Alpha-Kanal).</p>
+<p><strong>Aufbereitung</strong> (Skripte liefen im Scratchpad, Pillow):</p>
+<ul>
+<li>Die schwarze Kachel im Quellbild ausgemessen statt geschätzt: x 220–1747, y 223–1747, Eckenradius <strong>120 px</strong>. Der dunkelblaue Rahmen ringsum wurde weggeschnitten, der Ausschnitt quadratisch zentriert (1525×1525).</li>
+<li>Ecken über eine 4-fach überabgetastete Maske gerundet (keine Treppchen), Alpha-Kanal ergänzt — dadurch trägt das Logo in <strong>beiden Themen</strong>.</li>
+<li>Es wurde <strong>ausschließlich verkleinert</strong> (Lanczos), nie hochgerechnet.</li>
+</ul>
+<p><strong>Erzeugte Dateien:</strong></p>
+<table>
+<tr><th>Datei</th><th>Größe</th><th>Zweck</th></tr>
+<tr><td><code>bilder/logo.png</code></td><td>800 px, volle Farbe</td><td>Archiv-/Druckfassung</td></tr>
+<tr><td><code>bilder/logo-klein.png</code></td><td>400 px, 256 Farben (38 KB statt 215 KB)</td><td>Kopfleiste (62 px) + Favicon</td></tr>
+<tr><td><code>bilder/apple-touch-icon.png</code></td><td>180 px, eckig, ohne Alpha</td><td>iOS rundet die Ecken selbst</td></tr>
+<tr><td><code>bilder/og-bild.jpg</code></td><td>1200×630</td><td>Kachel mittig auf Papierton, Petrol-Linien</td></tr>
+</table>
+<p>Die Farbreduktion auf 256 Farben ist bei 62 px Anzeigegröße nicht unterscheidbar (auf 200 px gezoomt gegengeprüft), spart aber auf jeder Seite rund 175 KB — die Datei wird zweimal geladen (Kopfleiste + Favicon).</p>
+<p><strong>Cache:</strong> Die Bildverweise hatten bisher keine Version, Besucher hätten das alte Logo weiter aus dem Browser-Speicher gesehen. Darum tragen <code>logo-klein.png</code>, <code>apple-touch-icon.png</code> und <code>og-bild.jpg</code> jetzt <code>?v=1</code> — <strong>260 Verweise auf allen 65 Seiten</strong> (4 je Seite). <code>style.css</code> auf <strong>v=82</strong> (Token-Kommentar beschrieb noch das alte Logo).</p>
+<p><strong>Nicht geändert:</strong> Die Palette bleibt Petrol-Blau/Gold. Ein Umbau auf Gold/Schwarz beträfe alle 65 Seiten und beide Themen — das ist eine eigene Aufgabe, keine Nebenwirkung eines Logo-Tauschs.</p>
+<p><strong>Offene Einwände</strong> (von Claude vorgebracht, von Hasan überstimmt — hier festgehalten, damit sie nicht verlorengehen):</p>
+<p>1. Die Formensprache (Schaltkreise, Klingen, Edelsteine, Hochglanz-Gold) ist die von Gaming- und Krypto-Marken. Die Zielgruppe 45+ sucht auf einer Pflege-Website Vertrauen und Ruhe. 2. <strong>Auf sämtlichen Arbeitsfotos trägt Norbert das alte Logo</strong> auf dem Shirt (blaue Füße). Website und Arbeitskleidung widersprechen sich nun. Aus genau diesem Logo wurde am 07.07. die Palette abgeleitet. 3. Ob der Wechsel mit Norbert abgestimmt ist, wurde nicht beantwortet. Es ist seine Marke, und sie steht auch auf Flyer und Fahrzeug. 4. Bei 62 px in der Kopfleiste verschwinden Leiterbahnen und Edelsteine; es bleibt ein goldenes Wappen. Erkennbar, aber die Feinheiten sind verschenkt.</p>
+<p><strong>Geprüft:</strong> Startseite und Leistungsseite in Headless-Chrome (1280 px). Die Kopfleiste ist auf allen Seiten dunkel — die schwarze Kachel sitzt dort sauber, in hell wie dunkel.</p>
 <h2>2026-07-07 (vormittags) — Leistungs-Tafeln farbig + Detail-Masken mit Fotos</h2>
 <ul>
 <li><strong>Leistungs-Tafeln</strong> (leistungen.html) überarbeitet: jede Tafel hat eine Kennfarbe (<code>--lk</code>: Blau/Grün/Gold, dunkle Varianten wie die Vertrauens-Kreise) — farbige Linie oben, getönter Rand (color-mix mit Fallback), Symbol-Kachel und Überschrift in der Kennfarbe. Preiszeile in allen Tafeln <strong>unten bündig</strong> (Flex + <code>margin-block-start: auto</code>) mit Trennlinie und „Details ansehen ›".</li>
