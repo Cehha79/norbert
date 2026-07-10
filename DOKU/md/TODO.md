@@ -37,11 +37,10 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   gerechneter Kontrast 4,9:1 (leiser Text, dunkles Thema) — WCAG AA erfüllt.
   Schleier bleibt bei 15 %, die Fotos wirken. Elemente und Rechnung stehen
   in der Live-Dokumentation vom 10.07.
-- [ ] **Alte Hintergrund-Dateien entscheiden** (seit 10.07. ohne Verweis,
-  nichts wurde gelöscht): `bilder/hintergrund-kontakt.jpg`,
-  `hintergrund-hell.jpg`, `hintergrund-dunkel.jpg`, `hintergrund-hell.mp4`
-  (12,1 MB), `hintergrund-dunkel.mp4` (5,9 MB) — zusammen 19,5 MB, die
-  sonst unnötig ins öffentliche Repo wandern
+- [x] **Alte Hintergrund-Dateien gelöscht** (10.07., nach Commit 57c3646).
+  Eigene Gegenprobe: null Verweise aus HTML/CSS/JS. Kopie liegt in
+  `~/.Trash/Norbert-alte-Hintergruende-2026-07-10/`, Wiederherstellung mit
+  `git checkout 57c3646 -- bilder/<datei>`. Gespart: 19,6 MB.
 - [ ] **Neues Logo mit Norbert abstimmen** (Wechsel am 10.07. auf Hasans
   Anweisung). Es ist seine Marke: auf allen Arbeitsfotos, dem Flyer und der
   Kleidung steht noch das alte Logo. Entweder Norbert bestätigt das neue,
@@ -185,12 +184,8 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   `.stimme-avatar` (immer von `.av-*` überschrieben).
 - [ ] **Media-Queries stehen nicht aufsteigend** (900 vor 840, 1100 vor 1000).
   Aktuell kein Konflikt, aber eine später ergänzte Regel bräche still.
-- [ ] **Hintergrund-Videos komprimieren** — `hintergrund-hell.mp4` (12 MB) und
-  `hintergrund-dunkel.mp4` (5,9 MB) sind zusammen fast die Hälfte des
-  Website-Gewichts. **Achtung:** In der Prüfung widersprachen sich zwei Agenten;
-  die eigene Messung ergab **null Verweise** aus HTML/CSS/JS. Sie sind tot und
-  wurden nach dem Push gelöscht — dieser Punkt entfällt, falls sie nicht
-  zurückkehren.
+- [x] **Hintergrund-Videos**: erledigt — sie waren unbenutzt und sind gelöscht.
+  (Zwei Prüf-Agenten widersprachen sich; die eigene Messung ergab null Verweise.)
 - [ ] **Grenzwertige Produkt-Claims** vor Livegang prüfen: „Fußspray
   antibakteriell" (d4), „Schrunden-Salbe" (c3) — bei Kosmetik nach Kosmetik-VO
   bzw. LFGB heikel.
