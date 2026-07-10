@@ -95,7 +95,28 @@ in den Bild-Metadaten, `robots.txt` auf Disallow.
   `onerror`-Rückfall auf das Bereichsbild funktioniert, erzeugt aber je Artikel
   einen 404. Betrifft nur die Muster-Daten.
 
-**Cache:** `style.css` **v=151**, `main.js` **v=28**, `thema.js` **v=2**,
+### Nachtrag: Rechts-Maske ließ sich nicht schließen (v=152)
+
+Hasan meldete: Impressum und Datenschutz öffnen sich, aber nach dem Schließen
+bleibt ein Kasten stehen, der unter die Kopfleiste rutscht und sich nicht mehr
+wegklicken lässt.
+
+**Ursache** (gemessen, nicht vermutet): `.rechts-maske` trug ein unbedingtes
+`display: flex`. Browser blenden einen geschlossenen `<dialog>` über ihre
+eingebaute Regel `dialog:not([open]) { display: none }` aus — eine Autor-Regel
+mit `display` schlägt sie. Nach `close()` war `open=false`, aber
+`display: flex` und die Höhe blieb 650 px. Ohne `showModal` liegt das Element
+dann nicht mehr im Top-Layer, sondern normal im Fluss: unter der Kopfleiste,
+ohne erreichbaren Schließen-Knopf.
+
+**Fix:** `display`/`flex-direction` nur noch unter `.rechts-maske[open]`.
+Nachgemessen über beide Schließwege (× und Esc): `display: none`, Höhe 0.
+Die übrigen Masken (`.maske`, `.bild-maske`) setzen kein `display` und waren
+nie betroffen.
+
+**Merksatz:** Bei `<dialog>` niemals `display` ohne `[open]` setzen.
+
+**Cache:** `style.css` **v=152**, `main.js` **v=28**, `thema.js` **v=2**,
 `goatcounter.js` **v=1**, `produkte.js` **v=11**, `shop-<code>.js` **v=2**.
 
 ### Übergabe / Nächster Schritt

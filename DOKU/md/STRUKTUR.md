@@ -58,7 +58,7 @@ https://cehha79.github.io/norberts-mobile-fusspflege/).
 - Design nur über die Tokens am Anfang von `style.css` (`--marke`,
   `--grund`, `--flaeche`, `--lk` …) — nie Farbwerte im HTML verstreuen.
 - Nach CSS/JS-Änderung Cache-Version `?v=N` überall gemeinsam hochzählen
-  (Stand: style **v=151**, thema.js **v=2**, main.js **v=28**, produkte.js **v=11**,
+  (Stand: style **v=152**, thema.js **v=2**, main.js **v=28**, produkte.js **v=11**,
   shop-*.js v=2). Auch die Bilder tragen eine Version: Logo **v=1**,
   Hintergründe **v=4**; ohne sie zeigen Browser den alten Stand.
 - Seiten-Hintergrund: `<body>` trägt eine Bereichs-Klasse (`seite-start`

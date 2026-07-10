@@ -63,7 +63,7 @@ Skripte: `js/thema.js` (synchron), `js/main.js` (defer), Shop =
 - Fehlende Kundendaten als `<span class="platzhalter">…</span>` markieren —
   nie erfinden.
 - Nach CSS/JS-Änderung Cache-Version `?v=N` in **allen 65** HTML-Dateien
-  hochzählen (Stand: style v=151, thema.js v=2, main.js v=28, produkte.js v=11, shop-<code>.js v=2). Auch die
+  hochzählen (Stand: style v=152, thema.js v=2, main.js v=28, produkte.js v=11, shop-<code>.js v=2). Auch die
   Bilder tragen eine Version: Logo `v=1` (`logo-frei.png`,
   `logo-klein.png`, `apple-touch-icon.png`, `og-bild.jpg`), Hintergründe
   `v=4` (`hintergrund-*.webp`). In der Kopfleiste steht das freigestellte
