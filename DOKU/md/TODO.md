@@ -109,6 +109,18 @@ Alle offenen Punkte — abhaken, was erledigt ist; nichts stillschweigend streic
   Nach Auffassung von GoatCounter und Fathom ist das einwilligungsfrei; eine
   gefestigte Rechtsprechung fehlt. Beim Gegenlesen der Rechtstexte mit
   bewerten lassen.
+- [ ] **GoatCounter: Feld „Ihre Website" berichtigen.** In den Einstellungen
+  des Kontos `norbert` steht dort `norbert.goatcounter.com` (der Zähl-Endpunkt).
+  Richtig wäre die tatsächliche Adresse: derzeit
+  `cehha79.github.io/norberts-mobile-fusspflege`, beim Livegang
+  `norberts-mobile-fusspflege.de`. Beeinflusst nur die Verlinkung in der
+  Übersicht, nicht die Zählung.
+- [ ] **GoatCounter: erste echte Zählung prüfen.** Die Live-Seite einmal in
+  einem normalen Browserfenster aufrufen und kontrollieren, ob der Aufruf unter
+  https://norbert.goatcounter.com erscheint. **Nicht wundern**, wenn nichts
+  gezählt wird: auf `localhost` zählt das Skript absichtlich nicht, ebenso wenig
+  bei aktiviertem „Do Not Track"/GPC oder bei Werbeblockern, die
+  `goatcounter.com` sperren.
 
 ## Terminbuchung (entschieden 07.07.: Google + Cal.com)
 
